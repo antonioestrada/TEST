@@ -43,6 +43,12 @@ C:\Proyecto contpaq\Granjas V1.2\WFPGranjas\obj\Debug\WFPGranjas.pdb
 C:\Proyecto contpaq\Granjas V1.2\WFPGranjas\obj\Debug\WFPGranjas.csprojResolveAssemblyReference.cache
 C:\Proyecto contpaq\Granjas V1.2\WFPGranjas\obj\Debug\WFPGranjas.frmAnticipoMto.resources
 C:\Proyecto contpaq\Granjas V1.2\WFPGranjas\obj\Debug\WFPGranjas.frmPagoMto.resources
+<<<<<<< HEAD
 C:\Users\joane\Documents\TEST\WFPGranjas\bin\Debug\WFPGranjas.exe.config
 C:\Users\joane\Documents\TEST\WFPGranjas\obj\Debug\WFPGranjas.exe
 C:\Users\joane\Documents\TEST\WFPGranjas\obj\Debug\WFPGranjas.pdb
+=======
+C:\Users\cbestred\Documents\test\WFPGranjas\bin\Debug\WFPGranjas.exe.config
+C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.exe
+C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.pdb
+>>>>>>> b7b1ea046ce953c70aea6019aa7b93e1ae9fd1f3

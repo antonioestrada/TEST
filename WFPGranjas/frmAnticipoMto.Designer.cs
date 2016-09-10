@@ -57,6 +57,11 @@
             this.txtImporte = new System.Windows.Forms.TextBox();
             this.panelCapturaTop = new System.Windows.Forms.Panel();
             this.panelTop = new System.Windows.Forms.Panel();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.txtLote = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.cmbManzana = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.txtColono = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.btnCapturaR = new System.Windows.Forms.Button();
@@ -78,11 +83,6 @@
             this.button3 = new System.Windows.Forms.Button();
             this.pnlMeses = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.txtLote = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cmbManzana = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
             this.groupDColono.SuspendLayout();
             this.groupCuota.SuspendLayout();
             this.panelCapturaCenter.SuspendLayout();
@@ -390,6 +390,57 @@
             this.panelTop.Size = new System.Drawing.Size(897, 50);
             this.panelTop.TabIndex = 8;
             // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Image = global::WFPGranjas.Properties.Resources.busca_mini;
+            this.btnBuscar.Location = new System.Drawing.Point(745, 15);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(25, 23);
+            this.btnBuscar.TabIndex = 19;
+            this.btnBuscar.TabStop = false;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            // 
+            // txtLote
+            // 
+            this.txtLote.Location = new System.Drawing.Point(663, 16);
+            this.txtLote.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
+            this.txtLote.MaxLength = 10;
+            this.txtLote.Name = "txtLote";
+            this.txtLote.Size = new System.Drawing.Size(74, 22);
+            this.txtLote.TabIndex = 17;
+            this.txtLote.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLote_KeyPress);
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(474, 17);
+            this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(73, 16);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Manzana2:";
+            // 
+            // cmbManzana
+            // 
+            this.cmbManzana.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbManzana.FormattingEnabled = true;
+            this.cmbManzana.Location = new System.Drawing.Point(541, 14);
+            this.cmbManzana.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbManzana.Name = "cmbManzana";
+            this.cmbManzana.Size = new System.Drawing.Size(72, 24);
+            this.cmbManzana.TabIndex = 16;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(625, 19);
+            this.label2.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(37, 16);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "Lote:";
+            // 
             // txtColono
             // 
             this.txtColono.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
@@ -629,57 +680,6 @@
             this.label3.Size = new System.Drawing.Size(142, 18);
             this.label3.TabIndex = 14;
             this.label3.Text = "Meses a Anticipar";
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Image = global::WFPGranjas.Properties.Resources.busca_mini;
-            this.btnBuscar.Location = new System.Drawing.Point(745, 15);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(25, 23);
-            this.btnBuscar.TabIndex = 19;
-            this.btnBuscar.TabStop = false;
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            // 
-            // txtLote
-            // 
-            this.txtLote.Location = new System.Drawing.Point(663, 16);
-            this.txtLote.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
-            this.txtLote.MaxLength = 10;
-            this.txtLote.Name = "txtLote";
-            this.txtLote.Size = new System.Drawing.Size(74, 22);
-            this.txtLote.TabIndex = 17;
-            this.txtLote.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLote_KeyPress);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(474, 17);
-            this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 16);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Manzana:";
-            // 
-            // cmbManzana
-            // 
-            this.cmbManzana.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbManzana.FormattingEnabled = true;
-            this.cmbManzana.Location = new System.Drawing.Point(541, 14);
-            this.cmbManzana.Margin = new System.Windows.Forms.Padding(4);
-            this.cmbManzana.Name = "cmbManzana";
-            this.cmbManzana.Size = new System.Drawing.Size(72, 24);
-            this.cmbManzana.TabIndex = 16;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(625, 19);
-            this.label2.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 16);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "Lote:";
             // 
             // frmAnticipoMto
             // 
