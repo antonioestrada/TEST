@@ -35,5 +35,16 @@ namespace WFPGranjas.Backend.Catalogos
         public string contratoDTO { get; set; }
         public double cnaDTO { get; set; }
         public int idConoloDTO { get; set; }
+
+        //para paramMantenimiento
+        public string Pcode_param { get; set; }
+        public string Pvalor { get; set; }
+
+        //para tarifaMantenimiento
+        public string tariID { get; set; }
+        public string tariTipo { get; set; }
+        public string tariValor { get; set; }
+        public string tariFechaAplica { get; set; }
+        public string tariEstatus { get; set; }
     }
 }
