@@ -417,9 +417,9 @@
             this.label1.Location = new System.Drawing.Point(474, 17);
             this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(73, 16);
+            this.label1.Size = new System.Drawing.Size(66, 16);
             this.label1.TabIndex = 15;
-            this.label1.Text = "Manzana2:";
+            this.label1.Text = "Manzana:";
             // 
             // cmbManzana
             // 
