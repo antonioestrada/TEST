@@ -1,0 +1,436 @@
+﻿using AccesoDatos;
+using Backend;
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace WFPGranjas
+{
+    public partial class MDIPrincipal : Form
+    {
+        private int childFormNumber = 0;
+        frmLogin frmlogin = new frmLogin();
+        int idPerf = 0;
+        Globales vGlobal = new Globales();
+
+        public MDIPrincipal()
+        {
+            InitializeComponent();
+        }
+
+        public MDIPrincipal(int idPerfil)
+        {
+           this.idPerf=idPerfil;
+            InitializeComponent();     
+
+
+            /*for (int i=0; i < tbMenuPrincipal.TabPages.Count; i++) {
+                MessageBox.Show(tbMenuPrincipal.TabPages[i].Name);
+            }*/
+           // tbMenuPrincipal.TabPages
+        }
+        #region code crispi perfiles
+        public void generaMenu()
+        {
+
+            ////////////////////////////////////////////777
+            ///     VALIDA MENU
+            ///     
+
+            Conexion.IniciarSesion(vGlobal.Server, vGlobal.BD, vGlobal.Usr, vGlobal.Pwd, vGlobal.BD);
+            Object[] parames = { idPerf };
+            IDataReader reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_principal_perfil_menu(" + idPerf + ",1,0)");
+
+            // List<String> menus = new List<string>();
+            Dictionary<int, String> menus = new Dictionary<int, String>();
+            while (reader.Read())
+            {
+                menus.Add(Convert.ToInt16(reader.GetValue(0)), reader.GetValue(1).ToString());
+            }
+
+            depuraMenuPrincipal(menus);
+            Conexion.FinalizarSesion();
+        }
+        public void depuraMenuPrincipal(Dictionary<int, String> menus)
+        {
+            int valida = 0, posicion = 0;
+            Dictionary<int, String> menus2 = menus;
+            MDIPrincipal frm = new MDIPrincipal();
+
+
+            /* menuAManto.Visible = false;
+             menuAAgua.Visible = false;
+             menuAReportes.Visible = false;
+             */
+            for (int i = 0; i < tbMenuPrincipal.TabPages.Count; i++)
+            {
+                valida = 0;
+                posicion = 0;
+                // MessageBox.Show(tbMenuPrincipal.TabPages[i].Name);
+
+                for (int y = 0; y < menus.Count; y++)
+                {
+                    var item = menus.ElementAt(y);
+
+                    if (tbMenuPrincipal.TabPages[i].Name.Equals(item.Value.ToString()))
+                    {
+                        valida++;
+                        posicion = y;
+                    }
+                }
+                TabPage tp = tbMenuPrincipal.TabPages[i];
+                if (valida == 0)
+                {
+                    tbMenuPrincipal.TabPages.Remove(tp);
+                    depuraMenuPrincipal(menus2);
+                }
+                else
+                {
+                    //////////////////////////////////////////////////////////////////////
+                    ///     SUBMENU
+                    ///////////////////////////////////////////////////////////////////////     
+
+                    var item = menus.ElementAt(posicion);
+                    Dictionary<int, String> subMenu = consultaMenu(2, item.Key);
+                    for (int y = 0; y < subMenu.Count; y++)
+                    {
+                        var subItem = subMenu.ElementAt(y);
+
+                        //***      VALIDA  MENU ADMINISTRACION 
+                        foreach (ToolStripMenuItem submenuCtrl in menuStripAdmon.Items)
+                        {
+                            if (submenuCtrl.Name.Equals(subItem.Value.ToString()))
+                            {
+                                submenuCtrl.Visible = true;
+
+                                //////////////////////////////////////////////////////////////////////
+                                ///     MODULO 
+                                ///////////////////////////////////////////////////////////////////////   
+                                Dictionary<int, String> modulo = consultaMenu(3, subItem.Key);
+
+                                for (int x = 0; x < modulo.Count; x++)
+                                {
+                                    var moduloItem = modulo.ElementAt(x);
+                                    submenuCtrl.DropDownItems[moduloItem.Value].Visible = true;
+                                }
+                                //////////////////// FINALIZA MODULO /////////////////////
+
+                            }
+
+                        }
+
+                        //***      VALIDA  MENU FINANZAS 
+                        foreach (ToolStripMenuItem submenuCtrl in menuStripFinanzas.Items)
+                        {
+                            if (submenuCtrl.Name.Equals(subItem.Value.ToString()))
+                            {
+                                submenuCtrl.Visible = true;
+
+                                //////////////////////////////////////////////////////////////////////
+                                ///     MODULO 
+                                ///////////////////////////////////////////////////////////////////////   
+                                Dictionary<int, String> modulo = consultaMenu(3, subItem.Key);
+
+                                for (int x = 0; x < modulo.Count; x++)
+                                {
+                                    var moduloItem = modulo.ElementAt(x);
+                                    submenuCtrl.DropDownItems[moduloItem.Value].Visible = true;
+                                }
+                                //////////////////// FINALIZA MODULO /////////////////////
+
+                            }
+
+
+                        }
+
+
+                        //***      VALIDA  MENU CATALOGOS 
+                        foreach (ToolStripMenuItem submenuCtrl in menuStripCat.Items)
+                        {
+                            if (submenuCtrl.Name.Equals(subItem.Value.ToString()))
+                            {
+                                submenuCtrl.Visible = true;
+
+                                //////////////////////////////////////////////////////////////////////
+                                ///     MODULO 
+                                ///////////////////////////////////////////////////////////////////////   
+                                Dictionary<int, String> modulo = consultaMenu(3, subItem.Key);
+
+                                for (int x = 0; x < modulo.Count; x++)
+                                {
+                                    var moduloItem = modulo.ElementAt(x);
+                                    submenuCtrl.DropDownItems[moduloItem.Value].Visible = true;
+                                }
+                                //////////////////// FINALIZA MODULO /////////////////////
+
+                            }
+
+
+                        }
+
+                    }
+                    //////////////////// FINALIZA SUBMENU /////////////////////
+                }
+
+
+            }
+            menuAAyuda.Visible = true;
+
+        }
+
+        public Dictionary<int, String> consultaMenu(int tipo, int relacion)
+        {
+
+            Conexion.IniciarSesion(vGlobal.Server, vGlobal.BD, vGlobal.Usr, vGlobal.Pwd, vGlobal.BD);
+
+            IDataReader reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_principal_perfil_menu(" + idPerf + "," + tipo + "," + relacion + ")");
+
+            Dictionary<int, String> menus = new Dictionary<int, String>();
+            while (reader.Read())
+            {
+                menus.Add(Convert.ToInt16(reader.GetValue(0)), reader.GetValue(1).ToString());
+            }
+            return menus;
+
+        }
+
+        #endregion
+
+        #region codigo de inicio mdi form
+
+
+        private void ShowNewForm(object sender, EventArgs e)
+        {
+            Form childForm = new Form();
+            childForm.MdiParent = this;
+            childForm.Text = "Window " + childFormNumber++;
+            childForm.Show();
+        }
+
+        private void OpenFile(object sender, EventArgs e)
+        {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            openFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
+            if (openFileDialog.ShowDialog(this) == DialogResult.OK)
+            {
+                string FileName = openFileDialog.FileName;
+            }
+        }
+
+        private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog saveFileDialog = new SaveFileDialog();
+            saveFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
+            saveFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
+            if (saveFileDialog.ShowDialog(this) == DialogResult.OK)
+            {
+                string FileName = saveFileDialog.FileName;
+            }
+        }
+
+        private void ExitToolsStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+
+        private void ToolBarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            toolStrip.Visible = toolBarToolStripMenuItem.Checked;
+        }
+
+        private void StatusBarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            statusStrip.Visible = statusBarToolStripMenuItem.Checked;
+        }
+
+        private void CascadeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LayoutMdi(MdiLayout.Cascade);
+        }
+
+        private void TileVerticalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LayoutMdi(MdiLayout.TileVertical);
+        }
+
+        private void TileHorizontalToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LayoutMdi(MdiLayout.TileHorizontal);
+        }
+
+        private void ArrangeIconsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            LayoutMdi(MdiLayout.ArrangeIcons);
+        }
+
+        private void CloseAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (Form childForm in MdiChildren)
+            {
+                childForm.Close();
+            }
+        }
+#endregion
+       
+        private void tsExit_Click(object sender, EventArgs e)
+        {
+            ExitApplication();
+        }
+
+        private void fcCuotasM_Click(object sender, EventArgs e)
+        {
+            frmPagoMto childFormCuotasManto = new frmPagoMto();
+            childFormCuotasManto.MdiParent = this;
+            childFormCuotasManto.Text = "Ingresos por Cuotas de Mantenimiento";
+            childFormCuotasManto.Show();
+        }
+
+        private void searchToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            foreach (Form childForm in MdiChildren)
+            {
+                childForm.Close();
+            }
+        }        
+
+        private void fcCuotasA_Click(object sender, EventArgs e)
+        {
+            frmIngresos childFormCuotasAgua = new frmIngresos();
+            childFormCuotasAgua.MdiParent = this;
+            childFormCuotasAgua.Text = "Ingresos por Cuotas de Agua";
+            childFormCuotasAgua.Show();
+        }
+
+        private void MDIPrincipal_Load(object sender, EventArgs e)
+        {
+
+        }
+        
+        private void MDIPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
+            Application.Exit();
+        }
+        public void ExitApplication()
+        {
+            // Display a message box asking users if they
+            // want to exit the application.
+            if (MessageBox.Show("Do you want to exit?", "My Application",
+                  MessageBoxButtons.YesNo, MessageBoxIcon.Question)
+                  == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        private void cgBancos_Click(object sender, EventArgs e)
+        {
+            frmCBancos childFormCatBancos = new frmCBancos();
+            childFormCatBancos.MdiParent = this;
+            childFormCatBancos.Size= new Size(543, 365);
+            childFormCatBancos.Show();
+        }
+
+        private void cgColonos_Click(object sender, EventArgs e)
+        {
+            frmCColonos childFormCatColonos = new frmCColonos();
+            childFormCatColonos.MdiParent = this;
+            childFormCatColonos.Size = new Size(573, 470);
+            childFormCatColonos.Show();
+        }
+
+        private void cgManzanas_Click(object sender, EventArgs e)
+        {
+            frmCManzanas childFormCatManzanas = new frmCManzanas();
+            childFormCatManzanas.MdiParent = this;
+            childFormCatManzanas.Size = new Size(543, 365);
+            childFormCatManzanas.Show();
+        }
+
+        private void cgLotes_Click(object sender, EventArgs e)
+        {
+            frmCLotes childFormLotes = new frmCLotes();
+            childFormLotes.MdiParent = this;
+            childFormLotes.Size = new Size(543, 425);
+            childFormLotes.Show();
+        }
+
+        private void cgMedidores_Click(object sender, EventArgs e)
+        {
+            frmCMedidores childFormMedidores = new frmCMedidores();
+            childFormMedidores.MdiParent = this;
+            childFormMedidores.Size = new Size(560, 220);
+            childFormMedidores.Show();
+        }
+
+        private void cgcMantenimiento_Click(object sender, EventArgs e)
+        {
+            frmCCalculoManto childFormMantenimiento = new frmCCalculoManto();
+            childFormMantenimiento.MdiParent = this;
+            //childFormMantenimiento.Size = new Size(560, 220);
+            childFormMantenimiento.Show();
+        }
+
+        private void csUsuarios_Click(object sender, EventArgs e)
+        {
+            cerrarVentanas();
+            //if (childFormCatUsuarios ==null)
+            frmCUsuarios childFormCatUsuarios = new frmCUsuarios();
+
+            childFormCatUsuarios.MdiParent = this;
+            childFormCatUsuarios.Size = new Size(583, 365);
+            childFormCatUsuarios.Show();
+        }
+
+
+        public void cerrarVentanas()
+        {
+
+            foreach (Form childForm in MdiChildren)
+            {
+                childForm.Close();
+            }
+        }
+
+        private void csPuestos_Click(object sender, EventArgs e)
+        {
+            cerrarVentanas();
+            //if (childFormCatUsuarios ==null)
+            frmCPuestos childFormCatPuestos = new frmCPuestos();
+
+            childFormCatPuestos.MdiParent = this;
+            childFormCatPuestos.Size = new Size(300, 365);
+            childFormCatPuestos.Show();
+        }
+
+        private void csPerfiles_Click(object sender, EventArgs e)
+        {
+            cerrarVentanas();
+            //if (childFormCatUsuarios ==null)
+            frmCPerfiles childFormCatPerfiles = new frmCPerfiles();
+
+            childFormCatPerfiles.MdiParent = this;
+            childFormCatPerfiles.Size = new Size(370, 365);
+            childFormCatPerfiles.Show();
+        }
+
+        private void fcAManto_Click(object sender, EventArgs e)
+        {
+            cerrarVentanas();
+            //if (childFormCatUsuarios ==null)
+            frmAnticipoMto childFormCatPerfiles = new frmAnticipoMto();
+
+            childFormCatPerfiles.MdiParent = this;
+          //  childFormCatPerfiles.Size = new Size(370, 365);
+            childFormCatPerfiles.Show();
+        }
+    }
+}

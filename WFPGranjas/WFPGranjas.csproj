@@ -1,0 +1,429 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B5EC3BBA-F8EC-4760-9B36-5D21DD247211}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>WFPGranjas</RootNamespace>
+    <AssemblyName>WFPGranjas</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Backend\AccesoDatos.cs" />
+    <Compile Include="Backend\Catalogos\CBancos.cs" />
+    <Compile Include="Backend\Catalogos\CColonos.cs" />
+    <Compile Include="Backend\Catalogos\CManzanaLotes.cs" />
+    <Compile Include="Backend\Catalogos\CMedidores.cs" />
+    <Compile Include="Backend\Catalogos\CPerfiles.cs" />
+    <Compile Include="Backend\Catalogos\CPuestos.cs" />
+    <Compile Include="Backend\Catalogos\CUsuarios.cs" />
+    <Compile Include="Backend\Catalogos\ResultadoTrnx.cs" />
+    <Compile Include="Backend\Conexion.cs" />
+    <Compile Include="Backend\GDatos.cs" />
+    <Compile Include="Backend\Globales.cs" />
+    <Compile Include="Backend\Procesos\PrcPagoMto.cs" />
+    <Compile Include="Backend\Procesos\PrcAnticipos.cs" />
+    <Compile Include="Backend\Properties.cs" />
+    <Compile Include="Backend\Utilerias.cs" />
+    <Compile Include="frmPagoMto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPagoMto.Designer.cs">
+      <DependentUpon>frmPagoMto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmAnticipoMto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAnticipoMto.Designer.cs">
+      <DependentUpon>frmAnticipoMto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCBancos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCBancos.Designer.cs">
+      <DependentUpon>frmCBancos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCCalculoManto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCCalculoManto.Designer.cs">
+      <DependentUpon>frmCCalculoManto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCColonos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCColonos.Designer.cs">
+      <DependentUpon>frmCColonos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCLotes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCLotes.Designer.cs">
+      <DependentUpon>frmCLotes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCManzanas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCManzanas.Designer.cs">
+      <DependentUpon>frmCManzanas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCMedidores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCMedidores.Designer.cs">
+      <DependentUpon>frmCMedidores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCPerfiles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCPerfiles.designer.cs">
+      <DependentUpon>frmCPerfiles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCPuestos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCPuestos.designer.cs">
+      <DependentUpon>frmCPuestos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCUsuarios.designer.cs">
+      <DependentUpon>frmCUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmIngresos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmIngresos.Designer.cs">
+      <DependentUpon>frmIngresos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin2.Designer.cs">
+      <DependentUpon>frmLogin2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MDIPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MDIPrincipal.Designer.cs">
+      <DependentUpon>MDIPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmPagoMto.resx">
+      <DependentUpon>frmPagoMto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAnticipoMto.resx">
+      <DependentUpon>frmAnticipoMto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCBancos.resx">
+      <DependentUpon>frmCBancos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCCalculoManto.resx">
+      <DependentUpon>frmCCalculoManto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCColonos.resx">
+      <DependentUpon>frmCColonos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCLotes.resx">
+      <DependentUpon>frmCLotes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCManzanas.resx">
+      <DependentUpon>frmCManzanas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCMedidores.resx">
+      <DependentUpon>frmCMedidores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCPerfiles.resx">
+      <DependentUpon>frmCPerfiles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCPuestos.resx">
+      <DependentUpon>frmCPuestos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCUsuarios.resx">
+      <DependentUpon>frmCUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmIngresos.resx">
+      <DependentUpon>frmIngresos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLogin2.resx">
+      <DependentUpon>frmLogin2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MDIPrincipal.resx">
+      <DependentUpon>MDIPrincipal.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\presentation-5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gastos.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\archivo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\archivo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ajustes.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ajustes1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agua.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agua1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\riego.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\soltar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\grifo-de-agua.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\brote.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\info.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cajero.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calculadora.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\caja-registradora.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\conseguir-dinero.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\registradora.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\contrato.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reportar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\impresora.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\velocimetro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\transferir.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\gota-de-agua.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\hoja.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\casa.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dinero.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\monedas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancelar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\navegador.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\documento.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\catalogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\caja-registradora1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\catalogo1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ajustes 2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\close.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\b1_uno.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\b2_dos.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\b3_tres.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\b4_cuatro.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\b5_cinco.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\b6_seis.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\b7_siete.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancelar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\minimizar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loginplantilla.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ingresar.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_ingresar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loginplantilla2.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\btn_ingresar1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\buscando-usuario.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\busca_mini.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\expediente.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\agregar-notas.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\nuevo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cerrar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\logout.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eliminarBote.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\eliminar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\filtrar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\aceptar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\cancelarIco.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\add.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
