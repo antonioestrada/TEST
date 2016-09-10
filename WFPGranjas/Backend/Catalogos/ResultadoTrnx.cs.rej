@@ -1,0 +1,9 @@
+diff a/WFPGranjas/Backend/Catalogos/ResultadoTrnx.cs b/WFPGranjas/Backend/Catalogos/ResultadoTrnx.cs	(rejected hunks)
+@@ -37,7 +37,6 @@
+         public int idConoloDTO { get; set; }
+ 
+         //para paramMantenimiento
+-        public string Pcode_param { get; set; }
+         public string Pvalor { get; set; }
+ 
+         //para tarifaMantenimiento
