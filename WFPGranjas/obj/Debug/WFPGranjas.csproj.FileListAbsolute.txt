@@ -43,15 +43,31 @@ C:\Proyecto contpaq\Granjas V1.2\WFPGranjas\obj\Debug\WFPGranjas.pdb
 C:\Proyecto contpaq\Granjas V1.2\WFPGranjas\obj\Debug\WFPGranjas.csprojResolveAssemblyReference.cache
 C:\Proyecto contpaq\Granjas V1.2\WFPGranjas\obj\Debug\WFPGranjas.frmAnticipoMto.resources
 C:\Proyecto contpaq\Granjas V1.2\WFPGranjas\obj\Debug\WFPGranjas.frmPagoMto.resources
-<<<<<<< HEAD
-C:\Users\joane\Documents\TEST\WFPGranjas\bin\Debug\WFPGranjas.exe.config
-C:\Users\joane\Documents\TEST\WFPGranjas\obj\Debug\WFPGranjas.exe
-C:\Users\joane\Documents\TEST\WFPGranjas\obj\Debug\WFPGranjas.pdb
-=======
 C:\Users\cbestred\Documents\test\WFPGranjas\bin\Debug\WFPGranjas.exe.config
 C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.exe
 C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.pdb
->>>>>>> b7b1ea046ce953c70aea6019aa7b93e1ae9fd1f3
 C:\Users\joane\Documents\GRANJASTX\WFPGranjas\bin\Debug\WFPGranjas.exe.config
 C:\Users\joane\Documents\GRANJASTX\WFPGranjas\obj\Debug\WFPGranjas.exe
 C:\Users\joane\Documents\GRANJASTX\WFPGranjas\obj\Debug\WFPGranjas.pdb
+C:\Users\cbestred\Documents\test\WFPGranjas\bin\Debug\WFPGranjas.exe
+C:\Users\cbestred\Documents\test\WFPGranjas\bin\Debug\WFPGranjas.pdb
+C:\Users\cbestred\Documents\test\WFPGranjas\bin\Debug\MySql.Data.dll
+C:\Users\cbestred\Documents\test\WFPGranjas\bin\Debug\MySql.Data.xml
+C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.csprojResolveAssemblyReference.cache
+C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.frmPagoMto.resources
+C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.frmAnticipoMto.resources
+C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.frmCBancos.resources
+C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.frmCCalculoManto.resources
+C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.frmCColonos.resources
+C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.frmCLotes.resources
+C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.frmCManzanas.resources
+C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.frmCMedidores.resources
+C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.frmCPerfiles.resources
+C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.frmCPuestos.resources
+C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.frmCUsuarios.resources
+C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.frmIngresos.resources
+C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.frmLogin.resources
+C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.frmLogin2.resources
+C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.MDIPrincipal.resources
+C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.Properties.Resources.resources
+C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.csproj.GenerateResource.Cache

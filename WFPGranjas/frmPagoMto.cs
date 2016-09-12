@@ -18,9 +18,11 @@ namespace WFPGranjas
     public partial class frmPagoMto : Form
     {
         int id_colono = 0,idManzana=0,idLote=0;
-        String listaMeses;
-        List<int> listaCuotasPag;
+        String listaIDKardex;
+    
         double pagoTotal = 0;
+        Dictionary<int, Cuota> cuotas;
+        Dictionary<int, String> cmbCuotas;
         Utilerias utilities = new Utilerias();
         #region Definicion de Estructura de Columnas DataGridView PROPIETARIOS
         //DEFINIMOS LA ESTRUCTURA DE NUESTRO GRID LISTADO
@@ -117,24 +119,62 @@ namespace WFPGranjas
             // int colWidth = ((grid.ClientSize.Width - grid.RowHeadersWidth) >> 1) - 1;
             dgPartidasR.Columns.AddRange(new DataGridViewColumn[]
                                       {
+                                           new DataGridViewTextBoxColumn
+                                              {
+                                                  ValueType = typeof (Int32),
+                                                  HeaderText = "id",
+                                                  Width = 100
+                                              },                                           
                                               new DataGridViewTextBoxColumn
                                               {
                                                   ValueType = typeof (Int32),
-                                                  HeaderText = "Servicio",
-                                                  Width = 300
+                                                  HeaderText = "idServicio",
+                                                  Width = 100
                                               },
                                               new DataGridViewTextBoxColumn
                                               {
-                                                  ValueType = typeof (Int32),
+                                                  ValueType = typeof (double),
+                                                  HeaderText = "impNumber",
+                                                  Width = 100
+                                              },
+                                              new DataGridViewTextBoxColumn
+                                              {
+                                                  ValueType = typeof (string),
+                                                  HeaderText = "periodoNumber",
+                                                  Width = 100
+                                              },
+                                              new DataGridViewTextBoxColumn
+                                              {
+                                                  ValueType = typeof (string),
+                                                  HeaderText = "Servicio",
+                                                  Width = 230
+                                              },
+                                              new DataGridViewTextBoxColumn
+                                              {
+                                                  ValueType = typeof (string),
                                                   HeaderText = "Periodo",
-                                                  Width = 302
+                                                  Width = 130
 
                                               },
                                                new DataGridViewTextBoxColumn
                                               {
-                                                  ValueType = typeof (Int32),
+                                                  ValueType = typeof (string),
                                                   HeaderText = "Importe",
-                                                  Width = 202
+                                                  Width = 150
+
+                                              },
+                                               new DataGridViewTextBoxColumn
+                                              {
+                                                  ValueType = typeof (String),
+                                                  HeaderText = "Estatus",
+                                                  Width = 110
+
+                                              },
+                                               new DataGridViewTextBoxColumn
+                                              {
+                                                  ValueType = typeof (String),
+                                                  HeaderText = "Tarifa",
+                                                  Width = 190
 
                                               }
 
@@ -143,7 +183,10 @@ namespace WFPGranjas
 
             dgPartidasR.DefaultCellStyle.Font = new Font("Arial", 14F, GraphicsUnit.Pixel);
             dgPartidasR.RowHeadersVisible = false;
-            //dgLotes.Columns[1].Visible = false;
+            dgPartidasR.Columns[0].Visible = false;
+            dgPartidasR.Columns[1].Visible = false;
+            dgPartidasR.Columns[2].Visible = false;
+            dgPartidasR.Columns[3].Visible = false;
             //dgLotes.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             //dgLotes.Columns[4].DefaultCellStyle.Format = "##,##0.0000";
 
@@ -203,41 +246,54 @@ namespace WFPGranjas
                 groupDColono.Visible = true;
                 btnCapturaR.Enabled = true;
                 groupCuota.Visible = false;
-                pnlMeses.Visible = false;
+
             }
         }
 
         private void btnCapturaR_Click(object sender, EventArgs e)
         {
+            /* String sDate = DateTime.Now.ToString("dd/MM/yyyy") + " " + DateTime.Now.ToString("hh:mm:ss");
+             String statTimeLong = (Convert.ToDateTime(sDate).ToUniversalTime() - new DateTime(1970, 1, 1, 0, 0, 0, DateTimeKind.Utc)).TotalMilliseconds.ToString();
+
+             //   DateTime dt = Convert.ToDateTime(dateTime);
+             DateTime dt = new DateTime(2014, 3, 14, 2, 30, 00, DateTimeKind.Unspecified);
+             long fileCreationFileTime = dt.ToFileTime();
+             MessageBox.Show(fileCreationFileTime+" - " +dt.ToLocalTime().ToString());*/
+            pagoTotal = 0;
             Boolean resultado = false;
             PrcAnticipos prcAnticipos = new PrcAnticipos();
             Object[] parames = {  idLote };
             resultado = prcAnticipos.validacionAdeudo(parames);
-            if (resultado)
+            if (!resultado)
             {
-                MessageBox.Show("El usuario no puede dar anticipo de Mantenimiento , Ya que cuenta con cuotas atrasadas");
+                MessageBox.Show("El usuario no tiene cuotas atrasadas");
             }
             else
             {
-                pnlMeses.Visible = true;
-                incializaMeses();
-                listaCuotasPag = new List<int>();
+                //pnlMeses.Visible = true;
 
-                prcAnticipos.consultaCuotasPagadas(listaCuotasPag,idLote);
-                validaMeses();
+                 Backend.Procesos.PrcPagoMto BeanCPagos = new Backend.Procesos.PrcPagoMto();
+                cmbPeriodos.DataSource=null;
+                cmbCuotas = new Dictionary<int, String>();
+                cuotas = BeanCPagos.consultaAdeucoCuotas(cmbPeriodos, idLote,2, cmbCuotas);
+                BeanCPagos = null;
+                groupCuota.Visible = true;
+                dgPartidasR.Rows.Clear();
+                prcAnticipos.consultaBancos(cmbBancoCheq);
+                prcAnticipos.consultaBancos(cmbBancoFicha);
             }
         }
 
         private void btnApliCalculoAnt_Click(object sender, EventArgs e)
         {
            
-            listaMeses = obtieneMeses();
+            listaIDKardex = obtieneIDKardex();
             PrcAnticipos prcAnticipos= new PrcAnticipos();
-            double importeTotal=prcAnticipos.generaCuotas(dgPartidasR, id_colono, idManzana, idLote, listaMeses);
-            pnlMeses.Visible = false;
+            double importeTotal=prcAnticipos.generaCuotas(dgPartidasR, id_colono, idManzana, idLote, listaIDKardex);
+         
             groupCuota.Visible = true;
             txtImporte.Text = String.Format(CultureInfo.InvariantCulture,"{0:0,0.00}", importeTotal);
-            txtDescuento.Text = "0.00";
+            txtMultas.Text = "0.00";
             txtTotal.Text = String.Format(CultureInfo.InvariantCulture, "{0:0,0.00}", importeTotal);
             pagoTotal = importeTotal ;
             prcAnticipos.consultaBancos(cmbBancoCheq);
@@ -245,7 +301,7 @@ namespace WFPGranjas
             txtImpEf.Text = "0.00";
             txtImpChq.Text = "0.00";
             txtImpFicha.Text = "0.00";
-            txtDescuento.Text = "0.00";
+            txtMultas.Text = "0.00";
 
         }
 
@@ -257,45 +313,13 @@ namespace WFPGranjas
             dgPropietario.BringToFront();
         }
 
-        private void button3_Click(object sender, EventArgs e)
-        {
-            pnlMeses.Visible = false;
-        }
-
-        public void validaMeses()
-        {
-
-            DateTime fechaActual = DateTime.Now;
-            int mes = fechaActual.Month;
-            mes = mes + 1;
-            foreach (CheckBox chk in groupBoxMeses.Controls)
-            {
-               
-                    string nombre = chk.Name;
-                    string subcadena1 = nombre.Substring(3, 2);
-                    int mesNum = int.Parse(subcadena1);
-                    if (mes > mesNum)
-                        chk.Enabled = false;
-                    else
-                        chk.Enabled = true;
-
-                    if (validaPeriodoAnticipo(mesNum))
-                    {
-                        chk.Enabled = false;
-                        chk.BackColor = Color.LightBlue;
-                    }
-                    else {
-                        chk.BackColor = Color.FloralWhite;
-                    }                                  
-
-            }
-
-        }
+     
+      
         public Boolean validaPeriodoAnticipo(int periodo) {
             Boolean resultado = false;
-            for (int i = 0; i < listaCuotasPag.Count(); i++)
+            for (int i = 0; i < listaIDKardex.Count(); i++)
             {
-                if (periodo == listaCuotasPag[i])
+                if (periodo == listaIDKardex[i])
                 {
                     resultado = true;
                     break;
@@ -306,27 +330,40 @@ namespace WFPGranjas
 
         private void btnCapturaPago_Click(object sender, EventArgs e)
         {
+
+
+            listaIDKardex = obtieneIDKardex();
+
             Boolean resultado=false;
-            PrcAnticipos prcAnticipos = new PrcAnticipos();
+            PrcPagoMto prcPago = new PrcPagoMto();
 
             double importeEfectivo = double.Parse(txtImpEf.Text);
             int bancoCheque = int.Parse(cmbBancoCheq.SelectedValue.ToString());
-            double importeCheque = double.Parse(txtImpChq.Text);
-            int bancoFicha = int.Parse(cmbBancoFicha.SelectedValue.ToString());
-            double importFicha = double.Parse(txtImpFicha.Text);
-            double totalImporte = (importeEfectivo + importeCheque + importFicha);
-            double descuento =0;
-
-
-            if (txtDescuento.Text != "" && txtDescuento.Text != ".")
+            double importeCheque = 0;
+            if (txtImpChq.Text != "" && txtImpChq.Text != ".")
             {
-                descuento = double.Parse(txtDescuento.Text);
+                importeCheque = double.Parse(txtImpChq.Text);
             }
+
+
+            int bancoFicha = int.Parse(cmbBancoFicha.SelectedValue.ToString());
+            double importFicha = 0;
+            if (txtImpFicha.Text != "" && txtImpFicha.Text != ".")
+            {
+                importFicha = double.Parse(txtImpFicha.Text);
+            }
+             double multas = 0;
+            if (txtMultas.Text != "" && txtMultas.Text != ".")
+            {
+                multas = double.Parse(txtMultas.Text);
+            }
+            double totalImporte = (importeEfectivo + importeCheque + importFicha) ;
+           
 
             if (pagoTotal == totalImporte)
             {
-                Object[] parames = { id_colono, idManzana, idLote, listaMeses, importeEfectivo, txtCheque.Text, bancoCheque, importeCheque, txtFicha.Text, bancoFicha, importFicha, descuento };
-                resultado = prcAnticipos.registroCuotas(parames);
+                Object[] parames = { listaIDKardex, idLote, 2, importeEfectivo, txtCheque.Text, bancoCheque, importeCheque, txtFicha.Text, bancoFicha, importFicha, multas };
+                resultado = prcPago.registroCuotas(parames);
             }
             else {
                 if(totalImporte  > pagoTotal)
@@ -336,13 +373,16 @@ namespace WFPGranjas
             }
             if (resultado)
             {
-                txtImpEf.Text    = "0.00";
-                txtImpChq.Text   = "0.00";
-                txtImpFicha.Text = "0.00";
+                txtImpEf.Text       = "0.00";
+                txtImpChq.Text      = "0.00";
+                txtImpFicha.Text    = "0.00";
+                txtImporte.Text     = "0.00";
+                txtTotal.Text       = "0.00";
+                txtMultas.Text      = "0.00";
                 groupCuota.Visible = false;
                 MessageBox.Show("!Se restro Correctamente el Pago¡");
             }
-
+            
         }
 
         private void txtImpEf_KeyPress(object sender, KeyPressEventArgs e)
@@ -350,33 +390,31 @@ namespace WFPGranjas
             validaNumeros(txtImpEf, sender,e);
         }
 
-        public String obtieneMeses()
+        public String obtieneIDKardex()
         {
-            String meses = "";
+            String IDKdx = "";
             DateTime fechaActual = DateTime.Now;
             int mes = fechaActual.Month;
           
-            List<String> listaMeses = new List<string>();
-            foreach (CheckBox chk in groupBoxMeses.Controls)
+            List<String> listaID = new List<string>();
+            foreach (DataGridViewRow row in dgPartidasR.Rows)
             {
-                string nombre = chk.Name;
-                string subcadena1 = nombre.Substring(3, 2);
-                int mesNum = int.Parse(subcadena1);
-                if (chk.Checked)
-                    listaMeses.Add(""+mesNum);
+                string nombre =row.Cells[0].Value.ToString();
+             
+                    listaID.Add(""+ nombre);
 
             }
-            listaMeses = listaMeses.OrderBy(p =>int.Parse(p.ToString())).ToList();
+            listaID = listaID.OrderBy(p =>int.Parse(p.ToString())).ToList();
 
-            for (int i = 0; i < listaMeses.Count; i++)
+            for (int i = 0; i < listaID.Count; i++)
             {               
-                    meses += listaMeses[i].ToString();
-                if (i+1 < listaMeses.Count)
+                    IDKdx += listaID[i].ToString();
+                if (i+1 < listaID.Count)
                 {
-                    meses += ",";
+                    IDKdx += ",";
                 }
               }
-            return meses;
+            return IDKdx;
 
 
         }
@@ -396,6 +434,7 @@ namespace WFPGranjas
 
             var BeanCLotesMza = new Backend.Catalogos.CManzanaLotes();
             BeanCLotesMza.consultaMazaCombo(cmbManzana);
+          
         }
 
         private void txtLote_KeyPress(object sender, KeyPressEventArgs e)
@@ -409,42 +448,93 @@ namespace WFPGranjas
             }
         }
 
-        public void incializaMeses()
-        {
-            DateTime fechaActual = DateTime.Now;
-            int mes = fechaActual.Month;
-
-            foreach (CheckBox chk in groupBoxMeses.Controls)
-            {
-                chk.Checked = false;               
-                
-            }
-        }
-
         private void txtDescuento_KeyPress(object sender, KeyPressEventArgs e)
         {
-            validaNumeros(txtDescuento, sender, e);
+            validaNumeros(txtMultas, sender, e);
         }
 
  
 
         private void txtDescuento_KeyUp(object sender, KeyEventArgs e)
         {
-            double importe = double.Parse(txtImporte.Text);
-            double descuento = 0;
-            if (txtDescuento.Text != "" && txtDescuento.Text != ".")
+            double importe = 0;
+            if (txtImporte.Text != "") 
+                importe = double.Parse(txtImporte.Text);
+
+            double multa = 0;
+            if (txtMultas.Text != "" && txtMultas.Text != ".")
             {
-                descuento = double.Parse(txtDescuento.Text);
+                multa = double.Parse(txtMultas.Text);
             }
               
-            double total = importe - descuento;
+            double total = importe + multa;
             txtTotal.Text = "" + total.ToString("N", CultureInfo.InvariantCulture);
             pagoTotal = total; 
         }
 
         private void txtDescuento_MouseClick(object sender, MouseEventArgs e)
         {
-            txtDescuento.SelectAll();
+            txtMultas.SelectAll();
+        }
+
+        private void btnAddCuota_Click(object sender, EventArgs e)
+        {
+            //lenamos nuestro grid con nuestro reader.
+            if (cmbPeriodos.Items.Count > 0)
+            {
+
+                int renglon = dgPartidasR.Rows.Add();
+                //id
+                dgPartidasR.Rows[renglon].Cells[0].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].id;
+                //idServicio
+                dgPartidasR.Rows[renglon].Cells[1].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].idServicio;
+                //Cuota
+                String importe = String.Format(CultureInfo.InvariantCulture,
+                                 "{0:0,0.0}", cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].importe.ToString());
+                dgPartidasR.Rows[renglon].Cells[2].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].importe;
+
+                dgPartidasR.Rows[renglon].Cells[3].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].idPeriodo;
+                dgPartidasR.Rows[renglon].Cells[4].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].servicio;
+                dgPartidasR.Rows[renglon].Cells[5].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].periodo;
+                dgPartidasR.Rows[renglon].Cells[6].Value = "$ " + importe;
+                dgPartidasR.Rows[renglon].Cells[7].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].estatus;
+                dgPartidasR.Rows[renglon].Cells[8].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].tarifa;
+
+                pagoTotal += double.Parse(cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].importe.ToString());
+
+                cmbCuotas.Remove(int.Parse(cmbPeriodos.SelectedValue.ToString()));
+                cmbPeriodos.DataSource = null;
+
+
+                var ab = from a in cmbCuotas
+                         orderby a.Key
+                         select a;
+
+                cmbPeriodos.DataSource = ab.ToList();
+                cmbPeriodos.DisplayMember = "value";
+                cmbPeriodos.ValueMember = "Key";
+
+                                 importe = String.Format(CultureInfo.InvariantCulture,
+                               "{0:0,0.0}", pagoTotal);
+
+                txtImporte.Text = importe;
+                txtTotal.Text = importe;
+            }
+            else {
+                MessageBox.Show("No existen mas cuotas por saldar");
+            }
+           // cmbPeriodos.Items.RemoveAt(cmbPeriodos.SelectedIndex);
+            ///importeTotal += Double.Parse(reader.GetValue(2).ToString());
+        }
+
+        private void btnAddCuota_MouseUp(object sender, MouseEventArgs e)
+        {
+           
+        }
+
+        private void btnAddCuota_MouseDown(object sender, MouseEventArgs e)
+        {
+           
         }
 
         public Boolean validaNumeros(TextBox txt, object sender, KeyPressEventArgs e) {
@@ -511,7 +601,7 @@ namespace WFPGranjas
                 groupDColono.Visible = true;
                 btnCapturaR.Enabled = true;
                 groupCuota.Visible = false;
-                pnlMeses.Visible = false;
+      
             }
           
         }

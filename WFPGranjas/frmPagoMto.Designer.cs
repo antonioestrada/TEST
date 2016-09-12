@@ -53,9 +53,12 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
-            this.txtDescuento = new System.Windows.Forms.TextBox();
+            this.txtMultas = new System.Windows.Forms.TextBox();
             this.txtImporte = new System.Windows.Forms.TextBox();
             this.panelCapturaTop = new System.Windows.Forms.Panel();
+            this.btnAddCuota = new System.Windows.Forms.Button();
+            this.label13 = new System.Windows.Forms.Label();
+            this.cmbPeriodos = new System.Windows.Forms.ComboBox();
             this.panelTop = new System.Windows.Forms.Panel();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtLote = new System.Windows.Forms.TextBox();
@@ -66,24 +69,6 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnCapturaR = new System.Windows.Forms.Button();
             this.dgPropietario = new System.Windows.Forms.DataGridView();
-            this.groupBoxMeses = new System.Windows.Forms.GroupBox();
-            this.chk12Dic = new System.Windows.Forms.CheckBox();
-            this.chk11Nov = new System.Windows.Forms.CheckBox();
-            this.chk10Oct = new System.Windows.Forms.CheckBox();
-            this.chk09Sep = new System.Windows.Forms.CheckBox();
-            this.chk08Ago = new System.Windows.Forms.CheckBox();
-            this.chk07Jul = new System.Windows.Forms.CheckBox();
-            this.chk06Jun = new System.Windows.Forms.CheckBox();
-            this.chk05May = new System.Windows.Forms.CheckBox();
-            this.chk04Abr = new System.Windows.Forms.CheckBox();
-            this.chk03Mar = new System.Windows.Forms.CheckBox();
-            this.chk02Feb = new System.Windows.Forms.CheckBox();
-            this.chk01Ene = new System.Windows.Forms.CheckBox();
-            this.btnApliCalculoAnt = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
-            this.pnlMeses = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cmbPeriodos = new System.Windows.Forms.ComboBox();
             this.groupDColono.SuspendLayout();
             this.groupCuota.SuspendLayout();
             this.panelCapturaCenter.SuspendLayout();
@@ -92,8 +77,6 @@
             this.panelCapturaTop.SuspendLayout();
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPropietario)).BeginInit();
-            this.groupBoxMeses.SuspendLayout();
-            this.pnlMeses.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupDColono
@@ -154,9 +137,9 @@
             // 
             this.panelCapturaCenter.Controls.Add(this.dgPartidasR);
             this.panelCapturaCenter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCapturaCenter.Location = new System.Drawing.Point(3, 52);
+            this.panelCapturaCenter.Location = new System.Drawing.Point(3, 61);
             this.panelCapturaCenter.Name = "panelCapturaCenter";
-            this.panelCapturaCenter.Size = new System.Drawing.Size(820, 113);
+            this.panelCapturaCenter.Size = new System.Drawing.Size(820, 104);
             this.panelCapturaCenter.TabIndex = 15;
             // 
             // dgPartidasR
@@ -170,7 +153,7 @@
             this.dgPartidasR.Location = new System.Drawing.Point(0, 0);
             this.dgPartidasR.Name = "dgPartidasR";
             this.dgPartidasR.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgPartidasR.Size = new System.Drawing.Size(820, 113);
+            this.dgPartidasR.Size = new System.Drawing.Size(820, 104);
             this.dgPartidasR.TabIndex = 0;
             // 
             // panelCapturaButtom
@@ -192,7 +175,7 @@
             this.panelCapturaButtom.Controls.Add(this.label6);
             this.panelCapturaButtom.Controls.Add(this.label4);
             this.panelCapturaButtom.Controls.Add(this.txtTotal);
-            this.panelCapturaButtom.Controls.Add(this.txtDescuento);
+            this.panelCapturaButtom.Controls.Add(this.txtMultas);
             this.panelCapturaButtom.Controls.Add(this.txtImporte);
             this.panelCapturaButtom.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panelCapturaButtom.Location = new System.Drawing.Point(3, 165);
@@ -324,16 +307,16 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(621, 40);
+            this.label6.Location = new System.Drawing.Point(570, 34);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(91, 16);
+            this.label6.Size = new System.Drawing.Size(148, 16);
             this.label6.TabIndex = 4;
-            this.label6.Text = "Descuento % ";
+            this.label6.Text = "Actualizacion y Multas : ";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(621, 9);
+            this.label4.Location = new System.Drawing.Point(650, 6);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(62, 16);
             this.label4.TabIndex = 3;
@@ -348,16 +331,16 @@
             this.txtTotal.Size = new System.Drawing.Size(100, 22);
             this.txtTotal.TabIndex = 2;
             // 
-            // txtDescuento
+            // txtMultas
             // 
-            this.txtDescuento.Location = new System.Drawing.Point(718, 34);
-            this.txtDescuento.Name = "txtDescuento";
-            this.txtDescuento.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtDescuento.Size = new System.Drawing.Size(100, 22);
-            this.txtDescuento.TabIndex = 1;
-            this.txtDescuento.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtDescuento_MouseClick);
-            this.txtDescuento.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescuento_KeyPress);
-            this.txtDescuento.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtDescuento_KeyUp);
+            this.txtMultas.Location = new System.Drawing.Point(718, 34);
+            this.txtMultas.Name = "txtMultas";
+            this.txtMultas.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtMultas.Size = new System.Drawing.Size(100, 22);
+            this.txtMultas.TabIndex = 1;
+            this.txtMultas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtDescuento_MouseClick);
+            this.txtMultas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescuento_KeyPress);
+            this.txtMultas.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtDescuento_KeyUp);
             // 
             // txtImporte
             // 
@@ -370,12 +353,44 @@
             // 
             // panelCapturaTop
             // 
+            this.panelCapturaTop.Controls.Add(this.btnAddCuota);
+            this.panelCapturaTop.Controls.Add(this.label13);
             this.panelCapturaTop.Controls.Add(this.cmbPeriodos);
             this.panelCapturaTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelCapturaTop.Location = new System.Drawing.Point(3, 18);
             this.panelCapturaTop.Name = "panelCapturaTop";
-            this.panelCapturaTop.Size = new System.Drawing.Size(820, 34);
+            this.panelCapturaTop.Size = new System.Drawing.Size(820, 43);
             this.panelCapturaTop.TabIndex = 13;
+            // 
+            // btnAddCuota
+            // 
+            this.btnAddCuota.Image = global::WFPGranjas.Properties.Resources.agregar_notas;
+            this.btnAddCuota.Location = new System.Drawing.Point(672, 9);
+            this.btnAddCuota.Name = "btnAddCuota";
+            this.btnAddCuota.Size = new System.Drawing.Size(137, 28);
+            this.btnAddCuota.TabIndex = 16;
+            this.btnAddCuota.Text = "Agregar Renglon";
+            this.btnAddCuota.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAddCuota.UseVisualStyleBackColor = true;
+            this.btnAddCuota.Click += new System.EventHandler(this.btnAddCuota_Click);
+            this.btnAddCuota.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnAddCuota_MouseDown);
+            this.btnAddCuota.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnAddCuota_MouseUp);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(329, 15);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(161, 16);
+            this.label13.TabIndex = 1;
+            this.label13.Text = "Cuota de Mantenimiento : ";
+            // 
+            // cmbPeriodos
+            // 
+            this.cmbPeriodos.Location = new System.Drawing.Point(492, 12);
+            this.cmbPeriodos.Name = "cmbPeriodos";
+            this.cmbPeriodos.Size = new System.Drawing.Size(178, 24);
+            this.cmbPeriodos.TabIndex = 0;
             // 
             // panelTop
             // 
@@ -498,206 +513,11 @@
             this.dgPropietario.Visible = false;
             this.dgPropietario.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgPropietario_CellMouseDoubleClick);
             // 
-            // groupBoxMeses
-            // 
-            this.groupBoxMeses.BackColor = System.Drawing.Color.OldLace;
-            this.groupBoxMeses.Controls.Add(this.chk12Dic);
-            this.groupBoxMeses.Controls.Add(this.chk11Nov);
-            this.groupBoxMeses.Controls.Add(this.chk10Oct);
-            this.groupBoxMeses.Controls.Add(this.chk09Sep);
-            this.groupBoxMeses.Controls.Add(this.chk08Ago);
-            this.groupBoxMeses.Controls.Add(this.chk07Jul);
-            this.groupBoxMeses.Controls.Add(this.chk06Jun);
-            this.groupBoxMeses.Controls.Add(this.chk05May);
-            this.groupBoxMeses.Controls.Add(this.chk04Abr);
-            this.groupBoxMeses.Controls.Add(this.chk03Mar);
-            this.groupBoxMeses.Controls.Add(this.chk02Feb);
-            this.groupBoxMeses.Controls.Add(this.chk01Ene);
-            this.groupBoxMeses.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBoxMeses.Location = new System.Drawing.Point(40, 22);
-            this.groupBoxMeses.Name = "groupBoxMeses";
-            this.groupBoxMeses.Size = new System.Drawing.Size(200, 169);
-            this.groupBoxMeses.TabIndex = 10;
-            this.groupBoxMeses.TabStop = false;
-            // 
-            // chk12Dic
-            // 
-            this.chk12Dic.AutoSize = true;
-            this.chk12Dic.Location = new System.Drawing.Point(117, 136);
-            this.chk12Dic.Name = "chk12Dic";
-            this.chk12Dic.Size = new System.Drawing.Size(52, 22);
-            this.chk12Dic.TabIndex = 11;
-            this.chk12Dic.Text = "DIC";
-            this.chk12Dic.UseVisualStyleBackColor = true;
-            // 
-            // chk11Nov
-            // 
-            this.chk11Nov.AutoSize = true;
-            this.chk11Nov.Location = new System.Drawing.Point(117, 114);
-            this.chk11Nov.Name = "chk11Nov";
-            this.chk11Nov.Size = new System.Drawing.Size(59, 22);
-            this.chk11Nov.TabIndex = 10;
-            this.chk11Nov.Text = "NOV";
-            this.chk11Nov.UseVisualStyleBackColor = true;
-            // 
-            // chk10Oct
-            // 
-            this.chk10Oct.AutoSize = true;
-            this.chk10Oct.Location = new System.Drawing.Point(116, 91);
-            this.chk10Oct.Name = "chk10Oct";
-            this.chk10Oct.Size = new System.Drawing.Size(59, 22);
-            this.chk10Oct.TabIndex = 9;
-            this.chk10Oct.Text = "OCT";
-            this.chk10Oct.UseVisualStyleBackColor = true;
-            // 
-            // chk09Sep
-            // 
-            this.chk09Sep.AutoSize = true;
-            this.chk09Sep.Location = new System.Drawing.Point(115, 67);
-            this.chk09Sep.Name = "chk09Sep";
-            this.chk09Sep.Size = new System.Drawing.Size(57, 22);
-            this.chk09Sep.TabIndex = 8;
-            this.chk09Sep.Text = "SEP";
-            this.chk09Sep.UseVisualStyleBackColor = true;
-            // 
-            // chk08Ago
-            // 
-            this.chk08Ago.AutoSize = true;
-            this.chk08Ago.Location = new System.Drawing.Point(115, 43);
-            this.chk08Ago.Name = "chk08Ago";
-            this.chk08Ago.Size = new System.Drawing.Size(60, 22);
-            this.chk08Ago.TabIndex = 7;
-            this.chk08Ago.Text = "AGO";
-            this.chk08Ago.UseVisualStyleBackColor = true;
-            // 
-            // chk07Jul
-            // 
-            this.chk07Jul.AutoSize = true;
-            this.chk07Jul.Location = new System.Drawing.Point(115, 21);
-            this.chk07Jul.Name = "chk07Jul";
-            this.chk07Jul.Size = new System.Drawing.Size(54, 22);
-            this.chk07Jul.TabIndex = 6;
-            this.chk07Jul.Text = "JUL";
-            this.chk07Jul.UseVisualStyleBackColor = true;
-            // 
-            // chk06Jun
-            // 
-            this.chk06Jun.AutoSize = true;
-            this.chk06Jun.Location = new System.Drawing.Point(24, 137);
-            this.chk06Jun.Name = "chk06Jun";
-            this.chk06Jun.Size = new System.Drawing.Size(57, 22);
-            this.chk06Jun.TabIndex = 5;
-            this.chk06Jun.Text = "JUN";
-            this.chk06Jun.UseVisualStyleBackColor = true;
-            // 
-            // chk05May
-            // 
-            this.chk05May.AutoSize = true;
-            this.chk05May.Location = new System.Drawing.Point(24, 114);
-            this.chk05May.Name = "chk05May";
-            this.chk05May.Size = new System.Drawing.Size(58, 22);
-            this.chk05May.TabIndex = 4;
-            this.chk05May.Text = "MAY";
-            this.chk05May.UseVisualStyleBackColor = true;
-            // 
-            // chk04Abr
-            // 
-            this.chk04Abr.AutoSize = true;
-            this.chk04Abr.Location = new System.Drawing.Point(22, 90);
-            this.chk04Abr.Name = "chk04Abr";
-            this.chk04Abr.Size = new System.Drawing.Size(57, 22);
-            this.chk04Abr.TabIndex = 3;
-            this.chk04Abr.Text = "ABR";
-            this.chk04Abr.UseVisualStyleBackColor = true;
-            // 
-            // chk03Mar
-            // 
-            this.chk03Mar.AutoSize = true;
-            this.chk03Mar.Location = new System.Drawing.Point(22, 67);
-            this.chk03Mar.Name = "chk03Mar";
-            this.chk03Mar.Size = new System.Drawing.Size(60, 22);
-            this.chk03Mar.TabIndex = 2;
-            this.chk03Mar.Text = "MAR";
-            this.chk03Mar.UseVisualStyleBackColor = true;
-            // 
-            // chk02Feb
-            // 
-            this.chk02Feb.AutoSize = true;
-            this.chk02Feb.Location = new System.Drawing.Point(22, 43);
-            this.chk02Feb.Name = "chk02Feb";
-            this.chk02Feb.Size = new System.Drawing.Size(56, 22);
-            this.chk02Feb.TabIndex = 1;
-            this.chk02Feb.Text = "FEB";
-            this.chk02Feb.UseVisualStyleBackColor = true;
-            // 
-            // chk01Ene
-            // 
-            this.chk01Ene.AutoSize = true;
-            this.chk01Ene.Location = new System.Drawing.Point(22, 21);
-            this.chk01Ene.Name = "chk01Ene";
-            this.chk01Ene.Size = new System.Drawing.Size(58, 22);
-            this.chk01Ene.TabIndex = 0;
-            this.chk01Ene.Text = "ENE";
-            this.chk01Ene.UseVisualStyleBackColor = true;
-            // 
-            // btnApliCalculoAnt
-            // 
-            this.btnApliCalculoAnt.Location = new System.Drawing.Point(47, 196);
-            this.btnApliCalculoAnt.Name = "btnApliCalculoAnt";
-            this.btnApliCalculoAnt.Size = new System.Drawing.Size(75, 23);
-            this.btnApliCalculoAnt.TabIndex = 12;
-            this.btnApliCalculoAnt.Text = "Aplicar";
-            this.btnApliCalculoAnt.UseVisualStyleBackColor = true;
-            this.btnApliCalculoAnt.Click += new System.EventHandler(this.btnApliCalculoAnt_Click);
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(141, 196);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 13;
-            this.button3.Text = "Cancelar";
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
-            // pnlMeses
-            // 
-            this.pnlMeses.BackColor = System.Drawing.Color.OldLace;
-            this.pnlMeses.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlMeses.Controls.Add(this.label3);
-            this.pnlMeses.Controls.Add(this.button3);
-            this.pnlMeses.Controls.Add(this.groupBoxMeses);
-            this.pnlMeses.Controls.Add(this.btnApliCalculoAnt);
-            this.pnlMeses.Location = new System.Drawing.Point(319, 165);
-            this.pnlMeses.Name = "pnlMeses";
-            this.pnlMeses.Size = new System.Drawing.Size(273, 244);
-            this.pnlMeses.TabIndex = 11;
-            this.pnlMeses.Visible = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(17, 5);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(142, 18);
-            this.label3.TabIndex = 14;
-            this.label3.Text = "Meses a Anticipar";
-            // 
-            // cmbPeriodos
-            // 
-            this.cmbPeriodos.FormattingEnabled = true;
-            this.cmbPeriodos.Location = new System.Drawing.Point(92, 7);
-            this.cmbPeriodos.Name = "cmbPeriodos";
-            this.cmbPeriodos.Size = new System.Drawing.Size(121, 24);
-            this.cmbPeriodos.TabIndex = 0;
-            // 
             // frmPagoMto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(921, 543);
-            this.Controls.Add(this.pnlMeses);
             this.Controls.Add(this.dgPropietario);
             this.Controls.Add(this.groupCuota);
             this.Controls.Add(this.groupDColono);
@@ -716,13 +536,10 @@
             this.panelCapturaButtom.ResumeLayout(false);
             this.panelCapturaButtom.PerformLayout();
             this.panelCapturaTop.ResumeLayout(false);
+            this.panelCapturaTop.PerformLayout();
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPropietario)).EndInit();
-            this.groupBoxMeses.ResumeLayout(false);
-            this.groupBoxMeses.PerformLayout();
-            this.pnlMeses.ResumeLayout(false);
-            this.pnlMeses.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -742,28 +559,11 @@
         private System.Windows.Forms.TextBox txtColono;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dgPropietario;
-        private System.Windows.Forms.GroupBox groupBoxMeses;
-        private System.Windows.Forms.CheckBox chk06Jun;
-        private System.Windows.Forms.CheckBox chk05May;
-        private System.Windows.Forms.CheckBox chk04Abr;
-        private System.Windows.Forms.CheckBox chk03Mar;
-        private System.Windows.Forms.CheckBox chk02Feb;
-        private System.Windows.Forms.CheckBox chk01Ene;
-        private System.Windows.Forms.CheckBox chk12Dic;
-        private System.Windows.Forms.CheckBox chk11Nov;
-        private System.Windows.Forms.CheckBox chk10Oct;
-        private System.Windows.Forms.CheckBox chk09Sep;
-        private System.Windows.Forms.CheckBox chk08Ago;
-        private System.Windows.Forms.CheckBox chk07Jul;
-        private System.Windows.Forms.Button button3;
-        private System.Windows.Forms.Button btnApliCalculoAnt;
-        private System.Windows.Forms.Panel pnlMeses;
-        private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtTotal;
-        private System.Windows.Forms.TextBox txtDescuento;
+        private System.Windows.Forms.TextBox txtMultas;
         private System.Windows.Forms.TextBox txtImporte;
         private System.Windows.Forms.TextBox txtImpEf;
         private System.Windows.Forms.Label label8;
@@ -783,6 +583,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbManzana;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Button btnAddCuota;
         private System.Windows.Forms.ComboBox cmbPeriodos;
     }
 }

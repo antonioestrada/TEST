@@ -60,6 +60,7 @@
     <Compile Include="Backend\Globales.cs" />
     <Compile Include="Backend\Procesos\PrcPagoMto.cs" />
     <Compile Include="Backend\Procesos\PrcAnticipos.cs" />
+    <Compile Include="Backend\Procesos\Cuota.cs" />
     <Compile Include="Backend\Properties.cs" />
     <Compile Include="Backend\Utilerias.cs" />
     <Compile Include="frmPagoMto.cs">

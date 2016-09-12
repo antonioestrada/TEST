@@ -46,36 +46,47 @@ namespace WFPGranjas.Backend.Procesos
         #endregion
 
         #region consulta cuotas con adeudo
-        public void consultaAdeucoCuotas(ComboBox cmb, int id_lote)
+        public Dictionary<int, Cuota> consultaAdeucoCuotas(ComboBox cmb, int id_lote,int servicio, Dictionary<int, String> cmbCuotas2)
         {
-
+            Dictionary<int, Cuota> Cuotas = new Dictionary<int, Cuota>();
 
             //iniciamos la conexion con el servidor
             // Backend.Conexion.IniciarSesion(vGlobal.Server, vGlobal.BD, vGlobal.Usr, vGlobal.Pwd, vGlobal.BD);
             //llenamos nuestro reader con la consulta de nuestro SP
-            IDataReader reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_frm_PagoMto_CAdeudos(" + id_lote + ")");
+            IDataReader reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_frm_PagoMto_CAdeudos(" + id_lote + ","+servicio+")");
             //siclamos cada registro que contiene nuestro reader
-            List<ResultadoTrnx> arreglo = new List<ResultadoTrnx>();
+         //   Dictionary<int,String> arreglo = new Dictionary<int,String>();
             while (reader.Read())
             {
                 //lenamos nuestro grid con nuestro reader.
-                ResultadoTrnx puesto = new ResultadoTrnx();
-                puesto.Cve_resultado = int.Parse(reader.GetValue(0).ToString());
-                puesto.Mensaje = reader.GetValue(1).ToString();
-
-                arreglo.Add(puesto);
-
+               // ResultadoTrnx puesto = new ResultadoTrnx();
+                int id = int.Parse(reader.GetValue(0).ToString());
+                Cuota cuota = new Cuota();
+                cuota.id = id;
+                cuota.idServicio= int.Parse(reader.GetValue(1).ToString());
+                cuota.importe   = Double.Parse(reader.GetValue(2).ToString());
+                cuota.estatus   = reader.GetValue(4).ToString();
+                cuota.servicio  = reader.GetValue(5).ToString();
+                cuota.periodo   = reader.GetValue(6).ToString();
+                cuota.idPeriodo = reader.GetValue(7).ToString();
+                cuota.tarifa    = reader.GetValue(8).ToString();
+                //  arreglo.Cve_resultado = id;
+                // puesto.Mensaje = reader.GetValue(3).ToString();
+                cmbCuotas2.Add(id, reader.GetValue(3).ToString());
+              //  arreglo.Add(id, reader.GetValue(3).ToString());
+                Cuotas.Add(id, cuota);
 
             }
-            var ab = from a in arreglo
-                     orderby a.Cve_resultado
+            var ab = from a in cmbCuotas2
+                     orderby a.Key
                      select a;
             cmb.DataSource = ab.ToList();
-            cmb.DisplayMember = "Mensaje";
-            cmb.ValueMember = "Cve_resultado";
+            cmb.DisplayMember = "value";
+            cmb.ValueMember = "Key";
 
             Conexion.FinalizarSesion();
-        }
+        return Cuotas;
+}
         #endregion
 
         #region consulta cuotas pagadas Mantenimiento
@@ -102,7 +113,7 @@ namespace WFPGranjas.Backend.Procesos
         public Boolean registroCuotas(Object[] parames)
         {
 
-            System.Data.IDataReader resul = Conexion.GDatos.TraerDataReader("gestion_granjas.sp_frm_Antp_AddAnticipo", parames);
+            System.Data.IDataReader resul = Conexion.GDatos.TraerDataReader("gestion_granjas.sp_frm_PagoMto_AddPago", parames);
         
             //seteo 
             Boolean resultado = Convert.ToBoolean(resul.GetValue(0));
