@@ -207,10 +207,12 @@ namespace WFPGranjas
 
         private void ShowNewForm(object sender, EventArgs e)
         {
-            Form childForm = new Form();
-            childForm.MdiParent = this;
-            childForm.Text = "Window " + childFormNumber++;
-            childForm.Show();
+            cerrarVentanas();
+            //if (childFormCatUsuarios ==null)
+            frmPrcCuotas childFormGenCuotas = new frmPrcCuotas();
+
+            childFormGenCuotas.MdiParent = this;
+            childFormGenCuotas.Show();
         }
 
         private void OpenFile(object sender, EventArgs e)
@@ -433,14 +435,6 @@ namespace WFPGranjas
             childFormCatPerfiles.Show();
         }
 
-        private void acGeneracionCA_Click(object sender, EventArgs e)
-        {
-            cerrarVentanas();
-            //if (childFormCatUsuarios ==null)
-            frmPrcCuotas childFormGenCuotas = new frmPrcCuotas();
-
-            childFormGenCuotas.MdiParent = this;
-            childFormGenCuotas.Show();
-        }
+       
     }
 }
