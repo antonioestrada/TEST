@@ -432,5 +432,15 @@ namespace WFPGranjas
           //  childFormCatPerfiles.Size = new Size(370, 365);
             childFormCatPerfiles.Show();
         }
+
+        private void acGeneracionCA_Click(object sender, EventArgs e)
+        {
+            cerrarVentanas();
+            //if (childFormCatUsuarios ==null)
+            frmPrcCuotas childFormGenCuotas = new frmPrcCuotas();
+
+            childFormGenCuotas.MdiParent = this;
+            childFormGenCuotas.Show();
+        }
     }
 }

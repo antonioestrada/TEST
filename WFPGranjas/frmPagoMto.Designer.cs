@@ -215,6 +215,7 @@
             // 
             // cmbBancoFicha
             // 
+            this.cmbBancoFicha.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBancoFicha.FormattingEnabled = true;
             this.cmbBancoFicha.Location = new System.Drawing.Point(718, 125);
             this.cmbBancoFicha.Name = "cmbBancoFicha";
@@ -239,6 +240,7 @@
             // 
             // cmbBancoCheq
             // 
+            this.cmbBancoCheq.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBancoCheq.FormattingEnabled = true;
             this.cmbBancoCheq.Location = new System.Drawing.Point(449, 127);
             this.cmbBancoCheq.Name = "cmbBancoCheq";
@@ -387,6 +389,7 @@
             // 
             // cmbPeriodos
             // 
+            this.cmbPeriodos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPeriodos.Location = new System.Drawing.Point(492, 12);
             this.cmbPeriodos.Name = "cmbPeriodos";
             this.cmbPeriodos.Size = new System.Drawing.Size(178, 24);

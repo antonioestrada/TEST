@@ -380,7 +380,7 @@ namespace WFPGranjas
                 txtTotal.Text       = "0.00";
                 txtMultas.Text      = "0.00";
                 groupCuota.Visible = false;
-                MessageBox.Show("!Se restro Correctamente el Pago¡");
+                MessageBox.Show("!Se registro Correctamente el Pago¡");
             }
             
         }

@@ -58,6 +58,7 @@
     <Compile Include="Backend\Conexion.cs" />
     <Compile Include="Backend\GDatos.cs" />
     <Compile Include="Backend\Globales.cs" />
+    <Compile Include="Backend\Procesos\PrcCuotaMto.cs" />
     <Compile Include="Backend\Procesos\PrcPagoMto.cs" />
     <Compile Include="Backend\Procesos\PrcAnticipos.cs" />
     <Compile Include="Backend\Procesos\Cuota.cs" />
@@ -147,6 +148,12 @@
     <Compile Include="frmLogin.Designer.cs">
       <DependentUpon>frmLogin.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmPrcCuotas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmPrcCuotas.Designer.cs">
+      <DependentUpon>frmPrcCuotas.cs</DependentUpon>
+    </Compile>
     <Compile Include="MDIPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -196,6 +203,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmLogin2.resx">
       <DependentUpon>frmLogin2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmPrcCuotas.resx">
+      <DependentUpon>frmPrcCuotas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MDIPrincipal.resx">
       <DependentUpon>MDIPrincipal.cs</DependentUpon>
