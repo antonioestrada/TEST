@@ -29,6 +29,8 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblInfoMsj = new System.Windows.Forms.Label();
+            this.lblInfo = new System.Windows.Forms.Label();
             this.cmbAnios = new System.Windows.Forms.ComboBox();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.btnGenCuotas = new System.Windows.Forms.Button();
@@ -36,13 +38,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.bwProgress = new System.ComponentModel.BackgroundWorker();
-            this.lblInfo = new System.Windows.Forms.Label();
-            this.lblInfoMsj = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.Color.Cornsilk;
             this.groupBox1.Controls.Add(this.lblInfoMsj);
             this.groupBox1.Controls.Add(this.lblInfo);
             this.groupBox1.Controls.Add(this.cmbAnios);
@@ -59,13 +60,35 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Mes de Aplicacion";
             // 
+            // lblInfoMsj
+            // 
+            this.lblInfoMsj.AutoSize = true;
+            this.lblInfoMsj.Location = new System.Drawing.Point(203, 141);
+            this.lblInfoMsj.Name = "lblInfoMsj";
+            this.lblInfoMsj.Size = new System.Drawing.Size(196, 16);
+            this.lblInfoMsj.TabIndex = 9;
+            this.lblInfoMsj.Text = "Inicia proceso de Generacion ...";
+            this.lblInfoMsj.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblInfoMsj.Visible = false;
+            // 
+            // lblInfo
+            // 
+            this.lblInfo.AutoSize = true;
+            this.lblInfo.Location = new System.Drawing.Point(282, 157);
+            this.lblInfo.Name = "lblInfo";
+            this.lblInfo.Size = new System.Drawing.Size(27, 16);
+            this.lblInfo.TabIndex = 8;
+            this.lblInfo.Text = "0%";
+            this.lblInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblInfo.Visible = false;
+            // 
             // cmbAnios
             // 
             this.cmbAnios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbAnios.FormattingEnabled = true;
             this.cmbAnios.Location = new System.Drawing.Point(424, 47);
             this.cmbAnios.Name = "cmbAnios";
-            this.cmbAnios.Size = new System.Drawing.Size(94, 24);
+            this.cmbAnios.Size = new System.Drawing.Size(72, 24);
             this.cmbAnios.TabIndex = 7;
             // 
             // progressBar1
@@ -84,7 +107,7 @@
             this.btnGenCuotas.Name = "btnGenCuotas";
             this.btnGenCuotas.Size = new System.Drawing.Size(188, 25);
             this.btnGenCuotas.TabIndex = 5;
-            this.btnGenCuotas.Text = "Generar Cuotas del Mes";
+            this.btnGenCuotas.Text = "Generar Cuotas";
             this.btnGenCuotas.UseVisualStyleBackColor = true;
             this.btnGenCuotas.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -94,7 +117,7 @@
             this.cmbPeriodos.FormattingEnabled = true;
             this.cmbPeriodos.Location = new System.Drawing.Point(272, 49);
             this.cmbPeriodos.Name = "cmbPeriodos";
-            this.cmbPeriodos.Size = new System.Drawing.Size(110, 24);
+            this.cmbPeriodos.Size = new System.Drawing.Size(101, 24);
             this.cmbPeriodos.TabIndex = 4;
             // 
             // label2
@@ -123,32 +146,11 @@
             this.bwProgress.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bwProgress_ProgressChanged);
             this.bwProgress.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwProgress_RunWorkerCompleted);
             // 
-            // lblInfo
-            // 
-            this.lblInfo.AutoSize = true;
-            this.lblInfo.Location = new System.Drawing.Point(282, 157);
-            this.lblInfo.Name = "lblInfo";
-            this.lblInfo.Size = new System.Drawing.Size(27, 16);
-            this.lblInfo.TabIndex = 8;
-            this.lblInfo.Text = "0%";
-            this.lblInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblInfo.Visible = false;
-            // 
-            // lblInfoMsj
-            // 
-            this.lblInfoMsj.AutoSize = true;
-            this.lblInfoMsj.Location = new System.Drawing.Point(203, 141);
-            this.lblInfoMsj.Name = "lblInfoMsj";
-            this.lblInfoMsj.Size = new System.Drawing.Size(196, 16);
-            this.lblInfoMsj.TabIndex = 9;
-            this.lblInfoMsj.Text = "Inicia proceso de Generacion ...";
-            this.lblInfoMsj.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.lblInfoMsj.Visible = false;
-            // 
             // frmPrcCuotas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
             this.ClientSize = new System.Drawing.Size(605, 255);
             this.Controls.Add(this.groupBox1);
             this.Name = "frmPrcCuotas";
