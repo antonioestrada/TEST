@@ -64,6 +64,7 @@ namespace WFPGranjas.Backend.Procesos
                 Cuota cuota = new Cuota();
                 cuota.id = id;
                 cuota.idServicio= int.Parse(reader.GetValue(1).ToString());
+                double imp = Double.Parse(reader.GetValue(2).ToString());
                 cuota.importe   = Double.Parse(reader.GetValue(2).ToString());
                 cuota.estatus   = reader.GetValue(4).ToString();
                 cuota.servicio  = reader.GetValue(5).ToString();
@@ -72,7 +73,18 @@ namespace WFPGranjas.Backend.Procesos
                 cuota.tarifa    = reader.GetValue(8).ToString();
                 //  arreglo.Cve_resultado = id;
                 // puesto.Mensaje = reader.GetValue(3).ToString();
-                cmbCuotas2.Add(id, reader.GetValue(3).ToString());
+                if (servicio == 2)
+                {
+                    cmbCuotas2.Add(id, reader.GetValue(3).ToString());
+                    
+                }
+
+                if (servicio == 3)
+                {
+                    cmbCuotas2.Add(id, reader.GetValue(3).ToString() + " " + imp);
+                  
+                }
+
               //  arreglo.Add(id, reader.GetValue(3).ToString());
                 Cuotas.Add(id, cuota);
 

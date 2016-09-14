@@ -19,7 +19,7 @@ namespace WFPGranjas
     {
         int id_colono = 0,idManzana=0,idLote=0;
         String listaIDKardex;
-    
+        int servicio =0;
         double pagoTotal = 0;
         Dictionary<int, Cuota> cuotas;
         Dictionary<int, String> cmbCuotas;
@@ -227,8 +227,9 @@ namespace WFPGranjas
             return retorno;
         }
         #endregion
-        public frmPagoMto()
+        public frmPagoMto(int servicio)
         {
+            this.servicio = servicio;
             InitializeComponent();
             definicionDGBuscaColono();
             definicionDGCuotas();
@@ -262,11 +263,15 @@ namespace WFPGranjas
             pagoTotal = 0;
             Boolean resultado = false;
             PrcAnticipos prcAnticipos = new PrcAnticipos();
-            Object[] parames = {  idLote };
+            Object[] parames = {  idLote, servicio };
             resultado = prcAnticipos.validacionAdeudo(parames);
             if (!resultado)
             {
-                MessageBox.Show("El usuario no tiene cuotas atrasadas");
+                if(servicio ==2)
+                     MessageBox.Show("El usuario no tiene cuotas de mantenimiento atrasadas");
+                if (servicio == 3)
+                     MessageBox.Show("El usuario no tiene cuotas de agua atrasadas");
+
             }
             else
             {
@@ -275,7 +280,7 @@ namespace WFPGranjas
                  Backend.Procesos.PrcPagoMto BeanCPagos = new Backend.Procesos.PrcPagoMto();
                 cmbPeriodos.DataSource=null;
                 cmbCuotas = new Dictionary<int, String>();
-                cuotas = BeanCPagos.consultaAdeucoCuotas(cmbPeriodos, idLote,2, cmbCuotas);
+                cuotas = BeanCPagos.consultaAdeucoCuotas(cmbPeriodos, idLote,servicio, cmbCuotas);
                 BeanCPagos = null;
                 groupCuota.Visible = true;
                 dgPartidasR.Rows.Clear();
@@ -362,7 +367,7 @@ namespace WFPGranjas
 
             if (pagoTotal == totalImporte)
             {
-                Object[] parames = { listaIDKardex, idLote, 2, importeEfectivo, txtCheque.Text, bancoCheque, importeCheque, txtFicha.Text, bancoFicha, importFicha, multas };
+                Object[] parames = { listaIDKardex, idLote, servicio, importeEfectivo, txtCheque.Text, bancoCheque, importeCheque, txtFicha.Text, bancoFicha, importFicha, multas };
                 resultado = prcPago.registroCuotas(parames);
             }
             else {
@@ -434,7 +439,20 @@ namespace WFPGranjas
 
             var BeanCLotesMza = new Backend.Catalogos.CManzanaLotes();
             BeanCLotesMza.consultaMazaCombo(cmbManzana);
-          
+            if (servicio == 2)
+            {
+                lblMsj.Text = "Cuota de Mantenimiento : ";
+                lblMultas.Visible=true;
+                txtMultas.Visible = true;
+            }
+            if (servicio == 3)
+            {
+                lblMsj.Text = "Cuota de Agua : ";
+                lblMultas.Visible = false;
+                txtMultas.Visible = false;
+            }
+            
+
         }
 
         private void txtLote_KeyPress(object sender, KeyPressEventArgs e)

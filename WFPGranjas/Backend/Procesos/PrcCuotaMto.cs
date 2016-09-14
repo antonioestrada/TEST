@@ -15,14 +15,14 @@ namespace WFPGranjas.Backend.Procesos
     class PrcCuotaMto
     {
         #region consulta catalogo periodos
-        public void consultaPeriodos(ComboBox cmb, int op)
+        public void consultaPeriodos(ComboBox cmb, int op, int servicio)
         {
 
 
             //iniciamos la conexion con el servidor
             // Backend.Conexion.IniciarSesion(vGlobal.Server, vGlobal.BD, vGlobal.Usr, vGlobal.Pwd, vGlobal.BD);
             //llenamos nuestro reader con la consulta de nuestro SP
-            IDataReader reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_frm_PrcCuotas_CPeriodo("+op+")");
+            IDataReader reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_frm_PrcCuotas_CPeriodo("+op+","+ servicio + ")");
             //siclamos cada registro que contiene nuestro reader
             Dictionary<String, String> periodos = new Dictionary<String, String>();
             while (reader.Read())
@@ -46,10 +46,39 @@ namespace WFPGranjas.Backend.Procesos
         }
         #endregion
         #region registra  cuotas
-        public Boolean registroCuotas(Object[] parames)
+        public Boolean registroCuotasMA(Object[] parames)
         {
 
             System.Data.IDataReader resul = Conexion.GDatos.TraerDataReader("gestion_granjas.sp_frm_PrcCuotas_AddCuotaMA", parames);
+
+            //seteo 
+            Boolean resultado = Convert.ToBoolean(resul.GetValue(0));
+            Conexion.FinalizarSesion();
+
+            return resultado;
+        }
+        #endregion
+
+        #region registra  cuotas
+        public Boolean registroCuotasAgua(Object[] parames)
+        {
+
+            System.Data.IDataReader resul = Conexion.GDatos.TraerDataReader("gestion_granjas.sp_frm_PrcCuotas_AddCuotaAgua", parames);
+
+            //seteo 
+            Boolean resultado = Convert.ToBoolean(resul.GetValue(0));
+            Conexion.FinalizarSesion();
+
+            return resultado;
+        }
+        #endregion
+
+
+        #region valida lecturas de agua
+        public Boolean validaLecturasAgua(Object[] parames)
+        {
+
+            System.Data.IDataReader resul = Conexion.GDatos.TraerDataReader("gestion_granjas.sp_frm_PrcCuotas_ValidaLecturas", parames);
 
             //seteo 
             Boolean resultado = Convert.ToBoolean(resul.GetValue(0));

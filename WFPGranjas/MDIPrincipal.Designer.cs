@@ -407,6 +407,7 @@
             this.acLecturas.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
             this.acLecturas.Size = new System.Drawing.Size(300, 22);
             this.acLecturas.Text = "Registro de Lecturas del Mes";
+            this.acLecturas.Click += new System.EventHandler(this.acLecturas_Click);
             // 
             // acGeneracionCA
             // 
@@ -416,6 +417,7 @@
             this.acGeneracionCA.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
             this.acGeneracionCA.Size = new System.Drawing.Size(300, 22);
             this.acGeneracionCA.Text = "Generación de Cuotas del Mes";
+            this.acGeneracionCA.Click += new System.EventHandler(this.acGeneracionCA_Click);
             // 
             // toolStripSeparator6
             // 

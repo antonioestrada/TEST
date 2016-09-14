@@ -25,11 +25,15 @@ namespace WFPGranjas
             Conexion.IniciarSesion(vGlobal.Server, vGlobal.BD, vGlobal.Usr, vGlobal.Pwd, vGlobal.BD);
             Object[] parames = { txtUser.Text, txtPassword.Text };
             IDataReader resul = Conexion.GDatos.TraerDataReader("gestion_granjas.sp_frm_Login_ValidaUsr", parames);
-            if (Convert.ToInt16(resul.GetValue(0))>=1)
+            int valida = Convert.ToInt16(resul.GetValue(0));
+         
+            if (valida>=1)
             {
-               // lblPerfil.Text = resul.GetValue(1).ToString();
+                int perfil = Convert.ToInt16(resul.GetValue(1));
+                Conexion.FinalizarSesion();
+                // lblPerfil.Text = resul.GetValue(1).ToString();
                 this.Hide();
-                MDIPrincipal principal = new MDIPrincipal(Convert.ToInt16(resul.GetValue(1)));
+                MDIPrincipal principal = new MDIPrincipal(perfil, txtUser.Text);
                 principal.generaMenu();
                 principal.Show();
 

@@ -14,13 +14,27 @@ namespace WFPGranjas
     {
         String periodo = null;
         String anio = null;
-        public frmPrcCuotas()
+        int servicio = 0;
+        string usuario = null;
+        public frmPrcCuotas(int pServicio,string usuario)
         {
             InitializeComponent();
+            this.servicio = pServicio;
+            this.usuario = usuario;
         }
 
         private void frmPrcCuotas_Load(object sender, EventArgs e)
         {
+            if (servicio == 2) {
+                groupBox1.BackColor = Color.Cornsilk;
+                lblInd.Text = "Generar Cuotas de Mantenimiento del Mes ";
+            }
+
+            if (servicio == 3)
+            {
+                groupBox1.BackColor = Color.LightSkyBlue;
+                lblInd.Text = "Generar Cuotas de Agua del Mes ";
+            }
             actualizaDatos();
 
         }
@@ -30,11 +44,15 @@ namespace WFPGranjas
             periodo = cmbPeriodos.SelectedValue.ToString();
             anio = cmbAnios.SelectedValue.ToString();
 
-            lblInfo.Visible = true;
-            progressBar1.Visible = true;
-            lblInfoMsj.Visible = true;
+           
             //Iniciamos el trabajo
-            string message = "Deseas iniciar la Generacion de Cuotas de Mantenimiento?";
+            string message = null;
+            if (servicio==2)
+                 message = "Deseas iniciar la Generacion de Cuotas de Mantenimiento?";
+            if (servicio == 3)
+                message = "Deseas iniciar la Generacion de Cuotas de Agua?";
+
+
             string caption = "Confirmacion del Proceso ";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result;
@@ -50,28 +68,55 @@ namespace WFPGranjas
 
                 if (!bwProgress.IsBusy)
                 {
-                    bwProgress.RunWorkerAsync();
-                    //   btnCancelar.Enabled = true;
-                    btnGenCuotas.Enabled = false;
+                    if (servicio == 2)
+                    {
+                        lblInfo.Visible = true;
+                        progressBar1.Visible = true;
+                        lblInfoMsj.Visible = true;
+
+                        bwProgress.RunWorkerAsync();
+                        //   btnCancelar.Enabled = true;
+                        btnGenCuotas.Enabled = false;
+                    }
+                    if (servicio == 3)
+                    {
+                        var BeanCPeriodo = new Backend.Procesos.PrcCuotaMto();
+                        Object[] parames = { periodo, anio };
+                        Boolean validacion = BeanCPeriodo.validaLecturasAgua(parames);
+                        if (validacion)
+                        {
+                            lblInfo.Visible = true;
+                            progressBar1.Visible = true;
+                            lblInfoMsj.Visible = true;
+                            bwProgress.RunWorkerAsync();
+                            //   btnCancelar.Enabled = true;
+                            btnGenCuotas.Enabled = false;
+                        }
+                        else {
+                            MessageBox.Show("No a cargado las lecturas del periodo seleccionado");
+                        }
+                    }
                 }
-            }
-           
+            }           
 
         }
         public void actualizaDatos() {
 
             var BeanCPeriodo = new Backend.Procesos.PrcCuotaMto();
-            BeanCPeriodo.consultaPeriodos(cmbPeriodos, 1);
-            BeanCPeriodo.consultaPeriodos(cmbAnios, 2);
+            BeanCPeriodo.consultaPeriodos(cmbPeriodos, 1, servicio);
+            BeanCPeriodo.consultaPeriodos(cmbAnios, 2, servicio);
         }
         public void generacionCuotas() {
 
 
             Boolean resultado = false;
             var BeanCPeriodo = new Backend.Procesos.PrcCuotaMto();
-            Object[] parames = { periodo, anio, "system" };
+            Object[] parames = { periodo, anio, usuario };
+            if(servicio==2)
+                resultado = BeanCPeriodo.registroCuotasMA(parames);
+            if (servicio == 3)
+                resultado = BeanCPeriodo.registroCuotasAgua(parames);
 
-            resultado = BeanCPeriodo.registroCuotas(parames);
             if (resultado)
             {
 
@@ -87,8 +132,8 @@ namespace WFPGranjas
             {
                 //Realiza una tarea
                 System.Threading.Thread.Sleep(100);
-                if (i == init)
-                    generacionCuotas();
+                if (i == init) 
+                        generacionCuotas();
 
                 bwProgress.ReportProgress(i);
                 if (bwProgress.CancellationPending)
@@ -102,12 +147,12 @@ namespace WFPGranjas
             progressBar1.Value = e.ProgressPercentage;
             lblInfo.Text = e.ProgressPercentage + "%";
             if (e.ProgressPercentage > 1 && e.ProgressPercentage<=40) {
-                lblInfoMsj.Text = "Procesando Cuotas por Lote";
+                lblInfoMsj.Text = "Procesando Cuotas";
                
             }
             if (e.ProgressPercentage > 40 && e.ProgressPercentage < 70)
             {
-                lblInfoMsj.Text = "Aplicando Anticipo por Lote";
+                lblInfoMsj.Text = "Aplicando Anticipos";
      
             }
             if (e.ProgressPercentage >= 70 && e.ProgressPercentage < 99)

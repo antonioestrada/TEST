@@ -50,14 +50,14 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtImpEf = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblMultas = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.txtMultas = new System.Windows.Forms.TextBox();
             this.txtImporte = new System.Windows.Forms.TextBox();
             this.panelCapturaTop = new System.Windows.Forms.Panel();
             this.btnAddCuota = new System.Windows.Forms.Button();
-            this.label13 = new System.Windows.Forms.Label();
+            this.lblMsj = new System.Windows.Forms.Label();
             this.cmbPeriodos = new System.Windows.Forms.ComboBox();
             this.panelTop = new System.Windows.Forms.Panel();
             this.btnBuscar = new System.Windows.Forms.Button();
@@ -172,7 +172,7 @@
             this.panelCapturaButtom.Controls.Add(this.label8);
             this.panelCapturaButtom.Controls.Add(this.txtImpEf);
             this.panelCapturaButtom.Controls.Add(this.label7);
-            this.panelCapturaButtom.Controls.Add(this.label6);
+            this.panelCapturaButtom.Controls.Add(this.lblMultas);
             this.panelCapturaButtom.Controls.Add(this.label4);
             this.panelCapturaButtom.Controls.Add(this.txtTotal);
             this.panelCapturaButtom.Controls.Add(this.txtMultas);
@@ -306,14 +306,14 @@
             this.label7.TabIndex = 5;
             this.label7.Text = "Total a Pagar :";
             // 
-            // label6
+            // lblMultas
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(570, 34);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(148, 16);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "Actualizacion y Multas : ";
+            this.lblMultas.AutoSize = true;
+            this.lblMultas.Location = new System.Drawing.Point(570, 34);
+            this.lblMultas.Name = "lblMultas";
+            this.lblMultas.Size = new System.Drawing.Size(148, 16);
+            this.lblMultas.TabIndex = 4;
+            this.lblMultas.Text = "Actualizacion y Multas : ";
             // 
             // label4
             // 
@@ -356,7 +356,7 @@
             // panelCapturaTop
             // 
             this.panelCapturaTop.Controls.Add(this.btnAddCuota);
-            this.panelCapturaTop.Controls.Add(this.label13);
+            this.panelCapturaTop.Controls.Add(this.lblMsj);
             this.panelCapturaTop.Controls.Add(this.cmbPeriodos);
             this.panelCapturaTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelCapturaTop.Location = new System.Drawing.Point(3, 18);
@@ -378,21 +378,21 @@
             this.btnAddCuota.MouseDown += new System.Windows.Forms.MouseEventHandler(this.btnAddCuota_MouseDown);
             this.btnAddCuota.MouseUp += new System.Windows.Forms.MouseEventHandler(this.btnAddCuota_MouseUp);
             // 
-            // label13
+            // lblMsj
             // 
-            this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(329, 15);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(161, 16);
-            this.label13.TabIndex = 1;
-            this.label13.Text = "Cuota de Mantenimiento : ";
+            this.lblMsj.AutoSize = true;
+            this.lblMsj.Location = new System.Drawing.Point(311, 15);
+            this.lblMsj.Name = "lblMsj";
+            this.lblMsj.Size = new System.Drawing.Size(161, 16);
+            this.lblMsj.TabIndex = 1;
+            this.lblMsj.Text = "Cuota de Mantenimiento : ";
             // 
             // cmbPeriodos
             // 
             this.cmbPeriodos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbPeriodos.Location = new System.Drawing.Point(492, 12);
+            this.cmbPeriodos.Location = new System.Drawing.Point(474, 12);
             this.cmbPeriodos.Name = "cmbPeriodos";
-            this.cmbPeriodos.Size = new System.Drawing.Size(178, 24);
+            this.cmbPeriodos.Size = new System.Drawing.Size(196, 24);
             this.cmbPeriodos.TabIndex = 0;
             // 
             // panelTop
@@ -563,7 +563,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dgPropietario;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblMultas;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.TextBox txtMultas;
@@ -586,7 +586,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbManzana;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label lblMsj;
         private System.Windows.Forms.Button btnAddCuota;
         private System.Windows.Forms.ComboBox cmbPeriodos;
     }

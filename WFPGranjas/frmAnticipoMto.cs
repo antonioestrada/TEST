@@ -21,6 +21,7 @@ namespace WFPGranjas
         String listaMeses;
         List<int> listaCuotasPag;
         double pagoTotal = 0;
+        int servicio = 0;
         Utilerias utilities = new Utilerias();
         #region Definicion de Estructura de Columnas DataGridView PROPIETARIOS
         //DEFINIMOS LA ESTRUCTURA DE NUESTRO GRID LISTADO
@@ -184,11 +185,12 @@ namespace WFPGranjas
             return retorno;
         }
         #endregion
-        public frmAnticipoMto()
+        public frmAnticipoMto(int servicio)
         {
             InitializeComponent();
             definicionDGBuscaColono();
             definicionDGCuotas();
+            this.servicio = servicio;
         }
 
      
@@ -211,7 +213,7 @@ namespace WFPGranjas
         {
             Boolean resultado = false;
             PrcAnticipos prcAnticipos = new PrcAnticipos();
-            Object[] parames = {  idLote };
+            Object[] parames = {  idLote , servicio };
             resultado = prcAnticipos.validacionAdeudo(parames);
             if (resultado)
             {

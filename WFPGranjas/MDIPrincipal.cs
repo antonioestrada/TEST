@@ -14,9 +14,10 @@ namespace WFPGranjas
 {
     public partial class MDIPrincipal : Form
     {
-        private int childFormNumber = 0;
+        //private int childFormNumber = 0;
         frmLogin frmlogin = new frmLogin();
         int idPerf = 0;
+        string usuario = null;
         Globales vGlobal = new Globales();
 
         public MDIPrincipal()
@@ -24,9 +25,10 @@ namespace WFPGranjas
             InitializeComponent();
         }
 
-        public MDIPrincipal(int idPerfil)
+        public MDIPrincipal(int idPerfil,string usuario)
         {
            this.idPerf=idPerfil;
+            this.usuario = usuario;
             InitializeComponent();     
 
 
@@ -42,8 +44,8 @@ namespace WFPGranjas
             ////////////////////////////////////////////777
             ///     VALIDA MENU
             ///     
-
-            Conexion.IniciarSesion(vGlobal.Server, vGlobal.BD, vGlobal.Usr, vGlobal.Pwd, vGlobal.BD);
+            Conexion.conectar();
+          //  Conexion.IniciarSesion(vGlobal.Server, vGlobal.BD, vGlobal.Usr, vGlobal.Pwd, vGlobal.BD);
             Object[] parames = { idPerf };
             IDataReader reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_principal_perfil_menu(" + idPerf + ",1,0)");
 
@@ -53,9 +55,9 @@ namespace WFPGranjas
             {
                 menus.Add(Convert.ToInt16(reader.GetValue(0)), reader.GetValue(1).ToString());
             }
-
-            depuraMenuPrincipal(menus);
             Conexion.FinalizarSesion();
+            depuraMenuPrincipal(menus);
+            
         }
         public void depuraMenuPrincipal(Dictionary<int, String> menus)
         {
@@ -187,17 +189,18 @@ namespace WFPGranjas
         public Dictionary<int, String> consultaMenu(int tipo, int relacion)
         {
 
-            Conexion.IniciarSesion(vGlobal.Server, vGlobal.BD, vGlobal.Usr, vGlobal.Pwd, vGlobal.BD);
-
-            IDataReader reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_principal_perfil_menu(" + idPerf + "," + tipo + "," + relacion + ")");
+            // Conexion.IniciarSesion(vGlobal.Server, vGlobal.BD, vGlobal.Usr, vGlobal.Pwd, vGlobal.BD);
+            Conexion.conectar();
+             IDataReader reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_principal_perfil_menu(" + idPerf + "," + tipo + "," + relacion + ")");
 
             Dictionary<int, String> menus = new Dictionary<int, String>();
             while (reader.Read())
             {
                 menus.Add(Convert.ToInt16(reader.GetValue(0)), reader.GetValue(1).ToString());
             }
+            Conexion.FinalizarSesion();
             return menus;
-
+           
         }
 
         #endregion
@@ -209,7 +212,7 @@ namespace WFPGranjas
         {
             cerrarVentanas();
             //if (childFormCatUsuarios ==null)
-            frmPrcCuotas childFormGenCuotas = new frmPrcCuotas();
+            frmPrcCuotas childFormGenCuotas = new frmPrcCuotas(2, usuario);
 
             childFormGenCuotas.MdiParent = this;
             childFormGenCuotas.Show();
@@ -289,7 +292,7 @@ namespace WFPGranjas
 
         private void fcCuotasM_Click(object sender, EventArgs e)
         {
-            frmPagoMto childFormCuotasManto = new frmPagoMto();
+            frmPagoMto childFormCuotasManto = new frmPagoMto(2);
             childFormCuotasManto.MdiParent = this;
             childFormCuotasManto.Text = "Ingresos por Cuotas de Mantenimiento";
             childFormCuotasManto.Show();
@@ -305,10 +308,10 @@ namespace WFPGranjas
 
         private void fcCuotasA_Click(object sender, EventArgs e)
         {
-            frmIngresos childFormCuotasAgua = new frmIngresos();
-            childFormCuotasAgua.MdiParent = this;
-            childFormCuotasAgua.Text = "Ingresos por Cuotas de Agua";
-            childFormCuotasAgua.Show();
+            frmPagoMto childFormCuotasManto = new frmPagoMto(3);
+            childFormCuotasManto.MdiParent = this;
+            childFormCuotasManto.Text = "Ingresos por Cuotas de Agua";
+            childFormCuotasManto.Show();
         }
 
         private void MDIPrincipal_Load(object sender, EventArgs e)
@@ -428,13 +431,26 @@ namespace WFPGranjas
         {
             cerrarVentanas();
             //if (childFormCatUsuarios ==null)
-            frmAnticipoMto childFormCatPerfiles = new frmAnticipoMto();
+            frmAnticipoMto childFormCatPerfiles = new frmAnticipoMto(2);
 
             childFormCatPerfiles.MdiParent = this;
           //  childFormCatPerfiles.Size = new Size(370, 365);
             childFormCatPerfiles.Show();
         }
 
-       
+        private void acLecturas_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void acGeneracionCA_Click(object sender, EventArgs e)
+        {
+            cerrarVentanas();
+            //if (childFormCatUsuarios ==null)
+            frmPrcCuotas childFormGenCuotas = new frmPrcCuotas(3, usuario);
+          //  childFormGenCuotas.Text=""
+            childFormGenCuotas.MdiParent = this;
+            childFormGenCuotas.Show();
+        }
     }
 }

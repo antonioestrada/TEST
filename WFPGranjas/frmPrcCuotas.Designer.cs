@@ -36,14 +36,14 @@
             this.btnGenCuotas = new System.Windows.Forms.Button();
             this.cmbPeriodos = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.lblInd = new System.Windows.Forms.Label();
             this.bwProgress = new System.ComponentModel.BackgroundWorker();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.BackColor = System.Drawing.Color.Cornsilk;
+            this.groupBox1.BackColor = System.Drawing.Color.LightSkyBlue;
             this.groupBox1.Controls.Add(this.lblInfoMsj);
             this.groupBox1.Controls.Add(this.lblInfo);
             this.groupBox1.Controls.Add(this.cmbAnios);
@@ -51,7 +51,7 @@
             this.groupBox1.Controls.Add(this.btnGenCuotas);
             this.groupBox1.Controls.Add(this.cmbPeriodos);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.lblInd);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.groupBox1.Location = new System.Drawing.Point(27, 20);
             this.groupBox1.Name = "groupBox1";
@@ -129,15 +129,15 @@
             this.label2.TabIndex = 3;
             this.label2.Text = "de";
             // 
-            // label1
+            // lblInd
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
-            this.label1.Location = new System.Drawing.Point(6, 55);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(265, 16);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Generar Cuotas de Mantenimiento del Mes ";
+            this.lblInd.AutoSize = true;
+            this.lblInd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
+            this.lblInd.Location = new System.Drawing.Point(6, 55);
+            this.lblInd.Name = "lblInd";
+            this.lblInd.Size = new System.Drawing.Size(265, 16);
+            this.lblInd.TabIndex = 0;
+            this.lblInd.Text = "Generar Cuotas de Mantenimiento del Mes ";
             // 
             // bwProgress
             // 
@@ -167,7 +167,7 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.ComboBox cmbPeriodos;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label lblInd;
         private System.Windows.Forms.Button btnGenCuotas;
         private System.ComponentModel.BackgroundWorker bwProgress;
         private System.Windows.Forms.ProgressBar progressBar1;
