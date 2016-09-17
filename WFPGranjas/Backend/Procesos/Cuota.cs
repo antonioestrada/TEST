@@ -24,5 +24,7 @@ namespace WFPGranjas.Backend.Catalogos
         public String servicio { get; set; }
         //para servicio
         public String tarifa { get; set; }
+        //para anio
+        public String anio { get; set; }
     }
 }

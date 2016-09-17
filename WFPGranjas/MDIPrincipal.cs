@@ -432,7 +432,7 @@ namespace WFPGranjas
             cerrarVentanas();
             //if (childFormCatUsuarios ==null)
             frmAnticipoMto childFormCatPerfiles = new frmAnticipoMto(2);
-
+            childFormCatPerfiles.Text = "Anualidades y Anticipo de Mantenimiento";
             childFormCatPerfiles.MdiParent = this;
           //  childFormCatPerfiles.Size = new Size(370, 365);
             childFormCatPerfiles.Show();
@@ -451,6 +451,18 @@ namespace WFPGranjas
           //  childFormGenCuotas.Text=""
             childFormGenCuotas.MdiParent = this;
             childFormGenCuotas.Show();
+        }
+
+        private void fcAAgua_Click(object sender, EventArgs e)
+        {
+            cerrarVentanas();
+            //if (childFormCatUsuarios ==null)
+            frmAnticipoMto childFormCatPerfiles = new frmAnticipoMto(3);
+            childFormCatPerfiles.Text = "Anticipos a Cuotas de Agua";
+
+            childFormCatPerfiles.MdiParent = this;
+            //  childFormCatPerfiles.Size = new Size(370, 365);
+            childFormCatPerfiles.Show();
         }
     }
 }

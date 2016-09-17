@@ -50,7 +50,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.txtImpEf = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.lblDescuento = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.txtTotal = new System.Windows.Forms.TextBox();
             this.txtDescuento = new System.Windows.Forms.TextBox();
@@ -83,11 +83,15 @@
             this.button3 = new System.Windows.Forms.Button();
             this.pnlMeses = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
+            this.txtTotalAgua = new System.Windows.Forms.TextBox();
+            this.lblAntAgua = new System.Windows.Forms.Label();
+            this.btnAddCuota = new System.Windows.Forms.Button();
             this.groupDColono.SuspendLayout();
             this.groupCuota.SuspendLayout();
             this.panelCapturaCenter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPartidasR)).BeginInit();
             this.panelCapturaButtom.SuspendLayout();
+            this.panelCapturaTop.SuspendLayout();
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPropietario)).BeginInit();
             this.groupBoxMeses.SuspendLayout();
@@ -187,7 +191,7 @@
             this.panelCapturaButtom.Controls.Add(this.label8);
             this.panelCapturaButtom.Controls.Add(this.txtImpEf);
             this.panelCapturaButtom.Controls.Add(this.label7);
-            this.panelCapturaButtom.Controls.Add(this.label6);
+            this.panelCapturaButtom.Controls.Add(this.lblDescuento);
             this.panelCapturaButtom.Controls.Add(this.label4);
             this.panelCapturaButtom.Controls.Add(this.txtTotal);
             this.panelCapturaButtom.Controls.Add(this.txtDescuento);
@@ -321,14 +325,14 @@
             this.label7.TabIndex = 5;
             this.label7.Text = "Total a Pagar :";
             // 
-            // label6
+            // lblDescuento
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(621, 40);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(91, 16);
-            this.label6.TabIndex = 4;
-            this.label6.Text = "Descuento % ";
+            this.lblDescuento.AutoSize = true;
+            this.lblDescuento.Location = new System.Drawing.Point(621, 40);
+            this.lblDescuento.Name = "lblDescuento";
+            this.lblDescuento.Size = new System.Drawing.Size(91, 16);
+            this.lblDescuento.TabIndex = 4;
+            this.lblDescuento.Text = "Descuento % ";
             // 
             // label4
             // 
@@ -370,6 +374,9 @@
             // 
             // panelCapturaTop
             // 
+            this.panelCapturaTop.Controls.Add(this.btnAddCuota);
+            this.panelCapturaTop.Controls.Add(this.lblAntAgua);
+            this.panelCapturaTop.Controls.Add(this.txtTotalAgua);
             this.panelCapturaTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelCapturaTop.Location = new System.Drawing.Point(3, 18);
             this.panelCapturaTop.Name = "panelCapturaTop";
@@ -683,6 +690,37 @@
             this.label3.TabIndex = 14;
             this.label3.Text = "Meses a Anticipar";
             // 
+            // txtTotalAgua
+            // 
+            this.txtTotalAgua.Location = new System.Drawing.Point(612, 6);
+            this.txtTotalAgua.Name = "txtTotalAgua";
+            this.txtTotalAgua.Size = new System.Drawing.Size(100, 22);
+            this.txtTotalAgua.TabIndex = 0;
+            this.txtTotalAgua.Visible = false;
+            // 
+            // lblAntAgua
+            // 
+            this.lblAntAgua.AutoSize = true;
+            this.lblAntAgua.Location = new System.Drawing.Point(479, 9);
+            this.lblAntAgua.Name = "lblAntAgua";
+            this.lblAntAgua.Size = new System.Drawing.Size(132, 16);
+            this.lblAntAgua.TabIndex = 1;
+            this.lblAntAgua.Text = "Importe del Anticipo :";
+            this.lblAntAgua.Visible = false;
+            // 
+            // btnAddCuota
+            // 
+            this.btnAddCuota.Image = global::WFPGranjas.Properties.Resources.agregar_notas;
+            this.btnAddCuota.Location = new System.Drawing.Point(719, 3);
+            this.btnAddCuota.Name = "btnAddCuota";
+            this.btnAddCuota.Size = new System.Drawing.Size(99, 27);
+            this.btnAddCuota.TabIndex = 17;
+            this.btnAddCuota.Text = "Agregar Renglon";
+            this.btnAddCuota.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAddCuota.UseVisualStyleBackColor = true;
+            this.btnAddCuota.Visible = false;
+            this.btnAddCuota.Click += new System.EventHandler(this.btnAddCuota_Click);
+            // 
             // frmAnticipoMto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -706,6 +744,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgPartidasR)).EndInit();
             this.panelCapturaButtom.ResumeLayout(false);
             this.panelCapturaButtom.PerformLayout();
+            this.panelCapturaTop.ResumeLayout(false);
+            this.panelCapturaTop.PerformLayout();
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPropietario)).EndInit();
@@ -750,7 +790,7 @@
         private System.Windows.Forms.Panel pnlMeses;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label lblDescuento;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TextBox txtTotal;
         private System.Windows.Forms.TextBox txtDescuento;
@@ -773,5 +813,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.ComboBox cmbManzana;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label lblAntAgua;
+        private System.Windows.Forms.TextBox txtTotalAgua;
+        private System.Windows.Forms.Button btnAddCuota;
     }
 }

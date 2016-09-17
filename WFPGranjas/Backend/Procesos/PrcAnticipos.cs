@@ -99,11 +99,18 @@ namespace WFPGranjas.Backend.Procesos
         }
         #endregion
         #region registra  cuotas
-        public Boolean registroCuotas(Object[] parames)
+        public Boolean registroCuotas(Object[] parames,int servicio)
         {
+            System.Data.IDataReader resul = null;
 
-            System.Data.IDataReader resul = Conexion.GDatos.TraerDataReader("gestion_granjas.sp_frm_Antp_AddAnticipo", parames);
-        
+            if (servicio == 2)
+            {
+                resul = Conexion.GDatos.TraerDataReader("gestion_granjas.sp_frm_Antp_AddAnticipo", parames);
+            }
+            if (servicio == 3)
+            {
+                resul = Conexion.GDatos.TraerDataReader("gestion_granjas.sp_frm_Antp_AddAnticipoAgua", parames);
+            }
             //seteo 
             Boolean resultado = Convert.ToBoolean(resul.GetValue(0));
             Conexion.FinalizarSesion();

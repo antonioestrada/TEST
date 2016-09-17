@@ -702,6 +702,7 @@
             this.fcAAgua.Name = "fcAAgua";
             this.fcAAgua.Size = new System.Drawing.Size(182, 22);
             this.fcAAgua.Text = "Consumo de Agua";
+            this.fcAAgua.Click += new System.EventHandler(this.fcAAgua_Click);
             // 
             // fcAAnualidades
             // 

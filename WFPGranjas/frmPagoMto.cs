@@ -24,6 +24,8 @@ namespace WFPGranjas
         Dictionary<int, Cuota> cuotas;
         Dictionary<int, String> cmbCuotas;
         Utilerias utilities = new Utilerias();
+        PrcPagoMto prcPago = new PrcPagoMto();
+
         #region Definicion de Estructura de Columnas DataGridView PROPIETARIOS
         //DEFINIMOS LA ESTRUCTURA DE NUESTRO GRID LISTADO
         public void definicionDGBuscaColono()
@@ -176,6 +178,13 @@ namespace WFPGranjas
                                                   HeaderText = "Tarifa",
                                                   Width = 190
 
+                                              },
+                                               new DataGridViewTextBoxColumn
+                                              {
+                                                  ValueType = typeof (String),
+                                                  HeaderText = "Anio",
+                                                  Width = 190
+
                                               }
 
                                       });
@@ -187,6 +196,7 @@ namespace WFPGranjas
             dgPartidasR.Columns[1].Visible = false;
             dgPartidasR.Columns[2].Visible = false;
             dgPartidasR.Columns[3].Visible = false;
+            dgPartidasR.Columns[9].Visible = false;
             //dgLotes.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             //dgLotes.Columns[4].DefaultCellStyle.Format = "##,##0.0000";
 
@@ -277,11 +287,11 @@ namespace WFPGranjas
             {
                 //pnlMeses.Visible = true;
 
-                 Backend.Procesos.PrcPagoMto BeanCPagos = new Backend.Procesos.PrcPagoMto();
+               //  Backend.Procesos.PrcPagoMto BeanCPagos = new Backend.Procesos.PrcPagoMto();
                 cmbPeriodos.DataSource=null;
                 cmbCuotas = new Dictionary<int, String>();
-                cuotas = BeanCPagos.consultaAdeucoCuotas(cmbPeriodos, idLote,servicio, cmbCuotas);
-                BeanCPagos = null;
+                cuotas = prcPago.consultaAdeucoCuotas(cmbPeriodos, idLote,servicio, cmbCuotas);
+               // prcPago = null;
                 groupCuota.Visible = true;
                 dgPartidasR.Rows.Clear();
                 prcAnticipos.consultaBancos(cmbBancoCheq);
@@ -340,7 +350,6 @@ namespace WFPGranjas
             listaIDKardex = obtieneIDKardex();
 
             Boolean resultado=false;
-            PrcPagoMto prcPago = new PrcPagoMto();
 
             double importeEfectivo = double.Parse(txtImpEf.Text);
             int bancoCheque = int.Parse(cmbBancoCheq.SelectedValue.ToString());
@@ -367,7 +376,7 @@ namespace WFPGranjas
 
             if (pagoTotal == totalImporte)
             {
-                Object[] parames = { listaIDKardex, idLote, servicio, importeEfectivo, txtCheque.Text, bancoCheque, importeCheque, txtFicha.Text, bancoFicha, importFicha, multas };
+                Object[] parames = { listaIDKardex, idLote, servicio, importeEfectivo, txtCheque.Text, bancoCheque, importeCheque, txtFicha.Text, bancoFicha, importFicha, multas , id_colono };
                 resultado = prcPago.registroCuotas(parames);
             }
             else {
@@ -400,13 +409,17 @@ namespace WFPGranjas
             String IDKdx = "";
             DateTime fechaActual = DateTime.Now;
             int mes = fechaActual.Month;
-          
-            List<String> listaID = new List<string>();
+            
+            List<int> listaID = new List<int>();
             foreach (DataGridViewRow row in dgPartidasR.Rows)
             {
-                string nombre =row.Cells[0].Value.ToString();
-             
-                    listaID.Add(""+ nombre);
+                int idLote =int.Parse(row.Cells[0].Value.ToString());
+                string periodo  = row.Cells[3].Value.ToString();
+                string anio     = row.Cells[9].Value.ToString();
+                if(servicio==3)
+                prcPago.consultaCuotasAgua(listaID, idLote,periodo, anio);
+                if(servicio==2)
+                    listaID.Add(idLote);
 
             }
             listaID = listaID.OrderBy(p =>int.Parse(p.ToString())).ToList();
@@ -500,7 +513,7 @@ namespace WFPGranjas
             //lenamos nuestro grid con nuestro reader.
             if (cmbPeriodos.Items.Count > 0)
             {
-
+             
                 int renglon = dgPartidasR.Rows.Add();
                 //id
                 dgPartidasR.Rows[renglon].Cells[0].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].id;
@@ -517,6 +530,7 @@ namespace WFPGranjas
                 dgPartidasR.Rows[renglon].Cells[6].Value = "$ " + importe;
                 dgPartidasR.Rows[renglon].Cells[7].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].estatus;
                 dgPartidasR.Rows[renglon].Cells[8].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].tarifa;
+                dgPartidasR.Rows[renglon].Cells[9].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].anio;
 
                 pagoTotal += double.Parse(cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].importe.ToString());
 

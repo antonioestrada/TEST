@@ -71,6 +71,7 @@ namespace WFPGranjas.Backend.Procesos
                 cuota.periodo   = reader.GetValue(6).ToString();
                 cuota.idPeriodo = reader.GetValue(7).ToString();
                 cuota.tarifa    = reader.GetValue(8).ToString();
+                cuota.anio      = reader.GetValue(9).ToString();
                 //  arreglo.Cve_resultado = id;
                 // puesto.Mensaje = reader.GetValue(3).ToString();
                 if (servicio == 2)
@@ -124,11 +125,15 @@ namespace WFPGranjas.Backend.Procesos
         #region registra  cuotas
         public Boolean registroCuotas(Object[] parames)
         {
-
+            Boolean resultado = false;
             System.Data.IDataReader resul = Conexion.GDatos.TraerDataReader("gestion_granjas.sp_frm_PagoMto_AddPago", parames);
-        
-            //seteo 
-            Boolean resultado = Convert.ToBoolean(resul.GetValue(0));
+            resultado = Convert.ToBoolean(resul.GetValue(0));
+            /*
+            while (resul.Read())
+            {
+                //seteo 
+                 resultado = Convert.ToBoolean(resul.GetValue(0));
+            }*/
             Conexion.FinalizarSesion();
 
             return resultado;
@@ -190,6 +195,26 @@ namespace WFPGranjas.Backend.Procesos
         }
         #endregion
 
+        #region consulta cuotase de agua en Kardex 
+        public void consultaCuotasAgua(List<int> cmb, int idLote,string periodo,string anio)
+        {
+
+
+            //iniciamos la conexion con el servidor
+            // Backend.Conexion.IniciarSesion(vGlobal.Server, vGlobal.BD, vGlobal.Usr, vGlobal.Pwd, vGlobal.BD);
+            //llenamos nuestro reader con la consulta de nuestro SP
+            IDataReader reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_frm_PagoMto_CFolioKardex(" + idLote + ",'"+periodo+"','"+anio+"')");
+            //siclamos cada registro que contiene nuestro reader
+
+            while (reader.Read())
+            {
+                cmb.Add(int.Parse(reader.GetValue(0).ToString()));
+
+            }
+
+            Conexion.FinalizarSesion();
+        }
+        #endregion
 
     }
 }

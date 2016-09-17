@@ -206,6 +206,8 @@ namespace WFPGranjas
                 btnCapturaR.Enabled = true;
                 groupCuota.Visible = false;
                 pnlMeses.Visible = false;
+                pagoTotal = 0;
+
             }
         }
 
@@ -217,16 +219,34 @@ namespace WFPGranjas
             resultado = prcAnticipos.validacionAdeudo(parames);
             if (resultado)
             {
-                MessageBox.Show("El usuario no puede dar anticipo de Mantenimiento , Ya que cuenta con cuotas atrasadas");
+                MessageBox.Show("El usuario no puede dar anticipo , Ya que cuenta con cuotas atrasadas");
             }
             else
             {
-                pnlMeses.Visible = true;
-                incializaMeses();
-                listaCuotasPag = new List<int>();
+                if (servicio == 2)
+                {
+                    pnlMeses.Visible = true;
+                    incializaMeses();
+                    listaCuotasPag = new List<int>();
+                    // Extrae meses con anticipo
+                    prcAnticipos.consultaCuotasPagadas(listaCuotasPag, idLote);
+                    validaMeses();
+                }
+                if (servicio == 3)
+                {
+                    prcAnticipos.consultaBancos(cmbBancoCheq);
+                    prcAnticipos.consultaBancos(cmbBancoFicha);
+                    groupCuota.Visible = true;
+                    lblAntAgua.Visible = true;
+                    txtTotalAgua.Visible = true;
+                    lblDescuento.Visible = false;
+                    txtDescuento.Visible = false;
+                    btnAddCuota.Visible = true;
+                    dgPartidasR.Columns[0].Width = 500;
+                    dgPartidasR.Columns[2].Width = 304;
 
-                prcAnticipos.consultaCuotasPagadas(listaCuotasPag,idLote);
-                validaMeses();
+                    dgPartidasR.Columns[1].Visible = false;
+                }
             }
         }
 
@@ -313,9 +333,17 @@ namespace WFPGranjas
 
             double importeEfectivo = double.Parse(txtImpEf.Text);
             int bancoCheque = int.Parse(cmbBancoCheq.SelectedValue.ToString());
-            double importeCheque = double.Parse(txtImpChq.Text);
+            double importeCheque = 0;
+            if (txtImpChq.Text != "" && txtImpChq.Text != ".")
+            {
+                importeCheque = double.Parse(txtImpChq.Text);
+            }
             int bancoFicha = int.Parse(cmbBancoFicha.SelectedValue.ToString());
-            double importFicha = double.Parse(txtImpFicha.Text);
+            double importFicha = 0;
+            if (txtImpFicha.Text != "" && txtImpFicha.Text != ".")
+            {
+                importFicha = double.Parse(txtImpFicha.Text);
+            }
             double totalImporte = (importeEfectivo + importeCheque + importFicha);
             double descuento =0;
 
@@ -327,8 +355,11 @@ namespace WFPGranjas
 
             if (pagoTotal == totalImporte)
             {
-                Object[] parames = { id_colono, idManzana, idLote, listaMeses, importeEfectivo, txtCheque.Text, bancoCheque, importeCheque, txtFicha.Text, bancoFicha, importFicha, descuento };
-                resultado = prcAnticipos.registroCuotas(parames);
+               
+                
+                    Object[] parames = { id_colono, idManzana, idLote, listaMeses, importeEfectivo, txtCheque.Text, bancoCheque, importeCheque, txtFicha.Text, bancoFicha, importFicha, descuento, servicio };
+                    resultado = prcAnticipos.registroCuotas(parames, servicio);
+
             }
             else {
                 if(totalImporte  > pagoTotal)
@@ -342,7 +373,7 @@ namespace WFPGranjas
                 txtImpChq.Text   = "0.00";
                 txtImpFicha.Text = "0.00";
                 groupCuota.Visible = false;
-                MessageBox.Show("!Se restro Correctamente el Pago¡");
+                MessageBox.Show("!Se registro Correctamente el Pago¡");
             }
 
         }
@@ -447,6 +478,30 @@ namespace WFPGranjas
         private void txtDescuento_MouseClick(object sender, MouseEventArgs e)
         {
             txtDescuento.SelectAll();
+        }
+
+        private void btnAddCuota_Click(object sender, EventArgs e)
+        {
+            //lenamos nuestro grid con nuestro reader.
+            if (Double.Parse(txtTotalAgua.Text) > 0)
+            {
+                int renglon = dgPartidasR.Rows.Add();
+
+                //Servicio
+                dgPartidasR.Rows[renglon].Cells[0].Value ="Anticipo de cuota de Agua";
+
+                dgPartidasR.Columns[1].Visible = false;
+                //Cuota
+                String importe = String.Format(CultureInfo.InvariantCulture,
+                                 "{0:0,0.0}", txtTotalAgua.Text);
+                dgPartidasR.Rows[renglon].Cells[2].Value = "$ " + importe;
+
+                pagoTotal  += Double.Parse(txtTotalAgua.Text);
+                txtImporte.Text = String.Format(CultureInfo.InvariantCulture, "{0:0,0.00}", txtTotalAgua.Text);
+                txtDescuento.Text = "0.00";
+                txtTotal.Text = String.Format(CultureInfo.InvariantCulture, "{0:0,0.00}", txtTotalAgua.Text);
+
+            }
         }
 
         public Boolean validaNumeros(TextBox txt, object sender, KeyPressEventArgs e) {
