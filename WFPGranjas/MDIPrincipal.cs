@@ -380,7 +380,7 @@ namespace WFPGranjas
         {
             frmCCalculoManto childFormMantenimiento = new frmCCalculoManto();
             childFormMantenimiento.MdiParent = this;
-            //childFormMantenimiento.Size = new Size(560, 220);
+            childFormMantenimiento.Size = new Size(553, 340);
             childFormMantenimiento.Show();
         }
 

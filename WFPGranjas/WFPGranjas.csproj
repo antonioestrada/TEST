@@ -51,8 +51,10 @@
     <Compile Include="Backend\Catalogos\CColonos.cs" />
     <Compile Include="Backend\Catalogos\CManzanaLotes.cs" />
     <Compile Include="Backend\Catalogos\CMedidores.cs" />
+    <Compile Include="Backend\Catalogos\CParametros.cs" />
     <Compile Include="Backend\Catalogos\CPerfiles.cs" />
     <Compile Include="Backend\Catalogos\CPuestos.cs" />
+    <Compile Include="Backend\Catalogos\CTarifas.cs" />
     <Compile Include="Backend\Catalogos\CUsuarios.cs" />
     <Compile Include="Backend\Catalogos\ResultadoTrnx.cs" />
     <Compile Include="Backend\Conexion.cs" />
@@ -64,6 +66,12 @@
     <Compile Include="Backend\Procesos\Cuota.cs" />
     <Compile Include="Backend\Properties.cs" />
     <Compile Include="Backend\Utilerias.cs" />
+    <Compile Include="frmCCalculoManto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCCalculoManto.designer.cs">
+      <DependentUpon>frmCCalculoManto.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPagoMto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -81,12 +89,6 @@
     </Compile>
     <Compile Include="frmCBancos.Designer.cs">
       <DependentUpon>frmCBancos.cs</DependentUpon>
-    </Compile>
-    <Compile Include="frmCCalculoManto.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="frmCCalculoManto.Designer.cs">
-      <DependentUpon>frmCCalculoManto.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCColonos.cs">
       <SubType>Form</SubType>
@@ -162,6 +164,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmCCalculoManto.resx">
+      <DependentUpon>frmCCalculoManto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPagoMto.resx">
       <DependentUpon>frmPagoMto.cs</DependentUpon>
     </EmbeddedResource>
@@ -170,9 +175,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCBancos.resx">
       <DependentUpon>frmCBancos.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="frmCCalculoManto.resx">
-      <DependentUpon>frmCCalculoManto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCColonos.resx">
       <DependentUpon>frmCColonos.cs</DependentUpon>

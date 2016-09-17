@@ -12,6 +12,22 @@ namespace WFPGranjas.Backend.Catalogos
 {
     class CTarifas
     {
+        #region ABC Tarifas
+        public ResultadoTrnx abcTarifas(Object[] parames)
+        {
+            ResultadoTrnx resultado = new ResultadoTrnx();
+           
+            System.Data.IDataReader resul = Conexion.GDatos.TraerDataReader("gestion_granjas.sp_tarifas_ABCMantenimiento", parames);
+            //seteo las variables de mi clase  ResultadoTrnx
+
+            //seteo 
+            resultado.Cve_resultado = Convert.ToInt16(resul.GetValue(0));
+            resultado.Mensaje = Convert.ToString(resul.GetValue(1));
+
+            return resultado;
+        }
+        #endregion
+
         #region AltaBajaCambio Tarifas Manto
         public ResultadoTrnx altaTarifaManto(Object[] parames)
         {
