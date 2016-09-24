@@ -664,6 +664,7 @@
             this.fcCuotasEC.Name = "fcCuotasEC";
             this.fcCuotasEC.Size = new System.Drawing.Size(282, 22);
             this.fcCuotasEC.Text = "Cuotas Extraordinarias y Convenios";
+            this.fcCuotasEC.Click += new System.EventHandler(this.fcCuotasEC_Click);
             // 
             // toolStripSeparator10
             // 

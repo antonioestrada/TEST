@@ -72,3 +72,4 @@ C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.MDIPrincipal.re
 C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.Properties.Resources.resources
 C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.csproj.GenerateResource.Cache
 C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.frmPrcCuotas.resources
+C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.frmConvenios.resources

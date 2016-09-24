@@ -464,5 +464,18 @@ namespace WFPGranjas
             //  childFormCatPerfiles.Size = new Size(370, 365);
             childFormCatPerfiles.Show();
         }
+
+        private void fcCuotasEC_Click(object sender, EventArgs e)
+        {
+            cerrarVentanas();
+            //if (childFormCatUsuarios ==null)
+            frmConvenios childFormCatPerfiles = new frmConvenios(3);
+            childFormCatPerfiles.Text = "Registro de Convenios";
+
+            childFormCatPerfiles.MdiParent = this;
+            //  childFormCatPerfiles.Size = new Size(370, 365);
+            childFormCatPerfiles.Show();
+
+        }
     }
 }

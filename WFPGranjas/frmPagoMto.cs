@@ -21,6 +21,7 @@ namespace WFPGranjas
         String listaIDKardex;
         int servicio =0;
         double pagoTotal = 0;
+        double saldoAnticipo = 0;
         Dictionary<int, Cuota> cuotas;
         Dictionary<int, String> cmbCuotas;
         Utilerias utilities = new Utilerias();
@@ -185,6 +186,13 @@ namespace WFPGranjas
                                                   HeaderText = "Anio",
                                                   Width = 190
 
+                                              },
+                                               new DataGridViewTextBoxColumn
+                                              {
+                                                  ValueType = typeof (int),
+                                                  HeaderText = "idLote",
+                                                  Width = 190
+
                                               }
 
                                       });
@@ -197,6 +205,7 @@ namespace WFPGranjas
             dgPartidasR.Columns[2].Visible = false;
             dgPartidasR.Columns[3].Visible = false;
             dgPartidasR.Columns[9].Visible = false;
+            dgPartidasR.Columns[10].Visible = false;
             //dgLotes.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             //dgLotes.Columns[4].DefaultCellStyle.Format = "##,##0.0000";
 
@@ -296,6 +305,15 @@ namespace WFPGranjas
                 dgPartidasR.Rows.Clear();
                 prcAnticipos.consultaBancos(cmbBancoCheq);
                 prcAnticipos.consultaBancos(cmbBancoFicha);
+
+                /*if (servicio == 3) {
+                    PrcPagoMto prcPago = new PrcPagoMto();
+                    saldoAnticipo = prcPago.consultaSaldoAnticipo(id_colono);
+                    txtMultas.Text = String.Format(CultureInfo.InvariantCulture, "{0:0,0.0}", saldoAnticipo);
+
+                }*/
+
+
             }
         }
 
@@ -413,7 +431,7 @@ namespace WFPGranjas
             List<int> listaID = new List<int>();
             foreach (DataGridViewRow row in dgPartidasR.Rows)
             {
-                int idLote =int.Parse(row.Cells[0].Value.ToString());
+                int idLote =int.Parse(row.Cells[10].Value.ToString());
                 string periodo  = row.Cells[3].Value.ToString();
                 string anio     = row.Cells[9].Value.ToString();
                 if(servicio==3)
@@ -460,9 +478,13 @@ namespace WFPGranjas
             }
             if (servicio == 3)
             {
+
                 lblMsj.Text = "Cuota de Agua : ";
-                lblMultas.Visible = false;
-                txtMultas.Visible = false;
+                  lblMultas.Visible = false;
+                  txtMultas.Visible = false; 
+               
+              //  txtMultas.Enabled = false;
+              //  lblMultas.Text = "Saldo a favor :";
             }
             
 
@@ -510,6 +532,7 @@ namespace WFPGranjas
 
         private void btnAddCuota_Click(object sender, EventArgs e)
         {
+            double saldoNetoAnticipo = 0;
             //lenamos nuestro grid con nuestro reader.
             if (cmbPeriodos.Items.Count > 0)
             {
@@ -531,8 +554,16 @@ namespace WFPGranjas
                 dgPartidasR.Rows[renglon].Cells[7].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].estatus;
                 dgPartidasR.Rows[renglon].Cells[8].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].tarifa;
                 dgPartidasR.Rows[renglon].Cells[9].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].anio;
+                dgPartidasR.Rows[renglon].Cells[10].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].id;
 
                 pagoTotal += double.Parse(cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].importe.ToString());
+                if (pagoTotal >= saldoAnticipo)
+                {
+                    pagoTotal = pagoTotal - saldoAnticipo;
+                    saldoNetoAnticipo=saldoAnticipo - pagoTotal;
+                }
+
+                txtMultas.Text = String.Format(CultureInfo.InvariantCulture, "{0:0,0.0}", saldoNetoAnticipo);
 
                 cmbCuotas.Remove(int.Parse(cmbPeriodos.SelectedValue.ToString()));
                 cmbPeriodos.DataSource = null;

@@ -58,12 +58,19 @@
     <Compile Include="Backend\Conexion.cs" />
     <Compile Include="Backend\GDatos.cs" />
     <Compile Include="Backend\Globales.cs" />
+    <Compile Include="Backend\Procesos\PrcConvenios.cs" />
     <Compile Include="Backend\Procesos\PrcCuotaMto.cs" />
     <Compile Include="Backend\Procesos\PrcPagoMto.cs" />
     <Compile Include="Backend\Procesos\PrcAnticipos.cs" />
     <Compile Include="Backend\Procesos\Cuota.cs" />
     <Compile Include="Backend\Properties.cs" />
     <Compile Include="Backend\Utilerias.cs" />
+    <Compile Include="frmConvenios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConvenios.Designer.cs">
+      <DependentUpon>frmConvenios.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmPagoMto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -162,6 +169,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="frmConvenios.resx">
+      <DependentUpon>frmConvenios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmPagoMto.resx">
       <DependentUpon>frmPagoMto.cs</DependentUpon>
     </EmbeddedResource>
