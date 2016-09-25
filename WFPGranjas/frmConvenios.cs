@@ -18,7 +18,10 @@ namespace WFPGranjas
     public partial class frmConvenios : Form
     {
         int id_colono = 0,idManzana=0,idLote=0;
-
+        double adeudoAgua = 0;
+        double adeudoMto = 0;
+        double adeudoExt = 0;
+        double totalAdeudo = 0;
         int servicio = 0;
         Utilerias utilities = new Utilerias();
         #region Definicion de Estructura de Columnas DataGridView PROPIETARIOS
@@ -126,14 +129,14 @@ namespace WFPGranjas
                                               {
                                                   ValueType = typeof (Int32),
                                                   HeaderText = "Periodo",
-                                                  Width = 102
+                                                  Width = 65
 
                                               },
                                                new DataGridViewTextBoxColumn
                                               {
                                                   ValueType = typeof (Int32),
                                                   HeaderText = "Importe",
-                                                  Width = 102
+                                                  Width = 80
 
                                               }
 
@@ -148,6 +151,145 @@ namespace WFPGranjas
 
         }
         #endregion
+
+        #region Definicion de Estructura de Columnas DataGridView  Agua
+        //DEFINIMOS LA ESTRUCTURA DE NUESTRO GRID LISTADO
+        public void definicionDGCuotasAgua()
+        {
+
+            dgAdeAgua.GetType().GetProperty("DoubleBuffered", BindingFlags.Instance | BindingFlags.NonPublic).SetValue(dgPropietario, true, null);
+
+            // grid.RowHeadersWidth = 20;
+            // int colWidth = ((grid.ClientSize.Width - grid.RowHeadersWidth) >> 1) - 1;
+            dgAdeAgua.Columns.AddRange(new DataGridViewColumn[]
+                                      {
+                                              new DataGridViewTextBoxColumn
+                                              {
+                                                  ValueType = typeof (Int32),
+                                                  HeaderText = "Servicio",
+                                                  Width = 80
+                                              },
+                                              new DataGridViewTextBoxColumn
+                                              {
+                                                  ValueType = typeof (Int32),
+                                                  HeaderText = "Periodo",
+                                                  Width = 65
+
+                                              },
+                                               new DataGridViewTextBoxColumn
+                                              {
+                                                  ValueType = typeof (Int32),
+                                                  HeaderText = "Importe",
+                                                  Width = 80
+
+                                              }
+
+                                      });
+
+
+            dgAdeAgua.DefaultCellStyle.Font = new Font("Arial", 14F, GraphicsUnit.Pixel);
+            dgAdeAgua.RowHeadersVisible = false;
+            //dgLotes.Columns[1].Visible = false;
+            //dgLotes.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            //dgLotes.Columns[4].DefaultCellStyle.Format = "##,##0.0000";
+
+        }
+        #endregion
+
+        #region Definicion de Estructura de Columnas DataGridView  Extra
+        //DEFINIMOS LA ESTRUCTURA DE NUESTRO GRID LISTADO
+        public void definicionDGCuotasExtra()
+        {
+
+            dgAdeExt.GetType().GetProperty("DoubleBuffered", BindingFlags.Instance | BindingFlags.NonPublic).SetValue(dgPropietario, true, null);
+
+            // grid.RowHeadersWidth = 20;
+            // int colWidth = ((grid.ClientSize.Width - grid.RowHeadersWidth) >> 1) - 1;
+            dgAdeExt.Columns.AddRange(new DataGridViewColumn[]
+                                      {
+                                              new DataGridViewTextBoxColumn
+                                              {
+                                                  ValueType = typeof (Int32),
+                                                  HeaderText = "Servicio",
+                                                  Width = 80
+                                              },
+                                              new DataGridViewTextBoxColumn
+                                              {
+                                                  ValueType = typeof (Int32),
+                                                  HeaderText = "Periodo",
+                                                  Width = 60
+
+                                              },
+                                               new DataGridViewTextBoxColumn
+                                              {
+                                                  ValueType = typeof (Int32),
+                                                  HeaderText = "Importe",
+                                                  Width = 80
+
+                                              }
+
+                                      });
+
+
+            dgAdeExt.DefaultCellStyle.Font = new Font("Arial", 14F, GraphicsUnit.Pixel);
+            dgAdeExt.RowHeadersVisible = false;
+            //dgLotes.Columns[1].Visible = false;
+            //dgLotes.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            //dgLotes.Columns[4].DefaultCellStyle.Format = "##,##0.0000";
+
+        }
+        #endregion
+
+        #region Definicion de Estructura de Columnas DataGridView  Extra
+        //DEFINIMOS LA ESTRUCTURA DE NUESTRO GRID LISTADO
+        public void definicionDGConvenio()
+        {
+
+            dgConvenio.GetType().GetProperty("DoubleBuffered", BindingFlags.Instance | BindingFlags.NonPublic).SetValue(dgPropietario, true, null);
+
+            // grid.RowHeadersWidth = 20;
+            // int colWidth = ((grid.ClientSize.Width - grid.RowHeadersWidth) >> 1) - 1;
+            dgConvenio.Columns.AddRange(new DataGridViewColumn[]
+                                      {
+                                              new DataGridViewTextBoxColumn
+                                              {
+                                                  ValueType = typeof (string),
+                                                  HeaderText = "Servicio",
+                                                  Width = 80
+                                              },
+                                              new DataGridViewTextBoxColumn
+                                              {
+                                                  ValueType = typeof (Int32),
+                                                  HeaderText = "#Pago",
+                                                  Width = 40
+                                              },
+                                              new DataGridViewTextBoxColumn
+                                              {
+                                                  ValueType = typeof (String),
+                                                  HeaderText = "fecha_pago",
+                                                  Width = 100
+
+                                              },
+                                               new DataGridViewTextBoxColumn
+                                              {
+                                                  ValueType = typeof (Int32),
+                                                  HeaderText = "Importe",
+                                                  Width = 90
+
+                                              }
+
+                                      });
+
+
+            dgConvenio.DefaultCellStyle.Font = new Font("Arial", 14F, GraphicsUnit.Pixel);
+            dgConvenio.RowHeadersVisible = false;
+            //dgLotes.Columns[1].Visible = false;
+            //dgLotes.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            //dgLotes.Columns[4].DefaultCellStyle.Format = "##,##0.0000";
+
+        }
+        #endregion
+
         #region comprueba si hay Propietarios
         public int compruebaPropietario(DataGridView dGrid)
         {
@@ -189,6 +331,9 @@ namespace WFPGranjas
             InitializeComponent();
             definicionDGBuscaColono();
             definicionDGCuotas();
+            definicionDGCuotasAgua();
+            definicionDGCuotasExtra();
+            definicionDGConvenio();
             this.servicio = servicio;
         }
 
@@ -223,15 +368,24 @@ namespace WFPGranjas
             else
             {
                 visibleGroup();
-                prcAnticipos.consultaAdeudosConcepto(dgAdeMto, idLote, 2);
+                consultaAdeudos();
             }
         }
+        public void consultaAdeudos() {
+            PrcConvenios prcAnticipos = new PrcConvenios();
+            adeudoMto = prcAnticipos.consultaAdeudosConcepto(dgAdeMto, idLote, 2);
+            adeudoAgua = prcAnticipos.consultaAdeudosConcepto(dgAdeAgua, idLote, 3);
+            adeudoExt = prcAnticipos.consultaAdeudosConcepto(dgAdeExt, idLote, 4);
 
-        private void btnApliCalculoAnt_Click(object sender, EventArgs e)
-        {
-           
-           
-
+            lblTotalAdeAgua.Text = "" + String.Format(CultureInfo.InvariantCulture,
+                           "{0:0,0.00}", adeudoAgua);
+            lblTotalAdeMto.Text = "" + String.Format(CultureInfo.InvariantCulture,
+                           "{0:0,0.00}", adeudoMto);
+            lblTotalAdeExt.Text = "" + String.Format(CultureInfo.InvariantCulture,
+                           "{0:0,0.00}", adeudoExt);
+            totalAdeudo = adeudoMto + adeudoAgua + adeudoExt;
+            lblImporteTotal.Text = "" + String.Format(CultureInfo.InvariantCulture,
+                           "{0:0,0.00}", totalAdeudo);
         }
 
         private void txtColono_KeyDown(object sender, KeyEventArgs e)
@@ -241,35 +395,7 @@ namespace WFPGranjas
             dgPropietario.Visible = true;
             dgPropietario.BringToFront();
         }
-
-        private void button3_Click(object sender, EventArgs e)
-        {
-    
-        }
-
-       
-
-        private void btnCapturaPago_Click(object sender, EventArgs e)
-        {
-          
-
-        }
-
-        private void txtImpEf_KeyPress(object sender, KeyPressEventArgs e)
-        {
-          
-        }
-
-       
-
-        private void txtImpChq_KeyPress(object sender, KeyPressEventArgs e)
-        {
-        }
-
-        private void txtImpFicha_KeyPress(object sender, KeyPressEventArgs e)
-        {
-            
-        }
+        
 
         private void frmAnticipoMto_Load(object sender, EventArgs e)
         {
@@ -290,28 +416,6 @@ namespace WFPGranjas
         }
 
        
-        private void txtDescuento_KeyPress(object sender, KeyPressEventArgs e)
-        {
-         
-        }
-
- 
-
-        private void txtDescuento_KeyUp(object sender, KeyEventArgs e)
-        {
-          
-        }
-
-        private void txtDescuento_MouseClick(object sender, MouseEventArgs e)
-        {
-        }
-
-        private void btnAddCuota_Click(object sender, EventArgs e)
-        {
-           
-           
-        }
-        
 
         public Boolean validaNumeros(TextBox txt, object sender, KeyPressEventArgs e) {
             if (txt.Text.Contains('.'))
@@ -385,6 +489,46 @@ namespace WFPGranjas
         }
         #endregion
 
+        private void groupDColono_Paint(object sender, PaintEventArgs e)
+        {
+            GroupBox box = sender as GroupBox;
+            DrawGroupBox(box, e.Graphics, Color.Red, Color.Blue);
+            box.BackColor = Color.Snow;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            int diaLimite = int.Parse(txtDiaPago.Text);
+            if (diaLimite <= validaDiaMes())
+            {
+                lblAguaAde.SendToBack();
+                groupAgua.SendToBack();
+                lblExtAde.SendToBack();
+                groupExt.SendToBack();
+                pnlConvenio.BringToFront ();
+                pnlConvenio.Visible = true;
+                groupConvenio.Visible = true;
+                PrcConvenios prcAnticipos = new PrcConvenios();
+                double impTConvenio = Double.Parse(txtImpConvenio.Text);
+                double pagoMensual = Double.Parse(txtPagoMensual.Text);
+
+                Boolean accion = false;
+                double total= prcAnticipos.generaConvenio(dgConvenio, idLote, totalAdeudo, impTConvenio, pagoMensual, diaLimite, accion);
+                pnlResult.BackColor = Color.DeepSkyBlue;
+                lblMensaje.ForeColor = Color.White;
+                lblVTotalConvenio.Text = "" + String.Format(CultureInfo.InvariantCulture,
+                               "{0:0,0.00}", total);
+               // lblMensaje.Text = "¡Ingresa los campos obligatorios!";
+            }
+            else {
+                pnlResult.Visible = true;
+                pnlResult.BackColor = Color.OrangeRed;
+                lblMensaje.Text = "¡Ingresa los campos obligatorios!";
+                lblMensaje.ForeColor = Color.White;
+
+            }
+         }
+
         public void visibleGroup() {
             gBDefConvenio.Visible = true;
             groupAgua.Visible = true;
@@ -396,6 +540,105 @@ namespace WFPGranjas
 
 
 
+        }
+
+
+        public void invisibleGroup()
+        {
+            gBDefConvenio.Visible = false;
+            groupAgua.Visible = false;
+            groupMto.Visible = false;
+            groupExt.Visible = false;
+            lblAguaAde.Visible = false;
+            lblMtoAde.Visible = false;
+            lblExtAde.Visible = false;
+
+
+
+        }
+
+
+        private void btnCancelConvenio_Click(object sender, EventArgs e)
+        {
+            pnlConvenio.Visible = false;
+        }
+
+        private void btnOkConvenio_Click(object sender, EventArgs e)
+        {
+            PrcConvenios prcAnticipos = new PrcConvenios();
+            double impTConvenio = Double.Parse(txtImpConvenio.Text);
+            double pagoMensual = Double.Parse(txtPagoMensual.Text);
+            int diaLimite = int.Parse(txtDiaPago.Text);
+            Boolean accion = true;
+            Boolean resultado = prcAnticipos.registroConvenio( idLote, totalAdeudo, impTConvenio, pagoMensual, diaLimite, accion);
+            if (resultado)
+            {
+                pnlConvenio.Visible = false;
+                consultaAdeudos();
+                invisibleGroup();
+                txtImpConvenio.Text = "00.0";
+                txtPagoMensual.Text = "00.0";
+                txtDiaPago.Text = "00.0";
+                lblImporteTotal.Text = "00.0";
+
+                MessageBox.Show("Se registro satisfactoriamente el convenio");
+                
+            }
+            else {
+                MessageBox.Show("No se pudo registrar el convenio, intenter nuevamente");
+            }
+        }
+
+        public int validaDiaMes() {
+
+            DateTime fechatemp = DateTime.Today;
+
+            //DateTime fechatemp = new DateTime(2014, 12, 31);
+
+            DateTime fecha1 = new DateTime(fechatemp.Year, fechatemp.Month, 1);
+            DateTime fecha2;
+
+            if (fechatemp.Month + 1 < 13)
+            { fecha2 = new DateTime(fechatemp.Year, fechatemp.Month + 1, 1).AddDays(-1); }
+            else
+            { fecha2 = new DateTime(fechatemp.Year + 1, 1, 1).AddDays(-1); }
+
+           return fecha2.Day;
+        }
+
+        private void DrawGroupBox(GroupBox box, Graphics g, Color textColor, Color borderColor)
+        {
+            if (box != null)
+            {
+                Brush textBrush = new SolidBrush(textColor);
+                Brush borderBrush = new SolidBrush(borderColor);
+                Pen borderPen = new Pen(borderBrush);
+                SizeF strSize = g.MeasureString(box.Text, box.Font);
+                Rectangle rect = new Rectangle(box.ClientRectangle.X,
+                                               box.ClientRectangle.Y + (int)(strSize.Height / 2),
+                                               box.ClientRectangle.Width - 1,
+                                               box.ClientRectangle.Height - (int)(strSize.Height / 2) - 1);
+
+                // Clear text and border
+                g.Clear(this.BackColor);
+
+                // Draw text
+                g.DrawString(box.Text, box.Font, textBrush, box.Padding.Left, 0);
+
+                // Drawing Border
+                //Left
+                g.DrawLine(borderPen, rect.Location, new Point(rect.X, rect.Y + rect.Height));
+                //Right
+                g.DrawLine(borderPen, new Point(rect.X + rect.Width, rect.Y), new Point(rect.X + rect.Width, rect.Y + rect.Height));
+                //Bottom
+                g.DrawLine(borderPen, new Point(rect.X, rect.Y + rect.Height), new Point(rect.X + rect.Width, rect.Y + rect.Height));
+                //Top1
+                g.DrawLine(borderPen, new Point(rect.X, rect.Y), new Point(rect.X + box.Padding.Left, rect.Y));
+                //Top2
+                g.DrawLine(borderPen, new Point(rect.X + box.Padding.Left + (int)(strSize.Width), rect.Y), new Point(rect.X + rect.Width, rect.Y));
+
+               
+            }
         }
     }
 }
