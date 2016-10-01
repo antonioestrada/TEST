@@ -589,6 +589,17 @@ namespace WFPGranjas
             }
         }
 
+        private void txtImpConvenio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validaNumeros(txtImpConvenio, sender, e);
+        }
+
+        private void txtPagoMensual_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validaNumeros(txtPagoMensual, sender, e);
+
+        }
+
         public int validaDiaMes() {
 
             DateTime fechatemp = DateTime.Today;

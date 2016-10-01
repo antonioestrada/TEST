@@ -678,6 +678,7 @@
             this.fcCasaC.Name = "fcCasaC";
             this.fcCasaC.Size = new System.Drawing.Size(282, 22);
             this.fcCasaC.Text = "Servicios Casa Club";
+            this.fcCasaC.Click += new System.EventHandler(this.fcCasaC_Click);
             // 
             // fcAnticipios
             // 

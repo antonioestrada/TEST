@@ -86,8 +86,13 @@ namespace WFPGranjas.Backend.Procesos
                     cmbCuotas2.Add(i, reader.GetValue(3).ToString() + " " + imp);
                   
                 }
+                if (servicio == 4)
+                {
+                    cmbCuotas2.Add(i, reader.GetValue(3).ToString());
 
-              //  arreglo.Add(id, reader.GetValue(3).ToString());
+                }
+
+                //  arreglo.Add(id, reader.GetValue(3).ToString());
                 Cuotas.Add(i, cuota);
                 i++;
 

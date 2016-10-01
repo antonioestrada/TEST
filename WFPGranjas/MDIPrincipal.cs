@@ -477,5 +477,13 @@ namespace WFPGranjas
             childFormCatPerfiles.Show();
 
         }
+
+        private void fcCasaC_Click(object sender, EventArgs e)
+        {
+            frmPagoMto childFormCuotasManto = new frmPagoMto(4);
+            childFormCuotasManto.MdiParent = this;
+            childFormCuotasManto.Text = "Ingresos por Cuotas de Convenios";
+            childFormCuotasManto.Show();
+        }
     }
 }

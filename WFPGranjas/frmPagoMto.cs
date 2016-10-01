@@ -287,9 +287,11 @@ namespace WFPGranjas
             if (!resultado)
             {
                 if(servicio ==2)
-                     MessageBox.Show("El usuario no tiene cuotas de mantenimiento atrasadas");
+                     MessageBox.Show("El lote no tiene cuotas de mantenimiento atrasadas");
                 if (servicio == 3)
-                     MessageBox.Show("El usuario no tiene cuotas de agua atrasadas");
+                    MessageBox.Show("El lote no tiene cuotas de agua atrasadas");
+                if (servicio == 4)
+                    MessageBox.Show("El lote no tiene convenio");
 
             }
             else
@@ -557,13 +559,16 @@ namespace WFPGranjas
                 dgPartidasR.Rows[renglon].Cells[10].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].id;
 
                 pagoTotal += double.Parse(cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].importe.ToString());
-                if (pagoTotal >= saldoAnticipo)
+                double mlt = 0;
+                if (txtMultas.Text!= null && !txtMultas.Text.Equals(""))
+                     mlt = double.Parse(txtMultas.Text);
+                if (mlt >= 1)
                 {
-                    pagoTotal = pagoTotal - saldoAnticipo;
-                    saldoNetoAnticipo=saldoAnticipo - pagoTotal;
+                    pagoTotal = pagoTotal - mlt;
+                 //   saldoNetoAnticipo=saldoAnticipo - pagoTotal;
                 }
-
-                txtMultas.Text = String.Format(CultureInfo.InvariantCulture, "{0:0,0.0}", saldoNetoAnticipo);
+                
+              //  txtMultas.Text = String.Format(CultureInfo.InvariantCulture, "{0:0,0.0}", saldoNetoAnticipo);
 
                 cmbCuotas.Remove(int.Parse(cmbPeriodos.SelectedValue.ToString()));
                 cmbPeriodos.DataSource = null;

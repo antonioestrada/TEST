@@ -51,12 +51,14 @@
             this.btnCapturaR = new System.Windows.Forms.Button();
             this.dgPropietario = new System.Windows.Forms.DataGridView();
             this.groupAgua = new System.Windows.Forms.GroupBox();
+            this.dgAdeAgua = new System.Windows.Forms.DataGridView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panel2 = new System.Windows.Forms.Panel();
             this.lblTotalAdeAgua = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.lblAguaAde = new System.Windows.Forms.Label();
             this.groupExt = new System.Windows.Forms.GroupBox();
+            this.dgAdeExt = new System.Windows.Forms.DataGridView();
             this.panel3 = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.lblTotalAdeExt = new System.Windows.Forms.Label();
@@ -64,6 +66,9 @@
             this.lblExtAde = new System.Windows.Forms.Label();
             this.lblMtoAde = new System.Windows.Forms.Label();
             this.gBDefConvenio = new System.Windows.Forms.GroupBox();
+            this.pnlResult = new System.Windows.Forms.Panel();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.lblMensaje = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.txtDiaPago = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
@@ -73,12 +78,9 @@
             this.label14 = new System.Windows.Forms.Label();
             this.lblImporteTotal = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.dgAdeAgua = new System.Windows.Forms.DataGridView();
-            this.dgAdeExt = new System.Windows.Forms.DataGridView();
-            this.pnlResult = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblMensaje = new System.Windows.Forms.Label();
             this.pnlConvenio = new System.Windows.Forms.Panel();
+            this.btnOkConvenio = new System.Windows.Forms.Button();
+            this.btnCancelConvenio = new System.Windows.Forms.Button();
             this.groupConvenio = new System.Windows.Forms.GroupBox();
             this.dgConvenio = new System.Windows.Forms.DataGridView();
             this.panel5 = new System.Windows.Forms.Panel();
@@ -87,8 +89,6 @@
             this.label6 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
             this.btnApliCalculoAnt = new System.Windows.Forms.Button();
-            this.btnCancelConvenio = new System.Windows.Forms.Button();
-            this.btnOkConvenio = new System.Windows.Forms.Button();
             this.groupDColono.SuspendLayout();
             this.groupMto.SuspendLayout();
             this.panelCapturaCenter.SuspendLayout();
@@ -98,12 +98,12 @@
             this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPropietario)).BeginInit();
             this.groupAgua.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgAdeAgua)).BeginInit();
             this.panel2.SuspendLayout();
             this.groupExt.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgAdeExt)).BeginInit();
             this.panel4.SuspendLayout();
             this.gBDefConvenio.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgAdeAgua)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgAdeExt)).BeginInit();
             this.pnlResult.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.pnlConvenio.SuspendLayout();
@@ -370,6 +370,20 @@
             this.groupAgua.TabStop = false;
             this.groupAgua.Visible = false;
             // 
+            // dgAdeAgua
+            // 
+            this.dgAdeAgua.AllowUserToAddRows = false;
+            this.dgAdeAgua.AllowUserToDeleteRows = false;
+            this.dgAdeAgua.AllowUserToResizeColumns = false;
+            this.dgAdeAgua.AllowUserToResizeRows = false;
+            this.dgAdeAgua.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgAdeAgua.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgAdeAgua.Location = new System.Drawing.Point(3, 52);
+            this.dgAdeAgua.Name = "dgAdeAgua";
+            this.dgAdeAgua.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgAdeAgua.Size = new System.Drawing.Size(208, 213);
+            this.dgAdeAgua.TabIndex = 18;
+            // 
             // panel1
             // 
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
@@ -427,6 +441,20 @@
             this.groupExt.TabIndex = 14;
             this.groupExt.TabStop = false;
             this.groupExt.Visible = false;
+            // 
+            // dgAdeExt
+            // 
+            this.dgAdeExt.AllowUserToAddRows = false;
+            this.dgAdeExt.AllowUserToDeleteRows = false;
+            this.dgAdeExt.AllowUserToResizeColumns = false;
+            this.dgAdeExt.AllowUserToResizeRows = false;
+            this.dgAdeExt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgAdeExt.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgAdeExt.Location = new System.Drawing.Point(3, 52);
+            this.dgAdeExt.Name = "dgAdeExt";
+            this.dgAdeExt.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgAdeExt.Size = new System.Drawing.Size(204, 213);
+            this.dgAdeExt.TabIndex = 19;
             // 
             // panel3
             // 
@@ -506,114 +534,6 @@
             this.gBDefConvenio.Text = "Definicion Convenio";
             this.gBDefConvenio.Visible = false;
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(79, 295);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(99, 50);
-            this.button1.TabIndex = 8;
-            this.button1.Text = "Calcular Convenio";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // txtDiaPago
-            // 
-            this.txtDiaPago.Location = new System.Drawing.Point(201, 230);
-            this.txtDiaPago.Name = "txtDiaPago";
-            this.txtDiaPago.Size = new System.Drawing.Size(89, 22);
-            this.txtDiaPago.TabIndex = 7;
-            // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.Location = new System.Drawing.Point(6, 233);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(148, 16);
-            this.label16.TabIndex = 6;
-            this.label16.Text = "Dia Limite de Pago :";
-            // 
-            // txtPagoMensual
-            // 
-            this.txtPagoMensual.Location = new System.Drawing.Point(201, 177);
-            this.txtPagoMensual.Name = "txtPagoMensual";
-            this.txtPagoMensual.Size = new System.Drawing.Size(89, 22);
-            this.txtPagoMensual.TabIndex = 5;
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.Location = new System.Drawing.Point(5, 177);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(185, 16);
-            this.label15.TabIndex = 4;
-            this.label15.Text = "Pago Mensual a Aplicar : ";
-            // 
-            // txtImpConvenio
-            // 
-            this.txtImpConvenio.Location = new System.Drawing.Point(201, 120);
-            this.txtImpConvenio.Name = "txtImpConvenio";
-            this.txtImpConvenio.Size = new System.Drawing.Size(89, 22);
-            this.txtImpConvenio.TabIndex = 3;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(6, 123);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(172, 16);
-            this.label14.TabIndex = 2;
-            this.label14.Text = "Imp. Total del Convenio";
-            // 
-            // lblImporteTotal
-            // 
-            this.lblImporteTotal.AutoSize = true;
-            this.lblImporteTotal.Location = new System.Drawing.Point(198, 71);
-            this.lblImporteTotal.Name = "lblImporteTotal";
-            this.lblImporteTotal.Size = new System.Drawing.Size(36, 16);
-            this.lblImporteTotal.TabIndex = 1;
-            this.lblImporteTotal.Text = "00.0";
-            // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(6, 71);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(104, 16);
-            this.label11.TabIndex = 0;
-            this.label11.Text = "Importe Total:";
-            // 
-            // dgAdeAgua
-            // 
-            this.dgAdeAgua.AllowUserToAddRows = false;
-            this.dgAdeAgua.AllowUserToDeleteRows = false;
-            this.dgAdeAgua.AllowUserToResizeColumns = false;
-            this.dgAdeAgua.AllowUserToResizeRows = false;
-            this.dgAdeAgua.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgAdeAgua.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgAdeAgua.Location = new System.Drawing.Point(3, 52);
-            this.dgAdeAgua.Name = "dgAdeAgua";
-            this.dgAdeAgua.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgAdeAgua.Size = new System.Drawing.Size(208, 213);
-            this.dgAdeAgua.TabIndex = 18;
-            // 
-            // dgAdeExt
-            // 
-            this.dgAdeExt.AllowUserToAddRows = false;
-            this.dgAdeExt.AllowUserToDeleteRows = false;
-            this.dgAdeExt.AllowUserToResizeColumns = false;
-            this.dgAdeExt.AllowUserToResizeRows = false;
-            this.dgAdeExt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgAdeExt.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.dgAdeExt.Location = new System.Drawing.Point(3, 52);
-            this.dgAdeExt.Name = "dgAdeExt";
-            this.dgAdeExt.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgAdeExt.Size = new System.Drawing.Size(204, 213);
-            this.dgAdeExt.TabIndex = 19;
-            // 
             // pnlResult
             // 
             this.pnlResult.BackColor = System.Drawing.Color.DeepSkyBlue;
@@ -648,6 +568,88 @@
             this.lblMensaje.TabIndex = 0;
             this.lblMensaje.Text = "¡Se guardo correcatmente!";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(89, 295);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(99, 50);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Calcular Convenio";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // txtDiaPago
+            // 
+            this.txtDiaPago.Location = new System.Drawing.Point(201, 230);
+            this.txtDiaPago.Name = "txtDiaPago";
+            this.txtDiaPago.Size = new System.Drawing.Size(89, 22);
+            this.txtDiaPago.TabIndex = 7;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(6, 233);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(148, 16);
+            this.label16.TabIndex = 6;
+            this.label16.Text = "Dia Limite de Pago :";
+            // 
+            // txtPagoMensual
+            // 
+            this.txtPagoMensual.Location = new System.Drawing.Point(201, 177);
+            this.txtPagoMensual.Name = "txtPagoMensual";
+            this.txtPagoMensual.Size = new System.Drawing.Size(89, 22);
+            this.txtPagoMensual.TabIndex = 5;
+            this.txtPagoMensual.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtPagoMensual_KeyPress);
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.Location = new System.Drawing.Point(5, 177);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(185, 16);
+            this.label15.TabIndex = 4;
+            this.label15.Text = "Pago Mensual a Aplicar : ";
+            // 
+            // txtImpConvenio
+            // 
+            this.txtImpConvenio.Location = new System.Drawing.Point(201, 120);
+            this.txtImpConvenio.Name = "txtImpConvenio";
+            this.txtImpConvenio.Size = new System.Drawing.Size(89, 22);
+            this.txtImpConvenio.TabIndex = 3;
+            this.txtImpConvenio.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtImpConvenio_KeyPress);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(6, 123);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(172, 16);
+            this.label14.TabIndex = 2;
+            this.label14.Text = "Imp. Total del Convenio";
+            // 
+            // lblImporteTotal
+            // 
+            this.lblImporteTotal.AutoSize = true;
+            this.lblImporteTotal.Location = new System.Drawing.Point(198, 71);
+            this.lblImporteTotal.Name = "lblImporteTotal";
+            this.lblImporteTotal.Size = new System.Drawing.Size(36, 16);
+            this.lblImporteTotal.TabIndex = 1;
+            this.lblImporteTotal.Text = "00.0";
+            // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label11.Location = new System.Drawing.Point(6, 71);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(104, 16);
+            this.label11.TabIndex = 0;
+            this.label11.Text = "Importe Total:";
+            // 
             // pnlConvenio
             // 
             this.pnlConvenio.BackColor = System.Drawing.Color.OldLace;
@@ -662,6 +664,26 @@
             this.pnlConvenio.Size = new System.Drawing.Size(418, 424);
             this.pnlConvenio.TabIndex = 53;
             this.pnlConvenio.Visible = false;
+            // 
+            // btnOkConvenio
+            // 
+            this.btnOkConvenio.Location = new System.Drawing.Point(129, 389);
+            this.btnOkConvenio.Name = "btnOkConvenio";
+            this.btnOkConvenio.Size = new System.Drawing.Size(75, 23);
+            this.btnOkConvenio.TabIndex = 52;
+            this.btnOkConvenio.Text = "Registrar";
+            this.btnOkConvenio.UseVisualStyleBackColor = true;
+            this.btnOkConvenio.Click += new System.EventHandler(this.btnOkConvenio_Click);
+            // 
+            // btnCancelConvenio
+            // 
+            this.btnCancelConvenio.Location = new System.Drawing.Point(236, 389);
+            this.btnCancelConvenio.Name = "btnCancelConvenio";
+            this.btnCancelConvenio.Size = new System.Drawing.Size(75, 23);
+            this.btnCancelConvenio.TabIndex = 51;
+            this.btnCancelConvenio.Text = "Cancelar";
+            this.btnCancelConvenio.UseVisualStyleBackColor = true;
+            this.btnCancelConvenio.Click += new System.EventHandler(this.btnCancelConvenio_Click);
             // 
             // groupConvenio
             // 
@@ -744,26 +766,6 @@
             this.btnApliCalculoAnt.Text = "Aplicar";
             this.btnApliCalculoAnt.UseVisualStyleBackColor = true;
             // 
-            // btnCancelConvenio
-            // 
-            this.btnCancelConvenio.Location = new System.Drawing.Point(236, 389);
-            this.btnCancelConvenio.Name = "btnCancelConvenio";
-            this.btnCancelConvenio.Size = new System.Drawing.Size(75, 23);
-            this.btnCancelConvenio.TabIndex = 51;
-            this.btnCancelConvenio.Text = "Cancelar";
-            this.btnCancelConvenio.UseVisualStyleBackColor = true;
-            this.btnCancelConvenio.Click += new System.EventHandler(this.btnCancelConvenio_Click);
-            // 
-            // btnOkConvenio
-            // 
-            this.btnOkConvenio.Location = new System.Drawing.Point(129, 389);
-            this.btnOkConvenio.Name = "btnOkConvenio";
-            this.btnOkConvenio.Size = new System.Drawing.Size(75, 23);
-            this.btnOkConvenio.TabIndex = 52;
-            this.btnOkConvenio.Text = "Registrar";
-            this.btnOkConvenio.UseVisualStyleBackColor = true;
-            this.btnOkConvenio.Click += new System.EventHandler(this.btnOkConvenio_Click);
-            // 
             // frmConvenios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -799,15 +801,15 @@
             this.panelTop.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPropietario)).EndInit();
             this.groupAgua.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgAdeAgua)).EndInit();
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
             this.groupExt.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgAdeExt)).EndInit();
             this.panel4.ResumeLayout(false);
             this.panel4.PerformLayout();
             this.gBDefConvenio.ResumeLayout(false);
             this.gBDefConvenio.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgAdeAgua)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dgAdeExt)).EndInit();
             this.pnlResult.ResumeLayout(false);
             this.pnlResult.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
