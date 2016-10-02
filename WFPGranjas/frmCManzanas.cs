@@ -210,14 +210,20 @@ namespace WFPGranjas
         {
             int retornoB = compruebaManzana(dgManzanas);
             if (retornoB == 1)
+            {
                 opForm("Modificar Manzana", Color.Peru, "Guardar", 3, mNuevo, mEliminar);
+                dgManzanas.Enabled = true;
+            }
         }
 
         private void mEliminar_Click(object sender, EventArgs e)
         {
             int retornoB = compruebaManzana(dgManzanas);
             if (retornoB == 1)
+            {
                 opForm("Eliminar Manzana", Color.IndianRed, "Eliminar", 2, mNuevo, mEditar);
+                dgManzanas.Enabled = true;
+            }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)

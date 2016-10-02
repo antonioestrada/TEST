@@ -461,6 +461,7 @@
             this.dgColonos.Size = new System.Drawing.Size(546, 326);
             this.dgColonos.TabIndex = 12;
             this.dgColonos.TabStop = false;
+            this.dgColonos.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgColonos_CellMouseClick);
             // 
             // panel1
             // 

@@ -183,6 +183,7 @@ namespace WFPGranjas
             ResultadoTrnx resultado = new ResultadoTrnx();
             //ejecutamos el sp donde nos mostrara los siguientes datos como valor definido en parametros
             resultado = BeanCBeanTari.consultaTarifasVigente();
+            dFecha_Aplica.MinDate = new DateTime(2010, 01, 01);
             dFecha_Aplica.Text = resultado.tariFechaAplica;
             txtBase.Text = resultado.tariValor;
             tipoCalculo = int.Parse(resultado.tariTipo);
@@ -453,10 +454,10 @@ namespace WFPGranjas
             if (row > 0)
             {
                 fechaAp = dgHistorico.Rows[row - 1].Cells[3].Value.ToString();
-                int dia = int.Parse(fechaAp.Substring(0, 2));
+                //int dia = int.Parse(fechaAp.Substring(0, 2));
                 int mes = int.Parse(fechaAp.Substring(3, 2));
                 int anio = int.Parse(fechaAp.Substring(6, 4));
-                dFecha_Aplica.MinDate = new DateTime(anio, mes, dia);
+                dFecha_Aplica.MinDate = new DateTime(anio, mes, 01);
             }
             opForm("Nueva Base de Mantenimiento", Color.LightGreen, "Registrar", 1, mEditar, mEliminar, dgHistorico);
             dFecha_Aplica.Enabled = true;

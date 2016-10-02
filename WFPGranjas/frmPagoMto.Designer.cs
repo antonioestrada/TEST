@@ -59,24 +59,24 @@
             this.btnAddCuota = new System.Windows.Forms.Button();
             this.lblMsj = new System.Windows.Forms.Label();
             this.cmbPeriodos = new System.Windows.Forms.ComboBox();
-            this.panelTop = new System.Windows.Forms.Panel();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.txtLote = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.cmbManzana = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtColono = new System.Windows.Forms.TextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.btnCapturaR = new System.Windows.Forms.Button();
             this.dgPropietario = new System.Windows.Forms.DataGridView();
+            this.btnCapturaR = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.txtColono = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.cmbManzana = new System.Windows.Forms.ComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtLote = new System.Windows.Forms.TextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.panelTop = new System.Windows.Forms.Panel();
             this.groupDColono.SuspendLayout();
             this.groupCuota.SuspendLayout();
             this.panelCapturaCenter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPartidasR)).BeginInit();
             this.panelCapturaButtom.SuspendLayout();
             this.panelCapturaTop.SuspendLayout();
-            this.panelTop.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPropietario)).BeginInit();
+            this.panelTop.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupDColono
@@ -395,106 +395,6 @@
             this.cmbPeriodos.Size = new System.Drawing.Size(196, 24);
             this.cmbPeriodos.TabIndex = 0;
             // 
-            // panelTop
-            // 
-            this.panelTop.BackColor = System.Drawing.Color.MistyRose;
-            this.panelTop.Controls.Add(this.btnBuscar);
-            this.panelTop.Controls.Add(this.txtLote);
-            this.panelTop.Controls.Add(this.label1);
-            this.panelTop.Controls.Add(this.cmbManzana);
-            this.panelTop.Controls.Add(this.label2);
-            this.panelTop.Controls.Add(this.txtColono);
-            this.panelTop.Controls.Add(this.label5);
-            this.panelTop.Controls.Add(this.btnCapturaR);
-            this.panelTop.Location = new System.Drawing.Point(12, 4);
-            this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(897, 50);
-            this.panelTop.TabIndex = 8;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Image = global::WFPGranjas.Properties.Resources.busca_mini;
-            this.btnBuscar.Location = new System.Drawing.Point(745, 15);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(25, 23);
-            this.btnBuscar.TabIndex = 19;
-            this.btnBuscar.TabStop = false;
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            // 
-            // txtLote
-            // 
-            this.txtLote.Location = new System.Drawing.Point(663, 16);
-            this.txtLote.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
-            this.txtLote.MaxLength = 10;
-            this.txtLote.Name = "txtLote";
-            this.txtLote.Size = new System.Drawing.Size(74, 22);
-            this.txtLote.TabIndex = 17;
-            this.txtLote.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLote_KeyPress);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(474, 17);
-            this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(66, 16);
-            this.label1.TabIndex = 15;
-            this.label1.Text = "Manzana:";
-            // 
-            // cmbManzana
-            // 
-            this.cmbManzana.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbManzana.FormattingEnabled = true;
-            this.cmbManzana.Location = new System.Drawing.Point(541, 14);
-            this.cmbManzana.Margin = new System.Windows.Forms.Padding(4);
-            this.cmbManzana.Name = "cmbManzana";
-            this.cmbManzana.Size = new System.Drawing.Size(72, 24);
-            this.cmbManzana.TabIndex = 16;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(625, 19);
-            this.label2.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(37, 16);
-            this.label2.TabIndex = 18;
-            this.label2.Text = "Lote:";
-            // 
-            // txtColono
-            // 
-            this.txtColono.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
-            this.txtColono.Location = new System.Drawing.Point(136, 13);
-            this.txtColono.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.txtColono.Name = "txtColono";
-            this.txtColono.Size = new System.Drawing.Size(322, 22);
-            this.txtColono.TabIndex = 12;
-            this.txtColono.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtColono_KeyDown);
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(8, 16);
-            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(128, 16);
-            this.label5.TabIndex = 14;
-            this.label5.Text = "Nombre del Colono:";
-            // 
-            // btnCapturaR
-            // 
-            this.btnCapturaR.Enabled = false;
-            this.btnCapturaR.Image = global::WFPGranjas.Properties.Resources.expediente;
-            this.btnCapturaR.Location = new System.Drawing.Point(796, 4);
-            this.btnCapturaR.Name = "btnCapturaR";
-            this.btnCapturaR.Size = new System.Drawing.Size(85, 41);
-            this.btnCapturaR.TabIndex = 10;
-            this.btnCapturaR.Text = "Capturar Recibo";
-            this.btnCapturaR.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCapturaR.UseVisualStyleBackColor = true;
-            this.btnCapturaR.Click += new System.EventHandler(this.btnCapturaR_Click);
-            // 
             // dgPropietario
             // 
             this.dgPropietario.AllowUserToAddRows = false;
@@ -515,6 +415,106 @@
             this.dgPropietario.TabStop = false;
             this.dgPropietario.Visible = false;
             this.dgPropietario.CellMouseDoubleClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgPropietario_CellMouseDoubleClick);
+            // 
+            // btnCapturaR
+            // 
+            this.btnCapturaR.Enabled = false;
+            this.btnCapturaR.Image = global::WFPGranjas.Properties.Resources.expediente;
+            this.btnCapturaR.Location = new System.Drawing.Point(796, 4);
+            this.btnCapturaR.Name = "btnCapturaR";
+            this.btnCapturaR.Size = new System.Drawing.Size(85, 41);
+            this.btnCapturaR.TabIndex = 10;
+            this.btnCapturaR.Text = "Capturar Recibo";
+            this.btnCapturaR.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCapturaR.UseVisualStyleBackColor = true;
+            this.btnCapturaR.Click += new System.EventHandler(this.btnCapturaR_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(8, 16);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(128, 16);
+            this.label5.TabIndex = 14;
+            this.label5.Text = "Nombre del Colono:";
+            // 
+            // txtColono
+            // 
+            this.txtColono.CharacterCasing = System.Windows.Forms.CharacterCasing.Upper;
+            this.txtColono.Location = new System.Drawing.Point(136, 13);
+            this.txtColono.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.txtColono.Name = "txtColono";
+            this.txtColono.Size = new System.Drawing.Size(322, 22);
+            this.txtColono.TabIndex = 12;
+            this.txtColono.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtColono_KeyDown);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(625, 19);
+            this.label2.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(37, 16);
+            this.label2.TabIndex = 18;
+            this.label2.Text = "Lote:";
+            // 
+            // cmbManzana
+            // 
+            this.cmbManzana.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbManzana.FormattingEnabled = true;
+            this.cmbManzana.Location = new System.Drawing.Point(541, 14);
+            this.cmbManzana.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbManzana.Name = "cmbManzana";
+            this.cmbManzana.Size = new System.Drawing.Size(72, 24);
+            this.cmbManzana.TabIndex = 16;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(474, 17);
+            this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(66, 16);
+            this.label1.TabIndex = 15;
+            this.label1.Text = "Manzana:";
+            // 
+            // txtLote
+            // 
+            this.txtLote.Location = new System.Drawing.Point(663, 16);
+            this.txtLote.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
+            this.txtLote.MaxLength = 10;
+            this.txtLote.Name = "txtLote";
+            this.txtLote.Size = new System.Drawing.Size(74, 22);
+            this.txtLote.TabIndex = 17;
+            this.txtLote.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLote_KeyPress);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Image = global::WFPGranjas.Properties.Resources.busca_mini;
+            this.btnBuscar.Location = new System.Drawing.Point(745, 15);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(25, 23);
+            this.btnBuscar.TabIndex = 19;
+            this.btnBuscar.TabStop = false;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            // 
+            // panelTop
+            // 
+            this.panelTop.BackColor = System.Drawing.Color.MistyRose;
+            this.panelTop.Controls.Add(this.btnBuscar);
+            this.panelTop.Controls.Add(this.txtLote);
+            this.panelTop.Controls.Add(this.label1);
+            this.panelTop.Controls.Add(this.cmbManzana);
+            this.panelTop.Controls.Add(this.label2);
+            this.panelTop.Controls.Add(this.txtColono);
+            this.panelTop.Controls.Add(this.label5);
+            this.panelTop.Controls.Add(this.btnCapturaR);
+            this.panelTop.Location = new System.Drawing.Point(12, 4);
+            this.panelTop.Name = "panelTop";
+            this.panelTop.Size = new System.Drawing.Size(897, 50);
+            this.panelTop.TabIndex = 8;
             // 
             // frmPagoMto
             // 
@@ -540,9 +540,9 @@
             this.panelCapturaButtom.PerformLayout();
             this.panelCapturaTop.ResumeLayout(false);
             this.panelCapturaTop.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgPropietario)).EndInit();
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgPropietario)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -550,8 +550,6 @@
         #endregion
         private System.Windows.Forms.GroupBox groupDColono;
         private System.Windows.Forms.GroupBox groupCuota;
-        private System.Windows.Forms.Panel panelTop;
-        private System.Windows.Forms.Button btnCapturaR;
         private System.Windows.Forms.Label lblMzaLote;
         private System.Windows.Forms.Label lblDireccion;
         private System.Windows.Forms.Label lblColono;
@@ -559,8 +557,6 @@
         private System.Windows.Forms.DataGridView dgPartidasR;
         private System.Windows.Forms.Panel panelCapturaButtom;
         private System.Windows.Forms.Panel panelCapturaTop;
-        private System.Windows.Forms.TextBox txtColono;
-        private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView dgPropietario;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lblMultas;
@@ -581,13 +577,17 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox txtCheque;
         private System.Windows.Forms.Button btnCapturaPago;
-        private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.TextBox txtLote;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.ComboBox cmbManzana;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label lblMsj;
         private System.Windows.Forms.Button btnAddCuota;
         private System.Windows.Forms.ComboBox cmbPeriodos;
+        private System.Windows.Forms.Button btnCapturaR;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox txtColono;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cmbManzana;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox txtLote;
+        private System.Windows.Forms.Button btnBuscar;
+        private System.Windows.Forms.Panel panelTop;
     }
 }

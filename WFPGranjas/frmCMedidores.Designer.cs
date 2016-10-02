@@ -210,6 +210,7 @@
             this.btnBuscar.TabIndex = 7;
             this.btnBuscar.TabStop = false;
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click_1);
             // 
             // lblContrato
             // 

@@ -237,6 +237,16 @@ namespace WFPGranjas
             this.Close();
         }
 
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            BuscaIdLote();
+        }
+
+        private void btnBuscar_Click_1(object sender, EventArgs e)
+        {
+            BuscaIdLote();
+        }
+
         private void frmCMedidores_Load(object sender, EventArgs e)
         {
             var BeanCLotesMza = new Backend.Catalogos.CManzanaLotes();

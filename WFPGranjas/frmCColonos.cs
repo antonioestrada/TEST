@@ -141,7 +141,8 @@ namespace WFPGranjas
                 lblMensaje.ForeColor = Color.White;
                 limpiaF();
                 //actualiza el dgrid
-                BeanCColono.consultaColonos(dgColonos);
+                //BeanCColono.consultaColonos(dgColonos);
+                buscaColonoNombre();
             }
             else if (resultado.Cve_resultado == 1)
             {
@@ -185,7 +186,7 @@ namespace WFPGranjas
             mEditar.Enabled = true;
             mEliminar.Enabled = true;
             dgColonos.Enabled = true;
-            txtColono.Text = "";
+           // txtColono.Text = "";
         }
         #endregion
 
@@ -216,14 +217,21 @@ namespace WFPGranjas
         {
             int retornoB = compruebaColono(dgColonos);
             if (retornoB == 1)
+            {
                 opForm("Modificar Lote", Color.Peru, "Guardar", 3, mNuevo, mEliminar, dgColonos);
+                dgColonos.Enabled = true;
+            }
+
         }
 
         private void mEliminar_Click(object sender, EventArgs e)
         {
             int retornoB = compruebaColono(dgColonos);
             if (retornoB == 1)
+            {
                 opForm("Eliminar Lote", Color.IndianRed, "Eliminar", 2, mNuevo, mEditar, dgColonos);
+                dgColonos.Enabled = true;
+            }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -247,7 +255,7 @@ namespace WFPGranjas
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            
+            buscaColonoNombre();
         }
 
         private void txtColono_KeyPress(object sender, KeyPressEventArgs e)
@@ -257,6 +265,11 @@ namespace WFPGranjas
                 buscaColonoNombre();
 
             }
+        }
+
+        private void dgColonos_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            int retornoB = compruebaColono(dgColonos);
         }
 
         private void mSalir_Click(object sender, EventArgs e)

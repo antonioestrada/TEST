@@ -69,6 +69,31 @@ namespace WFPGranjas.Backend.Catalogos
         }
         #endregion
 
+        #region Llena combo Reporte
+        public void consultaMazaComboRPT(ComboBox combo)
+        {
+            //llenamos nuestro DataTable con la consulta de nuestro SP
+            DataTable obtieneMza = Conexion.GDatos.TraerDataTable("gestion_granjas.sp_catalogo_CManzana");
+            //definimos el list en arreglo
+            List<ResultadoTrnx> arreglo = new List<ResultadoTrnx>();
+            arreglo.Add(new ResultadoTrnx { id_mzaDTO = "0", mzaDTO = "Todos" });
+            //recorremos el resultado de nuestro SP
+            foreach (DataRow row in obtieneMza.Rows)
+            {
+                //seteamos nnuestro arreglo que contendra el id y manzana
+                arreglo.Add(new ResultadoTrnx { id_mzaDTO = row[0].ToString(), mzaDTO = row[1].ToString() });
+            }
+            var ab = from a in arreglo
+                     select a;
+            //seteamos nuestro combro
+            combo.DataSource = ab.ToList();
+            combo.ValueMember = "id_mzaDTO";
+            combo.DisplayMember = "mzaDTO";
+            //cerramos conexion
+            Conexion.FinalizarSesion();
+        }
+        #endregion
+
         public ResultadoTrnx altaLote(Object[] parames)
         {
             System.Data.IDataReader resul = Conexion.GDatos.TraerDataReader("gestion_granjas.sp_catalogo_ABCLote", parames);
@@ -103,7 +128,7 @@ namespace WFPGranjas.Backend.Catalogos
                 //lote
                 dgConsulta.Rows[renglon].Cells[3].Value = reader.GetValue(3).ToString();
                 //m2
-                dgConsulta.Rows[renglon].Cells[4].Value = reader.GetValue(4).ToString();
+                dgConsulta.Rows[renglon].Cells[4].Value =double.Parse( reader.GetValue(4).ToString());
                 //propietario
                 dgConsulta.Rows[renglon].Cells[5].Value = reader.GetValue(5).ToString();
                 //id_colono

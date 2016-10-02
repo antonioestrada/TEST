@@ -203,15 +203,21 @@ namespace WFPGranjas
         private void mEditarBanco_Click(object sender, EventArgs e)
         {
             int retornoB = compruebaBanco(dgBancos);
-            if(retornoB==1)
-            opForm("Modificar Banco", Color.Peru, "Guardar", 3, mNuevoBanco, mEliminarBanco, dgBancos);
+            if (retornoB == 1)
+            {
+                opForm("Modificar Banco", Color.Peru, "Guardar", 3, mNuevoBanco, mEliminarBanco, dgBancos);
+                dgBancos.Enabled = true;
+            }
         }
 
         private void mEliminarBanco_Click(object sender, EventArgs e)
         {
             int retornoB = compruebaBanco(dgBancos);
             if (retornoB == 1)
+            {
                 opForm("Eliminar Banco", Color.IndianRed, "Eliminar", 2, mNuevoBanco, mEditarBanco, dgBancos);
+                dgBancos.Enabled = true;
+            }
         }
 
         public void limpiaF()

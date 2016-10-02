@@ -62,7 +62,7 @@ namespace WFPGranjas
                                               },
                                               new DataGridViewTextBoxColumn
                                               {
-                                                  ValueType = typeof (string),
+                                                  ValueType = typeof (double),
                                                   HeaderText = "M2",
                                                   Width = 100
                                               },
@@ -85,7 +85,7 @@ namespace WFPGranjas
             dgLotes.Columns[0].Visible = false;
             dgLotes.Columns[1].Visible = false;
             dgLotes.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
-            dgLotes.Columns[4].DefaultCellStyle.Format = "##,##0.0000";
+            dgLotes.Columns[4].DefaultCellStyle.Format = "##,##0.00";
             dgLotes.Columns[6].Visible = false;
 
         }
@@ -322,7 +322,10 @@ namespace WFPGranjas
             id_manzana = int.Parse(cmbManzana.SelectedValue.ToString());
             int retornoB = compruebaLote(dgLotes);
             if (retornoB == 1)
+            {
                 opForm("Modificar Lote", Color.Peru, "Guardar", 3, mNuevo, mEliminar, dgLotes);
+                dgLotes.Enabled = true;
+            }
             dgPropietario.Visible = false;
         }
 
@@ -331,7 +334,10 @@ namespace WFPGranjas
             id_manzana = int.Parse(cmbManzana.SelectedValue.ToString());
             int retornoB = compruebaLote(dgLotes);
             if (retornoB == 1)
+            {
                 opForm("Eliminar Lote", Color.IndianRed, "Eliminar", 2, mNuevo, mEditar, dgLotes);
+                dgLotes.Enabled = true;
+            }
             dgPropietario.Visible = false;
         }
 
@@ -343,6 +349,7 @@ namespace WFPGranjas
         private void dgLotes_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             compruebaLote(dgLotes);
+            dgPropietario.Visible = false;
         }
 
         private void txtPropietario_TextChanged(object sender, EventArgs e)

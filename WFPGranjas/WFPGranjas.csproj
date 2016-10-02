@@ -32,9 +32,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.ReportSource, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Shared, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="CrystalDecisions.Windows.Forms, Version=13.0.2000.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
+    <Reference Include="FlashControlV71, Version=1.0.3187.32366, Culture=neutral, PublicKeyToken=692fbea5521e1304" />
     <Reference Include="MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -55,22 +62,43 @@
     <Compile Include="Backend\Catalogos\CPerfiles.cs" />
     <Compile Include="Backend\Catalogos\CPuestos.cs" />
     <Compile Include="Backend\Catalogos\CTarifas.cs" />
+    <Compile Include="Backend\Catalogos\CTarifasAgua.cs" />
     <Compile Include="Backend\Catalogos\CUsuarios.cs" />
     <Compile Include="Backend\Catalogos\ResultadoTrnx.cs" />
     <Compile Include="Backend\Conexion.cs" />
     <Compile Include="Backend\GDatos.cs" />
     <Compile Include="Backend\Globales.cs" />
+    <Compile Include="Backend\Procesos\CMail.cs" />
+    <Compile Include="Backend\Procesos\CRegLecturas.cs" />
     <Compile Include="Backend\Procesos\PrcCuotaMto.cs" />
     <Compile Include="Backend\Procesos\PrcPagoMto.cs" />
     <Compile Include="Backend\Procesos\PrcAnticipos.cs" />
     <Compile Include="Backend\Procesos\Cuota.cs" />
     <Compile Include="Backend\Properties.cs" />
+    <Compile Include="Backend\Reportes\rptMedidores.cs" />
     <Compile Include="Backend\Utilerias.cs" />
+    <Compile Include="crMedidorSQL.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crMedidorSQL.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="dsMedidores.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsMedidores.xsd</DependentUpon>
+    </Compile>
     <Compile Include="frmCCalculoManto.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmCCalculoManto.designer.cs">
       <DependentUpon>frmCCalculoManto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmParametrosSys.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmParametrosSys.Designer.cs">
+      <DependentUpon>frmParametrosSys.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPagoMto.cs">
       <SubType>Form</SubType>
@@ -156,6 +184,18 @@
     <Compile Include="frmPrcCuotas.Designer.cs">
       <DependentUpon>frmPrcCuotas.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCTarifasAgua.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCTarifasAgua.Designer.cs">
+      <DependentUpon>frmCTarifasAgua.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmRegLecturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRegLecturas.Designer.cs">
+      <DependentUpon>frmRegLecturas.cs</DependentUpon>
+    </Compile>
     <Compile Include="MDIPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -164,8 +204,21 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="rptMedidores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="rptMedidores.Designer.cs">
+      <DependentUpon>rptMedidores.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="crMedidorSQL.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crMedidorSQL.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCCalculoManto.resx">
       <DependentUpon>frmCCalculoManto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmParametrosSys.resx">
+      <DependentUpon>frmParametrosSys.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPagoMto.resx">
       <DependentUpon>frmPagoMto.cs</DependentUpon>
@@ -209,6 +262,12 @@
     <EmbeddedResource Include="frmPrcCuotas.resx">
       <DependentUpon>frmPrcCuotas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCTarifasAgua.resx">
+      <DependentUpon>frmCTarifasAgua.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmRegLecturas.resx">
+      <DependentUpon>frmRegLecturas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MDIPrincipal.resx">
       <DependentUpon>MDIPrincipal.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -218,6 +277,20 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="rptMedidores.resx">
+      <DependentUpon>rptMedidores.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="dsMedidores.xsc">
+      <DependentUpon>dsMedidores.xsd</DependentUpon>
+    </None>
+    <None Include="dsMedidores.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsMedidores.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsMedidores.xss">
+      <DependentUpon>dsMedidores.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -430,6 +503,39 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\add.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\email.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mandar-email.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\email %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ventanas-cerrar.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\control-del-sistema.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\control-del-sistema2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\sistema.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ma24s.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\menos24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\editar16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
