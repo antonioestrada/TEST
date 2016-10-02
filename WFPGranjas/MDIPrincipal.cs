@@ -477,6 +477,10 @@ namespace WFPGranjas
             childFormCatPerfiles.Show();
         }
 
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 5482dbedd0972efc5f24fd482b7ef80a288e4f87
         private void arMedidores_Click(object sender, EventArgs e)
         {
             cerrarVentanas();
@@ -499,7 +503,11 @@ namespace WFPGranjas
             frmTarifasAgua childFormTarifaAgua = new frmTarifasAgua();
             childFormTarifaAgua.MdiParent = this;
             childFormTarifaAgua.Show();
+<<<<<<< HEAD
         }
+=======
+=======
+>>>>>>> 5482dbedd0972efc5f24fd482b7ef80a288e4f87
         private void fcCuotasEC_Click(object sender, EventArgs e)
         {
             cerrarVentanas();
@@ -519,6 +527,7 @@ namespace WFPGranjas
             childFormCuotasManto.MdiParent = this;
             childFormCuotasManto.Text = "Ingresos por Cuotas de Convenios";
             childFormCuotasManto.Show();
+>>>>>>> 8f4d5bd5a99b266923d67df8c91be7342408a19a
         }
     }
 }

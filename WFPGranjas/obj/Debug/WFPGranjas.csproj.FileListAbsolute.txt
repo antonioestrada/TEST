@@ -101,6 +101,10 @@ C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\WFPGranjas.Properties
 C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\WFPGranjas.csproj.GenerateResource.Cache
 C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\WFPGranjas.exe
 C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\WFPGranjas.pdb
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 5482dbedd0972efc5f24fd482b7ef80a288e4f87
 C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\WFPGranjas.rptMedidores.resources
 C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
 C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\bin\Debug\CrystalDecisions.ReportSource.dll
@@ -124,6 +128,7 @@ C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\bin\Debug\stdole.dll
 C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\WFPGranjas.frmParametrosSys.resources
 C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\WFPGranjas.frmTarifasAgua.resources
 C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\WFPGranjas.frmRegLecturas.resources
+<<<<<<< HEAD
 >>>>>>> 5e136c9f5d2a22b555c68c3d72447eed627a4e70
 >>>>>>> 8f4d5bd5a99b266923d67df8c91be7342408a19a
 C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.frmParametrosSys.resources
@@ -168,3 +173,8 @@ C:\Users\cbestred\Documents\test\WFPGranjas\bin\Debug\CrystalDecisions.ReportApp
 C:\Users\cbestred\Documents\test\WFPGranjas\bin\Debug\CrystalDecisions.ReportAppServer.ObjectFactory.dll
 C:\Users\cbestred\Documents\test\WFPGranjas\bin\Debug\ShockwaveFlashObjects.dll
 C:\Users\cbestred\Documents\test\WFPGranjas\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
+=======
+=======
+>>>>>>> 5e136c9f5d2a22b555c68c3d72447eed627a4e70
+>>>>>>> 8f4d5bd5a99b266923d67df8c91be7342408a19a
+>>>>>>> 5482dbedd0972efc5f24fd482b7ef80a288e4f87

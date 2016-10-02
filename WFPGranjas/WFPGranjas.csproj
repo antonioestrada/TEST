@@ -68,9 +68,17 @@
     <Compile Include="Backend\Conexion.cs" />
     <Compile Include="Backend\GDatos.cs" />
     <Compile Include="Backend\Globales.cs" />
+<<<<<<< HEAD
     <Compile Include="Backend\Procesos\CMail.cs" />
     <Compile Include="Backend\Procesos\CRegLecturas.cs" />
+=======
+<<<<<<< HEAD
+    <Compile Include="Backend\Procesos\CMail.cs" />
+    <Compile Include="Backend\Procesos\CRegLecturas.cs" />
+=======
+>>>>>>> 5482dbedd0972efc5f24fd482b7ef80a288e4f87
     <Compile Include="Backend\Procesos\PrcConvenios.cs" />
+>>>>>>> 8f4d5bd5a99b266923d67df8c91be7342408a19a
     <Compile Include="Backend\Procesos\PrcCuotaMto.cs" />
     <Compile Include="Backend\Procesos\PrcPagoMto.cs" />
     <Compile Include="Backend\Procesos\PrcAnticipos.cs" />
@@ -78,6 +86,10 @@
     <Compile Include="Backend\Properties.cs" />
     <Compile Include="Backend\Reportes\rptMedidores.cs" />
     <Compile Include="Backend\Utilerias.cs" />
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 5482dbedd0972efc5f24fd482b7ef80a288e4f87
     <Compile Include="crMedidorSQL.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -89,12 +101,22 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsMedidores.xsd</DependentUpon>
     </Compile>
+<<<<<<< HEAD
+=======
+=======
+
+>>>>>>> 5482dbedd0972efc5f24fd482b7ef80a288e4f87
     <Compile Include="frmConvenios.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmConvenios.Designer.cs">
       <DependentUpon>frmConvenios.cs</DependentUpon>
+<<<<<<< HEAD
     </Compile>
+=======
+</Compile>
+>>>>>>> 8f4d5bd5a99b266923d67df8c91be7342408a19a
+>>>>>>> 5482dbedd0972efc5f24fd482b7ef80a288e4f87
     <Compile Include="frmCCalculoManto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -211,6 +233,10 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+<<<<<<< HEAD
+=======
+<<<<<<< HEAD
+>>>>>>> 5482dbedd0972efc5f24fd482b7ef80a288e4f87
     <Compile Include="rptMedidores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -221,9 +247,18 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crMedidorSQL.cs</LastGenOutput>
     </EmbeddedResource>
+<<<<<<< HEAD
     <EmbeddedResource Include="frmConvenios.resx">
       <DependentUpon>frmConvenios.cs</DependentUpon>
     </EmbeddedResource>
+=======
+=======
+
+    <EmbeddedResource Include="frmConvenios.resx">
+      <DependentUpon>frmConvenios.cs</DependentUpon>
+ </EmbeddedResource>
+>>>>>>> 8f4d5bd5a99b266923d67df8c91be7342408a19a
+>>>>>>> 5482dbedd0972efc5f24fd482b7ef80a288e4f87
     <EmbeddedResource Include="frmCCalculoManto.resx">
       <DependentUpon>frmCCalculoManto.cs</DependentUpon>
     </EmbeddedResource>
@@ -547,6 +582,7 @@
   <ItemGroup>
     <None Include="Resources\editar16.png" />
   </ItemGroup>
+<<<<<<< HEAD
   <ItemGroup>
     <COMReference Include="CRQUERYENGINE">
       <Guid>{E4B81D51-FB89-4D07-84A3-00BA9B71D76E}</Guid>
@@ -720,6 +756,8 @@
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
   </ItemGroup>
+=======
+>>>>>>> 5482dbedd0972efc5f24fd482b7ef80a288e4f87
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
