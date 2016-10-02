@@ -30,7 +30,7 @@ namespace AccesoDatos
                     {
 
 
-                        //connectionString.ServerType = FbServerType.Default;
+                        connectionString.Server = MServidor;
 
                         connectionString.Database = MPath;
                         //connectionString.Database = "\\database\\AJPDSOFT.FDB";

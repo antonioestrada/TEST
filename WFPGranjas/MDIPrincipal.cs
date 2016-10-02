@@ -338,6 +338,7 @@ namespace WFPGranjas
 
         private void cgBancos_Click(object sender, EventArgs e)
         {
+            cerrarVentanas();
             frmCBancos childFormCatBancos = new frmCBancos();
             childFormCatBancos.MdiParent = this;
             childFormCatBancos.Size= new Size(543, 365);
@@ -346,6 +347,7 @@ namespace WFPGranjas
 
         private void cgColonos_Click(object sender, EventArgs e)
         {
+            cerrarVentanas();
             frmCColonos childFormCatColonos = new frmCColonos();
             childFormCatColonos.MdiParent = this;
             childFormCatColonos.Size = new Size(573, 470);
@@ -354,6 +356,7 @@ namespace WFPGranjas
 
         private void cgManzanas_Click(object sender, EventArgs e)
         {
+            cerrarVentanas();
             frmCManzanas childFormCatManzanas = new frmCManzanas();
             childFormCatManzanas.MdiParent = this;
             childFormCatManzanas.Size = new Size(543, 365);
@@ -362,6 +365,7 @@ namespace WFPGranjas
 
         private void cgLotes_Click(object sender, EventArgs e)
         {
+            cerrarVentanas();
             frmCLotes childFormLotes = new frmCLotes();
             childFormLotes.MdiParent = this;
             childFormLotes.Size = new Size(543, 425);
@@ -370,6 +374,7 @@ namespace WFPGranjas
 
         private void cgMedidores_Click(object sender, EventArgs e)
         {
+            cerrarVentanas();
             frmCMedidores childFormMedidores = new frmCMedidores();
             childFormMedidores.MdiParent = this;
             childFormMedidores.Size = new Size(560, 220);
@@ -378,6 +383,7 @@ namespace WFPGranjas
 
         private void cgcMantenimiento_Click(object sender, EventArgs e)
         {
+            cerrarVentanas();
             frmCCalculoManto childFormMantenimiento = new frmCCalculoManto();
             childFormMantenimiento.MdiParent = this;
             childFormMantenimiento.Size = new Size(553, 340);
@@ -440,7 +446,13 @@ namespace WFPGranjas
 
         private void acLecturas_Click(object sender, EventArgs e)
         {
-
+            cerrarVentanas();
+            //if (childFormCatUsuarios ==null)
+            frmRegLecturas childFormRegLect = new frmRegLecturas();
+            childFormRegLect.Text = "Anualidades y Anticipo de Mantenimiento";
+            childFormRegLect.MdiParent = this;
+            //  childFormCatPerfiles.Size = new Size(370, 365);
+            childFormRegLect.Show();
         }
 
         private void acGeneracionCA_Click(object sender, EventArgs e)
@@ -465,6 +477,29 @@ namespace WFPGranjas
             childFormCatPerfiles.Show();
         }
 
+        private void arMedidores_Click(object sender, EventArgs e)
+        {
+            cerrarVentanas();
+            rptMedidores childFormReporteLM = new rptMedidores();
+            childFormReporteLM.MdiParent = this;
+            childFormReporteLM.Show();
+        }
+
+        private void CSSistema_Click(object sender, EventArgs e)
+        {
+            cerrarVentanas();
+            frmParametrosSys childFormParamSys = new frmParametrosSys();
+            childFormParamSys.MdiParent = this;
+            childFormParamSys.Show();
+        }
+
+        private void cgcAgua_Click(object sender, EventArgs e)
+        {
+            cerrarVentanas();
+            frmTarifasAgua childFormTarifaAgua = new frmTarifasAgua();
+            childFormTarifaAgua.MdiParent = this;
+            childFormTarifaAgua.Show();
+        }
         private void fcCuotasEC_Click(object sender, EventArgs e)
         {
             cerrarVentanas();

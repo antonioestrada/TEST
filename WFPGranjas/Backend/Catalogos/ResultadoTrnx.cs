@@ -46,5 +46,14 @@ namespace WFPGranjas.Backend.Catalogos
         public string tariValor { get; set; }
         public string tariFechaAplica { get; set; }
         public string tariEstatus { get; set; }
+
+        //para tarifaAgua
+        public int siguienteRenglon { get; set; }
+
+        //para lecturasConsumos
+        public int periodoAnt { get; set; }
+        public int anioAnt { get; set; }
+        public string lectura { get; set; }
+        public string lecturaAnt { get; set; }
     }
 }

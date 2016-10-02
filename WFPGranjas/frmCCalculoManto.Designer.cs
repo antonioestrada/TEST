@@ -33,10 +33,10 @@
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.otreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.mSalir = new System.Windows.Forms.ToolStripMenuItem();
             this.mNuevo = new System.Windows.Forms.ToolStripMenuItem();
             this.mEditar = new System.Windows.Forms.ToolStripMenuItem();
             this.mEliminar = new System.Windows.Forms.ToolStripMenuItem();
-            this.mSalir = new System.Windows.Forms.ToolStripMenuItem();
             this.label4 = new System.Windows.Forms.Label();
             this.gbGenerales = new System.Windows.Forms.GroupBox();
             this.linkHistorico = new System.Windows.Forms.LinkLabel();
@@ -118,6 +118,14 @@
             this.menuStrip.TabIndex = 1;
             this.menuStrip.Text = "menuStrip1";
             // 
+            // mSalir
+            // 
+            this.mSalir.Image = global::WFPGranjas.Properties.Resources.cerrar;
+            this.mSalir.Name = "mSalir";
+            this.mSalir.Size = new System.Drawing.Size(67, 20);
+            this.mSalir.Text = "Cerrar";
+            this.mSalir.Click += new System.EventHandler(this.mSalir_Click);
+            // 
             // mNuevo
             // 
             this.mNuevo.Image = global::WFPGranjas.Properties.Resources.nuevo;
@@ -144,14 +152,6 @@
             this.mEliminar.Text = "Eliminar";
             this.mEliminar.Visible = false;
             this.mEliminar.Click += new System.EventHandler(this.mEliminar_Click);
-            // 
-            // mSalir
-            // 
-            this.mSalir.Image = global::WFPGranjas.Properties.Resources.cerrar;
-            this.mSalir.Name = "mSalir";
-            this.mSalir.Size = new System.Drawing.Size(67, 20);
-            this.mSalir.Text = "Cerrar";
-            this.mSalir.Click += new System.EventHandler(this.mSalir_Click);
             // 
             // label4
             // 
