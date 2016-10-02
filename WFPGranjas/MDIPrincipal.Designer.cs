@@ -659,6 +659,7 @@
             this.fcCuotasEC.Name = "fcCuotasEC";
             this.fcCuotasEC.Size = new System.Drawing.Size(282, 22);
             this.fcCuotasEC.Text = "Cuotas Extraordinarias y Convenios";
+            this.fcCuotasEC.Click += new System.EventHandler(this.fcCuotasEC_Click);
             // 
             // toolStripSeparator10
             // 
@@ -672,6 +673,7 @@
             this.fcCasaC.Name = "fcCasaC";
             this.fcCasaC.Size = new System.Drawing.Size(282, 22);
             this.fcCasaC.Text = "Servicios Casa Club";
+            this.fcCasaC.Click += new System.EventHandler(this.fcCasaC_Click);
             // 
             // fcAnticipios
             // 

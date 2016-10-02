@@ -477,6 +477,7 @@ namespace WFPGranjas
             childFormCatPerfiles.Show();
         }
 
+<<<<<<< HEAD
         private void arMedidores_Click(object sender, EventArgs e)
         {
             cerrarVentanas();
@@ -499,6 +500,27 @@ namespace WFPGranjas
             frmTarifasAgua childFormTarifaAgua = new frmTarifasAgua();
             childFormTarifaAgua.MdiParent = this;
             childFormTarifaAgua.Show();
+=======
+        private void fcCuotasEC_Click(object sender, EventArgs e)
+        {
+            cerrarVentanas();
+            //if (childFormCatUsuarios ==null)
+            frmConvenios childFormCatPerfiles = new frmConvenios(3);
+            childFormCatPerfiles.Text = "Registro de Convenios";
+
+            childFormCatPerfiles.MdiParent = this;
+            //  childFormCatPerfiles.Size = new Size(370, 365);
+            childFormCatPerfiles.Show();
+
+        }
+
+        private void fcCasaC_Click(object sender, EventArgs e)
+        {
+            frmPagoMto childFormCuotasManto = new frmPagoMto(4);
+            childFormCuotasManto.MdiParent = this;
+            childFormCuotasManto.Text = "Ingresos por Cuotas de Convenios";
+            childFormCuotasManto.Show();
+>>>>>>> 8f4d5bd5a99b266923d67df8c91be7342408a19a
         }
     }
 }

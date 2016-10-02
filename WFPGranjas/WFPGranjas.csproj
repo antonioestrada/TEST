@@ -68,8 +68,12 @@
     <Compile Include="Backend\Conexion.cs" />
     <Compile Include="Backend\GDatos.cs" />
     <Compile Include="Backend\Globales.cs" />
+<<<<<<< HEAD
     <Compile Include="Backend\Procesos\CMail.cs" />
     <Compile Include="Backend\Procesos\CRegLecturas.cs" />
+=======
+    <Compile Include="Backend\Procesos\PrcConvenios.cs" />
+>>>>>>> 8f4d5bd5a99b266923d67df8c91be7342408a19a
     <Compile Include="Backend\Procesos\PrcCuotaMto.cs" />
     <Compile Include="Backend\Procesos\PrcPagoMto.cs" />
     <Compile Include="Backend\Procesos\PrcAnticipos.cs" />
@@ -77,6 +81,7 @@
     <Compile Include="Backend\Properties.cs" />
     <Compile Include="Backend\Reportes\rptMedidores.cs" />
     <Compile Include="Backend\Utilerias.cs" />
+<<<<<<< HEAD
     <Compile Include="crMedidorSQL.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -88,6 +93,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsMedidores.xsd</DependentUpon>
     </Compile>
+=======
+
+    <Compile Include="frmConvenios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConvenios.Designer.cs">
+      <DependentUpon>frmConvenios.cs</DependentUpon>
+</Compile>
+>>>>>>> 8f4d5bd5a99b266923d67df8c91be7342408a19a
     <Compile Include="frmCCalculoManto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -204,6 +218,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+<<<<<<< HEAD
     <Compile Include="rptMedidores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -214,6 +229,12 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crMedidorSQL.cs</LastGenOutput>
     </EmbeddedResource>
+=======
+
+    <EmbeddedResource Include="frmConvenios.resx">
+      <DependentUpon>frmConvenios.cs</DependentUpon>
+ </EmbeddedResource>
+>>>>>>> 8f4d5bd5a99b266923d67df8c91be7342408a19a
     <EmbeddedResource Include="frmCCalculoManto.resx">
       <DependentUpon>frmCCalculoManto.cs</DependentUpon>
     </EmbeddedResource>

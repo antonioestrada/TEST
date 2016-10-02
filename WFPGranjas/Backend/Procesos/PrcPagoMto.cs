@@ -55,7 +55,8 @@ namespace WFPGranjas.Backend.Procesos
             //llenamos nuestro reader con la consulta de nuestro SP
             IDataReader reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_frm_PagoMto_CAdeudos(" + id_lote + ","+servicio+")");
             //siclamos cada registro que contiene nuestro reader
-         //   Dictionary<int,String> arreglo = new Dictionary<int,String>();
+            //   Dictionary<int,String> arreglo = new Dictionary<int,String>();
+            int i = 0;
             while (reader.Read())
             {
                 //lenamos nuestro grid con nuestro reader.
@@ -76,18 +77,24 @@ namespace WFPGranjas.Backend.Procesos
                 // puesto.Mensaje = reader.GetValue(3).ToString();
                 if (servicio == 2)
                 {
-                    cmbCuotas2.Add(id, reader.GetValue(3).ToString());
+                    cmbCuotas2.Add(i, reader.GetValue(3).ToString());
                     
                 }
 
                 if (servicio == 3)
                 {
-                    cmbCuotas2.Add(id, reader.GetValue(3).ToString() + " " + imp);
+                    cmbCuotas2.Add(i, reader.GetValue(3).ToString() + " " + imp);
                   
                 }
+                if (servicio == 4)
+                {
+                    cmbCuotas2.Add(i, reader.GetValue(3).ToString());
 
-              //  arreglo.Add(id, reader.GetValue(3).ToString());
-                Cuotas.Add(id, cuota);
+                }
+
+                //  arreglo.Add(id, reader.GetValue(3).ToString());
+                Cuotas.Add(i, cuota);
+                i++;
 
             }
             var ab = from a in cmbCuotas2
@@ -215,6 +222,29 @@ namespace WFPGranjas.Backend.Procesos
             Conexion.FinalizarSesion();
         }
         #endregion
+        #region consulta saldo de anticipos
+        public double consultaSaldoAnticipo(int idColono)
+        {
 
+            //llenamos nuestro reader con la consulta de nuestro SP
+            IDataReader reader = Conexion.GDatos.TraerDataReaderSql("gestion_granjas.sp_frm_PagoMto_CSaldoAnticipo("+ idColono + ")");
+            double saldo = 0;
+            //siclamos cada registro que contiene nuestro reader
+
+            if (reader.Read())
+            {
+                //id-lote
+                saldo = Convert.ToDouble(reader.GetValue(0).ToString());
+
+            }
+            else
+            {
+                saldo = 0;
+              
+            }
+            Conexion.FinalizarSesion();
+            return saldo;
+        }
+        #endregion
     }
 }
