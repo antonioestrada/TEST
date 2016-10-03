@@ -40,8 +40,6 @@ C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.Properties.Reso
 C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.rptMedidores.resources
 C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.csproj.GenerateResource.Cache
 <<<<<<< HEAD
-C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.frmPrcCuotas.resources
-<<<<<<< HEAD
 C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.frmConvenios.resources
 =======
 C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\bin\Debug\WFPGranjas.exe.config
@@ -96,6 +94,24 @@ C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\WFPGranjas.frmRegLect
 >>>>>>> 5e136c9f5d2a22b555c68c3d72447eed627a4e70
 >>>>>>> 8f4d5bd5a99b266923d67df8c91be7342408a19a
 C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\WFPGranjas.frmConvenios.resources
-=======
 C:\Users\cbestred\Documents\test\WFPGranjas\bin\Debug\WFPGranjas.exe.config
 >>>>>>> aad59fc7420fecadc824cf2ddde2845f7f74abed
+C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\Interop.CRQUERYENGINE.dll
+C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\Interop.CrystalAnalysisCommLayerLib.dll
+C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\Interop.CrystalAnalysisCommonControlsLib.dll
+C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\Interop.CrystalAnalysisRequestModelLib.dll
+C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\Interop.CrystalAnalysisXmlSerializeLib.dll
+C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\Interop.CrystalClientDocLib.dll
+C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\Interop.CrystalDocMgmtUndoManagerLib.dll
+C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\Interop.CrystalPrintControlLib.dll
+C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\Interop.CrystalReportsCommonObjectModelLib.dll
+C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\Interop.CrystalReportsControllersLib.dll
+C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\Interop.CrystalReportsCubeDefModelLib.dll
+C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\Interop.CrystalReportsDataDefModelLib.dll
+C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\Interop.CrystalReportsDTSAgentLib.dll
+C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\Interop.CrystalReportsLocalConnectionMgrLib.dll
+C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\Interop.CrystalReportsObjectFactoryLib.dll
+C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\Interop.CrystalReportsReportDefModelLib.dll
+C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\Interop.PAGEOBJECTMODELLib.dll
+C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\Interop.PROMPTINGLib.dll
+C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\WFPGranjas.csproj.ResolveComReference.cache

@@ -94,11 +94,8 @@
     </Compile>
     <Compile Include="frmConvenios.Designer.cs">
       <DependentUpon>frmConvenios.cs</DependentUpon>
-<<<<<<< HEAD
-</Compile>
-=======
     </Compile>
->>>>>>> aad59fc7420fecadc824cf2ddde2845f7f74abed
+
     <Compile Include="frmCCalculoManto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -227,11 +224,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmConvenios.resx">
       <DependentUpon>frmConvenios.cs</DependentUpon>
-<<<<<<< HEAD
- </EmbeddedResource>
-=======
     </EmbeddedResource>
->>>>>>> aad59fc7420fecadc824cf2ddde2845f7f74abed
     <EmbeddedResource Include="frmCCalculoManto.resx">
       <DependentUpon>frmCCalculoManto.cs</DependentUpon>
     </EmbeddedResource>

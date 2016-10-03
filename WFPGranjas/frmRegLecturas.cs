@@ -288,7 +288,7 @@ namespace WFPGranjas
                     MessageBox.Show("No hay mas registros");
                 else
                 {
-                    MessageBox.Show(txtLecActual.Text);
+                    //MessageBox.Show(txtLecActual.Text);
                     if (Int16.Parse(txtLecActual.Text) == 0)
                         registraLecturas(id_medidor, mesG, anioG, Int16.Parse(txtLecAnterior.Text));
                     else
@@ -338,12 +338,6 @@ namespace WFPGranjas
                 gbCaptura.Visible = true;
             else
                 gbCaptura.Visible = false;
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("id_med" + id_medidor + " mes:" + mesG + " anio:" + anioG);
-            valoresLecturas(id_medidor, mesG, anioG);
         }
 
         private void btnUltimo_Click(object sender, EventArgs e)
