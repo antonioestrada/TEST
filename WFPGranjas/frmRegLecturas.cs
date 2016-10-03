@@ -145,7 +145,8 @@ namespace WFPGranjas
                 2,
                 inIDMedidor,//id_lote solo agregamos el parametro id_lote para continuar con la ejecucion del sp
                 inPeriodo,
-                inAnio
+                inAnio,
+                0//lectura la dejamos en cero
             };
             //cachamos el valor que retorna nuestro sp
             Backend.Catalogos.ResultadoTrnx resultado = new Backend.Catalogos.ResultadoTrnx();
@@ -154,6 +155,28 @@ namespace WFPGranjas
             lblLecAnterior.Text = "Lectura Anterior ["+resultado.periodoAnt.ToString().PadLeft(2, '0') + "/"+resultado.anioAnt.ToString().PadLeft(4, '0') +"]:";
             txtLecActual.Text = resultado.lectura.ToString();
             txtLecAnterior.Text = resultado.lecturaAnt.ToString();
+            Conexion.FinalizarSesion();
+        }
+        #endregion
+
+        #region Registra lecturas
+        public void registraLecturas(int inIDMedidor, int inPeriodo, int inAnio, int inLectura)
+        {
+            //definimos los parametros que pasaran al sp
+            Object[] parames = {
+                1,
+                inIDMedidor,//id_lote solo agregamos el parametro id_lote para continuar con la ejecucion del sp
+                inPeriodo,
+                inAnio,
+                inLectura
+            };
+            //cachamos el valor que retorna nuestro sp
+            Backend.Catalogos.ResultadoTrnx resultado = new Backend.Catalogos.ResultadoTrnx();
+            var BeanLecturas = new Backend.Procesos.CRegLecturas();
+            resultado = BeanLecturas.muestraLecturasAgua(parames);
+            //lblLecAnterior.Text = "Lectura Anterior [" + resultado.periodoAnt.ToString().PadLeft(2, '0') + "/" + resultado.anioAnt.ToString().PadLeft(4, '0') + "]:";
+            //txtLecActual.Text = resultado.lectura.ToString();
+            //txtLecAnterior.Text = resultado.lecturaAnt.ToString();
             Conexion.FinalizarSesion();
         }
         #endregion
@@ -265,6 +288,11 @@ namespace WFPGranjas
                     MessageBox.Show("No hay mas registros");
                 else
                 {
+                    MessageBox.Show(txtLecActual.Text);
+                    if (Int16.Parse(txtLecActual.Text) == 0)
+                        registraLecturas(id_medidor, mesG, anioG, Int16.Parse(txtLecAnterior.Text));
+                    else
+                        registraLecturas(id_medidor, mesG, anioG, Int16.Parse(txtLecActual.Text));
                     dgListado.Focus();
                     dgListado.Rows[currenR + 1].Selected = true;
                     dgListado.FirstDisplayedScrollingRowIndex = currenR;

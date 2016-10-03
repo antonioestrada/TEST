@@ -101,7 +101,6 @@ C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\WFPGranjas.Properties
 C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\WFPGranjas.csproj.GenerateResource.Cache
 C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\WFPGranjas.exe
 C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\WFPGranjas.pdb
-<<<<<<< HEAD
 C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\WFPGranjas.rptMedidores.resources
 C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\bin\Debug\CrystalDecisions.CrystalReports.Engine.dll
 C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\bin\Debug\CrystalDecisions.ReportSource.dll
@@ -125,6 +124,6 @@ C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\bin\Debug\stdole.dll
 C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\WFPGranjas.frmParametrosSys.resources
 C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\WFPGranjas.frmTarifasAgua.resources
 C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\WFPGranjas.frmRegLecturas.resources
-=======
 >>>>>>> 5e136c9f5d2a22b555c68c3d72447eed627a4e70
 >>>>>>> 8f4d5bd5a99b266923d67df8c91be7342408a19a
+C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\WFPGranjas.frmConvenios.resources

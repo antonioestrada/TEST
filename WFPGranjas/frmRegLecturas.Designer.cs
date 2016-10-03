@@ -66,7 +66,6 @@
             this.btnCapturaLec = new System.Windows.Forms.Button();
             this.maskPeriodo = new System.Windows.Forms.MaskedTextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.pnlPrinBancos.SuspendLayout();
             this.menuStripX.SuspendLayout();
             this.gbCaptura.SuspendLayout();
@@ -148,7 +147,6 @@
             // 
             // gbCaptura
             // 
-            this.gbCaptura.Controls.Add(this.button1);
             this.gbCaptura.Controls.Add(this.btnUltimo);
             this.gbCaptura.Controls.Add(this.btnSiguiente);
             this.gbCaptura.Controls.Add(this.btnAnterior);
@@ -268,6 +266,7 @@
             // 
             // txtLecAnterior
             // 
+            this.txtLecAnterior.Enabled = false;
             this.txtLecAnterior.Location = new System.Drawing.Point(292, 182);
             this.txtLecAnterior.Name = "txtLecAnterior";
             this.txtLecAnterior.Size = new System.Drawing.Size(150, 22);
@@ -519,16 +518,6 @@
             this.label14.TabIndex = 49;
             this.label14.Text = "Mes-Año:";
             // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(10, 261);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(85, 32);
-            this.button1.TabIndex = 64;
-            this.button1.Text = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
             // frmRegLecturas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -597,6 +586,5 @@
         private System.Windows.Forms.Button btnSiguiente;
         private System.Windows.Forms.Button btnAnterior;
         private System.Windows.Forms.Button btnPrimero;
-        private System.Windows.Forms.Button button1;
     }
 }
