@@ -264,6 +264,9 @@ namespace WFPGranjas
                 lblColono.Visible = true;
                 txtColono.Text = "";
                 groupDColono.Visible = true;
+                DateTime thisDay = DateTime.Today;
+                lblFechaSys.Text = thisDay.ToString("D");
+                gbDRecibo.Visible = true;
                 btnCapturaR.Enabled = true;
                 groupCuota.Visible = false;
 
@@ -346,6 +349,24 @@ namespace WFPGranjas
             BeanCProp.buscaColonoDir(dgPropietario, txtColono.Text.ToString());
             dgPropietario.Visible = true;
             dgPropietario.BringToFront();
+            if ((int)e.KeyValue == (int)Keys.Enter)
+            {
+                //aqui codigo
+                int retornoB = compruebaPropietario(dgPropietario);
+                if (retornoB == 1)
+                {
+                    dgPropietario.Visible = false;
+                    lblColono.Visible = true;
+                    txtColono.Text = "";
+                    groupDColono.Visible = true;
+                    DateTime thisDay = DateTime.Today;
+                    lblFechaSys.Text = thisDay.ToString("D");
+                    gbDRecibo.Visible = true;
+                    btnCapturaR.Enabled = true;
+                    groupCuota.Visible = false;
+
+                }
+            }
         }
 
      
@@ -366,57 +387,62 @@ namespace WFPGranjas
         private void btnCapturaPago_Click(object sender, EventArgs e)
         {
 
-
-            listaIDKardex = obtieneIDKardex();
-
-            Boolean resultado=false;
-
-            double importeEfectivo = double.Parse(txtImpEf.Text);
-            int bancoCheque = int.Parse(cmbBancoCheq.SelectedValue.ToString());
-            double importeCheque = 0;
-            if (txtImpChq.Text != "" && txtImpChq.Text != ".")
+            if (txtImpEf.Text == "" || txtImpChq.Text == "" || txtImpFicha.Text == "")
+                MessageBox.Show("¡Ingresa los campos requeridos!");
+            else
             {
-                importeCheque = double.Parse(txtImpChq.Text);
-            }
+                listaIDKardex = obtieneIDKardex();
+
+                Boolean resultado = false;
+
+                double importeEfectivo = double.Parse(txtImpEf.Text);
+                int bancoCheque = int.Parse(cmbBancoCheq.SelectedValue.ToString());
+                double importeCheque = 0;
+                if (txtImpChq.Text != "" && txtImpChq.Text != ".")
+                {
+                    importeCheque = double.Parse(txtImpChq.Text);
+                }
 
 
-            int bancoFicha = int.Parse(cmbBancoFicha.SelectedValue.ToString());
-            double importFicha = 0;
-            if (txtImpFicha.Text != "" && txtImpFicha.Text != ".")
-            {
-                importFicha = double.Parse(txtImpFicha.Text);
-            }
-             double multas = 0;
-            if (txtMultas.Text != "" && txtMultas.Text != ".")
-            {
-                multas = double.Parse(txtMultas.Text);
-            }
-            double totalImporte = (importeEfectivo + importeCheque + importFicha) ;
-           
+                int bancoFicha = int.Parse(cmbBancoFicha.SelectedValue.ToString());
+                double importFicha = 0;
+                if (txtImpFicha.Text != "" && txtImpFicha.Text != ".")
+                {
+                    importFicha = double.Parse(txtImpFicha.Text);
+                }
+                double multas = 0;
+                if (txtMultas.Text != "" && txtMultas.Text != ".")
+                {
+                    multas = double.Parse(txtMultas.Text);
+                }
+                double totalImporte = (importeEfectivo + importeCheque + importFicha);
 
-            if (pagoTotal == totalImporte)
-            {
-                Object[] parames = { listaIDKardex, idLote, servicio, importeEfectivo, txtCheque.Text, bancoCheque, importeCheque, txtFicha.Text, bancoFicha, importFicha, multas , id_colono };
-                resultado = prcPago.registroCuotas(parames);
-            }
-            else {
-                if(totalImporte  > pagoTotal)
-                    MessageBox.Show("!El importe es mayor que el total a pagar¡");
+
+                if (pagoTotal == totalImporte)
+                {
+                    Object[] parames = { listaIDKardex, idLote, servicio, importeEfectivo, txtCheque.Text, bancoCheque, importeCheque, txtFicha.Text, bancoFicha, importFicha, multas, id_colono };
+                    resultado = prcPago.registroCuotas(parames);
+                }
                 else
-                    MessageBox.Show("!El importe es  menor que el total a pagar¡");
+                {
+                    if (totalImporte > pagoTotal)
+                        MessageBox.Show("!El importe es mayor que el total a pagar¡");
+                    else
+                        MessageBox.Show("!El importe es  menor que el total a pagar¡");
+                }
+                if (resultado)
+                {
+                    txtImpEf.Text = "0.00";
+                    txtImpChq.Text = "0.00";
+                    txtImpFicha.Text = "0.00";
+                    txtImporte.Text = "0.00";
+                    txtTotal.Text = "0.00";
+                    txtMultas.Text = "0.00";
+                    groupCuota.Visible = false;
+                    pnlMetodoPago.Visible = false;
+                    MessageBox.Show("!Se registro Correctamente el Pago¡");
+                }
             }
-            if (resultado)
-            {
-                txtImpEf.Text       = "0.00";
-                txtImpChq.Text      = "0.00";
-                txtImpFicha.Text    = "0.00";
-                txtImporte.Text     = "0.00";
-                txtTotal.Text       = "0.00";
-                txtMultas.Text      = "0.00";
-                groupCuota.Visible = false;
-                MessageBox.Show("!Se registro Correctamente el Pago¡");
-            }
-            
         }
 
         private void txtImpEf_KeyPress(object sender, KeyPressEventArgs e)
@@ -538,55 +564,70 @@ namespace WFPGranjas
             //lenamos nuestro grid con nuestro reader.
             if (cmbPeriodos.Items.Count > 0)
             {
-             
-                int renglon = dgPartidasR.Rows.Add();
-                //id
-                dgPartidasR.Rows[renglon].Cells[0].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].id;
-                //idServicio
-                dgPartidasR.Rows[renglon].Cells[1].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].idServicio;
-                //Cuota
-                String importe = String.Format(CultureInfo.InvariantCulture,
-                                 "{0:0,0.0}", cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].importe.ToString());
-                dgPartidasR.Rows[renglon].Cells[2].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].importe;
 
-                dgPartidasR.Rows[renglon].Cells[3].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].idPeriodo;
-                dgPartidasR.Rows[renglon].Cells[4].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].servicio;
-                dgPartidasR.Rows[renglon].Cells[5].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].periodo;
-                dgPartidasR.Rows[renglon].Cells[6].Value = "$ " + importe;
-                dgPartidasR.Rows[renglon].Cells[7].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].estatus;
-                dgPartidasR.Rows[renglon].Cells[8].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].tarifa;
-                dgPartidasR.Rows[renglon].Cells[9].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].anio;
-                dgPartidasR.Rows[renglon].Cells[10].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].id;
+                int periodoSeleccionado = int.Parse(cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].idPeriodo);
 
-                pagoTotal += double.Parse(cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].importe.ToString());
-                double mlt = 0;
-                if (txtMultas.Text!= null && !txtMultas.Text.Equals(""))
-                     mlt = double.Parse(txtMultas.Text);
-                if (mlt >= 1)
+                KeyValuePair<int, string> itemFirst = cmbCuotas.First();
+               int periodoMinimo= int.Parse(itemFirst.Value.ToString().Substring(0,2));
+                if (periodoMinimo == periodoSeleccionado)
                 {
-                    pagoTotal = pagoTotal - mlt;
-                 //   saldoNetoAnticipo=saldoAnticipo - pagoTotal;
+                    int renglon = dgPartidasR.Rows.Add();
+                    //id
+                    dgPartidasR.Rows[renglon].Cells[0].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].id;
+                    //idServicio
+                    dgPartidasR.Rows[renglon].Cells[1].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].idServicio;
+                    //Cuota
+                    String importe = String.Format(CultureInfo.InvariantCulture,
+                                     "{0:0,0.0}", cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].importe.ToString());
+                    dgPartidasR.Rows[renglon].Cells[2].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].importe;
+
+                    dgPartidasR.Rows[renglon].Cells[3].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].idPeriodo;
+                    dgPartidasR.Rows[renglon].Cells[4].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].servicio;
+                    dgPartidasR.Rows[renglon].Cells[5].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].periodo;
+                    dgPartidasR.Rows[renglon].Cells[6].Value = "$ " + importe;
+                    dgPartidasR.Rows[renglon].Cells[7].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].estatus;
+                    dgPartidasR.Rows[renglon].Cells[8].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].tarifa;
+                    dgPartidasR.Rows[renglon].Cells[9].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].anio;
+                    dgPartidasR.Rows[renglon].Cells[10].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].id;
+
+                    pagoTotal += double.Parse(cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].importe.ToString());
+                    double mlt = 0;
+                    if (txtMultas.Text != null && !txtMultas.Text.Equals(""))
+                        mlt = double.Parse(txtMultas.Text);
+                    if (mlt >= 1)
+                    {
+                        pagoTotal = pagoTotal - mlt;
+                        //   saldoNetoAnticipo=saldoAnticipo - pagoTotal;
+                    }
+
+                    //  txtMultas.Text = String.Format(CultureInfo.InvariantCulture, "{0:0,0.0}", saldoNetoAnticipo);
+
+                    cmbCuotas.Remove(int.Parse(cmbPeriodos.SelectedValue.ToString()));
+                    cmbPeriodos.DataSource = null;
+
+
+                    var ab = from a in cmbCuotas
+                             orderby a.Key
+                             select a;
+
+                    cmbPeriodos.DataSource = ab.ToList();
+                    cmbPeriodos.DisplayMember = "value";
+                    cmbPeriodos.ValueMember = "Key";
+
+                    importe = String.Format(CultureInfo.InvariantCulture,
+                  "{0:0,0.0}", pagoTotal);
+
+                    txtImporte.Text = importe;
+                    txtTotal.Text = importe;
+
+                    //tom modificacion
+                    pnlMetodoPago.Visible = true;
+                    dgPartidasR.ClearSelection();
                 }
-                
-              //  txtMultas.Text = String.Format(CultureInfo.InvariantCulture, "{0:0,0.0}", saldoNetoAnticipo);
+                else {
+                    MessageBox.Show("Seleccione la primer cuota vencida");
 
-                cmbCuotas.Remove(int.Parse(cmbPeriodos.SelectedValue.ToString()));
-                cmbPeriodos.DataSource = null;
-
-
-                var ab = from a in cmbCuotas
-                         orderby a.Key
-                         select a;
-
-                cmbPeriodos.DataSource = ab.ToList();
-                cmbPeriodos.DisplayMember = "value";
-                cmbPeriodos.ValueMember = "Key";
-
-                                 importe = String.Format(CultureInfo.InvariantCulture,
-                               "{0:0,0.0}", pagoTotal);
-
-                txtImporte.Text = importe;
-                txtTotal.Text = importe;
+                }
             }
             else {
                 MessageBox.Show("No existen mas cuotas por saldar");

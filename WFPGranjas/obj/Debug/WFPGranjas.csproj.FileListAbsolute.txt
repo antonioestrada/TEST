@@ -115,3 +115,4 @@ C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\Interop.CrystalReport
 C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\Interop.PAGEOBJECTMODELLib.dll
 C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\Interop.PROMPTINGLib.dll
 C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\WFPGranjas.csproj.ResolveComReference.cache
+C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\WFPGranjas.rptRegLecturas.resources

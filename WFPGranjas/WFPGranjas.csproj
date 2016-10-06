@@ -84,6 +84,15 @@
       <DependentUpon>crMedidorSQL.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="crRegLecturas.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crRegLecturas.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="dsMedidores.cs">
+      <DependentUpon>dsMedidores.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dsMedidores.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -95,7 +104,6 @@
     <Compile Include="frmConvenios.Designer.cs">
       <DependentUpon>frmConvenios.cs</DependentUpon>
     </Compile>
-
     <Compile Include="frmCCalculoManto.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -218,9 +226,19 @@
     <Compile Include="rptMedidores.Designer.cs">
       <DependentUpon>rptMedidores.cs</DependentUpon>
     </Compile>
+    <Compile Include="rptRegLecturas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="rptRegLecturas.Designer.cs">
+      <DependentUpon>rptRegLecturas.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="crMedidorSQL.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crMedidorSQL.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crRegLecturas.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crRegLecturas.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="frmConvenios.resx">
       <DependentUpon>frmConvenios.cs</DependentUpon>
@@ -290,6 +308,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="rptMedidores.resx">
       <DependentUpon>rptMedidores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptRegLecturas.resx">
+      <DependentUpon>rptRegLecturas.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="dsMedidores.xsc">
       <DependentUpon>dsMedidores.xsd</DependentUpon>
@@ -720,6 +741,27 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\comprobar16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\comprobar24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\metodo-de-pago24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\conseguir-dinero24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\billete-de-un-dolar24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\firma-del-contrato24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reportar24.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

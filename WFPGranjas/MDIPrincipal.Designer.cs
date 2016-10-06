@@ -151,6 +151,7 @@
             this.toolStripMenuItem41 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator18 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem42 = new System.Windows.Forms.ToolStripMenuItem();
+            this.arRegLecturas = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.pnlMenuPrincipal.SuspendLayout();
@@ -425,7 +426,8 @@
             this.menuAReportes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolBarToolStripMenuItem,
             this.statusBarToolStripMenuItem,
-            this.arMedidores});
+            this.arMedidores,
+            this.arRegLecturas});
             this.menuAReportes.Image = global::WFPGranjas.Properties.Resources.reportar;
             this.menuAReportes.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.menuAReportes.Name = "menuAReportes";
@@ -440,7 +442,7 @@
             this.toolBarToolStripMenuItem.CheckOnClick = true;
             this.toolBarToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.toolBarToolStripMenuItem.Name = "toolBarToolStripMenuItem";
-            this.toolBarToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.toolBarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.toolBarToolStripMenuItem.Text = "&Toolbar";
             this.toolBarToolStripMenuItem.Click += new System.EventHandler(this.ToolBarToolStripMenuItem_Click);
             // 
@@ -450,14 +452,14 @@
             this.statusBarToolStripMenuItem.CheckOnClick = true;
             this.statusBarToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.statusBarToolStripMenuItem.Name = "statusBarToolStripMenuItem";
-            this.statusBarToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.statusBarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.statusBarToolStripMenuItem.Text = "&Status Bar";
             this.statusBarToolStripMenuItem.Click += new System.EventHandler(this.StatusBarToolStripMenuItem_Click);
             // 
             // arMedidores
             // 
             this.arMedidores.Name = "arMedidores";
-            this.arMedidores.Size = new System.Drawing.Size(138, 22);
+            this.arMedidores.Size = new System.Drawing.Size(152, 22);
             this.arMedidores.Text = "Medidores";
             this.arMedidores.Click += new System.EventHandler(this.arMedidores_Click);
             // 
@@ -1014,39 +1016,39 @@
             // toolStripSeparator22
             // 
             this.toolStripSeparator22.Name = "toolStripSeparator22";
-            this.toolStripSeparator22.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator22.Size = new System.Drawing.Size(135, 6);
             // 
             // csUsuarios
             // 
             this.csUsuarios.Name = "csUsuarios";
-            this.csUsuarios.Size = new System.Drawing.Size(152, 22);
+            this.csUsuarios.Size = new System.Drawing.Size(138, 22);
             this.csUsuarios.Text = "Usuarios";
             this.csUsuarios.Click += new System.EventHandler(this.csUsuarios_Click);
             // 
             // csPuestos
             // 
             this.csPuestos.Name = "csPuestos";
-            this.csPuestos.Size = new System.Drawing.Size(152, 22);
+            this.csPuestos.Size = new System.Drawing.Size(138, 22);
             this.csPuestos.Text = "Puestos";
             this.csPuestos.Click += new System.EventHandler(this.csPuestos_Click);
             // 
             // csPerfiles
             // 
             this.csPerfiles.Name = "csPerfiles";
-            this.csPerfiles.Size = new System.Drawing.Size(152, 22);
+            this.csPerfiles.Size = new System.Drawing.Size(138, 22);
             this.csPerfiles.Text = "Perfiles";
             this.csPerfiles.Click += new System.EventHandler(this.csPerfiles_Click);
             // 
             // serviciosToolStripMenuItem
             // 
             this.serviciosToolStripMenuItem.Name = "serviciosToolStripMenuItem";
-            this.serviciosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.serviciosToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.serviciosToolStripMenuItem.Text = "Servicios";
             // 
             // conceptosToolStripMenuItem
             // 
             this.conceptosToolStripMenuItem.Name = "conceptosToolStripMenuItem";
-            this.conceptosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.conceptosToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.conceptosToolStripMenuItem.Text = "Conceptos";
             // 
             // menuCAyuda
@@ -1271,6 +1273,13 @@
             this.toolStripMenuItem42.Size = new System.Drawing.Size(179, 22);
             this.toolStripMenuItem42.Text = "&About ... ...";
             // 
+            // arRegLecturas
+            // 
+            this.arRegLecturas.Name = "arRegLecturas";
+            this.arRegLecturas.Size = new System.Drawing.Size(152, 22);
+            this.arRegLecturas.Text = "RegLecturas";
+            this.arRegLecturas.Click += new System.EventHandler(this.arRegLecturas_Click);
+            // 
             // MDIPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1437,6 +1446,7 @@
         private System.Windows.Forms.ToolStripMenuItem cgcMantenimiento;
         private System.Windows.Forms.ToolStripMenuItem cgcAgua;
         private System.Windows.Forms.ToolStripMenuItem arMedidores;
+        private System.Windows.Forms.ToolStripMenuItem arRegLecturas;
     }
 }
 

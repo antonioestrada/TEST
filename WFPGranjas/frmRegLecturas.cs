@@ -284,20 +284,27 @@ namespace WFPGranjas
             int currenR = dgListado.SelectedRows[0].Index;
             if (countGrid > 0)
             {
-                if (countGrid - 1 == currenR)
-                    MessageBox.Show("No hay mas registros");
-                else
+                //MessageBox.Show(txtLecActual.Text);
+                if (Int16.Parse(txtLecActual.Text) > Int16.Parse(txtLecAnterior.Text))
                 {
-                    //MessageBox.Show(txtLecActual.Text);
                     if (Int16.Parse(txtLecActual.Text) == 0)
                         registraLecturas(id_medidor, mesG, anioG, Int16.Parse(txtLecAnterior.Text));
                     else
                         registraLecturas(id_medidor, mesG, anioG, Int16.Parse(txtLecActual.Text));
-                    dgListado.Focus();
+                
+                dgListado.Focus();
+                if (countGrid - 1 == currenR)
+                    MessageBox.Show("No hay mas registros");
+                else
+                {
+                    
                     dgListado.Rows[currenR + 1].Selected = true;
                     dgListado.FirstDisplayedScrollingRowIndex = currenR;
                     valoresRen(dgListado, currenR + 1);
                 }
+                }
+                else
+                    MessageBox.Show("La lectura debe ser mayor a la lectura anterior");
             }
         }
         
@@ -328,6 +335,20 @@ namespace WFPGranjas
                 MessageBox.Show("Ingresa correctamente la fecha.");
                 ocultaDatos();
             }
+        }
+        Backend.Utilerias util = new Backend.Utilerias();
+        private void txtLecActual_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            util.validarNumeros(e, txtLecActual);
+        }
+
+        private void btnRegLecListado_Click(object sender, EventArgs e)
+        {
+            string mes = maskPeriodo.Text.Substring(0, 2);
+            string anio = maskPeriodo.Text.Substring(3, 4);
+            rptRegLecturas rpt = new rptRegLecturas(mes,anio);
+            rpt.Show();
+
         }
 
         private void txtColono_TextChanged(object sender, EventArgs e)

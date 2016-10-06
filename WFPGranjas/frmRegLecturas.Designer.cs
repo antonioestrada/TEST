@@ -30,10 +30,6 @@
         {
             this.pnlPrinBancos = new System.Windows.Forms.Panel();
             this.menuStripX = new System.Windows.Forms.MenuStrip();
-            this.mNuevo = new System.Windows.Forms.ToolStripMenuItem();
-            this.mEditar = new System.Windows.Forms.ToolStripMenuItem();
-            this.mEliminar = new System.Windows.Forms.ToolStripMenuItem();
-            this.mSalir = new System.Windows.Forms.ToolStripMenuItem();
             this.label13 = new System.Windows.Forms.Label();
             this.gbCaptura = new System.Windows.Forms.GroupBox();
             this.btnUltimo = new System.Windows.Forms.Button();
@@ -57,15 +53,20 @@
             this.gbListado = new System.Windows.Forms.GroupBox();
             this.dgPropietario = new System.Windows.Forms.DataGridView();
             this.txtColono = new System.Windows.Forms.TextBox();
-            this.btnFiltrar = new System.Windows.Forms.Button();
             this.cmbFiltroMza = new System.Windows.Forms.ComboBox();
             this.dgListado = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.pnlCaptura = new System.Windows.Forms.Panel();
-            this.btnCapturaLec = new System.Windows.Forms.Button();
             this.maskPeriodo = new System.Windows.Forms.MaskedTextBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.btnRegLecListado = new System.Windows.Forms.Button();
+            this.btnFiltrar = new System.Windows.Forms.Button();
+            this.btnCapturaLec = new System.Windows.Forms.Button();
+            this.mNuevo = new System.Windows.Forms.ToolStripMenuItem();
+            this.mEditar = new System.Windows.Forms.ToolStripMenuItem();
+            this.mEliminar = new System.Windows.Forms.ToolStripMenuItem();
+            this.mSalir = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlPrinBancos.SuspendLayout();
             this.menuStripX.SuspendLayout();
             this.gbCaptura.SuspendLayout();
@@ -101,38 +102,6 @@
             this.menuStripX.TabIndex = 1;
             this.menuStripX.Text = "menuStrip1";
             // 
-            // mNuevo
-            // 
-            this.mNuevo.Image = global::WFPGranjas.Properties.Resources.nuevo;
-            this.mNuevo.Name = "mNuevo";
-            this.mNuevo.Size = new System.Drawing.Size(70, 20);
-            this.mNuevo.Text = "Nuevo";
-            this.mNuevo.Visible = false;
-            // 
-            // mEditar
-            // 
-            this.mEditar.Image = global::WFPGranjas.Properties.Resources.editar;
-            this.mEditar.Name = "mEditar";
-            this.mEditar.Size = new System.Drawing.Size(65, 20);
-            this.mEditar.Text = "Editar";
-            this.mEditar.Visible = false;
-            // 
-            // mEliminar
-            // 
-            this.mEliminar.Image = global::WFPGranjas.Properties.Resources.eliminar;
-            this.mEliminar.Name = "mEliminar";
-            this.mEliminar.Size = new System.Drawing.Size(78, 20);
-            this.mEliminar.Text = "Eliminar";
-            this.mEliminar.Visible = false;
-            // 
-            // mSalir
-            // 
-            this.mSalir.Image = global::WFPGranjas.Properties.Resources.cerrar;
-            this.mSalir.Name = "mSalir";
-            this.mSalir.Size = new System.Drawing.Size(67, 20);
-            this.mSalir.Text = "Cerrar";
-            this.mSalir.Click += new System.EventHandler(this.mSalir_Click);
-            // 
             // label13
             // 
             this.label13.AutoSize = true;
@@ -147,6 +116,7 @@
             // 
             // gbCaptura
             // 
+            this.gbCaptura.Controls.Add(this.btnRegLecListado);
             this.gbCaptura.Controls.Add(this.btnUltimo);
             this.gbCaptura.Controls.Add(this.btnSiguiente);
             this.gbCaptura.Controls.Add(this.btnAnterior);
@@ -263,6 +233,7 @@
             this.txtLecActual.Name = "txtLecActual";
             this.txtLecActual.Size = new System.Drawing.Size(150, 22);
             this.txtLecActual.TabIndex = 55;
+            this.txtLecActual.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLecActual_KeyPress);
             // 
             // txtLecAnterior
             // 
@@ -275,7 +246,7 @@
             // lblMedidor
             // 
             this.lblMedidor.AutoSize = true;
-            this.lblMedidor.Location = new System.Drawing.Point(218, 148);
+            this.lblMedidor.Location = new System.Drawing.Point(218, 158);
             this.lblMedidor.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblMedidor.Name = "lblMedidor";
             this.lblMedidor.Size = new System.Drawing.Size(113, 16);
@@ -286,7 +257,7 @@
             // 
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(218, 128);
+            this.label9.Location = new System.Drawing.Point(218, 138);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(69, 16);
@@ -296,7 +267,7 @@
             // lblContrato
             // 
             this.lblContrato.AutoSize = true;
-            this.lblContrato.Location = new System.Drawing.Point(7, 144);
+            this.lblContrato.Location = new System.Drawing.Point(7, 154);
             this.lblContrato.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblContrato.Name = "lblContrato";
             this.lblContrato.Size = new System.Drawing.Size(40, 16);
@@ -307,7 +278,7 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.Location = new System.Drawing.Point(7, 124);
+            this.label6.Location = new System.Drawing.Point(7, 134);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(70, 16);
@@ -317,7 +288,7 @@
             // lblDireccion
             // 
             this.lblDireccion.AutoSize = true;
-            this.lblDireccion.Location = new System.Drawing.Point(7, 94);
+            this.lblDireccion.Location = new System.Drawing.Point(7, 104);
             this.lblDireccion.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblDireccion.Name = "lblDireccion";
             this.lblDireccion.Size = new System.Drawing.Size(149, 16);
@@ -328,7 +299,7 @@
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(7, 74);
+            this.label4.Location = new System.Drawing.Point(7, 84);
             this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(74, 16);
@@ -337,7 +308,7 @@
             // 
             // lblColono
             // 
-            this.lblColono.Location = new System.Drawing.Point(7, 46);
+            this.lblColono.Location = new System.Drawing.Point(7, 56);
             this.lblColono.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.lblColono.Name = "lblColono";
             this.lblColono.Size = new System.Drawing.Size(435, 28);
@@ -348,7 +319,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(7, 26);
+            this.label2.Location = new System.Drawing.Point(7, 36);
             this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(146, 16);
@@ -405,19 +376,6 @@
             this.txtColono.Size = new System.Drawing.Size(392, 22);
             this.txtColono.TabIndex = 44;
             this.txtColono.TextChanged += new System.EventHandler(this.txtColono_TextChanged);
-            // 
-            // btnFiltrar
-            // 
-            this.btnFiltrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnFiltrar.Enabled = false;
-            this.btnFiltrar.Image = global::WFPGranjas.Properties.Resources.filtrar;
-            this.btnFiltrar.Location = new System.Drawing.Point(94, 59);
-            this.btnFiltrar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(23, 25);
-            this.btnFiltrar.TabIndex = 41;
-            this.btnFiltrar.UseVisualStyleBackColor = true;
-            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
             // cmbFiltroMza
             // 
@@ -485,18 +443,6 @@
             this.pnlCaptura.Size = new System.Drawing.Size(257, 32);
             this.pnlCaptura.TabIndex = 49;
             // 
-            // btnCapturaLec
-            // 
-            this.btnCapturaLec.Image = global::WFPGranjas.Properties.Resources.expediente;
-            this.btnCapturaLec.Location = new System.Drawing.Point(153, 4);
-            this.btnCapturaLec.Name = "btnCapturaLec";
-            this.btnCapturaLec.Size = new System.Drawing.Size(89, 24);
-            this.btnCapturaLec.TabIndex = 51;
-            this.btnCapturaLec.Text = "Capturar";
-            this.btnCapturaLec.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCapturaLec.UseVisualStyleBackColor = true;
-            this.btnCapturaLec.Click += new System.EventHandler(this.btnCapturaLec_Click);
-            // 
             // maskPeriodo
             // 
             this.maskPeriodo.Location = new System.Drawing.Point(87, 5);
@@ -517,6 +463,76 @@
             this.label14.Size = new System.Drawing.Size(73, 16);
             this.label14.TabIndex = 49;
             this.label14.Text = "Mes-Año:";
+            // 
+            // btnRegLecListado
+            // 
+            this.btnRegLecListado.Image = global::WFPGranjas.Properties.Resources.reportar24;
+            this.btnRegLecListado.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRegLecListado.Location = new System.Drawing.Point(292, 12);
+            this.btnRegLecListado.Name = "btnRegLecListado";
+            this.btnRegLecListado.Size = new System.Drawing.Size(150, 24);
+            this.btnRegLecListado.TabIndex = 52;
+            this.btnRegLecListado.Text = "Genera Listado";
+            this.btnRegLecListado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnRegLecListado.UseVisualStyleBackColor = true;
+            this.btnRegLecListado.Click += new System.EventHandler(this.btnRegLecListado_Click);
+            // 
+            // btnFiltrar
+            // 
+            this.btnFiltrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnFiltrar.Enabled = false;
+            this.btnFiltrar.Image = global::WFPGranjas.Properties.Resources.filtrar;
+            this.btnFiltrar.Location = new System.Drawing.Point(94, 59);
+            this.btnFiltrar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFiltrar.Name = "btnFiltrar";
+            this.btnFiltrar.Size = new System.Drawing.Size(23, 25);
+            this.btnFiltrar.TabIndex = 41;
+            this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
+            // 
+            // btnCapturaLec
+            // 
+            this.btnCapturaLec.Image = global::WFPGranjas.Properties.Resources.expediente;
+            this.btnCapturaLec.Location = new System.Drawing.Point(153, 4);
+            this.btnCapturaLec.Name = "btnCapturaLec";
+            this.btnCapturaLec.Size = new System.Drawing.Size(89, 24);
+            this.btnCapturaLec.TabIndex = 51;
+            this.btnCapturaLec.Text = "Capturar";
+            this.btnCapturaLec.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCapturaLec.UseVisualStyleBackColor = true;
+            this.btnCapturaLec.Click += new System.EventHandler(this.btnCapturaLec_Click);
+            // 
+            // mNuevo
+            // 
+            this.mNuevo.Image = global::WFPGranjas.Properties.Resources.nuevo;
+            this.mNuevo.Name = "mNuevo";
+            this.mNuevo.Size = new System.Drawing.Size(70, 20);
+            this.mNuevo.Text = "Nuevo";
+            this.mNuevo.Visible = false;
+            // 
+            // mEditar
+            // 
+            this.mEditar.Image = global::WFPGranjas.Properties.Resources.editar;
+            this.mEditar.Name = "mEditar";
+            this.mEditar.Size = new System.Drawing.Size(65, 20);
+            this.mEditar.Text = "Editar";
+            this.mEditar.Visible = false;
+            // 
+            // mEliminar
+            // 
+            this.mEliminar.Image = global::WFPGranjas.Properties.Resources.eliminar;
+            this.mEliminar.Name = "mEliminar";
+            this.mEliminar.Size = new System.Drawing.Size(78, 20);
+            this.mEliminar.Text = "Eliminar";
+            this.mEliminar.Visible = false;
+            // 
+            // mSalir
+            // 
+            this.mSalir.Image = global::WFPGranjas.Properties.Resources.cerrar;
+            this.mSalir.Name = "mSalir";
+            this.mSalir.Size = new System.Drawing.Size(67, 20);
+            this.mSalir.Text = "Cerrar";
+            this.mSalir.Click += new System.EventHandler(this.mSalir_Click);
             // 
             // frmRegLecturas
             // 
@@ -586,5 +602,6 @@
         private System.Windows.Forms.Button btnSiguiente;
         private System.Windows.Forms.Button btnAnterior;
         private System.Windows.Forms.Button btnPrimero;
+        private System.Windows.Forms.Button btnRegLecListado;
     }
 }

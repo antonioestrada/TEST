@@ -631,6 +631,16 @@ namespace WFPGranjas {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class DTRegLecturasDataTable : global::System.Data.TypedTableBase<DTRegLecturasRow> {
             
+            private global::System.Data.DataColumn columnmedidor;
+            
+            private global::System.Data.DataColumn columnnombre;
+            
+            private global::System.Data.DataColumn columnmanzana;
+            
+            private global::System.Data.DataColumn columnlote;
+            
+            private global::System.Data.DataColumn columnlectura;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DTRegLecturasDataTable() {
@@ -662,6 +672,46 @@ namespace WFPGranjas {
             protected DTRegLecturasDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn medidorColumn {
+                get {
+                    return this.columnmedidor;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn nombreColumn {
+                get {
+                    return this.columnnombre;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn manzanaColumn {
+                get {
+                    return this.columnmanzana;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn loteColumn {
+                get {
+                    return this.columnlote;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn lecturaColumn {
+                get {
+                    return this.columnlectura;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -701,9 +751,14 @@ namespace WFPGranjas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DTRegLecturasRow AddDTRegLecturasRow() {
+            public DTRegLecturasRow AddDTRegLecturasRow(string medidor, string nombre, string manzana, string lote, string lectura) {
                 DTRegLecturasRow rowDTRegLecturasRow = ((DTRegLecturasRow)(this.NewRow()));
-                object[] columnValuesArray = new object[0];
+                object[] columnValuesArray = new object[] {
+                        medidor,
+                        nombre,
+                        manzana,
+                        lote,
+                        lectura};
                 rowDTRegLecturasRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDTRegLecturasRow);
                 return rowDTRegLecturasRow;
@@ -726,11 +781,26 @@ namespace WFPGranjas {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
+                this.columnmedidor = base.Columns["medidor"];
+                this.columnnombre = base.Columns["nombre"];
+                this.columnmanzana = base.Columns["manzana"];
+                this.columnlote = base.Columns["lote"];
+                this.columnlectura = base.Columns["lectura"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
+                this.columnmedidor = new global::System.Data.DataColumn("medidor", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnmedidor);
+                this.columnnombre = new global::System.Data.DataColumn("nombre", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnombre);
+                this.columnmanzana = new global::System.Data.DataColumn("manzana", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnmanzana);
+                this.columnlote = new global::System.Data.DataColumn("lote", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlote);
+                this.columnlectura = new global::System.Data.DataColumn("lectura", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlectura);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1052,6 +1122,146 @@ namespace WFPGranjas {
             internal DTRegLecturasRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
                 this.tableDTRegLecturas = ((DTRegLecturasDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string medidor {
+                get {
+                    try {
+                        return ((string)(this[this.tableDTRegLecturas.medidorColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'medidor\' in table \'DTRegLecturas\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTRegLecturas.medidorColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string nombre {
+                get {
+                    try {
+                        return ((string)(this[this.tableDTRegLecturas.nombreColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'nombre\' in table \'DTRegLecturas\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTRegLecturas.nombreColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string manzana {
+                get {
+                    try {
+                        return ((string)(this[this.tableDTRegLecturas.manzanaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'manzana\' in table \'DTRegLecturas\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTRegLecturas.manzanaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string lote {
+                get {
+                    try {
+                        return ((string)(this[this.tableDTRegLecturas.loteColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'lote\' in table \'DTRegLecturas\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTRegLecturas.loteColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string lectura {
+                get {
+                    try {
+                        return ((string)(this[this.tableDTRegLecturas.lecturaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'lectura\' in table \'DTRegLecturas\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTRegLecturas.lecturaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsmedidorNull() {
+                return this.IsNull(this.tableDTRegLecturas.medidorColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetmedidorNull() {
+                this[this.tableDTRegLecturas.medidorColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsnombreNull() {
+                return this.IsNull(this.tableDTRegLecturas.nombreColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetnombreNull() {
+                this[this.tableDTRegLecturas.nombreColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsmanzanaNull() {
+                return this.IsNull(this.tableDTRegLecturas.manzanaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetmanzanaNull() {
+                this[this.tableDTRegLecturas.manzanaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsloteNull() {
+                return this.IsNull(this.tableDTRegLecturas.loteColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetloteNull() {
+                this[this.tableDTRegLecturas.loteColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IslecturaNull() {
+                return this.IsNull(this.tableDTRegLecturas.lecturaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetlecturaNull() {
+                this[this.tableDTRegLecturas.lecturaColumn] = global::System.Convert.DBNull;
             }
         }
         
