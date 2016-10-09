@@ -220,13 +220,22 @@ namespace WFPGranjas
 
         private void OpenFile(object sender, EventArgs e)
         {
+            cerrarVentanas();
+            //if (childFormCatUsuarios ==null)
+            frmConvenios childFormCatPerfiles = new frmConvenios(3);
+            childFormCatPerfiles.Text = "Registro de Convenios";
+
+            childFormCatPerfiles.MdiParent = this;
+            //  childFormCatPerfiles.Size = new Size(370, 365);
+            childFormCatPerfiles.Show();
+            /*
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
             openFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
             if (openFileDialog.ShowDialog(this) == DialogResult.OK)
             {
                 string FileName = openFileDialog.FileName;
-            }
+            }*/
         }
 
         private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -503,31 +512,24 @@ namespace WFPGranjas
 
         private void fcCuotasEC_Click(object sender, EventArgs e)
         {
-            cerrarVentanas();
-            //if (childFormCatUsuarios ==null)
-            frmConvenios childFormCatPerfiles = new frmConvenios(3);
-            childFormCatPerfiles.Text = "Registro de Convenios";
-
-            childFormCatPerfiles.MdiParent = this;
-            //  childFormCatPerfiles.Size = new Size(370, 365);
-            childFormCatPerfiles.Show();
+            frmPagoMto childFormCuotasManto = new frmPagoMto(4);
+            childFormCuotasManto.MdiParent = this;
+            childFormCuotasManto.Text = "Ingresos por Cuotas de Convenios";
+            childFormCuotasManto.Show();
 
         }
 
         private void fcCasaC_Click(object sender, EventArgs e)
         {
-            frmPagoMto childFormCuotasManto = new frmPagoMto(4);
-            childFormCuotasManto.MdiParent = this;
-            childFormCuotasManto.Text = "Ingresos por Cuotas de Convenios";
-            childFormCuotasManto.Show();
+            
         }
 
         private void arRegLecturas_Click(object sender, EventArgs e)
         {
-            /*cerrarVentanas();
-            rptRegLecturas childFormReporteRL = new rptRegLecturas();
+            cerrarVentanas();
+            rptReciboAgua childFormReporteRL = new rptReciboAgua();
             childFormReporteRL.MdiParent = this;
-            childFormReporteRL.Show();*/
+            childFormReporteRL.Show();
         }
     }
 }

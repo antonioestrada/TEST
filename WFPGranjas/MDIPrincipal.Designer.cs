@@ -60,6 +60,7 @@
             this.toolBarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusBarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.arMedidores = new System.Windows.Forms.ToolStripMenuItem();
+            this.arRegLecturas = new System.Windows.Forms.ToolStripMenuItem();
             this.toolsMenu = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.windowsMenu = new System.Windows.Forms.ToolStripMenuItem();
@@ -151,7 +152,6 @@
             this.toolStripMenuItem41 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator18 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem42 = new System.Windows.Forms.ToolStripMenuItem();
-            this.arRegLecturas = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.pnlMenuPrincipal.SuspendLayout();
@@ -442,7 +442,7 @@
             this.toolBarToolStripMenuItem.CheckOnClick = true;
             this.toolBarToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.toolBarToolStripMenuItem.Name = "toolBarToolStripMenuItem";
-            this.toolBarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.toolBarToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.toolBarToolStripMenuItem.Text = "&Toolbar";
             this.toolBarToolStripMenuItem.Click += new System.EventHandler(this.ToolBarToolStripMenuItem_Click);
             // 
@@ -452,16 +452,23 @@
             this.statusBarToolStripMenuItem.CheckOnClick = true;
             this.statusBarToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.statusBarToolStripMenuItem.Name = "statusBarToolStripMenuItem";
-            this.statusBarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.statusBarToolStripMenuItem.Size = new System.Drawing.Size(149, 22);
             this.statusBarToolStripMenuItem.Text = "&Status Bar";
             this.statusBarToolStripMenuItem.Click += new System.EventHandler(this.StatusBarToolStripMenuItem_Click);
             // 
             // arMedidores
             // 
             this.arMedidores.Name = "arMedidores";
-            this.arMedidores.Size = new System.Drawing.Size(152, 22);
+            this.arMedidores.Size = new System.Drawing.Size(149, 22);
             this.arMedidores.Text = "Medidores";
             this.arMedidores.Click += new System.EventHandler(this.arMedidores_Click);
+            // 
+            // arRegLecturas
+            // 
+            this.arRegLecturas.Name = "arRegLecturas";
+            this.arRegLecturas.Size = new System.Drawing.Size(149, 22);
+            this.arRegLecturas.Text = "RegLecturas";
+            this.arRegLecturas.Click += new System.EventHandler(this.arRegLecturas_Click);
             // 
             // toolsMenu
             // 
@@ -1273,21 +1280,17 @@
             this.toolStripMenuItem42.Size = new System.Drawing.Size(179, 22);
             this.toolStripMenuItem42.Text = "&About ... ...";
             // 
-            // arRegLecturas
-            // 
-            this.arRegLecturas.Name = "arRegLecturas";
-            this.arRegLecturas.Size = new System.Drawing.Size(152, 22);
-            this.arRegLecturas.Text = "RegLecturas";
-            this.arRegLecturas.Click += new System.EventHandler(this.arRegLecturas_Click);
-            // 
             // MDIPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
+            this.BackgroundImage = global::WFPGranjas.Properties.Resources.LOGO;
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(843, 453);
             this.Controls.Add(this.pnlMenuPrincipal);
             this.Controls.Add(this.statusStrip);
+            this.DoubleBuffered = true;
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStripAdmon;
             this.Name = "MDIPrincipal";

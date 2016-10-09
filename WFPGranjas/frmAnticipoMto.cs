@@ -208,6 +208,8 @@ namespace WFPGranjas
                 gbDRecibo.Visible = true;
                 pnlMeses.Visible = false;
                 pagoTotal = 0;
+                DateTime thisDay = DateTime.Today;
+                lblFechaSys.Text = thisDay.ToString("D");
 
             }
         }
@@ -504,7 +506,9 @@ namespace WFPGranjas
                 txtImporte.Text = String.Format(CultureInfo.InvariantCulture, "{0:0,0.00}", txtTotalAgua.Text);
                 txtDescuento.Text = "0.00";
                 txtTotal.Text = String.Format(CultureInfo.InvariantCulture, "{0:0,0.00}", txtTotalAgua.Text);
-                
+
+                //tonka
+                pnlMetodoPago.Visible=true;
 
             }
         }

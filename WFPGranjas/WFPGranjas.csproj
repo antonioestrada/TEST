@@ -77,11 +77,18 @@
     <Compile Include="Backend\Procesos\Cuota.cs" />
     <Compile Include="Backend\Properties.cs" />
     <Compile Include="Backend\Reportes\rptMedidores.cs" />
+    <Compile Include="Backend\Reportes\rptRecibos.cs" />
     <Compile Include="Backend\Utilerias.cs" />
     <Compile Include="crMedidorSQL.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crMedidorSQL.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="crReciboAgua.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crReciboAgua.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="crRegLecturas.cs">
@@ -97,6 +104,14 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsMedidores.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsReciboAgua.cs">
+      <DependentUpon>dsReciboAgua.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsReciboAgua.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsReciboAgua.xsd</DependentUpon>
     </Compile>
     <Compile Include="frmConvenios.cs">
       <SubType>Form</SubType>
@@ -226,6 +241,12 @@
     <Compile Include="rptMedidores.Designer.cs">
       <DependentUpon>rptMedidores.cs</DependentUpon>
     </Compile>
+    <Compile Include="rptReciboAgua.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="rptReciboAgua.Designer.cs">
+      <DependentUpon>rptReciboAgua.cs</DependentUpon>
+    </Compile>
     <Compile Include="rptRegLecturas.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -235,6 +256,10 @@
     <EmbeddedResource Include="crMedidorSQL.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crMedidorSQL.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crReciboAgua.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crReciboAgua.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="crRegLecturas.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -309,6 +334,9 @@
     <EmbeddedResource Include="rptMedidores.resx">
       <DependentUpon>rptMedidores.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="rptReciboAgua.resx">
+      <DependentUpon>rptReciboAgua.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="rptRegLecturas.resx">
       <DependentUpon>rptRegLecturas.cs</DependentUpon>
     </EmbeddedResource>
@@ -322,6 +350,17 @@
     </None>
     <None Include="dsMedidores.xss">
       <DependentUpon>dsMedidores.xsd</DependentUpon>
+    </None>
+    <None Include="dsReciboAgua.xsc">
+      <DependentUpon>dsReciboAgua.xsd</DependentUpon>
+    </None>
+    <None Include="dsReciboAgua.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsReciboAgua.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsReciboAgua.xss">
+      <DependentUpon>dsReciboAgua.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -762,6 +801,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\reportar24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\LOGO.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
