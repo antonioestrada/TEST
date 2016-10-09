@@ -286,7 +286,7 @@ namespace WFPGranjas
                     //MessageBox.Show("Mes: " + maskPeriodo.Text.Substring(0, 2) + " Año: " + maskPeriodo.Text.Substring(3, 4));
                     mesG = Int16.Parse(maskPeriodo.Text.Substring(0, 2));
                     anioG = Int16.Parse(maskPeriodo.Text.Substring(3, 4));
-                    muestraDatos();
+                   // muestraDatos();
                     
                 }
                 else
@@ -314,7 +314,7 @@ namespace WFPGranjas
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("id_med" + id_medidor + " mes:" + mesG + " anio:" + anioG);
+            MessageBox.Show("id_med0" + id_medidor + " mes:" + mesG + " anio:" + anioG);
             valoresLecturas(id_medidor, mesG, anioG);
         }
 

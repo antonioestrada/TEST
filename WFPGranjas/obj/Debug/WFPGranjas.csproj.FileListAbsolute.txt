@@ -40,3 +40,4 @@ C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.Properties.Reso
 C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.rptMedidores.resources
 C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.csproj.GenerateResource.Cache
 C:\Users\cbestred\Documents\test\WFPGranjas\bin\Debug\WFPGranjas.exe.config
+C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.csprojResolveAssemblyReference.cache
