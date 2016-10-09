@@ -205,8 +205,11 @@ namespace WFPGranjas
                 groupDColono.Visible = true;
                 btnCapturaR.Enabled = true;
                 groupCuota.Visible = false;
+                gbDRecibo.Visible = true;
                 pnlMeses.Visible = false;
                 pagoTotal = 0;
+                DateTime thisDay = DateTime.Today;
+                lblFechaSys.Text = thisDay.ToString("D");
 
             }
         }
@@ -268,6 +271,9 @@ namespace WFPGranjas
             txtImpChq.Text = "0.00";
             txtImpFicha.Text = "0.00";
             txtDescuento.Text = "0.00";
+            //tom modificacion
+            pnlMetodoPago.Visible = true;
+            dgPartidasR.ClearSelection();
 
         }
 
@@ -326,7 +332,7 @@ namespace WFPGranjas
             return resultado;
         }
 
-        private void btnCapturaPago_Click(object sender, EventArgs e)
+        private void btnCapturaPago_Click_1(object sender, EventArgs e)
         {
             Boolean resultado=false;
             PrcAnticipos prcAnticipos = new PrcAnticipos();
@@ -501,7 +507,15 @@ namespace WFPGranjas
                 txtDescuento.Text = "0.00";
                 txtTotal.Text = String.Format(CultureInfo.InvariantCulture, "{0:0,0.00}", txtTotalAgua.Text);
 
+                //tonka
+                pnlMetodoPago.Visible=true;
+
             }
+        }
+
+        private void txtImpFicha_TextChanged(object sender, EventArgs e)
+        {
+
         }
 
         public Boolean validaNumeros(TextBox txt, object sender, KeyPressEventArgs e) {

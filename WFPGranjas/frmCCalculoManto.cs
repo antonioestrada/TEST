@@ -186,16 +186,21 @@ namespace WFPGranjas
             dFecha_Aplica.MinDate = new DateTime(2010, 01, 01);
             dFecha_Aplica.Text = resultado.tariFechaAplica;
             txtBase.Text = resultado.tariValor;
-            tipoCalculo = int.Parse(resultado.tariTipo);
-            if (tipoCalculo == 1)
+            if (string.IsNullOrEmpty(resultado.tariTipo))
+            { }
+            else
             {
-                rbFija.Checked = true;
-                lblCalculo.Text = "Importe a pagar por Lote: $ " + txtBase.Text;
-            }
-            else if (tipoCalculo == 2)
-            {
-                rbVariable.Checked = true;
-                lblCalculo.Text = "Importe a pagar= " + txtBase.Text + " X M2 del Lote";
+                tipoCalculo = int.Parse(resultado.tariTipo);
+                if (tipoCalculo == 1)
+                {
+                    rbFija.Checked = true;
+                    lblCalculo.Text = "Importe a pagar por Lote: $ " + txtBase.Text;
+                }
+                else if (tipoCalculo == 2)
+                {
+                    rbVariable.Checked = true;
+                    lblCalculo.Text = "Importe a pagar= " + txtBase.Text + " X M2 del Lote";
+                }
             }
         }
         #endregion

@@ -83,6 +83,7 @@
             this.btncerrar.Size = new System.Drawing.Size(32, 32);
             this.btncerrar.TabIndex = 9;
             this.btncerrar.UseVisualStyleBackColor = true;
+            this.btncerrar.Click += new System.EventHandler(this.btncerrar_Click);
             // 
             // btnmin
             // 

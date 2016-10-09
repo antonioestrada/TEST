@@ -239,12 +239,18 @@ namespace WFPGranjas
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-            BuscaIdLote();
+            if (cmbManzana.Items.Count > 0)
+                BuscaIdLote();
+            else
+                MessageBox.Show("No hay Registro de Lotes. Favor de registrar Colonos, Manzanas y Lotes antes de registrar Medidores.");
         }
 
         private void btnBuscar_Click_1(object sender, EventArgs e)
         {
-            BuscaIdLote();
+            if (cmbManzana.Items.Count > 0)
+                BuscaIdLote();
+            else
+                MessageBox.Show("No hay Registro de Lotes. Favor de registrar Colonos, Manzanas y Lotes antes de registrar Medidores.");
         }
 
         private void frmCMedidores_Load(object sender, EventArgs e)

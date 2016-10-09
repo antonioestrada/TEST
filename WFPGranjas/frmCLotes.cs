@@ -213,7 +213,8 @@ namespace WFPGranjas
                 id_colono,
                 Double.Parse( m2.Text)
             };
-            Object[] parames2 = { 1, 0,"","" };
+            //Object[] parames2 = { 1, 0,"","" };
+            Object[] parames2 = { 4, Convert.ToInt32(cmbFiltroMza.SelectedValue.ToString()), "", "" };
             //cachamos el valor que retorna nuestro sp
             //result=0 Alta, Baja o Cambio exitoso
             //result=1 el registro ya existe
@@ -230,7 +231,9 @@ namespace WFPGranjas
                 lblMensaje.ForeColor = Color.White;
                 limpiaF();
                 //actualiza el dgrid                
-                BeanCBeanManzana.consultaManLotes(dgLotes,parames2);
+                //BeanCBeanManzana.consultaManLotes(dgLotes,parames2);
+                //ACTUALIZA GRID CON FILTRO
+                BeanCBeanManzana.consultaManLotes(dgLotes, parames2);
             }
             else if (resultado.Cve_resultado == 1)
             {
@@ -311,34 +314,43 @@ namespace WFPGranjas
 
         private void mNuevo_Click(object sender, EventArgs e)
         {
-            txtLote.Text = "";
-            txtM2.Text = "";
-            cmbManzana.Focus();
-            opForm("Nuevo Lote", Color.LightGreen, "Registrar", 1, mEditar, mEliminar,dgLotes);
+            if (cmbManzana.Items.Count > 0)
+            {
+                txtLote.Text = "";
+                txtM2.Text = "";
+                cmbManzana.Focus();
+                opForm("Nuevo Lote", Color.LightGreen, "Registrar", 1, mEditar, mEliminar, dgLotes);
+            }
         }
 
         private void mEditar_Click(object sender, EventArgs e)
         {
-            id_manzana = int.Parse(cmbManzana.SelectedValue.ToString());
-            int retornoB = compruebaLote(dgLotes);
-            if (retornoB == 1)
+            if (cmbManzana.Items.Count > 0)
             {
-                opForm("Modificar Lote", Color.Peru, "Guardar", 3, mNuevo, mEliminar, dgLotes);
-                dgLotes.Enabled = true;
+                id_manzana = int.Parse(cmbManzana.SelectedValue.ToString());
+                int retornoB = compruebaLote(dgLotes);
+                if (retornoB == 1)
+                {
+                    opForm("Modificar Lote", Color.Peru, "Guardar", 3, mNuevo, mEliminar, dgLotes);
+                    dgLotes.Enabled = true;
+                }
+                dgPropietario.Visible = false;
             }
-            dgPropietario.Visible = false;
         }
 
         private void mEliminar_Click(object sender, EventArgs e)
         {
-            id_manzana = int.Parse(cmbManzana.SelectedValue.ToString());
-            int retornoB = compruebaLote(dgLotes);
-            if (retornoB == 1)
+            if (cmbManzana.Items.Count > 0)
             {
-                opForm("Eliminar Lote", Color.IndianRed, "Eliminar", 2, mNuevo, mEditar, dgLotes);
-                dgLotes.Enabled = true;
+                id_manzana = int.Parse(cmbManzana.SelectedValue.ToString());
+                int retornoB = compruebaLote(dgLotes);
+                if (retornoB == 1)
+                {
+                    opForm("Eliminar Lote", Color.IndianRed, "Eliminar", 2, mNuevo, mEditar, dgLotes);
+                    dgLotes.Enabled = true;
+                }
+                dgPropietario.Visible = false;
             }
-            dgPropietario.Visible = false;
         }
 
         private void btnCancel_Click(object sender, EventArgs e)
@@ -362,11 +374,16 @@ namespace WFPGranjas
 
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
+            if (cmbFiltroMza.Items.Count > 0)
+            {
+                Object[] parames = { 4, Convert.ToInt32(cmbFiltroMza.SelectedValue.ToString()), "", "" };
 
-            Object[] parames = { 4, Convert.ToInt32(cmbFiltroMza.SelectedValue.ToString()), "", "" };
-
-            var BeanCLotesMza = new Backend.Catalogos.CManzanaLotes();
-            BeanCLotesMza.consultaManLotes(dgLotes, parames);
+                var BeanCLotesMza = new Backend.Catalogos.CManzanaLotes();
+                BeanCLotesMza.consultaManLotes(dgLotes, parames);
+            }
+            else
+                MessageBox.Show("No hay Registros. Favor de registrar Colonos y Manzanas antes de registrar Lotes.");
+            
         }
 
         private void dgPropietario_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)

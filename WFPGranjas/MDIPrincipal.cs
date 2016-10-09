@@ -220,13 +220,22 @@ namespace WFPGranjas
 
         private void OpenFile(object sender, EventArgs e)
         {
+            cerrarVentanas();
+            //if (childFormCatUsuarios ==null)
+            frmConvenios childFormCatPerfiles = new frmConvenios(3);
+            childFormCatPerfiles.Text = "Registro de Convenios";
+
+            childFormCatPerfiles.MdiParent = this;
+            //  childFormCatPerfiles.Size = new Size(370, 365);
+            childFormCatPerfiles.Show();
+            /*
             OpenFileDialog openFileDialog = new OpenFileDialog();
             openFileDialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.Personal);
             openFileDialog.Filter = "Text Files (*.txt)|*.txt|All Files (*.*)|*.*";
             if (openFileDialog.ShowDialog(this) == DialogResult.OK)
             {
                 string FileName = openFileDialog.FileName;
-            }
+            }*/
         }
 
         private void SaveAsToolStripMenuItem_Click(object sender, EventArgs e)
@@ -476,11 +485,6 @@ namespace WFPGranjas
             //  childFormCatPerfiles.Size = new Size(370, 365);
             childFormCatPerfiles.Show();
         }
-
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
->>>>>>> 5482dbedd0972efc5f24fd482b7ef80a288e4f87
         private void arMedidores_Click(object sender, EventArgs e)
         {
             cerrarVentanas();
@@ -503,31 +507,29 @@ namespace WFPGranjas
             frmTarifasAgua childFormTarifaAgua = new frmTarifasAgua();
             childFormTarifaAgua.MdiParent = this;
             childFormTarifaAgua.Show();
-<<<<<<< HEAD
+        
         }
-=======
-=======
->>>>>>> 5482dbedd0972efc5f24fd482b7ef80a288e4f87
+
         private void fcCuotasEC_Click(object sender, EventArgs e)
-        {
-            cerrarVentanas();
-            //if (childFormCatUsuarios ==null)
-            frmConvenios childFormCatPerfiles = new frmConvenios(3);
-            childFormCatPerfiles.Text = "Registro de Convenios";
-
-            childFormCatPerfiles.MdiParent = this;
-            //  childFormCatPerfiles.Size = new Size(370, 365);
-            childFormCatPerfiles.Show();
-
-        }
-
-        private void fcCasaC_Click(object sender, EventArgs e)
         {
             frmPagoMto childFormCuotasManto = new frmPagoMto(4);
             childFormCuotasManto.MdiParent = this;
             childFormCuotasManto.Text = "Ingresos por Cuotas de Convenios";
             childFormCuotasManto.Show();
->>>>>>> 8f4d5bd5a99b266923d67df8c91be7342408a19a
+
+        }
+
+        private void fcCasaC_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void arRegLecturas_Click(object sender, EventArgs e)
+        {
+            cerrarVentanas();
+            rptReciboAgua childFormReporteRL = new rptReciboAgua();
+            childFormReporteRL.MdiParent = this;
+            childFormReporteRL.Show();
         }
     }
 }

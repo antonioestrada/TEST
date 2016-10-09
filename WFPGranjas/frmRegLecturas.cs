@@ -145,7 +145,8 @@ namespace WFPGranjas
                 2,
                 inIDMedidor,//id_lote solo agregamos el parametro id_lote para continuar con la ejecucion del sp
                 inPeriodo,
-                inAnio
+                inAnio,
+                0//lectura la dejamos en cero
             };
             //cachamos el valor que retorna nuestro sp
             Backend.Catalogos.ResultadoTrnx resultado = new Backend.Catalogos.ResultadoTrnx();
@@ -154,6 +155,28 @@ namespace WFPGranjas
             lblLecAnterior.Text = "Lectura Anterior ["+resultado.periodoAnt.ToString().PadLeft(2, '0') + "/"+resultado.anioAnt.ToString().PadLeft(4, '0') +"]:";
             txtLecActual.Text = resultado.lectura.ToString();
             txtLecAnterior.Text = resultado.lecturaAnt.ToString();
+            Conexion.FinalizarSesion();
+        }
+        #endregion
+
+        #region Registra lecturas
+        public void registraLecturas(int inIDMedidor, int inPeriodo, int inAnio, int inLectura)
+        {
+            //definimos los parametros que pasaran al sp
+            Object[] parames = {
+                1,
+                inIDMedidor,//id_lote solo agregamos el parametro id_lote para continuar con la ejecucion del sp
+                inPeriodo,
+                inAnio,
+                inLectura
+            };
+            //cachamos el valor que retorna nuestro sp
+            Backend.Catalogos.ResultadoTrnx resultado = new Backend.Catalogos.ResultadoTrnx();
+            var BeanLecturas = new Backend.Procesos.CRegLecturas();
+            resultado = BeanLecturas.muestraLecturasAgua(parames);
+            //lblLecAnterior.Text = "Lectura Anterior [" + resultado.periodoAnt.ToString().PadLeft(2, '0') + "/" + resultado.anioAnt.ToString().PadLeft(4, '0') + "]:";
+            //txtLecActual.Text = resultado.lectura.ToString();
+            //txtLecAnterior.Text = resultado.lecturaAnt.ToString();
             Conexion.FinalizarSesion();
         }
         #endregion
@@ -261,15 +284,27 @@ namespace WFPGranjas
             int currenR = dgListado.SelectedRows[0].Index;
             if (countGrid > 0)
             {
+                //MessageBox.Show(txtLecActual.Text);
+                if (Int16.Parse(txtLecActual.Text) > Int16.Parse(txtLecAnterior.Text))
+                {
+                    if (Int16.Parse(txtLecActual.Text) == 0)
+                        registraLecturas(id_medidor, mesG, anioG, Int16.Parse(txtLecAnterior.Text));
+                    else
+                        registraLecturas(id_medidor, mesG, anioG, Int16.Parse(txtLecActual.Text));
+                
+                dgListado.Focus();
                 if (countGrid - 1 == currenR)
                     MessageBox.Show("No hay mas registros");
                 else
                 {
-                    dgListado.Focus();
+                    
                     dgListado.Rows[currenR + 1].Selected = true;
                     dgListado.FirstDisplayedScrollingRowIndex = currenR;
                     valoresRen(dgListado, currenR + 1);
                 }
+                }
+                else
+                    MessageBox.Show("La lectura debe ser mayor a la lectura anterior");
             }
         }
         
@@ -301,6 +336,20 @@ namespace WFPGranjas
                 ocultaDatos();
             }
         }
+        Backend.Utilerias util = new Backend.Utilerias();
+        private void txtLecActual_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            util.validarNumeros(e, txtLecActual);
+        }
+
+        private void btnRegLecListado_Click(object sender, EventArgs e)
+        {
+            string mes = maskPeriodo.Text.Substring(0, 2);
+            string anio = maskPeriodo.Text.Substring(3, 4);
+            rptRegLecturas rpt = new rptRegLecturas(mes,anio);
+            rpt.Show();
+
+        }
 
         private void txtColono_TextChanged(object sender, EventArgs e)
         {
@@ -312,12 +361,15 @@ namespace WFPGranjas
                 gbCaptura.Visible = false;
         }
 
+<<<<<<< HEAD
         private void button1_Click(object sender, EventArgs e)
         {
             MessageBox.Show("id_med0" + id_medidor + " mes:" + mesG + " anio:" + anioG);
             valoresLecturas(id_medidor, mesG, anioG);
         }
 
+=======
+>>>>>>> 47f28a6b1eba161ddd2972dfa7de2883deaf09cb
         private void btnUltimo_Click(object sender, EventArgs e)
         {
             if (dgListado.RowCount > 0)
