@@ -361,15 +361,14 @@ namespace WFPGranjas
                 gbCaptura.Visible = false;
         }
 
-<<<<<<< HEAD
+
         private void button1_Click(object sender, EventArgs e)
         {
             MessageBox.Show("id_med0" + id_medidor + " mes:" + mesG + " anio:" + anioG);
             valoresLecturas(id_medidor, mesG, anioG);
         }
 
-=======
->>>>>>> 47f28a6b1eba161ddd2972dfa7de2883deaf09cb
+
         private void btnUltimo_Click(object sender, EventArgs e)
         {
             if (dgListado.RowCount > 0)

@@ -253,6 +253,12 @@
     <Compile Include="rptRegLecturas.Designer.cs">
       <DependentUpon>rptRegLecturas.cs</DependentUpon>
     </Compile>
+    <Compile Include="rptSubMedidor.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>rptSubMedidor.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="crMedidorSQL.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crMedidorSQL.cs</LastGenOutput>
@@ -339,6 +345,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="rptRegLecturas.resx">
       <DependentUpon>rptRegLecturas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptSubMedidor.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>rptSubMedidor.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="dsMedidores.xsc">
       <DependentUpon>dsMedidores.xsd</DependentUpon>
