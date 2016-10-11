@@ -19,18 +19,7 @@
               <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre" type="xs:string" minOccurs="0" />
               <xs:element name="manzana" msprop:Generator_ColumnVarNameInTable="columnmanzana" msprop:Generator_ColumnPropNameInRow="manzana" msprop:Generator_ColumnPropNameInTable="manzanaColumn" msprop:Generator_UserColumnName="manzana" type="xs:string" minOccurs="0" />
               <xs:element name="lote" msprop:Generator_ColumnVarNameInTable="columnlote" msprop:Generator_ColumnPropNameInRow="lote" msprop:Generator_ColumnPropNameInTable="loteColumn" msprop:Generator_UserColumnName="lote" type="xs:string" minOccurs="0" />
-            </xs:sequence>
-          </xs:complexType>
-        </xs:element>
-        <xs:element name="DTRALectura" msprop:Generator_TableClassName="DTRALecturaDataTable" msprop:Generator_TableVarName="tableDTRALectura" msprop:Generator_TablePropName="DTRALectura" msprop:Generator_RowDeletingName="DTRALecturaRowDeleting" msprop:Generator_RowChangingName="DTRALecturaRowChanging" msprop:Generator_RowEvHandlerName="DTRALecturaRowChangeEventHandler" msprop:Generator_RowDeletedName="DTRALecturaRowDeleted" msprop:Generator_UserTableName="DTRALectura" msprop:Generator_RowChangedName="DTRALecturaRowChanged" msprop:Generator_RowEvArgName="DTRALecturaRowChangeEvent" msprop:Generator_RowClassName="DTRALecturaRow">
-          <xs:complexType>
-            <xs:sequence>
-              <xs:element name="id_lote" msprop:Generator_ColumnVarNameInTable="columnid_lote" msprop:Generator_ColumnPropNameInRow="id_lote" msprop:Generator_ColumnPropNameInTable="id_loteColumn" msprop:Generator_UserColumnName="id_lote" type="xs:int" minOccurs="0" />
-              <xs:element name="medidor" msprop:Generator_ColumnVarNameInTable="columnmedidor" msprop:Generator_ColumnPropNameInRow="medidor" msprop:Generator_ColumnPropNameInTable="medidorColumn" msprop:Generator_UserColumnName="medidor" type="xs:string" minOccurs="0" />
-              <xs:element name="base_cna" msprop:Generator_ColumnVarNameInTable="columnbase_cna" msprop:Generator_ColumnPropNameInRow="base_cna" msprop:Generator_ColumnPropNameInTable="base_cnaColumn" msprop:Generator_UserColumnName="base_cna" type="xs:string" minOccurs="0" />
-              <xs:element name="lectura" msprop:Generator_ColumnVarNameInTable="columnlectura" msprop:Generator_ColumnPropNameInRow="lectura" msprop:Generator_ColumnPropNameInTable="lecturaColumn" msprop:Generator_UserColumnName="lectura" type="xs:string" minOccurs="0" />
-              <xs:element name="periodo" msprop:Generator_ColumnVarNameInTable="columnperiodo" msprop:Generator_ColumnPropNameInRow="periodo" msprop:Generator_ColumnPropNameInTable="periodoColumn" msprop:Generator_UserColumnName="periodo" type="xs:string" minOccurs="0" />
-              <xs:element name="anio" msprop:Generator_ColumnVarNameInTable="columnanio" msprop:Generator_ColumnPropNameInRow="anio" msprop:Generator_ColumnPropNameInTable="anioColumn" msprop:Generator_UserColumnName="anio" type="xs:string" minOccurs="0" />
+              <xs:element name="metros_cuadrados" msprop:Generator_ColumnVarNameInTable="columnmetros_cuadrados" msprop:Generator_ColumnPropNameInRow="metros_cuadrados" msprop:Generator_ColumnPropNameInTable="metros_cuadradosColumn" msprop:Generator_UserColumnName="metros_cuadrados" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -42,6 +31,29 @@
               <xs:element name="periodo" msprop:Generator_ColumnVarNameInTable="columnperiodo" msprop:Generator_ColumnPropNameInRow="periodo" msprop:Generator_ColumnPropNameInTable="periodoColumn" msprop:Generator_UserColumnName="periodo" type="xs:string" minOccurs="0" />
               <xs:element name="importe" msprop:Generator_ColumnVarNameInTable="columnimporte" msprop:Generator_ColumnPropNameInRow="importe" msprop:Generator_ColumnPropNameInTable="importeColumn" msprop:Generator_UserColumnName="importe" type="xs:decimal" minOccurs="0" />
               <xs:element name="descripcion" msprop:Generator_ColumnVarNameInTable="columndescripcion" msprop:Generator_ColumnPropNameInRow="descripcion" msprop:Generator_ColumnPropNameInTable="descripcionColumn" msprop:Generator_UserColumnName="descripcion" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DTRALectura" msprop:Generator_TableClassName="DTRALecturaDataTable" msprop:Generator_TableVarName="tableDTRALectura" msprop:Generator_TablePropName="DTRALectura" msprop:Generator_RowDeletingName="DTRALecturaRowDeleting" msprop:Generator_RowChangingName="DTRALecturaRowChanging" msprop:Generator_RowEvHandlerName="DTRALecturaRowChangeEventHandler" msprop:Generator_RowDeletedName="DTRALecturaRowDeleted" msprop:Generator_UserTableName="DTRALectura" msprop:Generator_RowChangedName="DTRALecturaRowChanged" msprop:Generator_RowEvArgName="DTRALecturaRowChangeEvent" msprop:Generator_RowClassName="DTRALecturaRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id_lote" msprop:Generator_ColumnVarNameInTable="columnid_lote" msprop:Generator_ColumnPropNameInRow="id_lote" msprop:Generator_ColumnPropNameInTable="id_loteColumn" msprop:Generator_UserColumnName="id_lote" type="xs:int" minOccurs="0" />
+              <xs:element name="medidor" msprop:Generator_ColumnVarNameInTable="columnmedidor" msprop:Generator_ColumnPropNameInRow="medidor" msprop:Generator_ColumnPropNameInTable="medidorColumn" msprop:Generator_UserColumnName="medidor" type="xs:string" minOccurs="0" />
+              <xs:element name="base_cna" msprop:Generator_ColumnVarNameInTable="columnbase_cna" msprop:Generator_ColumnPropNameInRow="base_cna" msprop:Generator_ColumnPropNameInTable="base_cnaColumn" msprop:Generator_UserColumnName="base_cna" type="xs:string" minOccurs="0" />
+              <xs:element name="periodo" msprop:Generator_ColumnVarNameInTable="columnperiodo" msprop:Generator_ColumnPropNameInRow="periodo" msprop:Generator_ColumnPropNameInTable="periodoColumn" msprop:Generator_UserColumnName="periodo" type="xs:string" minOccurs="0" />
+              <xs:element name="lectura_ant" msprop:Generator_ColumnVarNameInTable="columnlectura_ant" msprop:Generator_ColumnPropNameInRow="lectura_ant" msprop:Generator_ColumnPropNameInTable="lectura_antColumn" msprop:Generator_UserColumnName="lectura_ant" type="xs:int" minOccurs="0" />
+              <xs:element name="lectura" msprop:Generator_ColumnVarNameInTable="columnlectura" msprop:Generator_ColumnPropNameInRow="lectura" msprop:Generator_ColumnPropNameInTable="lecturaColumn" msprop:Generator_UserColumnName="lectura" type="xs:int" minOccurs="0" />
+              <xs:element name="consumo" msprop:Generator_ColumnVarNameInTable="columnconsumo" msprop:Generator_ColumnPropNameInRow="consumo" msprop:Generator_ColumnPropNameInTable="consumoColumn" msprop:Generator_UserColumnName="consumo" type="xs:int" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DTRAGrafica" msprop:Generator_TableClassName="DTRAGraficaDataTable" msprop:Generator_TableVarName="tableDTRAGrafica" msprop:Generator_RowChangedName="DTRAGraficaRowChanged" msprop:Generator_TablePropName="DTRAGrafica" msprop:Generator_RowDeletingName="DTRAGraficaRowDeleting" msprop:Generator_RowChangingName="DTRAGraficaRowChanging" msprop:Generator_RowEvHandlerName="DTRAGraficaRowChangeEventHandler" msprop:Generator_RowDeletedName="DTRAGraficaRowDeleted" msprop:Generator_RowClassName="DTRAGraficaRow" msprop:Generator_UserTableName="DTRAGrafica" msprop:Generator_RowEvArgName="DTRAGraficaRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id_lote" msprop:Generator_ColumnVarNameInTable="columnid_lote" msprop:Generator_ColumnPropNameInRow="id_lote" msprop:Generator_ColumnPropNameInTable="id_loteColumn" msprop:Generator_UserColumnName="id_lote" type="xs:int" minOccurs="0" />
+              <xs:element name="periodo" msprop:Generator_ColumnVarNameInTable="columnperiodo" msprop:Generator_ColumnPropNameInRow="periodo" msprop:Generator_ColumnPropNameInTable="periodoColumn" msprop:Generator_UserColumnName="periodo" type="xs:string" minOccurs="0" />
+              <xs:element name="anio" msprop:Generator_ColumnVarNameInTable="columnanio" msprop:Generator_ColumnPropNameInRow="anio" msprop:Generator_ColumnPropNameInTable="anioColumn" msprop:Generator_UserColumnName="anio" type="xs:string" minOccurs="0" />
+              <xs:element name="consumo" msprop:Generator_ColumnVarNameInTable="columnconsumo" msprop:Generator_ColumnPropNameInRow="consumo" msprop:Generator_ColumnPropNameInTable="consumoColumn" msprop:Generator_UserColumnName="consumo" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

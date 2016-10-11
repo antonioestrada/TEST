@@ -20,7 +20,7 @@ namespace WFPGranjas
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
             var BeanRPTMedidor = new Backend.Reportes.rptRecibos();
-            BeanRPTMedidor.rptReciboAgua(crvLReciboAgua, 2, "1","01","2015");    
+            BeanRPTMedidor.rptReciboAgua(crvLReciboAgua, 1, "4","01","2015");    
         }
     }
 }

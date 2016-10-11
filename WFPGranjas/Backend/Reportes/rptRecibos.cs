@@ -18,14 +18,21 @@ namespace WFPGranjas.Backend.Reportes
         {
             Globales vGlobal = new Globales();
             ReportDocument cryRpt = new ReportDocument();
+            ReportDocument crySubRpt = new ReportDocument();
+            ReportDocument crySubGraficaRpt = new ReportDocument();
+
             cryRpt = new CrystalDecisions.CrystalReports.Engine.ReportDocument();
+            crySubRpt = new CrystalDecisions.CrystalReports.Engine.ReportDocument();
             cryRpt.Load(@"" + vGlobal.pathReportes + "crReciboAgua.rpt");
+            crySubRpt.Load(@"" + vGlobal.pathReportes + "crSubLecturasRA.rpt");
+            crySubGraficaRpt.Load(@"" + vGlobal.pathReportes + "crSubGraficaRA.rpt");
+            
 
             IDataReader reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_report_ReciboAgua(1,'" + inParam1 + "','" + inParam2 + "','" + inParam3 + "')");
             dsReciboAgua dsR = new dsReciboAgua();
             while (reader.Read())
             {
-                dsR.DTRAColono.AddDTRAColonoRow(Int32.Parse(reader.GetValue(0).ToString()), reader.GetValue(1).ToString(), reader.GetValue(2).ToString(), reader.GetValue(3).ToString());
+                dsR.DTRAColono.AddDTRAColonoRow(Int32.Parse(reader.GetValue(0).ToString()), reader.GetValue(1).ToString(), reader.GetValue(2).ToString(), reader.GetValue(3).ToString(),decimal.Parse (reader.GetValue(4).ToString()));
             }
             Conexion.FinalizarSesion();
 
@@ -33,11 +40,11 @@ namespace WFPGranjas.Backend.Reportes
             
             while (reader.Read())
             {
-                dsR.DTRALectura.AddDTRALecturaRow(Int32.Parse(reader.GetValue(0).ToString()), reader.GetValue(1).ToString(), reader.GetValue(2).ToString(), reader.GetValue(3).ToString(), reader.GetValue(4).ToString(), reader.GetValue(5).ToString());
+                dsR.DTRALectura.AddDTRALecturaRow(Int32.Parse(reader.GetValue(0).ToString()), reader.GetValue(1).ToString(), reader.GetValue(2).ToString(), reader.GetValue(3).ToString(),Int32.Parse(reader.GetValue(4).ToString()), Int32.Parse(reader.GetValue(5).ToString()), Int32.Parse(reader.GetValue(6).ToString()));
             }
             Conexion.FinalizarSesion();
 
-            reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_report_ReciboAgua(3,'" + inParam1 + "','3','" + inParam3 + "')");
+            reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_report_ReciboAgua(3,'" + inParam1 + "','3','0')");
 
             while (reader.Read())
             {
@@ -45,8 +52,17 @@ namespace WFPGranjas.Backend.Reportes
             }
             Conexion.FinalizarSesion();
 
+            reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_report_ReciboAgua(4,'" + inParam1 + "','" + inParam2 + "','" + inParam3 + "')");
+
+            while (reader.Read())
+            {
+                dsR.DTRAGrafica.AddDTRAGraficaRow(Int32.Parse(reader.GetValue(0).ToString()), reader.GetValue(1).ToString(), reader.GetValue(2).ToString(), Int32.Parse(reader.GetValue(3).ToString()));
+            }
+            Conexion.FinalizarSesion();
+
             cryRpt.SetDataSource(dsR);
-            //cryRpt.SetDataSource(dsR.Tables["DTRAColono"]);
+            crySubRpt.SetDataSource(dsR.Tables["DTRALectura"]);
+            crySubGraficaRpt.SetDataSource(dsR.Tables["DTRAGrafica"]);
             cryRpt.SetParameterValue("empresa", vGlobal.empresa);
             rptViewer.ReportSource = cryRpt;
             rptViewer.Refresh();

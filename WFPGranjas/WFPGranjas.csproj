@@ -97,6 +97,18 @@
       <DependentUpon>crRegLecturas.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="crSubGraficaRA.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crSubGraficaRA.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="crSubLecturasRA.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crSubLecturasRA.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="dsMedidores.cs">
       <DependentUpon>dsMedidores.xsd</DependentUpon>
     </Compile>
@@ -264,6 +276,14 @@
     <EmbeddedResource Include="crRegLecturas.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crRegLecturas.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crSubGraficaRA.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crSubGraficaRA.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crSubLecturasRA.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crSubLecturasRA.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="frmConvenios.resx">
       <DependentUpon>frmConvenios.cs</DependentUpon>
