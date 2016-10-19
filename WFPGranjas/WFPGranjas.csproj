@@ -91,6 +91,18 @@
       <DependentUpon>crReciboAgua.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="crReciboConvenio.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crReciboConvenio.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="crReciboManto.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crReciboManto.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="crRegLecturas.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -109,6 +121,12 @@
       <DependentUpon>crSubLecturasRA.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="crSubTarifasRA.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crSubTarifasRA.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="dsMedidores.cs">
       <DependentUpon>dsMedidores.xsd</DependentUpon>
     </Compile>
@@ -124,6 +142,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsReciboAgua.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsReciboConvenio.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsReciboConvenio.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsReciboManto1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsReciboManto.xsd</DependentUpon>
     </Compile>
     <Compile Include="frmConvenios.cs">
       <SubType>Form</SubType>
@@ -279,6 +307,14 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crReciboAgua.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="crReciboConvenio.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crReciboConvenio.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crReciboManto.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crReciboManto.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="crRegLecturas.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crRegLecturas.cs</LastGenOutput>
@@ -290,6 +326,10 @@
     <EmbeddedResource Include="crSubLecturasRA.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crSubLecturasRA.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crSubTarifasRA.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crSubTarifasRA.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="frmConvenios.resx">
       <DependentUpon>frmConvenios.cs</DependentUpon>
@@ -391,6 +431,28 @@
     </None>
     <None Include="dsReciboAgua.xss">
       <DependentUpon>dsReciboAgua.xsd</DependentUpon>
+    </None>
+    <None Include="dsReciboConvenio.xsc">
+      <DependentUpon>dsReciboConvenio.xsd</DependentUpon>
+    </None>
+    <None Include="dsReciboConvenio.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsReciboConvenio.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsReciboConvenio.xss">
+      <DependentUpon>dsReciboConvenio.xsd</DependentUpon>
+    </None>
+    <None Include="dsReciboManto.xsc">
+      <DependentUpon>dsReciboManto.xsd</DependentUpon>
+    </None>
+    <None Include="dsReciboManto.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsReciboManto1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsReciboManto.xss">
+      <DependentUpon>dsReciboManto.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -834,6 +896,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\LOGO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\acuerdo16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\acuerdo2_16.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

@@ -321,7 +321,7 @@ namespace WFPGranjas
                     //MessageBox.Show("Mes: " + maskPeriodo.Text.Substring(0, 2) + " Año: " + maskPeriodo.Text.Substring(3, 4));
                     mesG = Int16.Parse(maskPeriodo.Text.Substring(0, 2));
                     anioG = Int16.Parse(maskPeriodo.Text.Substring(3, 4));
-                   // muestraDatos();
+                    muestraDatos();
                     
                 }
                 else

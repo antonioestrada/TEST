@@ -43,6 +43,38 @@ namespace WFPGranjas
             resultado = BeanCBeanParamManto.consultaParam("param_EMAIL4");
             txtPassword.Text = resultado.Pvalor;
 
+            //EMAIL5 es para ASUNTO
+            resultado = BeanCBeanParamManto.consultaParam("param_EMAIL5");
+            txtAsunto.Text = resultado.Pvalor;
+
+            //EMAIL6 es para MENSAJE
+            resultado = BeanCBeanParamManto.consultaParam("param_EMAIL6");
+            txtMensaje.Text = resultado.Pvalor;
+
+            ////|||||||||||||||||||||DATOS GENERALES||||||||||||||||||||||||||
+            //param_General1 es para EMPRESA
+            resultado = BeanCBeanParamManto.consultaParam("param_General1");
+            txtEmpresa.Text = resultado.Pvalor;
+
+            //param_General2 es para RFC
+            resultado = BeanCBeanParamManto.consultaParam("param_General2");
+            mskRFC.Text = resultado.Pvalor;
+
+            //param_General3 es para DIRECCION
+            resultado = BeanCBeanParamManto.consultaParam("param_General3");
+            txtDireccion.Text = resultado.Pvalor;
+
+            //param_General4 es para CONTACTO
+            resultado = BeanCBeanParamManto.consultaParam("param_General4");
+            txtContacto.Text = resultado.Pvalor;
+
+            //param_General5 es para ESCRITURA
+            resultado = BeanCBeanParamManto.consultaParam("param_General5");
+            txtEscritura.Text = resultado.Pvalor;
+
+            //param_General6 es para REGISTRO
+            resultado = BeanCBeanParamManto.consultaParam("param_General6");
+            txtRegistro.Text = resultado.Pvalor;
 
         }
         #endregion

@@ -154,7 +154,7 @@ namespace WFPGranjas.Backend.Procesos
                 resultado.id_mzaDTO = reader.GetValue(1).ToString();
 
                 //direccion
-                resultado.direccionDTO =  reader.GetValue(7).ToString();
+                resultado.direccionDTO = "Manzana: "+ reader.GetValue(2).ToString()+ " Lote: "+ reader.GetValue(3).ToString();
                 //idColono
                 resultado.idConoloDTO = Convert.ToInt16(reader.GetValue(6).ToString());
 

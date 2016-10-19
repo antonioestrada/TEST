@@ -130,11 +130,11 @@ namespace WFPGranjas.Backend.Procesos
         }
         #endregion
         #region registra  cuotas
-        public Boolean registroCuotas(Object[] parames)
+        public int registroCuotas(Object[] parames)
         {
-            Boolean resultado = false;
+            int resultado = 0;
             System.Data.IDataReader resul = Conexion.GDatos.TraerDataReader("gestion_granjas.sp_frm_PagoMto_AddPago", parames);
-            resultado = Convert.ToBoolean(resul.GetValue(0));
+            resultado = Convert.ToInt16(resul.GetValue(0));
             /*
             while (resul.Read())
             {

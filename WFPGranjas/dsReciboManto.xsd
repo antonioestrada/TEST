@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsReciboMAnto" targetNamespace="http://tempuri.org/dsReciboMAnto.xsd" xmlns:mstns="http://tempuri.org/dsReciboMAnto.xsd" xmlns="http://tempuri.org/dsReciboMAnto.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsReciboMAnto" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsReciboMAnto" msprop:Generator_UserDSName="dsReciboMAnto">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DTRMColono" msprop:Generator_TableClassName="DTRMColonoDataTable" msprop:Generator_TableVarName="tableDTRMColono" msprop:Generator_RowChangedName="DTRMColonoRowChanged" msprop:Generator_TablePropName="DTRMColono" msprop:Generator_RowDeletingName="DTRMColonoRowDeleting" msprop:Generator_RowChangingName="DTRMColonoRowChanging" msprop:Generator_RowEvHandlerName="DTRMColonoRowChangeEventHandler" msprop:Generator_RowDeletedName="DTRMColonoRowDeleted" msprop:Generator_RowClassName="DTRMColonoRow" msprop:Generator_UserTableName="DTRMColono" msprop:Generator_RowEvArgName="DTRMColonoRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id_lote" msprop:Generator_ColumnVarNameInTable="columnid_lote" msprop:Generator_ColumnPropNameInRow="id_lote" msprop:Generator_ColumnPropNameInTable="id_loteColumn" msprop:Generator_UserColumnName="id_lote" type="xs:int" minOccurs="0" />
+              <xs:element name="nombre" msprop:Generator_ColumnVarNameInTable="columnnombre" msprop:Generator_ColumnPropNameInRow="nombre" msprop:Generator_ColumnPropNameInTable="nombreColumn" msprop:Generator_UserColumnName="nombre" type="xs:string" minOccurs="0" />
+              <xs:element name="manzana" msprop:Generator_ColumnVarNameInTable="columnmanzana" msprop:Generator_ColumnPropNameInRow="manzana" msprop:Generator_ColumnPropNameInTable="manzanaColumn" msprop:Generator_UserColumnName="manzana" type="xs:string" minOccurs="0" />
+              <xs:element name="lote" msprop:Generator_ColumnVarNameInTable="columnlote" msprop:Generator_ColumnPropNameInRow="lote" msprop:Generator_ColumnPropNameInTable="loteColumn" msprop:Generator_UserColumnName="lote" type="xs:string" minOccurs="0" />
+              <xs:element name="metros_cuadrados" msprop:Generator_ColumnVarNameInTable="columnmetros_cuadrados" msprop:Generator_ColumnPropNameInRow="metros_cuadrados" msprop:Generator_ColumnPropNameInTable="metros_cuadradosColumn" msprop:Generator_UserColumnName="metros_cuadrados" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DTRMPartidas" msprop:Generator_TableClassName="DTRMPartidasDataTable" msprop:Generator_TableVarName="tableDTRMPartidas" msprop:Generator_RowChangedName="DTRMPartidasRowChanged" msprop:Generator_TablePropName="DTRMPartidas" msprop:Generator_RowDeletingName="DTRMPartidasRowDeleting" msprop:Generator_RowChangingName="DTRMPartidasRowChanging" msprop:Generator_RowEvHandlerName="DTRMPartidasRowChangeEventHandler" msprop:Generator_RowDeletedName="DTRMPartidasRowDeleted" msprop:Generator_RowClassName="DTRMPartidasRow" msprop:Generator_UserTableName="DTRMPartidas" msprop:Generator_RowEvArgName="DTRMPartidasRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id_lote" msprop:Generator_ColumnVarNameInTable="columnid_lote" msprop:Generator_ColumnPropNameInRow="id_lote" msprop:Generator_ColumnPropNameInTable="id_loteColumn" msprop:Generator_UserColumnName="id_lote" type="xs:int" minOccurs="0" />
+              <xs:element name="servicio" msprop:Generator_ColumnVarNameInTable="columnservicio" msprop:Generator_ColumnPropNameInRow="servicio" msprop:Generator_ColumnPropNameInTable="servicioColumn" msprop:Generator_UserColumnName="servicio" type="xs:string" minOccurs="0" />
+              <xs:element name="periodo" msprop:Generator_ColumnVarNameInTable="columnperiodo" msprop:Generator_ColumnPropNameInRow="periodo" msprop:Generator_ColumnPropNameInTable="periodoColumn" msprop:Generator_UserColumnName="periodo" type="xs:string" minOccurs="0" />
+              <xs:element name="importe" msprop:Generator_ColumnVarNameInTable="columnimporte" msprop:Generator_ColumnPropNameInRow="importe" msprop:Generator_ColumnPropNameInTable="importeColumn" msprop:Generator_UserColumnName="importe" type="xs:decimal" minOccurs="0" />
+              <xs:element name="descripcion" msprop:Generator_ColumnVarNameInTable="columndescripcion" msprop:Generator_ColumnPropNameInRow="descripcion" msprop:Generator_ColumnPropNameInTable="descripcionColumn" msprop:Generator_UserColumnName="descripcion" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DTRMPagos" msprop:Generator_TableClassName="DTRMPagosDataTable" msprop:Generator_TableVarName="tableDTRMPagos" msprop:Generator_TablePropName="DTRMPagos" msprop:Generator_RowDeletingName="DTRMPagosRowDeleting" msprop:Generator_RowChangingName="DTRMPagosRowChanging" msprop:Generator_RowEvHandlerName="DTRMPagosRowChangeEventHandler" msprop:Generator_RowDeletedName="DTRMPagosRowDeleted" msprop:Generator_UserTableName="DTRMPagos" msprop:Generator_RowChangedName="DTRMPagosRowChanged" msprop:Generator_RowEvArgName="DTRMPagosRowChangeEvent" msprop:Generator_RowClassName="DTRMPagosRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id_lote" msprop:Generator_ColumnVarNameInTable="columnid_lote" msprop:Generator_ColumnPropNameInRow="id_lote" msprop:Generator_ColumnPropNameInTable="id_loteColumn" msprop:Generator_UserColumnName="id_lote" type="xs:int" minOccurs="0" />
+              <xs:element name="folio" msprop:Generator_ColumnVarNameInTable="columnfolio" msprop:Generator_ColumnPropNameInRow="folio" msprop:Generator_ColumnPropNameInTable="folioColumn" msprop:Generator_UserColumnName="folio" type="xs:string" minOccurs="0" />
+              <xs:element name="importe_efectivo" msprop:Generator_ColumnVarNameInTable="columnimporte_efectivo" msprop:Generator_ColumnPropNameInRow="importe_efectivo" msprop:Generator_ColumnPropNameInTable="importe_efectivoColumn" msprop:Generator_UserColumnName="importe_efectivo" type="xs:decimal" minOccurs="0" />
+              <xs:element name="no_cheque" msprop:Generator_ColumnVarNameInTable="columnno_cheque" msprop:Generator_ColumnPropNameInRow="no_cheque" msprop:Generator_ColumnPropNameInTable="no_chequeColumn" msprop:Generator_UserColumnName="no_cheque" type="xs:string" minOccurs="0" />
+              <xs:element name="importe_cheque" msprop:Generator_ColumnVarNameInTable="columnimporte_cheque" msprop:Generator_ColumnPropNameInRow="importe_cheque" msprop:Generator_ColumnPropNameInTable="importe_chequeColumn" msprop:Generator_UserColumnName="importe_cheque" type="xs:decimal" minOccurs="0" />
+              <xs:element name="no_ficha" msprop:Generator_ColumnVarNameInTable="columnno_ficha" msprop:Generator_ColumnPropNameInRow="no_ficha" msprop:Generator_ColumnPropNameInTable="no_fichaColumn" msprop:Generator_UserColumnName="no_ficha" type="xs:string" minOccurs="0" />
+              <xs:element name="importe_ficha" msprop:Generator_ColumnVarNameInTable="columnimporte_ficha" msprop:Generator_ColumnPropNameInRow="importe_ficha" msprop:Generator_ColumnPropNameInTable="importe_fichaColumn" msprop:Generator_UserColumnName="importe_ficha" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fecha_pago" msprop:Generator_ColumnVarNameInTable="columnfecha_pago" msprop:Generator_ColumnPropNameInRow="fecha_pago" msprop:Generator_ColumnPropNameInTable="fecha_pagoColumn" msprop:Generator_UserColumnName="fecha_pago" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

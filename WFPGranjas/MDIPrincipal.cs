@@ -213,7 +213,7 @@ namespace WFPGranjas
             cerrarVentanas();
             //if (childFormCatUsuarios ==null)
             frmPrcCuotas childFormGenCuotas = new frmPrcCuotas(2, usuario);
-
+            childFormGenCuotas.StartPosition = FormStartPosition.CenterScreen;
             childFormGenCuotas.MdiParent = this;
             childFormGenCuotas.Show();
         }
@@ -223,6 +223,7 @@ namespace WFPGranjas
             cerrarVentanas();
             //if (childFormCatUsuarios ==null)
             frmConvenios childFormCatPerfiles = new frmConvenios(3);
+            childFormCatPerfiles.StartPosition = FormStartPosition.CenterScreen;
             childFormCatPerfiles.Text = "Registro de Convenios";
 
             childFormCatPerfiles.MdiParent = this;
@@ -301,9 +302,11 @@ namespace WFPGranjas
 
         private void fcCuotasM_Click(object sender, EventArgs e)
         {
+            cerrarVentanas();
             frmPagoMto childFormCuotasManto = new frmPagoMto(2);
             childFormCuotasManto.MdiParent = this;
-            childFormCuotasManto.Text = "Ingresos por Cuotas de Mantenimiento";
+            childFormCuotasManto.StartPosition = FormStartPosition.CenterScreen;
+            childFormCuotasManto.Text = "INGRESOS POR CUOTAS DE MANTENIMIENTO";
             childFormCuotasManto.Show();
         }
 
@@ -317,9 +320,11 @@ namespace WFPGranjas
 
         private void fcCuotasA_Click(object sender, EventArgs e)
         {
+            cerrarVentanas();
             frmPagoMto childFormCuotasManto = new frmPagoMto(3);
             childFormCuotasManto.MdiParent = this;
-            childFormCuotasManto.Text = "Ingresos por Cuotas de Agua";
+            childFormCuotasManto.StartPosition = FormStartPosition.CenterScreen;
+            childFormCuotasManto.Text = "INGRESOS POR CUOTAS DE AGUA";
             childFormCuotasManto.Show();
         }
 
@@ -337,7 +342,7 @@ namespace WFPGranjas
         {
             // Display a message box asking users if they
             // want to exit the application.
-            if (MessageBox.Show("Do you want to exit?", "My Application",
+            if (MessageBox.Show("Deseas salir?", "Sistema de Gestión de Cuotas",
                   MessageBoxButtons.YesNo, MessageBoxIcon.Question)
                   == DialogResult.Yes)
             {
@@ -448,6 +453,7 @@ namespace WFPGranjas
             //if (childFormCatUsuarios ==null)
             frmAnticipoMto childFormCatPerfiles = new frmAnticipoMto(2);
             childFormCatPerfiles.Text = "Anualidades y Anticipo de Mantenimiento";
+            childFormCatPerfiles.StartPosition = FormStartPosition.CenterScreen;
             childFormCatPerfiles.MdiParent = this;
           //  childFormCatPerfiles.Size = new Size(370, 365);
             childFormCatPerfiles.Show();
@@ -458,7 +464,9 @@ namespace WFPGranjas
             cerrarVentanas();
             //if (childFormCatUsuarios ==null)
             frmRegLecturas childFormRegLect = new frmRegLecturas();
-            childFormRegLect.Text = "Anualidades y Anticipo de Mantenimiento";
+            childFormRegLect.StartPosition = FormStartPosition.CenterScreen;
+            childFormRegLect.Text = "REGISTRO DE LECTURAS DEL MES";
+
             childFormRegLect.MdiParent = this;
             //  childFormCatPerfiles.Size = new Size(370, 365);
             childFormRegLect.Show();
@@ -469,7 +477,8 @@ namespace WFPGranjas
             cerrarVentanas();
             //if (childFormCatUsuarios ==null)
             frmPrcCuotas childFormGenCuotas = new frmPrcCuotas(3, usuario);
-          //  childFormGenCuotas.Text=""
+            childFormGenCuotas.StartPosition = FormStartPosition.CenterScreen;
+            //  childFormGenCuotas.Text=""
             childFormGenCuotas.MdiParent = this;
             childFormGenCuotas.Show();
         }
@@ -479,7 +488,8 @@ namespace WFPGranjas
             cerrarVentanas();
             //if (childFormCatUsuarios ==null)
             frmAnticipoMto childFormCatPerfiles = new frmAnticipoMto(3);
-            childFormCatPerfiles.Text = "Anticipos a Cuotas de Agua";
+            childFormCatPerfiles.Text = "ANTICIPOS A CUOTAS DE AGUA";
+            childFormCatPerfiles.StartPosition = FormStartPosition.CenterScreen;
 
             childFormCatPerfiles.MdiParent = this;
             //  childFormCatPerfiles.Size = new Size(370, 365);
@@ -512,10 +522,12 @@ namespace WFPGranjas
 
         private void fcCuotasEC_Click(object sender, EventArgs e)
         {
-            frmPagoMto childFormCuotasManto = new frmPagoMto(4);
-            childFormCuotasManto.MdiParent = this;
-            childFormCuotasManto.Text = "Ingresos por Cuotas de Convenios";
-            childFormCuotasManto.Show();
+            cerrarVentanas();
+            frmPagoMto childFormCuotasConvenio = new frmPagoMto(4);
+            childFormCuotasConvenio.MdiParent = this;
+            childFormCuotasConvenio.StartPosition = FormStartPosition.CenterScreen;
+            childFormCuotasConvenio.Text = "INGRESOS POR CUOTAS DE CONVENIOS";
+            childFormCuotasConvenio.Show();
 
         }
 
@@ -527,9 +539,42 @@ namespace WFPGranjas
         private void arRegLecturas_Click(object sender, EventArgs e)
         {
             cerrarVentanas();
-            rptReciboAgua childFormReporteRL = new rptReciboAgua();
+            rptReciboAgua childFormReporteRL = new rptReciboAgua(null,null,0);
             childFormReporteRL.MdiParent = this;
             childFormReporteRL.Show();
+        }
+
+        private void arRManto_Click(object sender, EventArgs e)
+        {
+            cerrarVentanas();
+            rptReciboAgua childFormReporteRL = new rptReciboAgua(null,null,0);
+            childFormReporteRL.MdiParent = this;
+            childFormReporteRL.Show();
+        }
+
+        private void fcAAnualidades_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void amImprimirAC_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cgCuotas_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cgCuentasContables_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void serviciosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
