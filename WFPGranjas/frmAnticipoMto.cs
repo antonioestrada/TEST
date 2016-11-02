@@ -234,7 +234,8 @@ namespace WFPGranjas
                     listaCuotasPag = new List<int>();
                     // Extrae meses con anticipo
                     prcAnticipos.consultaCuotasPagadas(listaCuotasPag, idLote);
-                    validaMeses();
+                    int periodoActualBD= prcAnticipos.obtienePeriodoActual();
+                    validaMeses(periodoActualBD);
                 }
                 if (servicio == 3)
                 {
@@ -344,11 +345,11 @@ namespace WFPGranjas
             pnlMeses.Visible = false;
         }
 
-        public void validaMeses()
+        public void validaMeses( int periodoActualBD)
         {
 
             DateTime fechaActual = DateTime.Now;
-            int mes = fechaActual.Month;
+            int mes = periodoActualBD;
             mes = mes + 1;
             foreach (CheckBox chk in groupBoxMeses.Controls)
             {

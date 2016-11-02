@@ -91,7 +91,7 @@ namespace WFPGranjas.Backend.Reportes
             ExportOptions CrExportOptions;
             DiskFileDestinationOptions CrDiskFileDestinationOptions = new DiskFileDestinationOptions();
             PdfRtfWordFormatOptions CrFormatTypeOptions = new PdfRtfWordFormatOptions();
-            CrDiskFileDestinationOptions.DiskFileName = @"" + vGlobal.pathReportesPDF + "reciboAgua.pdf";
+            CrDiskFileDestinationOptions.DiskFileName = @"" + vGlobal.pathReportesPDF + "reciboAgua" + inParam2 + ".pdf";
             // CrDiskFileDestinationOptions.DiskFileName = "c:\\firebird\\reporteMail.pdf";
             CrExportOptions = cryRpt.ExportOptions;
             {
@@ -147,7 +147,7 @@ namespace WFPGranjas.Backend.Reportes
             ExportOptions CrExportOptions;
             DiskFileDestinationOptions CrDiskFileDestinationOptions = new DiskFileDestinationOptions();
             PdfRtfWordFormatOptions CrFormatTypeOptions = new PdfRtfWordFormatOptions();
-            CrDiskFileDestinationOptions.DiskFileName = @"" + vGlobal.pathReportesPDF + "reciboManto.pdf";
+            CrDiskFileDestinationOptions.DiskFileName = @"" + vGlobal.pathReportesPDF + "reciboManto"+ inParam2+".pdf";
             // CrDiskFileDestinationOptions.DiskFileName = "c:\\firebird\\reporteMail.pdf";
             CrExportOptions = cryRpt.ExportOptions;
             {
@@ -204,7 +204,7 @@ namespace WFPGranjas.Backend.Reportes
             ExportOptions CrExportOptions;
             DiskFileDestinationOptions CrDiskFileDestinationOptions = new DiskFileDestinationOptions();
             PdfRtfWordFormatOptions CrFormatTypeOptions = new PdfRtfWordFormatOptions();
-            CrDiskFileDestinationOptions.DiskFileName = @"" + vGlobal.pathReportesPDF + "reciboConvenio.pdf";
+            CrDiskFileDestinationOptions.DiskFileName = @"" + vGlobal.pathReportesPDF + "reciboConvenio" + inParam2 + ".pdf";
             // CrDiskFileDestinationOptions.DiskFileName = "c:\\firebird\\reporteMail.pdf";
             CrExportOptions = cryRpt.ExportOptions;
             {

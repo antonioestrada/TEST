@@ -21,13 +21,17 @@ namespace WFPGranjas
 
         private void pbEntrar_Click(object sender, EventArgs e)
         {
+            inicia_sesion();
+        }
+        public void inicia_sesion()
+        {
             Globales vGlobal = new Globales();
             Conexion.IniciarSesion(vGlobal.Server, vGlobal.BD, vGlobal.Usr, vGlobal.Pwd, vGlobal.BD);
             Object[] parames = { txtUser.Text, txtPassword.Text };
             IDataReader resul = Conexion.GDatos.TraerDataReader("gestion_granjas.sp_frm_Login_ValidaUsr", parames);
             int valida = Convert.ToInt16(resul.GetValue(0));
-         
-            if (valida>=1)
+
+            if (valida >= 1)
             {
                 int perfil = Convert.ToInt16(resul.GetValue(1));
                 Conexion.FinalizarSesion();
@@ -38,19 +42,17 @@ namespace WFPGranjas
                 principal.Show();
 
             }
-            else {
-              //  MDIPrincipal principal = new MDIPrincipal();
-               // principal.pnlMenuPrincipal.Visible = true;
+            else
+            {
+                //  MDIPrincipal principal = new MDIPrincipal();
+                // principal.pnlMenuPrincipal.Visible = true;
                 MessageBox.Show("Usuario y/o Contraseña incorrecta");
                 txtUser.Text = "";
                 txtPassword.Text = "";
                 txtUser.Focus();
             }
             Conexion.FinalizarSesion();
-
-
         }
-
         private void frmLogin_Load(object sender, EventArgs e)
         {
 
@@ -59,6 +61,29 @@ namespace WFPGranjas
         private void btncerrar_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtPassword_KeyDown(object sender, KeyEventArgs e)
+        {
+            if ((int)e.KeyValue == (int)Keys.Enter)
+            {
+                //aqui codigo
+                inicia_sesion();
+            }
+        }
+
+        private void txtUser_KeyDown(object sender, KeyEventArgs e)
+        {
+            if ((int)e.KeyValue == (int)Keys.Enter)
+            {
+                //aqui codigo
+                inicia_sesion();
+            }
+        }
+
+        private void btnmin_Click(object sender, EventArgs e)
+        {
+            this.WindowState = FormWindowState.Minimized;
         }
     }
 }

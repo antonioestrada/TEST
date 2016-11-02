@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             this.pnlPrinBancos = new System.Windows.Forms.Panel();
-            this.menuStripX = new System.Windows.Forms.MenuStrip();
             this.label13 = new System.Windows.Forms.Label();
             this.gbCaptura = new System.Windows.Forms.GroupBox();
+            this.btnRegLecListado = new System.Windows.Forms.Button();
             this.btnUltimo = new System.Windows.Forms.Button();
             this.btnSiguiente = new System.Windows.Forms.Button();
             this.btnAnterior = new System.Windows.Forms.Button();
@@ -53,33 +53,37 @@
             this.gbListado = new System.Windows.Forms.GroupBox();
             this.dgPropietario = new System.Windows.Forms.DataGridView();
             this.txtColono = new System.Windows.Forms.TextBox();
+            this.btnFiltrar = new System.Windows.Forms.Button();
             this.cmbFiltroMza = new System.Windows.Forms.ComboBox();
             this.dgListado = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.pnlCaptura = new System.Windows.Forms.Panel();
+            this.btnCapturaLec = new System.Windows.Forms.Button();
             this.maskPeriodo = new System.Windows.Forms.MaskedTextBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.btnRegLecListado = new System.Windows.Forms.Button();
-            this.btnFiltrar = new System.Windows.Forms.Button();
-            this.btnCapturaLec = new System.Windows.Forms.Button();
-            this.mNuevo = new System.Windows.Forms.ToolStripMenuItem();
-            this.mEditar = new System.Windows.Forms.ToolStripMenuItem();
-            this.mEliminar = new System.Windows.Forms.ToolStripMenuItem();
-            this.mSalir = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.holaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStripBancos = new System.Windows.Forms.MenuStrip();
+            this.mNuevoBanco = new System.Windows.Forms.ToolStripMenuItem();
+            this.mEditarBanco = new System.Windows.Forms.ToolStripMenuItem();
+            this.mEliminarBanco = new System.Windows.Forms.ToolStripMenuItem();
+            this.mSalirBanco = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlPrinBancos.SuspendLayout();
-            this.menuStripX.SuspendLayout();
             this.gbCaptura.SuspendLayout();
             this.gbListado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPropietario)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgListado)).BeginInit();
             this.pnlCaptura.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
+            this.menuStripBancos.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlPrinBancos
             // 
             this.pnlPrinBancos.BackColor = System.Drawing.Color.Orange;
-            this.pnlPrinBancos.Controls.Add(this.menuStripX);
+            this.pnlPrinBancos.Controls.Add(this.menuStrip1);
+            this.pnlPrinBancos.Controls.Add(this.menuStripBancos);
             this.pnlPrinBancos.Controls.Add(this.label13);
             this.pnlPrinBancos.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlPrinBancos.Location = new System.Drawing.Point(0, 0);
@@ -87,20 +91,6 @@
             this.pnlPrinBancos.Name = "pnlPrinBancos";
             this.pnlPrinBancos.Size = new System.Drawing.Size(984, 28);
             this.pnlPrinBancos.TabIndex = 11;
-            // 
-            // menuStripX
-            // 
-            this.menuStripX.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mNuevo,
-            this.mEditar,
-            this.mEliminar,
-            this.mSalir});
-            this.menuStripX.Location = new System.Drawing.Point(0, 0);
-            this.menuStripX.Name = "menuStripX";
-            this.menuStripX.Padding = new System.Windows.Forms.Padding(15, 2, 0, 2);
-            this.menuStripX.Size = new System.Drawing.Size(984, 24);
-            this.menuStripX.TabIndex = 1;
-            this.menuStripX.Text = "menuStrip1";
             // 
             // label13
             // 
@@ -144,11 +134,24 @@
             this.gbCaptura.Text = "Datos de Captura";
             this.gbCaptura.Visible = false;
             // 
+            // btnRegLecListado
+            // 
+            this.btnRegLecListado.Image = global::WFPGranjas.Properties.Resources.reportar24;
+            this.btnRegLecListado.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRegLecListado.Location = new System.Drawing.Point(5, 270);
+            this.btnRegLecListado.Name = "btnRegLecListado";
+            this.btnRegLecListado.Size = new System.Drawing.Size(150, 24);
+            this.btnRegLecListado.TabIndex = 52;
+            this.btnRegLecListado.Text = "Genera Listado";
+            this.btnRegLecListado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnRegLecListado.UseVisualStyleBackColor = true;
+            this.btnRegLecListado.Click += new System.EventHandler(this.btnRegLecListado_Click);
+            // 
             // btnUltimo
             // 
-            this.btnUltimo.Location = new System.Drawing.Point(367, 270);
+            this.btnUltimo.Location = new System.Drawing.Point(389, 270);
             this.btnUltimo.Name = "btnUltimo";
-            this.btnUltimo.Size = new System.Drawing.Size(75, 23);
+            this.btnUltimo.Size = new System.Drawing.Size(53, 23);
             this.btnUltimo.TabIndex = 63;
             this.btnUltimo.Text = ">|";
             this.btnUltimo.UseVisualStyleBackColor = true;
@@ -156,9 +159,9 @@
             // 
             // btnSiguiente
             // 
-            this.btnSiguiente.Location = new System.Drawing.Point(292, 270);
+            this.btnSiguiente.Location = new System.Drawing.Point(333, 270);
             this.btnSiguiente.Name = "btnSiguiente";
-            this.btnSiguiente.Size = new System.Drawing.Size(75, 23);
+            this.btnSiguiente.Size = new System.Drawing.Size(53, 23);
             this.btnSiguiente.TabIndex = 62;
             this.btnSiguiente.Text = ">";
             this.btnSiguiente.UseVisualStyleBackColor = true;
@@ -166,9 +169,9 @@
             // 
             // btnAnterior
             // 
-            this.btnAnterior.Location = new System.Drawing.Point(213, 270);
+            this.btnAnterior.Location = new System.Drawing.Point(272, 270);
             this.btnAnterior.Name = "btnAnterior";
-            this.btnAnterior.Size = new System.Drawing.Size(79, 23);
+            this.btnAnterior.Size = new System.Drawing.Size(57, 23);
             this.btnAnterior.TabIndex = 61;
             this.btnAnterior.Text = "<";
             this.btnAnterior.UseVisualStyleBackColor = true;
@@ -176,9 +179,9 @@
             // 
             // btnPrimero
             // 
-            this.btnPrimero.Location = new System.Drawing.Point(134, 270);
+            this.btnPrimero.Location = new System.Drawing.Point(210, 270);
             this.btnPrimero.Name = "btnPrimero";
-            this.btnPrimero.Size = new System.Drawing.Size(79, 23);
+            this.btnPrimero.Size = new System.Drawing.Size(57, 23);
             this.btnPrimero.TabIndex = 60;
             this.btnPrimero.Text = "|<";
             this.btnPrimero.UseVisualStyleBackColor = true;
@@ -233,6 +236,7 @@
             this.txtLecActual.Name = "txtLecActual";
             this.txtLecActual.Size = new System.Drawing.Size(150, 22);
             this.txtLecActual.TabIndex = 55;
+            this.txtLecActual.TextChanged += new System.EventHandler(this.txtLecActual_TextChanged);
             this.txtLecActual.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLecActual_KeyPress);
             // 
             // txtLecAnterior
@@ -342,7 +346,6 @@
             this.gbListado.Size = new System.Drawing.Size(534, 305);
             this.gbListado.TabIndex = 12;
             this.gbListado.TabStop = false;
-            this.gbListado.Text = "Listado";
             // 
             // dgPropietario
             // 
@@ -376,6 +379,19 @@
             this.txtColono.Size = new System.Drawing.Size(392, 22);
             this.txtColono.TabIndex = 44;
             this.txtColono.TextChanged += new System.EventHandler(this.txtColono_TextChanged);
+            // 
+            // btnFiltrar
+            // 
+            this.btnFiltrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnFiltrar.Enabled = false;
+            this.btnFiltrar.Image = global::WFPGranjas.Properties.Resources.filtrar;
+            this.btnFiltrar.Location = new System.Drawing.Point(94, 59);
+            this.btnFiltrar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFiltrar.Name = "btnFiltrar";
+            this.btnFiltrar.Size = new System.Drawing.Size(23, 25);
+            this.btnFiltrar.TabIndex = 41;
+            this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
             // cmbFiltroMza
             // 
@@ -443,6 +459,18 @@
             this.pnlCaptura.Size = new System.Drawing.Size(257, 32);
             this.pnlCaptura.TabIndex = 49;
             // 
+            // btnCapturaLec
+            // 
+            this.btnCapturaLec.Image = global::WFPGranjas.Properties.Resources.expediente;
+            this.btnCapturaLec.Location = new System.Drawing.Point(153, 4);
+            this.btnCapturaLec.Name = "btnCapturaLec";
+            this.btnCapturaLec.Size = new System.Drawing.Size(89, 24);
+            this.btnCapturaLec.TabIndex = 51;
+            this.btnCapturaLec.Text = "Capturar";
+            this.btnCapturaLec.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCapturaLec.UseVisualStyleBackColor = true;
+            this.btnCapturaLec.Click += new System.EventHandler(this.btnCapturaLec_Click);
+            // 
             // maskPeriodo
             // 
             this.maskPeriodo.Location = new System.Drawing.Point(87, 5);
@@ -464,75 +492,66 @@
             this.label14.TabIndex = 49;
             this.label14.Text = "Mes-Año:";
             // 
-            // btnRegLecListado
+            // menuStrip1
             // 
-            this.btnRegLecListado.Image = global::WFPGranjas.Properties.Resources.reportar24;
-            this.btnRegLecListado.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnRegLecListado.Location = new System.Drawing.Point(292, 12);
-            this.btnRegLecListado.Name = "btnRegLecListado";
-            this.btnRegLecListado.Size = new System.Drawing.Size(150, 24);
-            this.btnRegLecListado.TabIndex = 52;
-            this.btnRegLecListado.Text = "Genera Listado";
-            this.btnRegLecListado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnRegLecListado.UseVisualStyleBackColor = true;
-            this.btnRegLecListado.Click += new System.EventHandler(this.btnRegLecListado_Click);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.holaToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 24);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(984, 24);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.Visible = false;
             // 
-            // btnFiltrar
+            // holaToolStripMenuItem
             // 
-            this.btnFiltrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnFiltrar.Enabled = false;
-            this.btnFiltrar.Image = global::WFPGranjas.Properties.Resources.filtrar;
-            this.btnFiltrar.Location = new System.Drawing.Point(94, 59);
-            this.btnFiltrar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(23, 25);
-            this.btnFiltrar.TabIndex = 41;
-            this.btnFiltrar.UseVisualStyleBackColor = true;
-            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
+            this.holaToolStripMenuItem.Name = "holaToolStripMenuItem";
+            this.holaToolStripMenuItem.Size = new System.Drawing.Size(12, 20);
             // 
-            // btnCapturaLec
+            // menuStripBancos
             // 
-            this.btnCapturaLec.Image = global::WFPGranjas.Properties.Resources.expediente;
-            this.btnCapturaLec.Location = new System.Drawing.Point(153, 4);
-            this.btnCapturaLec.Name = "btnCapturaLec";
-            this.btnCapturaLec.Size = new System.Drawing.Size(89, 24);
-            this.btnCapturaLec.TabIndex = 51;
-            this.btnCapturaLec.Text = "Capturar";
-            this.btnCapturaLec.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCapturaLec.UseVisualStyleBackColor = true;
-            this.btnCapturaLec.Click += new System.EventHandler(this.btnCapturaLec_Click);
+            this.menuStripBancos.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mNuevoBanco,
+            this.mEditarBanco,
+            this.mEliminarBanco,
+            this.mSalirBanco});
+            this.menuStripBancos.Location = new System.Drawing.Point(0, 0);
+            this.menuStripBancos.Name = "menuStripBancos";
+            this.menuStripBancos.Size = new System.Drawing.Size(984, 24);
+            this.menuStripBancos.TabIndex = 3;
+            this.menuStripBancos.Text = "menuStrip1";
             // 
-            // mNuevo
+            // mNuevoBanco
             // 
-            this.mNuevo.Image = global::WFPGranjas.Properties.Resources.nuevo;
-            this.mNuevo.Name = "mNuevo";
-            this.mNuevo.Size = new System.Drawing.Size(70, 20);
-            this.mNuevo.Text = "Nuevo";
-            this.mNuevo.Visible = false;
+            this.mNuevoBanco.Image = global::WFPGranjas.Properties.Resources.nuevo;
+            this.mNuevoBanco.Name = "mNuevoBanco";
+            this.mNuevoBanco.Size = new System.Drawing.Size(70, 20);
+            this.mNuevoBanco.Text = "Nuevo";
+            this.mNuevoBanco.Visible = false;
             // 
-            // mEditar
+            // mEditarBanco
             // 
-            this.mEditar.Image = global::WFPGranjas.Properties.Resources.editar;
-            this.mEditar.Name = "mEditar";
-            this.mEditar.Size = new System.Drawing.Size(65, 20);
-            this.mEditar.Text = "Editar";
-            this.mEditar.Visible = false;
+            this.mEditarBanco.Image = global::WFPGranjas.Properties.Resources.editar;
+            this.mEditarBanco.Name = "mEditarBanco";
+            this.mEditarBanco.Size = new System.Drawing.Size(65, 20);
+            this.mEditarBanco.Text = "Editar";
+            this.mEditarBanco.Visible = false;
             // 
-            // mEliminar
+            // mEliminarBanco
             // 
-            this.mEliminar.Image = global::WFPGranjas.Properties.Resources.eliminar;
-            this.mEliminar.Name = "mEliminar";
-            this.mEliminar.Size = new System.Drawing.Size(78, 20);
-            this.mEliminar.Text = "Eliminar";
-            this.mEliminar.Visible = false;
+            this.mEliminarBanco.Image = global::WFPGranjas.Properties.Resources.eliminar;
+            this.mEliminarBanco.Name = "mEliminarBanco";
+            this.mEliminarBanco.Size = new System.Drawing.Size(78, 20);
+            this.mEliminarBanco.Text = "Eliminar";
+            this.mEliminarBanco.Visible = false;
             // 
-            // mSalir
+            // mSalirBanco
             // 
-            this.mSalir.Image = global::WFPGranjas.Properties.Resources.cerrar;
-            this.mSalir.Name = "mSalir";
-            this.mSalir.Size = new System.Drawing.Size(67, 20);
-            this.mSalir.Text = "Cerrar";
-            this.mSalir.Click += new System.EventHandler(this.mSalir_Click);
+            this.mSalirBanco.Image = global::WFPGranjas.Properties.Resources.cerrar;
+            this.mSalirBanco.Name = "mSalirBanco";
+            this.mSalirBanco.Size = new System.Drawing.Size(67, 20);
+            this.mSalirBanco.Text = "Cerrar";
+            this.mSalirBanco.Click += new System.EventHandler(this.mSalirBanco_Click);
             // 
             // frmRegLecturas
             // 
@@ -549,8 +568,6 @@
             this.Load += new System.EventHandler(this.frmRegLecturas_Load);
             this.pnlPrinBancos.ResumeLayout(false);
             this.pnlPrinBancos.PerformLayout();
-            this.menuStripX.ResumeLayout(false);
-            this.menuStripX.PerformLayout();
             this.gbCaptura.ResumeLayout(false);
             this.gbCaptura.PerformLayout();
             this.gbListado.ResumeLayout(false);
@@ -559,17 +576,16 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgListado)).EndInit();
             this.pnlCaptura.ResumeLayout(false);
             this.pnlCaptura.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.menuStripBancos.ResumeLayout(false);
+            this.menuStripBancos.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
         private System.Windows.Forms.Panel pnlPrinBancos;
-        private System.Windows.Forms.MenuStrip menuStripX;
-        private System.Windows.Forms.ToolStripMenuItem mNuevo;
-        private System.Windows.Forms.ToolStripMenuItem mEditar;
-        private System.Windows.Forms.ToolStripMenuItem mEliminar;
-        private System.Windows.Forms.ToolStripMenuItem mSalir;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.GroupBox gbCaptura;
         private System.Windows.Forms.Label label12;
@@ -603,5 +619,12 @@
         private System.Windows.Forms.Button btnAnterior;
         private System.Windows.Forms.Button btnPrimero;
         private System.Windows.Forms.Button btnRegLecListado;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem holaToolStripMenuItem;
+        private System.Windows.Forms.MenuStrip menuStripBancos;
+        private System.Windows.Forms.ToolStripMenuItem mNuevoBanco;
+        private System.Windows.Forms.ToolStripMenuItem mEditarBanco;
+        private System.Windows.Forms.ToolStripMenuItem mEliminarBanco;
+        private System.Windows.Forms.ToolStripMenuItem mSalirBanco;
     }
 }

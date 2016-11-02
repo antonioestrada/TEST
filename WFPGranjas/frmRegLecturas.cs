@@ -86,6 +86,8 @@ namespace WFPGranjas
             var BeanListadoMed = new Backend.Procesos.CRegLecturas();
             BeanListadoMed.consultaListadoMedidores(dg, op,inIdMzana,inLote,inNombre);
             compruebaRenMedidor(dg);
+            valoresLecturas(id_medidor, mesG, anioG);
+            calcula_consumo();
         }
         #endregion
 
@@ -110,6 +112,7 @@ namespace WFPGranjas
                         lblDireccion.Text = row.Cells[3].Value.ToString();
                         lblContrato.Text = row.Cells[4].Value.ToString();
                         lblMedidor.Text = row.Cells[5].Value.ToString();
+                        calcula_consumo();
                     }
 
                 }
@@ -134,6 +137,7 @@ namespace WFPGranjas
             lblContrato.Text = dg.SelectedRows[0].Cells[4].Value.ToString();
             lblMedidor.Text = dg.SelectedRows[0].Cells[5].Value.ToString();
             valoresLecturas(id_medidor, mesG, anioG);
+            calcula_consumo();
         }
         #endregion
 
@@ -194,6 +198,7 @@ namespace WFPGranjas
             //muestra lecturas y periodos
             valoresLecturas(id_medidor, mesG, anioG);
             gbCaptura.Visible = true;
+            calcula_consumo();
         }
 
         public void ocultaDatos()
@@ -251,6 +256,7 @@ namespace WFPGranjas
         {
             if(dgListado.RowCount>0)
             {
+               
                 dgListado.Rows[0].Selected = true;
                 dgListado.FirstDisplayedScrollingRowIndex = 0;
                 valoresRen(dgListado, 0);
@@ -266,6 +272,7 @@ namespace WFPGranjas
             int currenR = dgListado.SelectedRows[0].Index;
             if (countGrid > 0)
             {
+               
                 if (currenR == 0)
                     MessageBox.Show("No hay mas registros");
                 else
@@ -274,6 +281,7 @@ namespace WFPGranjas
                     dgListado.Rows[currenR - 1].Selected = true;
                     dgListado.FirstDisplayedScrollingRowIndex = currenR - 1;
                     valoresRen(dgListado, currenR - 1);
+
                 }
             }
         }
@@ -284,6 +292,7 @@ namespace WFPGranjas
             int currenR = dgListado.SelectedRows[0].Index;
             if (countGrid > 0)
             {
+                
                 //MessageBox.Show(txtLecActual.Text);
                 if (Int16.Parse(txtLecActual.Text) > Int16.Parse(txtLecAnterior.Text))
                 {
@@ -292,16 +301,16 @@ namespace WFPGranjas
                     else
                         registraLecturas(id_medidor, mesG, anioG, Int16.Parse(txtLecActual.Text));
                 
-                dgListado.Focus();
-                if (countGrid - 1 == currenR)
-                    MessageBox.Show("No hay mas registros");
-                else
-                {
+                    dgListado.Focus();
+                    if (countGrid - 1 == currenR)
+                        MessageBox.Show("No hay mas registros");
+                    else
+                    {
                     
-                    dgListado.Rows[currenR + 1].Selected = true;
-                    dgListado.FirstDisplayedScrollingRowIndex = currenR;
-                    valoresRen(dgListado, currenR + 1);
-                }
+                        dgListado.Rows[currenR + 1].Selected = true;
+                        dgListado.FirstDisplayedScrollingRowIndex = currenR;
+                        valoresRen(dgListado, currenR + 1);
+                    }
                 }
                 else
                     MessageBox.Show("La lectura debe ser mayor a la lectura anterior");
@@ -361,6 +370,26 @@ namespace WFPGranjas
                 gbCaptura.Visible = false;
         }
 
+        private void mSalirBanco_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
+        double res = 0;
+        public void calcula_consumo()
+        {
+            if (txtLecAnterior.Text == "" || txtLecActual.Text == "")
+            {
+                txtLecAnterior.Text = "0";
+                txtLecActual.Text = "0";
+            }
+            res = double.Parse(txtLecActual.Text) - double.Parse(txtLecAnterior.Text);
+            txtConsumo.Text = res.ToString();
+        }
+        private void txtLecActual_TextChanged(object sender, EventArgs e)
+        {
+           // calcula_consumo();
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -373,6 +402,7 @@ namespace WFPGranjas
         {
             if (dgListado.RowCount > 0)
             {
+               
                 dgListado.Rows[dgListado.RowCount-1].Selected = true;
                 dgListado.FirstDisplayedScrollingRowIndex = dgListado.RowCount - 1;
                 valoresRen(dgListado, dgListado.RowCount - 1);

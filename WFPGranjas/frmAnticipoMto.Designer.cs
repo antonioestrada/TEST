@@ -41,7 +41,6 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.btnCapturaPago = new System.Windows.Forms.Button();
             this.txtImpEf = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.txtImpChq = new System.Windows.Forms.TextBox();
@@ -60,18 +59,15 @@
             this.txtDescuento = new System.Windows.Forms.TextBox();
             this.txtImporte = new System.Windows.Forms.TextBox();
             this.panelCapturaTop = new System.Windows.Forms.Panel();
-            this.btnAddCuota = new System.Windows.Forms.Button();
             this.lblAntAgua = new System.Windows.Forms.Label();
             this.txtTotalAgua = new System.Windows.Forms.TextBox();
             this.panelTop = new System.Windows.Forms.Panel();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.txtLote = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.cmbManzana = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.txtColono = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.btnCapturaR = new System.Windows.Forms.Button();
             this.dgPropietario = new System.Windows.Forms.DataGridView();
             this.groupBoxMeses = new System.Windows.Forms.GroupBox();
             this.chk12Dic = new System.Windows.Forms.CheckBox();
@@ -86,13 +82,17 @@
             this.chk03Mar = new System.Windows.Forms.CheckBox();
             this.chk02Feb = new System.Windows.Forms.CheckBox();
             this.chk01Ene = new System.Windows.Forms.CheckBox();
-            this.btnApliCalculoAnt = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.pnlMeses = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
             this.gbDRecibo = new System.Windows.Forms.GroupBox();
             this.lblFechaSys = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.btnCapturaR = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.btnApliCalculoAnt = new System.Windows.Forms.Button();
+            this.btnCapturaPago = new System.Windows.Forms.Button();
+            this.btnAddCuota = new System.Windows.Forms.Button();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.groupDColono.SuspendLayout();
             this.groupCuota.SuspendLayout();
             this.panelCapturaCenter.SuspendLayout();
@@ -265,19 +265,6 @@
             this.label9.Size = new System.Drawing.Size(148, 15);
             this.label9.TabIndex = 7;
             this.label9.Text = "*Importe en Efectivo : ";
-            // 
-            // btnCapturaPago
-            // 
-            this.btnCapturaPago.Image = global::WFPGranjas.Properties.Resources.conseguir_dinero24;
-            this.btnCapturaPago.Location = new System.Drawing.Point(302, 116);
-            this.btnCapturaPago.Name = "btnCapturaPago";
-            this.btnCapturaPago.Size = new System.Drawing.Size(240, 32);
-            this.btnCapturaPago.TabIndex = 15;
-            this.btnCapturaPago.Text = "Efectuar Pago";
-            this.btnCapturaPago.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCapturaPago.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCapturaPago.UseVisualStyleBackColor = true;
-            this.btnCapturaPago.Click += new System.EventHandler(this.btnCapturaPago_Click_1);
             // 
             // txtImpEf
             // 
@@ -457,19 +444,6 @@
             this.panelCapturaTop.Size = new System.Drawing.Size(820, 34);
             this.panelCapturaTop.TabIndex = 13;
             // 
-            // btnAddCuota
-            // 
-            this.btnAddCuota.Image = global::WFPGranjas.Properties.Resources.agregar_notas;
-            this.btnAddCuota.Location = new System.Drawing.Point(672, 3);
-            this.btnAddCuota.Name = "btnAddCuota";
-            this.btnAddCuota.Size = new System.Drawing.Size(137, 28);
-            this.btnAddCuota.TabIndex = 7;
-            this.btnAddCuota.Text = "Agregar Renglon";
-            this.btnAddCuota.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAddCuota.UseVisualStyleBackColor = true;
-            this.btnAddCuota.Visible = false;
-            this.btnAddCuota.Click += new System.EventHandler(this.btnAddCuota_Click);
-            // 
             // lblAntAgua
             // 
             this.lblAntAgua.AutoSize = true;
@@ -505,17 +479,6 @@
             this.panelTop.Name = "panelTop";
             this.panelTop.Size = new System.Drawing.Size(826, 50);
             this.panelTop.TabIndex = 8;
-            // 
-            // btnBuscar
-            // 
-            this.btnBuscar.Image = global::WFPGranjas.Properties.Resources.busca_mini;
-            this.btnBuscar.Location = new System.Drawing.Point(773, 15);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(25, 23);
-            this.btnBuscar.TabIndex = 4;
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // txtLote
             // 
@@ -582,19 +545,6 @@
             this.label5.Size = new System.Drawing.Size(135, 15);
             this.label5.TabIndex = 14;
             this.label5.Text = "Nombre del Colono:";
-            // 
-            // btnCapturaR
-            // 
-            this.btnCapturaR.Enabled = false;
-            this.btnCapturaR.Image = global::WFPGranjas.Properties.Resources.expediente;
-            this.btnCapturaR.Location = new System.Drawing.Point(38, 50);
-            this.btnCapturaR.Name = "btnCapturaR";
-            this.btnCapturaR.Size = new System.Drawing.Size(156, 26);
-            this.btnCapturaR.TabIndex = 5;
-            this.btnCapturaR.Text = "Capturar Recibo";
-            this.btnCapturaR.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCapturaR.UseVisualStyleBackColor = true;
-            this.btnCapturaR.Click += new System.EventHandler(this.btnCapturaR_Click);
             // 
             // dgPropietario
             // 
@@ -759,32 +709,6 @@
             this.chk01Ene.Text = "ENE";
             this.chk01Ene.UseVisualStyleBackColor = true;
             // 
-            // btnApliCalculoAnt
-            // 
-            this.btnApliCalculoAnt.Image = global::WFPGranjas.Properties.Resources.aceptar;
-            this.btnApliCalculoAnt.Location = new System.Drawing.Point(41, 195);
-            this.btnApliCalculoAnt.Name = "btnApliCalculoAnt";
-            this.btnApliCalculoAnt.Size = new System.Drawing.Size(91, 29);
-            this.btnApliCalculoAnt.TabIndex = 12;
-            this.btnApliCalculoAnt.Text = "Aplicar";
-            this.btnApliCalculoAnt.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnApliCalculoAnt.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnApliCalculoAnt.UseVisualStyleBackColor = true;
-            this.btnApliCalculoAnt.Click += new System.EventHandler(this.btnApliCalculoAnt_Click);
-            // 
-            // button3
-            // 
-            this.button3.Image = global::WFPGranjas.Properties.Resources.cancelarIco;
-            this.button3.Location = new System.Drawing.Point(138, 195);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(91, 29);
-            this.button3.TabIndex = 13;
-            this.button3.Text = "Cancelar";
-            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button3.UseVisualStyleBackColor = true;
-            this.button3.Click += new System.EventHandler(this.button3_Click);
-            // 
             // pnlMeses
             // 
             this.pnlMeses.BackColor = System.Drawing.SystemColors.Info;
@@ -840,6 +764,82 @@
             this.label13.Size = new System.Drawing.Size(135, 16);
             this.label13.TabIndex = 0;
             this.label13.Text = "Fecha del Recibo:";
+            // 
+            // btnCapturaR
+            // 
+            this.btnCapturaR.Enabled = false;
+            this.btnCapturaR.Image = global::WFPGranjas.Properties.Resources.expediente;
+            this.btnCapturaR.Location = new System.Drawing.Point(38, 50);
+            this.btnCapturaR.Name = "btnCapturaR";
+            this.btnCapturaR.Size = new System.Drawing.Size(156, 26);
+            this.btnCapturaR.TabIndex = 5;
+            this.btnCapturaR.Text = "Capturar Recibo";
+            this.btnCapturaR.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCapturaR.UseVisualStyleBackColor = true;
+            this.btnCapturaR.Click += new System.EventHandler(this.btnCapturaR_Click);
+            // 
+            // button3
+            // 
+            this.button3.Image = global::WFPGranjas.Properties.Resources.cancelarIco;
+            this.button3.Location = new System.Drawing.Point(138, 195);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(91, 29);
+            this.button3.TabIndex = 13;
+            this.button3.Text = "Cancelar";
+            this.button3.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button3.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // btnApliCalculoAnt
+            // 
+            this.btnApliCalculoAnt.Image = global::WFPGranjas.Properties.Resources.aceptar;
+            this.btnApliCalculoAnt.Location = new System.Drawing.Point(41, 195);
+            this.btnApliCalculoAnt.Name = "btnApliCalculoAnt";
+            this.btnApliCalculoAnt.Size = new System.Drawing.Size(91, 29);
+            this.btnApliCalculoAnt.TabIndex = 12;
+            this.btnApliCalculoAnt.Text = "Aplicar";
+            this.btnApliCalculoAnt.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnApliCalculoAnt.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnApliCalculoAnt.UseVisualStyleBackColor = true;
+            this.btnApliCalculoAnt.Click += new System.EventHandler(this.btnApliCalculoAnt_Click);
+            // 
+            // btnCapturaPago
+            // 
+            this.btnCapturaPago.Image = global::WFPGranjas.Properties.Resources.conseguir_dinero24;
+            this.btnCapturaPago.Location = new System.Drawing.Point(302, 116);
+            this.btnCapturaPago.Name = "btnCapturaPago";
+            this.btnCapturaPago.Size = new System.Drawing.Size(240, 32);
+            this.btnCapturaPago.TabIndex = 15;
+            this.btnCapturaPago.Text = "Efectuar Pago";
+            this.btnCapturaPago.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCapturaPago.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCapturaPago.UseVisualStyleBackColor = true;
+            this.btnCapturaPago.Click += new System.EventHandler(this.btnCapturaPago_Click_1);
+            // 
+            // btnAddCuota
+            // 
+            this.btnAddCuota.Image = global::WFPGranjas.Properties.Resources.agregar_notas;
+            this.btnAddCuota.Location = new System.Drawing.Point(672, 3);
+            this.btnAddCuota.Name = "btnAddCuota";
+            this.btnAddCuota.Size = new System.Drawing.Size(137, 28);
+            this.btnAddCuota.TabIndex = 7;
+            this.btnAddCuota.Text = "Agregar Renglon";
+            this.btnAddCuota.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAddCuota.UseVisualStyleBackColor = true;
+            this.btnAddCuota.Visible = false;
+            this.btnAddCuota.Click += new System.EventHandler(this.btnAddCuota_Click);
+            // 
+            // btnBuscar
+            // 
+            this.btnBuscar.Image = global::WFPGranjas.Properties.Resources.busca_mini;
+            this.btnBuscar.Location = new System.Drawing.Point(773, 15);
+            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.Size = new System.Drawing.Size(25, 23);
+            this.btnBuscar.TabIndex = 4;
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
             // frmAnticipoMto
             // 

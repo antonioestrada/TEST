@@ -146,3 +146,4 @@ C:\Users\cbestred\Documents\test\WFPGranjas\bin\Debug\ShockwaveFlashObjects.dll
 C:\Users\cbestred\Documents\test\WFPGranjas\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
 C:\Users\cbestred\Documents\test\WFPGranjas\bin\Debug\stdole.dll
 C:\Users\cbestred\Documents\test\WFPGranjas\bin\Debug\MySql.Data.xml
+C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\WFPGranjas.frmReporteCuotas.resources

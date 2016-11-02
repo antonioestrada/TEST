@@ -26,14 +26,18 @@ namespace WFPGranjas
         private void frmPrcCuotas_Load(object sender, EventArgs e)
         {
             if (servicio == 2) {
-                groupBox1.BackColor = Color.Cornsilk;
-                lblInd.Text = "Generar Cuotas de Mantenimiento del Mes ";
+                groupBox1.BackColor = Color.LightGreen;
+                lblTitleCuota.Text = "GENERACION DE CUOTAS DE MANTENIMIENTO";
+                pbAgua.Visible = false;
+                pbManto.Visible = true;
             }
 
             if (servicio == 3)
             {
                 groupBox1.BackColor = Color.LightSkyBlue;
-                lblInd.Text = "Generar Cuotas de Agua del Mes ";
+                lblTitleCuota.Text = "GENERACION DE CUOTAS DE CONSUMO DE AGUA";
+                pbAgua.Visible = true;
+                pbManto.Visible = false;
             }
             actualizaDatos();
 
@@ -65,7 +69,7 @@ namespace WFPGranjas
 
             if (result == DialogResult.Yes)
             {
-
+                gbEstatus.Visible = true;
                 if (!bwProgress.IsBusy)
                 {
                     if (servicio == 2)

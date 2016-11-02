@@ -47,6 +47,7 @@
             this.txtUser.Size = new System.Drawing.Size(228, 22);
             this.txtUser.TabIndex = 0;
             this.txtUser.Text = "joanesbe";
+            this.txtUser.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtUser_KeyDown);
             // 
             // txtPassword
             // 
@@ -60,6 +61,7 @@
             this.txtPassword.Size = new System.Drawing.Size(228, 22);
             this.txtPassword.TabIndex = 1;
             this.txtPassword.Text = "123";
+            this.txtPassword.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtPassword_KeyDown);
             // 
             // pbEntrar
             // 
@@ -94,6 +96,7 @@
             this.btnmin.Size = new System.Drawing.Size(32, 32);
             this.btnmin.TabIndex = 8;
             this.btnmin.UseVisualStyleBackColor = true;
+            this.btnmin.Click += new System.EventHandler(this.btnmin_Click);
             // 
             // frmLogin
             // 

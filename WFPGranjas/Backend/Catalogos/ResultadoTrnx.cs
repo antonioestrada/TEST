@@ -55,5 +55,9 @@ namespace WFPGranjas.Backend.Catalogos
         public int anioAnt { get; set; }
         public string lectura { get; set; }
         public string lecturaAnt { get; set; }
+
+        //para periodos y año
+        public string periodoEstatus { get; set; }
+        public int anioEstatus { get; set; }
     }
 }

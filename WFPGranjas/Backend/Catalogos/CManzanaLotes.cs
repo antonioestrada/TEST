@@ -174,6 +174,28 @@ namespace WFPGranjas.Backend.Catalogos
         }
         #endregion
 
-        
+        #region consulta periodos
+        public ResultadoTrnx consultaPeriodos()
+        {
+
+            //llenamos nuestro reader con la consulta de nuestro SP
+            IDataReader reader = Conexion.GDatos.TraerDataReaderSql("call gestion_granjas.sp_CPeriodo()");
+            ResultadoTrnx resultado = new ResultadoTrnx();
+            //siclamos cada registro que contiene nuestro reader
+
+            if (reader.Read())
+            {
+                resultado.periodoEstatus = reader.GetValue(0).ToString();
+            }
+            else
+            {
+                resultado.periodoEstatus = "No hay periodo Activo";
+            }
+            Conexion.FinalizarSesion();
+            return resultado;
+        }
+        #endregion
+
+
     }
 }

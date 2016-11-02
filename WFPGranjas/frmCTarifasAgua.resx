@@ -123,9 +123,6 @@
   <metadata name="menuStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>794, 56</value>
   </metadata>
-  <metadata name="menuStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>794, 56</value>
-  </metadata>
   <data name="label1.Text" xml:space="preserve">
     <value>Los usuarios con Tarifa 1 pagarán mensualmente el consumo por la Cuota Base CNA, en caso de que el consumo rebase su base CNA asignada, se sumará el importe de excendente, de acuerdo a la siguiente relación:</value>
   </data>

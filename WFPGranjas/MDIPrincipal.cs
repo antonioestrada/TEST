@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WFPGranjas.Backend.Catalogos;
 
 namespace WFPGranjas
 {
@@ -328,9 +329,21 @@ namespace WFPGranjas
             childFormCuotasManto.Show();
         }
 
+        #region Muestra estatus
+        public void muestraEstatus()
+        {
+            var BeanCEstatus = new Backend.Catalogos.CManzanaLotes();
+            ResultadoTrnx resultado = new ResultadoTrnx();
+            //ejecutamos el sp donde nos mostrara los siguientes datos como id del lote, nombre del colono, direccion, y superficie del lote
+            resultado = BeanCEstatus.consultaPeriodos();
+            //almacenamos el id del lote en la variable global local
+            tsPeriodo.Text = resultado.periodoEstatus;
+        }
+        #endregion
+
         private void MDIPrincipal_Load(object sender, EventArgs e)
         {
-
+            muestraEstatus();
         }
         
         private void MDIPrincipal_FormClosing(object sender, FormClosingEventArgs e)
@@ -355,6 +368,7 @@ namespace WFPGranjas
             cerrarVentanas();
             frmCBancos childFormCatBancos = new frmCBancos();
             childFormCatBancos.MdiParent = this;
+            childFormCatBancos.StartPosition = FormStartPosition.CenterScreen;
             childFormCatBancos.Size= new Size(543, 365);
             childFormCatBancos.Show();
         }
@@ -364,6 +378,7 @@ namespace WFPGranjas
             cerrarVentanas();
             frmCColonos childFormCatColonos = new frmCColonos();
             childFormCatColonos.MdiParent = this;
+            childFormCatColonos.StartPosition = FormStartPosition.CenterScreen;
             childFormCatColonos.Size = new Size(573, 470);
             childFormCatColonos.Show();
         }
@@ -373,6 +388,7 @@ namespace WFPGranjas
             cerrarVentanas();
             frmCManzanas childFormCatManzanas = new frmCManzanas();
             childFormCatManzanas.MdiParent = this;
+            childFormCatManzanas.StartPosition = FormStartPosition.CenterScreen;
             childFormCatManzanas.Size = new Size(543, 365);
             childFormCatManzanas.Show();
         }
@@ -382,6 +398,7 @@ namespace WFPGranjas
             cerrarVentanas();
             frmCLotes childFormLotes = new frmCLotes();
             childFormLotes.MdiParent = this;
+            childFormLotes.StartPosition = FormStartPosition.CenterScreen;
             childFormLotes.Size = new Size(543, 425);
             childFormLotes.Show();
         }
@@ -391,6 +408,7 @@ namespace WFPGranjas
             cerrarVentanas();
             frmCMedidores childFormMedidores = new frmCMedidores();
             childFormMedidores.MdiParent = this;
+            childFormMedidores.StartPosition = FormStartPosition.Manual;
             childFormMedidores.Size = new Size(560, 220);
             childFormMedidores.Show();
         }
@@ -400,6 +418,7 @@ namespace WFPGranjas
             cerrarVentanas();
             frmCCalculoManto childFormMantenimiento = new frmCCalculoManto();
             childFormMantenimiento.MdiParent = this;
+            childFormMantenimiento.StartPosition = FormStartPosition.CenterScreen;
             childFormMantenimiento.Size = new Size(553, 340);
             childFormMantenimiento.Show();
         }
@@ -508,6 +527,7 @@ namespace WFPGranjas
             cerrarVentanas();
             frmParametrosSys childFormParamSys = new frmParametrosSys();
             childFormParamSys.MdiParent = this;
+            childFormParamSys.StartPosition = FormStartPosition.CenterScreen;
             childFormParamSys.Show();
         }
 
@@ -516,6 +536,7 @@ namespace WFPGranjas
             cerrarVentanas();
             frmTarifasAgua childFormTarifaAgua = new frmTarifasAgua();
             childFormTarifaAgua.MdiParent = this;
+            childFormTarifaAgua.StartPosition = FormStartPosition.CenterScreen;
             childFormTarifaAgua.Show();
         
         }

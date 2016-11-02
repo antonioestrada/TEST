@@ -348,10 +348,10 @@ namespace WFPGranjas
                 txtColono.Text = "";
                 groupDColono.Visible = true;
                 btnCapturaR.Enabled = true;
+                gbCapturaCon.Visible = true;
+                btnCapturaR.Focus();
+                invisibleGroup();
                 //  groupCuota.Visible = false;
-
-               
-
             }
         }
 
@@ -369,6 +369,9 @@ namespace WFPGranjas
             {
                 visibleGroup();
                 consultaAdeudos();
+                txtImpConvenio.Text = "0.0";
+                txtPagoMensual.Text = "0.0";
+                txtDiaPago.Text = "0";
             }
         }
         public void consultaAdeudos() {
@@ -399,7 +402,8 @@ namespace WFPGranjas
 
         private void frmAnticipoMto_Load(object sender, EventArgs e)
         {
-
+            DateTime thisDay = DateTime.Today;
+            lblFechaSys.Text = thisDay.ToString("D");
             var BeanCLotesMza = new Backend.Catalogos.CManzanaLotes();
             BeanCLotesMza.consultaMazaCombo(cmbManzana);
         }
@@ -473,59 +477,104 @@ namespace WFPGranjas
                 idLote = resultado.idLoteDTO;
                 // String numeroRomano = utilities.numeroRomano(int.Parse(row.Cells[3].Value.ToString()));
                 lblMzaLote.Text = "Manzana: " + cmbManzana.SelectedText + " Lote: " + txtLote.Text;
-       
+                lblMzaLote.Text = resultado.direccionDTO;
                 dgPropietario.Visible = false;
                 lblColono.Visible = true;
                 txtColono.Text = "";
                 txtLote.Text = "";
                 groupDColono.Visible = true;
-                btnCapturaR.Enabled = true;
-
+                // btnCapturaR.Enabled = true;
+                gbCapturaCon.Visible = true;
                 //---
                 groupMto.Visible = true;
-                visibleGroup();
+                invisibleGroup();
             }
-          
+            //code tonka 18/10/2016
+            else
+            {
+                txtColono.Text = "";
+                txtLote.Text = "";
+                groupDColono.Visible = false;
+                dgPropietario.Visible = false;
+                gbCapturaCon.Visible = false;
+                pnlConvenio.Visible = false;
+                //consultaAdeudos();
+                invisibleGroup();
+                txtImpConvenio.Text = "0.0";
+                txtPagoMensual.Text = "0.0";
+                txtDiaPago.Text = "0";
+                lblImporteTotal.Text = "0.0";
+                MessageBox.Show("El Lote no se encuentra registrado. Por favor intente nuevamente.");
+
+            }
+
         }
         #endregion
 
         private void groupDColono_Paint(object sender, PaintEventArgs e)
         {
             GroupBox box = sender as GroupBox;
-            DrawGroupBox(box, e.Graphics, Color.Red, Color.Blue);
+            DrawGroupBox(box, e.Graphics, Color.Black, Color.Brown);
             box.BackColor = Color.Snow;
         }
+    
+      
 
         private void button1_Click(object sender, EventArgs e)
         {
-            int diaLimite = int.Parse(txtDiaPago.Text);
-            if (diaLimite <= validaDiaMes())
+            if (txtImpConvenio.Text == "" || txtPagoMensual.Text == "" || txtDiaPago.Text == "")
             {
-                lblAguaAde.SendToBack();
-                groupAgua.SendToBack();
-                lblExtAde.SendToBack();
-                groupExt.SendToBack();
-                pnlConvenio.BringToFront ();
-                pnlConvenio.Visible = true;
-                groupConvenio.Visible = true;
-                PrcConvenios prcAnticipos = new PrcConvenios();
-                double impTConvenio = Double.Parse(txtImpConvenio.Text);
-                double pagoMensual = Double.Parse(txtPagoMensual.Text);
-
-                Boolean accion = false;
-                double total= prcAnticipos.generaConvenio(dgConvenio, idLote, totalAdeudo, impTConvenio, pagoMensual, diaLimite, accion);
-                pnlResult.BackColor = Color.DeepSkyBlue;
-                lblMensaje.ForeColor = Color.White;
-                lblVTotalConvenio.Text = "" + String.Format(CultureInfo.InvariantCulture,
-                               "{0:0,0.00}", total);
-               // lblMensaje.Text = "¡Ingresa los campos obligatorios!";
-            }
-            else {
                 pnlResult.Visible = true;
-                pnlResult.BackColor = Color.OrangeRed;
-                lblMensaje.Text = "¡Ingresa los campos obligatorios!";
-                lblMensaje.ForeColor = Color.White;
+                pnlResult.BackColor = Color.Orange;
+                lblMensaje.Text = "Ingresa Campos obligatorios*";
+            }
+            else
+            {
+                if (decimal.Parse(txtImpConvenio.Text) <= 0 || decimal.Parse(txtPagoMensual.Text) <= 0 || int.Parse(txtDiaPago.Text) <= 0) 
+                {
+                    pnlResult.Visible = false;
+                    MessageBox.Show("El valor debe ser mayor a '0' ", "Información", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
+                else
+                {
+                    pnlResult.Visible = false;
+                    int diaLimite = int.Parse(txtDiaPago.Text);
+                    if (diaLimite <= validaDiaMes())
+                    {
+                        lblAguaAde.SendToBack();
+                        groupAgua.SendToBack();
+                        lblExtAde.SendToBack();
+                        groupExt.SendToBack();
+                        pnlConvenio.BringToFront();
+                        pnlConvenio.Visible = true;
+                        //cambio tonka 01/11/16
+                        gBDefConvenio.Enabled = false;
+                        txtColono.Enabled = false;
+                        txtLote.Enabled = false;
+                        btnBuscar.Enabled = false;
+                        //----------------------
+                        groupConvenio.Visible = true;
+                        PrcConvenios prcAnticipos = new PrcConvenios();
+                        double impTConvenio = Double.Parse(txtImpConvenio.Text);
+                        double pagoMensual = Double.Parse(txtPagoMensual.Text);
 
+                        Boolean accion = false;
+                        double total = prcAnticipos.generaConvenio(dgConvenio, idLote, totalAdeudo, impTConvenio, pagoMensual, diaLimite, accion);
+                        pnlResult.BackColor = Color.DeepSkyBlue;
+                        lblMensaje.ForeColor = Color.White;
+                        lblVTotalConvenio.Text = "" + String.Format(CultureInfo.InvariantCulture,
+                                       "{0:0,0.00}", total);
+                        // lblMensaje.Text = "¡Ingresa los campos obligatorios!";
+                    }
+                    else
+                    {
+                        pnlResult.Visible = true;
+                        pnlResult.BackColor = Color.OrangeRed;
+                        lblMensaje.Text = "¡Ingresa los campos obligatorios!";
+                        lblMensaje.ForeColor = Color.White;
+
+                    }
+                }
             }
          }
 
@@ -561,6 +610,12 @@ namespace WFPGranjas
         private void btnCancelConvenio_Click(object sender, EventArgs e)
         {
             pnlConvenio.Visible = false;
+            //cambio tonka 01/11/16
+            gBDefConvenio.Enabled = true;
+            txtColono.Enabled = true;
+            txtLote.Enabled = true;
+            btnBuscar.Enabled = true;
+            //----------------------
         }
 
         private void btnOkConvenio_Click(object sender, EventArgs e)
@@ -576,13 +631,19 @@ namespace WFPGranjas
                 pnlConvenio.Visible = false;
                 consultaAdeudos();
                 invisibleGroup();
-                txtImpConvenio.Text = "00.0";
-                txtPagoMensual.Text = "00.0";
-                txtDiaPago.Text = "00.0";
-                lblImporteTotal.Text = "00.0";
+                txtImpConvenio.Text = "0.0";
+                txtPagoMensual.Text = "0.0";
+                txtDiaPago.Text = "0";
+                lblImporteTotal.Text = "0.0";
 
                 MessageBox.Show("Se registro satisfactoriamente el convenio");
-                
+                //cambio tonka 01/11/16
+                gBDefConvenio.Enabled = true;
+                txtColono.Enabled = true;
+                txtLote.Enabled = true;
+                btnBuscar.Enabled = true;
+                //----------------------
+
             }
             else {
                 MessageBox.Show("No se pudo registrar el convenio, intenter nuevamente");
@@ -598,6 +659,43 @@ namespace WFPGranjas
         {
             validaNumeros(txtPagoMensual, sender, e);
 
+        }
+
+        private void gbCapturaCon_Paint(object sender, PaintEventArgs e)
+        {
+            GroupBox box = sender as GroupBox;
+            DrawGroupBox(box, e.Graphics, Color.Black, Color.Brown);
+            box.BackColor = Color.Snow;
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            BuscaIdLote();
+        }
+
+        private void txtDiaPago_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permiten numeros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
+
+        private void txtImpConvenio_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtImpConvenio.SelectAll();
+        }
+
+        private void txtPagoMensual_Click(object sender, EventArgs e)
+        {
+            txtPagoMensual.SelectAll();
+        }
+
+        private void txtDiaPago_Click(object sender, EventArgs e)
+        {
+            txtDiaPago.SelectAll();
         }
 
         public int validaDiaMes() {

@@ -58,16 +58,31 @@ namespace WFPGranjas
 
             //creamos nuestro objeto de la clase que hicimos
             var BeanCorreo = new Backend.Procesos.CMail();
-            string htmlX = "uyy "+
+            string htmlX = ""+
                 "<html>"
-                +"<body>hola<hr></hr>jhsjd</body>"
+                +"<body>"
+                +"LISTADO DE MEDIDORES<hr></hr>"
+                +"<BR></BR>"
+                + "Se adjunta reporte en formato pdf."
+                  + "<BR></BR>"
+                    + "<BR></BR>"
+                      + "<p>ASOCIACION DE COLONOS DE GRANJAS RESIDENCIALES DE TEQUISQUIAPAN, A.C.</p>"
+                      + "<p>Tel. y Fax: 01 (414) 273 92 44 Apdo. Postal 106 e-mail: granjastx@prodigy.net.mx</p>"
+
+                + "</body>"
                 +"</html>";
+
+
+
             var BeanCBeanParamMail = new Backend.Catalogos.CParametros();
             ResultadoTrnx resultado = new ResultadoTrnx();
             //ejecutamos el sp donde nos mostrara los siguientes datos como valor definido en parametros
             resultado = BeanCBeanParamMail.consultaParam("param_EMAIL3");
             //MessageBox.Show(resultado.Pvalor+" destino: "+ txtDestino.Text+" asunto "+ vGlobal.etiAsuntoRep+" men "+ vGlobal.etiMensajeRep);
-            BeanCorreo.Mail(resultado.Pvalor,txtDestino.Text, vGlobal.etiMensajeRep+ htmlX,
+            //BeanCorreo.Mail(resultado.Pvalor,txtDestino.Text, vGlobal.etiMensajeRep+ htmlX,
+            //vGlobal.etiAsuntoRep, lstArchivos);
+
+            BeanCorreo.Mail(resultado.Pvalor, txtDestino.Text, htmlX,
                                vGlobal.etiAsuntoRep, lstArchivos);
 
             //y enviamos

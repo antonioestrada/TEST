@@ -98,6 +98,25 @@ namespace WFPGranjas.Backend.Procesos
             Conexion.FinalizarSesion();
         }
         #endregion
+
+
+        #region obitene  periodo actual
+        public int obtienePeriodoActual()
+        {
+            int resultado = 0;
+            System.Data.IDataReader resul = Conexion.GDatos.TraerDataReader("gestion_granjas.sp_frm_Antp_CPeriodo");
+            resultado = Convert.ToInt16(resul.GetValue(0));
+            /*
+            while (resul.Read())
+            {
+                //seteo 
+                 resultado = Convert.ToBoolean(resul.GetValue(0));
+            }*/
+            Conexion.FinalizarSesion();
+
+            return resultado;
+        }
+        #endregion
         #region registra  cuotas
         public Boolean registroCuotas(Object[] parames,int servicio)
         {
