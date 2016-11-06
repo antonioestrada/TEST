@@ -218,9 +218,9 @@ namespace WFPGranjas
         {
             Boolean resultado = false;
             PrcAnticipos prcAnticipos = new PrcAnticipos();
-            Object[] parames = {  idLote , servicio };
+            Object[] parames = { idLote, servicio };
             resultado = prcAnticipos.validacionAdeudo(parames);
-            if (resultado)
+            if (resultado && servicio != 5 )
             {
                 MessageBox.Show("El usuario no puede dar anticipo. Cuenta con cuotas atrasadas");
                 txtColono.Focus();
@@ -234,7 +234,7 @@ namespace WFPGranjas
                     listaCuotasPag = new List<int>();
                     // Extrae meses con anticipo
                     prcAnticipos.consultaCuotasPagadas(listaCuotasPag, idLote);
-                    int periodoActualBD= prcAnticipos.obtienePeriodoActual();
+                    int periodoActualBD = prcAnticipos.obtienePeriodoActual();
                     validaMeses(periodoActualBD);
                 }
                 if (servicio == 3)
@@ -267,6 +267,39 @@ namespace WFPGranjas
                     pnlMetodoPago.Visible = false;
                     dgPartidasR.Rows.Clear();
                 }
+              
+            }
+
+            if (servicio == 5)
+            {
+                txtTotalAgua.Focus();
+                prcAnticipos.consultaBancos(cmbBancoCheq);
+                prcAnticipos.consultaBancos(cmbBancoFicha);
+                groupCuota.Visible = true;
+                lblAntAgua.Visible = true;
+                txtTotalAgua.Visible = true;
+                lblDescuento.Visible = false;
+                txtDescuento.Visible = false;
+                btnAddCuota.Visible = true;
+                dgPartidasR.Columns[0].Width = 500;
+                dgPartidasR.Columns[2].Width = 304;
+                dgPartidasR.Columns[1].Visible = false;
+                btnAddCuota.Enabled = true;
+                txtTotalAgua.Focus();
+                txtTotalAgua.SelectAll();
+                //code tonka 19-10-16
+                txtImpEf.Text = "0.00";
+                txtImpChq.Text = "0.00";
+                txtImpFicha.Text = "0.00";
+                txtFicha.Text = "";
+                txtCheque.Text = "";
+                txtTotalAgua.Text = "0.00";
+                txtImporte.Text = "0.00";
+                txtTotal.Text = "0.00";
+                txtDescuento.Text = "0.00";
+                pnlMetodoPago.Visible = false;
+                dgPartidasR.Rows.Clear();
+
             }
         }
 
