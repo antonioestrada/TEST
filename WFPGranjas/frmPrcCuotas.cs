@@ -81,6 +81,7 @@ namespace WFPGranjas
                         bwProgress.RunWorkerAsync();
                         //   btnCancelar.Enabled = true;
                         btnGenCuotas.Enabled = false;
+                    
                     }
                     if (servicio == 3)
                     {
@@ -95,6 +96,7 @@ namespace WFPGranjas
                             bwProgress.RunWorkerAsync();
                             //   btnCancelar.Enabled = true;
                             btnGenCuotas.Enabled = false;
+                          
                         }
                         else {
                             MessageBox.Show("No a cargado las lecturas del periodo seleccionado");
@@ -105,11 +107,31 @@ namespace WFPGranjas
 
         }
         public void actualizaDatos() {
-
+            gbEstatus.Visible = false;
             var BeanCPeriodo = new Backend.Procesos.PrcCuotaMto();
             BeanCPeriodo.consultaPeriodos(cmbPeriodos, 1, servicio);
             BeanCPeriodo.consultaPeriodos(cmbAnios, 2, servicio);
+            var BeanCPeriodoActual = new Backend.Procesos.PrcAnticipos();
+            int periodoActual = BeanCPeriodoActual.obtienePeriodoActual();
+            periodo = cmbPeriodos.SelectedValue.ToString();
+          
+            if (periodoActual!=int.Parse(periodo))
+            {
+                object itemFirst = cmbPeriodos.SelectedItem;
+                Dictionary<String, String> periodos = new Dictionary<String, String>();
+              //  periodos.Add(cmbPeriodos.SelectedItem.ToString());
+                btnGenCuotas.Enabled = false;
+                lblValidaPeriodo.Visible = true;
+                String mensajePeriodo = "   Debe de realizar el cierre de mes, ";
+                mensajePeriodo+= Environment.NewLine;
+                mensajePeriodo += " Antes de generar las cuotas de " + cmbPeriodos.Text;
+                lblValidaPeriodo.Text = mensajePeriodo;
+                lblValidaPeriodo.Font = new Font(lblValidaPeriodo.Font, FontStyle.Bold);
+                lblValidaPeriodo.ForeColor = Color.DarkRed;
+            }
         }
+       
+
         public void generacionCuotas() {
 
 
@@ -175,7 +197,23 @@ namespace WFPGranjas
              btnGenCuotas.Enabled = true;
 
             progressBar1.Value = 0;
-            actualizaDatos();
+
+            var bitacora = new Backend.Procesos.Bitacora();
+            string modulo = null;
+
+            if (servicio == 2)
+            {
+                modulo = "Mantenimiento.Generacion Cuotas Mantenimiento";
+
+            }
+            else
+            {
+                modulo = "Cuotas Agua.Generacion Cuotas de Agua";
+            }
+
+            Object[] parames2 = { usuario, "Administracion." + modulo, "Generacion de cuotas del mes :" + cmbPeriodos.Text, "OK", "Satisfactorio" };
+            bitacora.registroBitacora(parames2);
+            btnGenCuotas.Visible = false;
         }
     }
 }

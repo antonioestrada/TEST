@@ -42,6 +42,7 @@
             this.lblInd = new System.Windows.Forms.Label();
             this.gbEstatus = new System.Windows.Forms.GroupBox();
             this.bwProgress = new System.ComponentModel.BackgroundWorker();
+            this.lblValidaPeriodo = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAgua)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbManto)).BeginInit();
@@ -50,6 +51,7 @@
             // groupBox1
             // 
             this.groupBox1.BackColor = System.Drawing.Color.LightGreen;
+            this.groupBox1.Controls.Add(this.lblValidaPeriodo);
             this.groupBox1.Controls.Add(this.lblTitleCuota);
             this.groupBox1.Controls.Add(this.pbAgua);
             this.groupBox1.Controls.Add(this.pbManto);
@@ -203,6 +205,16 @@
             this.bwProgress.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bwProgress_ProgressChanged);
             this.bwProgress.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwProgress_RunWorkerCompleted);
             // 
+            // lblValidaPeriodo
+            // 
+            this.lblValidaPeriodo.AutoSize = true;
+            this.lblValidaPeriodo.Location = new System.Drawing.Point(148, 162);
+            this.lblValidaPeriodo.Name = "lblValidaPeriodo";
+            this.lblValidaPeriodo.Size = new System.Drawing.Size(146, 16);
+            this.lblValidaPeriodo.TabIndex = 14;
+            this.lblValidaPeriodo.Text = "Mensaje de Validacion";
+            this.lblValidaPeriodo.Visible = false;
+            // 
             // frmPrcCuotas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -239,5 +251,6 @@
         private System.Windows.Forms.PictureBox pbAgua;
         private System.Windows.Forms.PictureBox pbManto;
         private System.Windows.Forms.GroupBox gbEstatus;
+        private System.Windows.Forms.Label lblValidaPeriodo;
     }
 }

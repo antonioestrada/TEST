@@ -68,6 +68,7 @@
     <Compile Include="Backend\Conexion.cs" />
     <Compile Include="Backend\GDatos.cs" />
     <Compile Include="Backend\Globales.cs" />
+    <Compile Include="Backend\Procesos\Bitacora.cs" />
     <Compile Include="Backend\Procesos\CMail.cs" />
     <Compile Include="Backend\Procesos\CRegLecturas.cs" />
     <Compile Include="Backend\Procesos\PrcConvenios.cs" />
