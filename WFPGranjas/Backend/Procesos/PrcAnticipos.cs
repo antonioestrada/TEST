@@ -130,6 +130,10 @@ namespace WFPGranjas.Backend.Procesos
             {
                 resul = Conexion.GDatos.TraerDataReader("gestion_granjas.sp_frm_Antp_AddAnticipoAgua", parames);
             }
+            if (servicio == 5)
+            {
+                resul = Conexion.GDatos.TraerDataReader("gestion_granjas.sp_frm_Antp_AddCasaClub", parames);
+            }
             //seteo 
             Boolean resultado = Convert.ToBoolean(resul.GetValue(0));
             Conexion.FinalizarSesion();

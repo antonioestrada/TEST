@@ -218,9 +218,9 @@ namespace WFPGranjas
         {
             Boolean resultado = false;
             PrcAnticipos prcAnticipos = new PrcAnticipos();
-            Object[] parames = {  idLote , servicio };
+            Object[] parames = { idLote, servicio };
             resultado = prcAnticipos.validacionAdeudo(parames);
-            if (resultado)
+            if (resultado && servicio != 5 )
             {
                 MessageBox.Show("El usuario no puede dar anticipo. Cuenta con cuotas atrasadas");
                 txtColono.Focus();
@@ -234,7 +234,7 @@ namespace WFPGranjas
                     listaCuotasPag = new List<int>();
                     // Extrae meses con anticipo
                     prcAnticipos.consultaCuotasPagadas(listaCuotasPag, idLote);
-                    int periodoActualBD= prcAnticipos.obtienePeriodoActual();
+                    int periodoActualBD = prcAnticipos.obtienePeriodoActual();
                     validaMeses(periodoActualBD);
                 }
                 if (servicio == 3)
@@ -267,6 +267,53 @@ namespace WFPGranjas
                     pnlMetodoPago.Visible = false;
                     dgPartidasR.Rows.Clear();
                 }
+              
+            }
+
+            if (servicio == 5)
+            {
+                
+                groupCuota.Size = new Size(826, 390);
+                panelCapturaTop.Size = new Size(820, 74);
+                lblConcepto.Visible = true;
+                txtConcepto.Visible = true;
+                cmbCCPadre.Visible = true;
+                cmbCCHijo.Visible = true;
+                cmbCCHijo.Location = new System.Drawing.Point(102, 48);
+                cmbCCPadre.Location = new System.Drawing.Point(102, 28);
+                txtTotalAgua.Focus();
+                prcAnticipos.consultaBancos(cmbBancoCheq);
+                prcAnticipos.consultaBancos(cmbBancoFicha);
+                groupCuota.Visible = true;
+                lblAntAgua.Visible = true;
+                lblAntAgua.Text = "Importe del Servicio :";
+                txtTotalAgua.Visible = true;
+                lblDescuento.Visible = false;
+                txtDescuento.Visible = false;
+                btnAddCuota.Visible = true;
+                dgPartidasR.Columns[0].Width = 300;
+                dgPartidasR.Columns[0].HeaderText = "Concepto";
+                dgPartidasR.Columns[1].Width = 354;
+                dgPartidasR.Columns[1].HeaderText = "Referencia";
+                dgPartidasR.Columns[2].Width = 158;
+               
+                dgPartidasR.Columns[1].Visible = true;
+                btnAddCuota.Enabled = true;
+                txtTotalAgua.Focus();
+                txtTotalAgua.SelectAll();
+                //code tonka 19-10-16
+                txtImpEf.Text = "0.00";
+                txtImpChq.Text = "0.00";
+                txtImpFicha.Text = "0.00";
+                txtFicha.Text = "";
+                txtCheque.Text = "";
+                txtTotalAgua.Text = "0.00";
+                txtImporte.Text = "0.00";
+                txtTotal.Text = "0.00";
+                txtDescuento.Text = "0.00";
+                pnlMetodoPago.Visible = false;
+                dgPartidasR.Rows.Clear();
+
             }
         }
 
@@ -416,9 +463,16 @@ namespace WFPGranjas
 
             if (pagoTotal == totalImporte)
             {
-               
+
                 
-                    Object[] parames = { id_colono, idManzana, idLote, listaMeses, importeEfectivo, txtCheque.Text, bancoCheque, importeCheque, txtFicha.Text, bancoFicha, importFicha, descuento, servicio };
+               
+                   Object[] paramesCasaClub  =  { id_colono, importeEfectivo, txtCheque.Text, bancoCheque, importeCheque, txtFicha.Text, bancoFicha, importFicha, servicio, cmbCCHijo.Text, txtConcepto.Text };
+                  
+                    Object[] parames =  { id_colono, idManzana, idLote, listaMeses, importeEfectivo, txtCheque.Text, bancoCheque, importeCheque, txtFicha.Text, bancoFicha, importFicha, descuento, servicio };
+
+                if(servicio==5)
+                     resultado = prcAnticipos.registroCuotas(paramesCasaClub, servicio);
+                else
                     resultado = prcAnticipos.registroCuotas(parames, servicio);
 
             }
@@ -558,11 +612,25 @@ namespace WFPGranjas
 
         private void btnAddCuota_Click(object sender, EventArgs e)
         {
-            if (txtTotalAgua.Text == "" || txtTotalAgua.Text == null)
+            string mensaje = "monto a anticipar";
+            if (servicio == 5)
             {
-                MessageBox.Show("¡Ingresa el monto a anticipar!");
+                mensaje = "monto del servicio";
+            }
+
+            if (txtTotalAgua.Text == "" || txtTotalAgua.Text == null )
+            {
+               
+                MessageBox.Show("¡Ingresa el "+ mensaje + "!");
                 txtTotalAgua.Focus();
                 txtImpEf.SelectAll();
+            }else
+            if (servicio == 5 && txtConcepto.Text == "")
+            {
+                mensaje = "monto del servicio";
+                if (txtConcepto.Text == "")
+                    MessageBox.Show("¡Ingresa el concepto del servicio!");
+
             }
             else
             {
@@ -570,21 +638,33 @@ namespace WFPGranjas
                 if (Double.Parse(txtTotalAgua.Text) > 0)
                 {
                     int renglon = dgPartidasR.Rows.Add();
-
-                    //Servicio
-                    dgPartidasR.Rows[renglon].Cells[0].Value = "Anticipo de cuota de Agua";
-
-                    dgPartidasR.Columns[1].Visible = false;
                     //Cuota
                     String importe = String.Format(CultureInfo.InvariantCulture,
                                      "{0:0,0.0}", txtTotalAgua.Text);
                     dgPartidasR.Rows[renglon].Cells[2].Value = "$ " + importe;
 
                     pagoTotal += Double.Parse(txtTotalAgua.Text);
+
+
+                    //Servicio
+                    if (servicio == 3)
+                    {
+                        dgPartidasR.Rows[renglon].Cells[0].Value = "Anticipo de cuota de Agua";
+                        dgPartidasR.Columns[1].Visible = false;
+                      
+                    }
+                    if (servicio == 5)
+                    {
+                        dgPartidasR.Rows[renglon].Cells[0].Value = "" +txtConcepto.Text;
+                        dgPartidasR.Columns[1].Visible = true;
+                        dgPartidasR.Rows[renglon].Cells[1].Value =""+cmbCCPadre.Text+" - "+cmbCCHijo.Text;
+                        //stxtConcepto.Text = "";
+                        
+                    }
                     txtImporte.Text = String.Format(CultureInfo.InvariantCulture, "{0:0,0.00}", txtTotalAgua.Text);
                     txtDescuento.Text = "0.00";
-                    txtTotal.Text = String.Format(CultureInfo.InvariantCulture, "{0:0,0.00}", txtTotalAgua.Text);
-
+                    txtTotal.Text = String.Format(CultureInfo.InvariantCulture, "{0:0,0.00}", pagoTotal);
+                    txtTotalAgua.Text = "0.00";
                     //tonka
                     btnAddCuota.Enabled = false;
                     pnlMetodoPago.Visible = true;
@@ -593,7 +673,7 @@ namespace WFPGranjas
                 }
                 else
                 {
-                    MessageBox.Show("El monto a anticipar debe ser mayor a cero.");
+                    MessageBox.Show("El "+ mensaje + " debe ser mayor a cero.");
                     txtTotalAgua.Focus();
                 }
             }
