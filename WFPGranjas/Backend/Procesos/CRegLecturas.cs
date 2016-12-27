@@ -56,5 +56,23 @@ namespace WFPGranjas.Backend.Procesos
             Conexion.FinalizarSesion();
         }
         #endregion
+
+        #region validad la catidad de lecturas contra cantidad de medidores
+        public int validaRegLecturas(int inPeriodo, int inAnio)
+        {
+            int resultado = 0;
+            System.Data.IDataReader resul = Conexion.GDatos.TraerDataReaderSql("call sp_frm_RegLecturas_valida('" + inPeriodo + "','" + inAnio + "')");
+            resultado = Convert.ToInt16(resul.GetValue(0));
+            /*
+            while (resul.Read())
+            {
+                //seteo 
+                 resultado = Convert.ToBoolean(resul.GetValue(0));
+            }*/
+            Conexion.FinalizarSesion();
+
+            return resultado;
+        }
+        #endregion
     }
 }

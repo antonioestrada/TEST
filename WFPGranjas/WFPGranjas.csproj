@@ -128,6 +128,11 @@
       <DependentUpon>crSubTarifasRA.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="dsEdoCuenta.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsEdoCuenta.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dsMedidores.cs">
       <DependentUpon>dsMedidores.xsd</DependentUpon>
     </Compile>
@@ -420,6 +425,17 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptSubMedidor.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="dsEdoCuenta.xsc">
+      <DependentUpon>dsEdoCuenta.xsd</DependentUpon>
+    </None>
+    <None Include="dsEdoCuenta.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsEdoCuenta.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsEdoCuenta.xss">
+      <DependentUpon>dsEdoCuenta.xsd</DependentUpon>
+    </None>
     <None Include="dsMedidores.xsc">
       <DependentUpon>dsMedidores.xsd</DependentUpon>
     </None>

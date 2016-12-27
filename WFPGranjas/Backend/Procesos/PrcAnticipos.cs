@@ -117,6 +117,7 @@ namespace WFPGranjas.Backend.Procesos
             return resultado;
         }
         #endregion
+
         #region registra  cuotas
         public Boolean registroCuotas(Object[] parames,int servicio)
         {

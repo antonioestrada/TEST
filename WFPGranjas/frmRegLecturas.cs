@@ -16,6 +16,11 @@ namespace WFPGranjas
     {
         Int32 id_medidor = 0, id_manzana=0;
         int mesG = 0, anioG = 0;
+        //|||||||||||||||inicio tonka-1216|||||||||||||||||
+        String periodo = null;
+        String anio = null;
+        int servicio = 0;
+        //|||||||||||||||fin tonka-1216071216|||||||||||||||||
         public frmRegLecturas()
         {
             InitializeComponent();
@@ -226,6 +231,7 @@ namespace WFPGranjas
         }
         private void frmRegLecturas_Load(object sender, EventArgs e)
         {
+            consultaPer();
             //carga combo del catalogo de  manzanas 
             var BeanCLotesMza = new Backend.Catalogos.CManzanaLotes();
             BeanCLotesMza.consultaMazaComboRPT(cmbFiltroMza);
@@ -319,30 +325,49 @@ namespace WFPGranjas
         
         private void btnCapturaLec_Click(object sender, EventArgs e)
         {
-            int longCad = maskPeriodo.Text.Trim().Length;
-            //MessageBox.Show("" + maskPeriodo.Text.Trim() + "- contenido", maskPeriodo.Text+" length"+ longCad);
-            if (longCad == 7)
+            var BeanCPeriodoActual = new Backend.Procesos.PrcAnticipos();
+            int periodoActual = BeanCPeriodoActual.obtienePeriodoActual();
+            periodo = cmbPeriodos.SelectedValue.ToString();
+            if (periodoActual != int.Parse(periodo))
             {
-                int mes = Int16.Parse(maskPeriodo.Text.Substring(0, 2));
-                int anio = Int16.Parse(maskPeriodo.Text.Substring(3, 4));
-                if (mes <= 12 && anio >= 2000)
+                object itemFirst = cmbPeriodos.SelectedItem;
+                Dictionary<String, String> periodos = new Dictionary<String, String>();
+                String mensajePeriodo = "Debe de realizar primero el cierre de mes, ";
+                mensajePeriodo += Environment.NewLine;
+                mensajePeriodo += "Antes del registro de lecturas del mes de " + cmbPeriodos.Text;
+                MessageBox.Show(mensajePeriodo);
+            }
+            else
+            { 
+
+                int longCad = maskPeriodo.Text.Trim().Length;
+                //MessageBox.Show("" + maskPeriodo.Text.Trim() + "- contenido", maskPeriodo.Text+" length"+ longCad);
+                //MessageBox.Show(""+Convert.ToInt16(cmbPeriodos.SelectedValue.ToString().Length + cmbAnios.SelectedValue.ToString().Length));
+                if (Convert.ToInt16(cmbPeriodos.SelectedValue.ToString().Length + cmbAnios.SelectedValue.ToString().Length) == 6)
                 {
+                    //int mes = Int16.Parse(maskPeriodo.Text.Substring(0, 2));
+                    //int anio = Int16.Parse(maskPeriodo.Text.Substring(3, 4));
+                    // if (mes <= 12 && anio >= 2000)
+                    //{
                     //MessageBox.Show("Mes: " + maskPeriodo.Text.Substring(0, 2) + " Año: " + maskPeriodo.Text.Substring(3, 4));
-                    mesG = Int16.Parse(maskPeriodo.Text.Substring(0, 2));
-                    anioG = Int16.Parse(maskPeriodo.Text.Substring(3, 4));
+                    // mesG = Int16.Parse(maskPeriodo.Text.Substring(0, 2));
+                    //anioG = Int16.Parse(maskPeriodo.Text.Substring(3, 4));
+                    mesG = Int16.Parse(cmbPeriodos.SelectedValue.ToString());
+                    anioG = Int16.Parse(cmbAnios.SelectedValue.ToString());
                     muestraDatos();
-                    
+
+                    //}
+                    //else
+                    // {
+                    // MessageBox.Show("Formato de Fecha incorrecta. Verifica que el año sea apartir del 2000");
+                    //ocultaDatos();
+                    //}
                 }
                 else
                 {
-                    MessageBox.Show("Formato de Fecha incorrecta. Verifica que el año sea apartir del 2000");
+                    MessageBox.Show("Ingresa correctamente la fecha.");
                     ocultaDatos();
                 }
-            }
-            else
-            {
-                MessageBox.Show("Ingresa correctamente la fecha.");
-                ocultaDatos();
             }
         }
         Backend.Utilerias util = new Backend.Utilerias();
@@ -353,8 +378,8 @@ namespace WFPGranjas
 
         private void btnRegLecListado_Click(object sender, EventArgs e)
         {
-            string mes = maskPeriodo.Text.Substring(0, 2);
-            string anio = maskPeriodo.Text.Substring(3, 4);
+            string mes = cmbPeriodos.SelectedValue.ToString();
+            string anio = cmbAnios.SelectedValue.ToString();
             rptRegLecturas rpt = new rptRegLecturas(mes,anio);
             rpt.Show();
 
@@ -393,10 +418,11 @@ namespace WFPGranjas
 
         private void button1_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("id_med0" + id_medidor + " mes:" + mesG + " anio:" + anioG);
+            MessageBox.Show("id_med:" + id_medidor + " mes:" + mesG + " anio:" + anioG);
             valoresLecturas(id_medidor, mesG, anioG);
         }
 
+      
 
         private void btnUltimo_Click(object sender, EventArgs e)
         {
@@ -408,9 +434,18 @@ namespace WFPGranjas
                 valoresRen(dgListado, dgListado.RowCount - 1);
             }
         }
-        
-        
+        //|||||||||||||||inicio tonka-1216|||||||||||||||||
+        #region Consulta Periodo para el registro de Lecturas
+        public void consultaPer()
+        {
+           // gbEstatus.Visible = false;
+            var BeanCPeriodo = new Backend.Procesos.PrcCuotaMto();
+            BeanCPeriodo.consultaPeriodos(cmbPeriodos, 1, 1);
+            BeanCPeriodo.consultaPeriodos(cmbAnios, 2, 1);
+        }
+        #endregion
+        //|||||||||||||||fin tonka-1216|||||||||||||||||
 
-   
+
     }
 }

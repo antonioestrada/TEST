@@ -210,7 +210,7 @@ namespace WFPGranjas
             txtTelefono.Text = "";
             txtCorreo.Text = "";
             txtNombre.Focus();
-            opForm("Nuevo Lote", Color.LightGreen, "Registrar", 1, mEditar, mEliminar, dgColonos);
+            opForm("Nuevo Colono", Color.LightGreen, "Registrar", 1, mEditar, mEliminar, dgColonos);
         }
 
         private void mEditar_Click(object sender, EventArgs e)
@@ -218,7 +218,7 @@ namespace WFPGranjas
             int retornoB = compruebaColono(dgColonos);
             if (retornoB == 1)
             {
-                opForm("Modificar Lote", Color.Peru, "Guardar", 3, mNuevo, mEliminar, dgColonos);
+                opForm("Modificar Colono", Color.Peru, "Guardar", 3, mNuevo, mEliminar, dgColonos);
                 dgColonos.Enabled = true;
             }
 
@@ -229,7 +229,7 @@ namespace WFPGranjas
             int retornoB = compruebaColono(dgColonos);
             if (retornoB == 1)
             {
-                opForm("Eliminar Lote", Color.IndianRed, "Eliminar", 2, mNuevo, mEditar, dgColonos);
+                opForm("Eliminar Colono", Color.IndianRed, "Eliminar", 2, mNuevo, mEditar, dgColonos);
                 dgColonos.Enabled = true;
             }
         }
