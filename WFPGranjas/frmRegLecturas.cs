@@ -20,11 +20,13 @@ namespace WFPGranjas
         String periodo = null;
         String anio = null;
         int servicio = 0;
+        string usuario = null;
         //|||||||||||||||fin tonka-1216071216|||||||||||||||||
-        public frmRegLecturas()
+        public frmRegLecturas(string usuario)
         {
             InitializeComponent();
             definicionDGListado();
+            this.usuario = usuario;
         }
 
         #region Definicion de Estructura de Columnas DataGridView listado medidores
@@ -107,7 +109,7 @@ namespace WFPGranjas
                 {
                     // Obtenemos el valor de la columna
                     Object value = row.Cells[0].Value;
-
+                    int currenR = dgListado.SelectedRows[0].Index;
                     // Establecemos el valor en el correspondiente control Label
                     if (value != null)
                     {
@@ -117,6 +119,7 @@ namespace WFPGranjas
                         lblDireccion.Text = row.Cells[3].Value.ToString();
                         lblContrato.Text = row.Cells[4].Value.ToString();
                         lblMedidor.Text = row.Cells[5].Value.ToString();
+                        valoresRen(dgListado, currenR);
                         calcula_consumo();
                     }
 
@@ -340,7 +343,7 @@ namespace WFPGranjas
             else
             { 
 
-                int longCad = maskPeriodo.Text.Trim().Length;
+               
                 //MessageBox.Show("" + maskPeriodo.Text.Trim() + "- contenido", maskPeriodo.Text+" length"+ longCad);
                 //MessageBox.Show(""+Convert.ToInt16(cmbPeriodos.SelectedValue.ToString().Length + cmbAnios.SelectedValue.ToString().Length));
                 if (Convert.ToInt16(cmbPeriodos.SelectedValue.ToString().Length + cmbAnios.SelectedValue.ToString().Length) == 6)
@@ -422,7 +425,36 @@ namespace WFPGranjas
             valoresLecturas(id_medidor, mesG, anioG);
         }
 
-      
+        private void btnTerminaCap_Click(object sender, EventArgs e)
+        {
+            string message = "Periodo a Cerrar Registro de Lecturas: Mes: " + cmbPeriodos.SelectedValue.ToString() + " Año: " + cmbAnios.SelectedValue.ToString() + "¿Estas Seguro?";
+            string caption = "Confirmacion del Proceso ";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result;
+
+            // Displays the MessageBox.
+
+            result = MessageBox.Show(this, message, caption, buttons,
+                MessageBoxIcon.Question, MessageBoxDefaultButton.Button1,
+                 0, "mspaint.chm");
+
+            if (result == DialogResult.Yes)
+            {
+                var BeanCValidaLec = new Backend.Procesos.CRegLecturas();
+                Object[] parames = { cmbPeriodos.SelectedValue.ToString(), cmbAnios.SelectedValue.ToString(), usuario };
+                //Object[] parames = { "07", "2016" };
+                int validaReg = BeanCValidaLec.validaRegLecturas(parames);
+                if (validaReg == 0)
+                {
+                    MessageBox.Show("El registró de lecturas se cerró correctamente");
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("¡Aun falta registrar lecturas!");
+                }
+            }
+        }
 
         private void btnUltimo_Click(object sender, EventArgs e)
         {

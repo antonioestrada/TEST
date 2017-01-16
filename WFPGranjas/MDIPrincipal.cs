@@ -482,7 +482,7 @@ namespace WFPGranjas
         {
             cerrarVentanas();
             //if (childFormCatUsuarios ==null)
-            frmRegLecturas childFormRegLect = new frmRegLecturas();
+            frmRegLecturas childFormRegLect = new frmRegLecturas(usuario);
             childFormRegLect.StartPosition = FormStartPosition.CenterScreen;
             childFormRegLect.Text = "REGISTRO DE LECTURAS DEL MES";
 

@@ -38,7 +38,7 @@
             this.mSalirBanco = new System.Windows.Forms.ToolStripMenuItem();
             this.label13 = new System.Windows.Forms.Label();
             this.gbCaptura = new System.Windows.Forms.GroupBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnTerminaCap = new System.Windows.Forms.Button();
             this.btnRegLecListado = new System.Windows.Forms.Button();
             this.btnUltimo = new System.Windows.Forms.Button();
             this.btnSiguiente = new System.Windows.Forms.Button();
@@ -72,7 +72,6 @@
             this.label3 = new System.Windows.Forms.Label();
             this.lblInd = new System.Windows.Forms.Label();
             this.btnCapturaLec = new System.Windows.Forms.Button();
-            this.maskPeriodo = new System.Windows.Forms.MaskedTextBox();
             this.pnlPrinBancos.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.menuStripBancos.SuspendLayout();
@@ -171,7 +170,7 @@
             // 
             // gbCaptura
             // 
-            this.gbCaptura.Controls.Add(this.button1);
+            this.gbCaptura.Controls.Add(this.btnTerminaCap);
             this.gbCaptura.Controls.Add(this.btnRegLecListado);
             this.gbCaptura.Controls.Add(this.btnUltimo);
             this.gbCaptura.Controls.Add(this.btnSiguiente);
@@ -200,18 +199,18 @@
             this.gbCaptura.Text = "Datos de Captura";
             this.gbCaptura.Visible = false;
             // 
-            // button1
+            // btnTerminaCap
             // 
-            this.button1.Image = global::WFPGranjas.Properties.Resources.expediente;
-            this.button1.Location = new System.Drawing.Point(10, 267);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(150, 26);
-            this.button1.TabIndex = 64;
-            this.button1.Text = "Terminar Captura";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.btnTerminaCap.Image = global::WFPGranjas.Properties.Resources.expediente;
+            this.btnTerminaCap.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnTerminaCap.Location = new System.Drawing.Point(10, 269);
+            this.btnTerminaCap.Name = "btnTerminaCap";
+            this.btnTerminaCap.Size = new System.Drawing.Size(150, 24);
+            this.btnTerminaCap.TabIndex = 64;
+            this.btnTerminaCap.Text = "Termina Captura";
+            this.btnTerminaCap.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnTerminaCap.UseVisualStyleBackColor = true;
+            this.btnTerminaCap.Click += new System.EventHandler(this.btnTerminaCap_Click);
             // 
             // btnRegLecListado
             // 
@@ -535,7 +534,6 @@
             this.pnlCaptura.Controls.Add(this.label3);
             this.pnlCaptura.Controls.Add(this.lblInd);
             this.pnlCaptura.Controls.Add(this.btnCapturaLec);
-            this.pnlCaptura.Controls.Add(this.maskPeriodo);
             this.pnlCaptura.Location = new System.Drawing.Point(6, 12);
             this.pnlCaptura.Name = "pnlCaptura";
             this.pnlCaptura.Size = new System.Drawing.Size(520, 32);
@@ -597,14 +595,6 @@
             this.btnCapturaLec.UseVisualStyleBackColor = true;
             this.btnCapturaLec.Click += new System.EventHandler(this.btnCapturaLec_Click);
             // 
-            // maskPeriodo
-            // 
-            this.maskPeriodo.Location = new System.Drawing.Point(8, 3);
-            this.maskPeriodo.Mask = "99-9999";
-            this.maskPeriodo.Name = "maskPeriodo";
-            this.maskPeriodo.Size = new System.Drawing.Size(61, 22);
-            this.maskPeriodo.TabIndex = 50;
-            // 
             // frmRegLecturas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -614,7 +604,10 @@
             this.Controls.Add(this.gbListado);
             this.Controls.Add(this.pnlPrinBancos);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmRegLecturas";
             this.Text = "frmRegLecturas";
             this.Load += new System.EventHandler(this.frmRegLecturas_Load);
@@ -664,7 +657,6 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel pnlCaptura;
         private System.Windows.Forms.Button btnCapturaLec;
-        private System.Windows.Forms.MaskedTextBox maskPeriodo;
         private System.Windows.Forms.Button btnUltimo;
         private System.Windows.Forms.Button btnSiguiente;
         private System.Windows.Forms.Button btnAnterior;
@@ -681,6 +673,6 @@
         private System.Windows.Forms.ComboBox cmbPeriodos;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label lblInd;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnTerminaCap;
     }
 }
