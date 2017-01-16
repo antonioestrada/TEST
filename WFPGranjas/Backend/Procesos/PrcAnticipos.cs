@@ -98,6 +98,26 @@ namespace WFPGranjas.Backend.Procesos
             Conexion.FinalizarSesion();
         }
         #endregion
+
+
+        #region obitene  periodo actual
+        public int obtienePeriodoActual()
+        {
+            int resultado = 0;
+            System.Data.IDataReader resul = Conexion.GDatos.TraerDataReader("gestion_granjas.sp_frm_Antp_CPeriodo");
+            resultado = Convert.ToInt16(resul.GetValue(0));
+            /*
+            while (resul.Read())
+            {
+                //seteo 
+                 resultado = Convert.ToBoolean(resul.GetValue(0));
+            }*/
+            Conexion.FinalizarSesion();
+
+            return resultado;
+        }
+        #endregion
+
         #region registra  cuotas
         public Boolean registroCuotas(Object[] parames,int servicio)
         {
@@ -110,6 +130,10 @@ namespace WFPGranjas.Backend.Procesos
             if (servicio == 3)
             {
                 resul = Conexion.GDatos.TraerDataReader("gestion_granjas.sp_frm_Antp_AddAnticipoAgua", parames);
+            }
+            if (servicio == 5)
+            {
+                resul = Conexion.GDatos.TraerDataReader("gestion_granjas.sp_frm_Antp_AddCasaClub", parames);
             }
             //seteo 
             Boolean resultado = Convert.ToBoolean(resul.GetValue(0));
@@ -154,7 +178,7 @@ namespace WFPGranjas.Backend.Procesos
                 resultado.id_mzaDTO = reader.GetValue(1).ToString();
 
                 //direccion
-                resultado.direccionDTO =  reader.GetValue(7).ToString();
+                resultado.direccionDTO = "Manzana: "+ reader.GetValue(2).ToString()+ " Lote: "+ reader.GetValue(3).ToString();
                 //idColono
                 resultado.idConoloDTO = Convert.ToInt16(reader.GetValue(6).ToString());
 

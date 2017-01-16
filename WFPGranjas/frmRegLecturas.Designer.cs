@@ -29,9 +29,17 @@
         private void InitializeComponent()
         {
             this.pnlPrinBancos = new System.Windows.Forms.Panel();
-            this.menuStripX = new System.Windows.Forms.MenuStrip();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.holaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStripBancos = new System.Windows.Forms.MenuStrip();
+            this.mNuevoBanco = new System.Windows.Forms.ToolStripMenuItem();
+            this.mEditarBanco = new System.Windows.Forms.ToolStripMenuItem();
+            this.mEliminarBanco = new System.Windows.Forms.ToolStripMenuItem();
+            this.mSalirBanco = new System.Windows.Forms.ToolStripMenuItem();
             this.label13 = new System.Windows.Forms.Label();
             this.gbCaptura = new System.Windows.Forms.GroupBox();
+            this.btnTerminaCap = new System.Windows.Forms.Button();
+            this.btnRegLecListado = new System.Windows.Forms.Button();
             this.btnUltimo = new System.Windows.Forms.Button();
             this.btnSiguiente = new System.Windows.Forms.Button();
             this.btnAnterior = new System.Windows.Forms.Button();
@@ -53,22 +61,20 @@
             this.gbListado = new System.Windows.Forms.GroupBox();
             this.dgPropietario = new System.Windows.Forms.DataGridView();
             this.txtColono = new System.Windows.Forms.TextBox();
+            this.btnFiltrar = new System.Windows.Forms.Button();
             this.cmbFiltroMza = new System.Windows.Forms.ComboBox();
             this.dgListado = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.pnlCaptura = new System.Windows.Forms.Panel();
-            this.maskPeriodo = new System.Windows.Forms.MaskedTextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.btnRegLecListado = new System.Windows.Forms.Button();
-            this.btnFiltrar = new System.Windows.Forms.Button();
+            this.cmbAnios = new System.Windows.Forms.ComboBox();
+            this.cmbPeriodos = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblInd = new System.Windows.Forms.Label();
             this.btnCapturaLec = new System.Windows.Forms.Button();
-            this.mNuevo = new System.Windows.Forms.ToolStripMenuItem();
-            this.mEditar = new System.Windows.Forms.ToolStripMenuItem();
-            this.mEliminar = new System.Windows.Forms.ToolStripMenuItem();
-            this.mSalir = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlPrinBancos.SuspendLayout();
-            this.menuStripX.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
+            this.menuStripBancos.SuspendLayout();
             this.gbCaptura.SuspendLayout();
             this.gbListado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPropietario)).BeginInit();
@@ -79,7 +85,8 @@
             // pnlPrinBancos
             // 
             this.pnlPrinBancos.BackColor = System.Drawing.Color.Orange;
-            this.pnlPrinBancos.Controls.Add(this.menuStripX);
+            this.pnlPrinBancos.Controls.Add(this.menuStrip1);
+            this.pnlPrinBancos.Controls.Add(this.menuStripBancos);
             this.pnlPrinBancos.Controls.Add(this.label13);
             this.pnlPrinBancos.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlPrinBancos.Location = new System.Drawing.Point(0, 0);
@@ -88,19 +95,66 @@
             this.pnlPrinBancos.Size = new System.Drawing.Size(984, 28);
             this.pnlPrinBancos.TabIndex = 11;
             // 
-            // menuStripX
+            // menuStrip1
             // 
-            this.menuStripX.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mNuevo,
-            this.mEditar,
-            this.mEliminar,
-            this.mSalir});
-            this.menuStripX.Location = new System.Drawing.Point(0, 0);
-            this.menuStripX.Name = "menuStripX";
-            this.menuStripX.Padding = new System.Windows.Forms.Padding(15, 2, 0, 2);
-            this.menuStripX.Size = new System.Drawing.Size(984, 24);
-            this.menuStripX.TabIndex = 1;
-            this.menuStripX.Text = "menuStrip1";
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.holaToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 24);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(984, 24);
+            this.menuStrip1.TabIndex = 1;
+            this.menuStrip1.Text = "menuStrip1";
+            this.menuStrip1.Visible = false;
+            // 
+            // holaToolStripMenuItem
+            // 
+            this.holaToolStripMenuItem.Name = "holaToolStripMenuItem";
+            this.holaToolStripMenuItem.Size = new System.Drawing.Size(12, 20);
+            // 
+            // menuStripBancos
+            // 
+            this.menuStripBancos.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mNuevoBanco,
+            this.mEditarBanco,
+            this.mEliminarBanco,
+            this.mSalirBanco});
+            this.menuStripBancos.Location = new System.Drawing.Point(0, 0);
+            this.menuStripBancos.Name = "menuStripBancos";
+            this.menuStripBancos.Size = new System.Drawing.Size(984, 24);
+            this.menuStripBancos.TabIndex = 3;
+            this.menuStripBancos.Text = "menuStrip1";
+            // 
+            // mNuevoBanco
+            // 
+            this.mNuevoBanco.Image = global::WFPGranjas.Properties.Resources.nuevo;
+            this.mNuevoBanco.Name = "mNuevoBanco";
+            this.mNuevoBanco.Size = new System.Drawing.Size(70, 20);
+            this.mNuevoBanco.Text = "Nuevo";
+            this.mNuevoBanco.Visible = false;
+            // 
+            // mEditarBanco
+            // 
+            this.mEditarBanco.Image = global::WFPGranjas.Properties.Resources.editar;
+            this.mEditarBanco.Name = "mEditarBanco";
+            this.mEditarBanco.Size = new System.Drawing.Size(65, 20);
+            this.mEditarBanco.Text = "Editar";
+            this.mEditarBanco.Visible = false;
+            // 
+            // mEliminarBanco
+            // 
+            this.mEliminarBanco.Image = global::WFPGranjas.Properties.Resources.eliminar;
+            this.mEliminarBanco.Name = "mEliminarBanco";
+            this.mEliminarBanco.Size = new System.Drawing.Size(78, 20);
+            this.mEliminarBanco.Text = "Eliminar";
+            this.mEliminarBanco.Visible = false;
+            // 
+            // mSalirBanco
+            // 
+            this.mSalirBanco.Image = global::WFPGranjas.Properties.Resources.cerrar;
+            this.mSalirBanco.Name = "mSalirBanco";
+            this.mSalirBanco.Size = new System.Drawing.Size(67, 20);
+            this.mSalirBanco.Text = "Cerrar";
+            this.mSalirBanco.Click += new System.EventHandler(this.mSalirBanco_Click);
             // 
             // label13
             // 
@@ -116,6 +170,7 @@
             // 
             // gbCaptura
             // 
+            this.gbCaptura.Controls.Add(this.btnTerminaCap);
             this.gbCaptura.Controls.Add(this.btnRegLecListado);
             this.gbCaptura.Controls.Add(this.btnUltimo);
             this.gbCaptura.Controls.Add(this.btnSiguiente);
@@ -144,11 +199,37 @@
             this.gbCaptura.Text = "Datos de Captura";
             this.gbCaptura.Visible = false;
             // 
+            // btnTerminaCap
+            // 
+            this.btnTerminaCap.Image = global::WFPGranjas.Properties.Resources.expediente;
+            this.btnTerminaCap.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnTerminaCap.Location = new System.Drawing.Point(10, 269);
+            this.btnTerminaCap.Name = "btnTerminaCap";
+            this.btnTerminaCap.Size = new System.Drawing.Size(150, 24);
+            this.btnTerminaCap.TabIndex = 64;
+            this.btnTerminaCap.Text = "Termina Captura";
+            this.btnTerminaCap.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnTerminaCap.UseVisualStyleBackColor = true;
+            this.btnTerminaCap.Click += new System.EventHandler(this.btnTerminaCap_Click);
+            // 
+            // btnRegLecListado
+            // 
+            this.btnRegLecListado.Image = global::WFPGranjas.Properties.Resources.reportar24;
+            this.btnRegLecListado.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnRegLecListado.Location = new System.Drawing.Point(10, 242);
+            this.btnRegLecListado.Name = "btnRegLecListado";
+            this.btnRegLecListado.Size = new System.Drawing.Size(150, 24);
+            this.btnRegLecListado.TabIndex = 52;
+            this.btnRegLecListado.Text = "Genera Listado";
+            this.btnRegLecListado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnRegLecListado.UseVisualStyleBackColor = true;
+            this.btnRegLecListado.Click += new System.EventHandler(this.btnRegLecListado_Click);
+            // 
             // btnUltimo
             // 
-            this.btnUltimo.Location = new System.Drawing.Point(367, 270);
+            this.btnUltimo.Location = new System.Drawing.Point(389, 270);
             this.btnUltimo.Name = "btnUltimo";
-            this.btnUltimo.Size = new System.Drawing.Size(75, 23);
+            this.btnUltimo.Size = new System.Drawing.Size(53, 23);
             this.btnUltimo.TabIndex = 63;
             this.btnUltimo.Text = ">|";
             this.btnUltimo.UseVisualStyleBackColor = true;
@@ -156,9 +237,9 @@
             // 
             // btnSiguiente
             // 
-            this.btnSiguiente.Location = new System.Drawing.Point(292, 270);
+            this.btnSiguiente.Location = new System.Drawing.Point(333, 270);
             this.btnSiguiente.Name = "btnSiguiente";
-            this.btnSiguiente.Size = new System.Drawing.Size(75, 23);
+            this.btnSiguiente.Size = new System.Drawing.Size(53, 23);
             this.btnSiguiente.TabIndex = 62;
             this.btnSiguiente.Text = ">";
             this.btnSiguiente.UseVisualStyleBackColor = true;
@@ -166,9 +247,9 @@
             // 
             // btnAnterior
             // 
-            this.btnAnterior.Location = new System.Drawing.Point(213, 270);
+            this.btnAnterior.Location = new System.Drawing.Point(272, 270);
             this.btnAnterior.Name = "btnAnterior";
-            this.btnAnterior.Size = new System.Drawing.Size(79, 23);
+            this.btnAnterior.Size = new System.Drawing.Size(57, 23);
             this.btnAnterior.TabIndex = 61;
             this.btnAnterior.Text = "<";
             this.btnAnterior.UseVisualStyleBackColor = true;
@@ -176,9 +257,9 @@
             // 
             // btnPrimero
             // 
-            this.btnPrimero.Location = new System.Drawing.Point(134, 270);
+            this.btnPrimero.Location = new System.Drawing.Point(210, 270);
             this.btnPrimero.Name = "btnPrimero";
-            this.btnPrimero.Size = new System.Drawing.Size(79, 23);
+            this.btnPrimero.Size = new System.Drawing.Size(57, 23);
             this.btnPrimero.TabIndex = 60;
             this.btnPrimero.Text = "|<";
             this.btnPrimero.UseVisualStyleBackColor = true;
@@ -233,6 +314,7 @@
             this.txtLecActual.Name = "txtLecActual";
             this.txtLecActual.Size = new System.Drawing.Size(150, 22);
             this.txtLecActual.TabIndex = 55;
+            this.txtLecActual.TextChanged += new System.EventHandler(this.txtLecActual_TextChanged);
             this.txtLecActual.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLecActual_KeyPress);
             // 
             // txtLecAnterior
@@ -342,7 +424,6 @@
             this.gbListado.Size = new System.Drawing.Size(534, 305);
             this.gbListado.TabIndex = 12;
             this.gbListado.TabStop = false;
-            this.gbListado.Text = "Listado";
             // 
             // dgPropietario
             // 
@@ -376,6 +457,19 @@
             this.txtColono.Size = new System.Drawing.Size(392, 22);
             this.txtColono.TabIndex = 44;
             this.txtColono.TextChanged += new System.EventHandler(this.txtColono_TextChanged);
+            // 
+            // btnFiltrar
+            // 
+            this.btnFiltrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.btnFiltrar.Enabled = false;
+            this.btnFiltrar.Image = global::WFPGranjas.Properties.Resources.filtrar;
+            this.btnFiltrar.Location = new System.Drawing.Point(94, 59);
+            this.btnFiltrar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFiltrar.Name = "btnFiltrar";
+            this.btnFiltrar.Size = new System.Drawing.Size(23, 25);
+            this.btnFiltrar.TabIndex = 41;
+            this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
             // 
             // cmbFiltroMza
             // 
@@ -413,7 +507,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(134, 44);
+            this.label1.Location = new System.Drawing.Point(134, 45);
             this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(128, 16);
@@ -424,7 +518,7 @@
             // 
             this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(7, 43);
+            this.label7.Location = new System.Drawing.Point(8, 45);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(66, 16);
@@ -435,65 +529,64 @@
             // 
             this.pnlCaptura.BackColor = System.Drawing.Color.Orange;
             this.pnlCaptura.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlCaptura.Controls.Add(this.cmbAnios);
+            this.pnlCaptura.Controls.Add(this.cmbPeriodos);
+            this.pnlCaptura.Controls.Add(this.label3);
+            this.pnlCaptura.Controls.Add(this.lblInd);
             this.pnlCaptura.Controls.Add(this.btnCapturaLec);
-            this.pnlCaptura.Controls.Add(this.maskPeriodo);
-            this.pnlCaptura.Controls.Add(this.label14);
-            this.pnlCaptura.Location = new System.Drawing.Point(269, 16);
+            this.pnlCaptura.Location = new System.Drawing.Point(6, 12);
             this.pnlCaptura.Name = "pnlCaptura";
-            this.pnlCaptura.Size = new System.Drawing.Size(257, 32);
+            this.pnlCaptura.Size = new System.Drawing.Size(520, 32);
             this.pnlCaptura.TabIndex = 49;
             // 
-            // maskPeriodo
+            // cmbAnios
             // 
-            this.maskPeriodo.Location = new System.Drawing.Point(87, 5);
-            this.maskPeriodo.Mask = "99-9999";
-            this.maskPeriodo.Name = "maskPeriodo";
-            this.maskPeriodo.Size = new System.Drawing.Size(61, 22);
-            this.maskPeriodo.TabIndex = 50;
+            this.cmbAnios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbAnios.Enabled = false;
+            this.cmbAnios.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbAnios.FormattingEnabled = true;
+            this.cmbAnios.Location = new System.Drawing.Point(333, 3);
+            this.cmbAnios.Name = "cmbAnios";
+            this.cmbAnios.Size = new System.Drawing.Size(84, 24);
+            this.cmbAnios.TabIndex = 55;
             // 
-            // label14
+            // cmbPeriodos
             // 
-            this.label14.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.SystemColors.Window;
-            this.label14.Location = new System.Drawing.Point(9, 8);
-            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(73, 16);
-            this.label14.TabIndex = 49;
-            this.label14.Text = "Mes-Año:";
+            this.cmbPeriodos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPeriodos.Enabled = false;
+            this.cmbPeriodos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbPeriodos.FormattingEnabled = true;
+            this.cmbPeriodos.Location = new System.Drawing.Point(187, 3);
+            this.cmbPeriodos.Name = "cmbPeriodos";
+            this.cmbPeriodos.Size = new System.Drawing.Size(109, 24);
+            this.cmbPeriodos.TabIndex = 54;
             // 
-            // btnRegLecListado
+            // label3
             // 
-            this.btnRegLecListado.Image = global::WFPGranjas.Properties.Resources.reportar24;
-            this.btnRegLecListado.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnRegLecListado.Location = new System.Drawing.Point(292, 12);
-            this.btnRegLecListado.Name = "btnRegLecListado";
-            this.btnRegLecListado.Size = new System.Drawing.Size(150, 24);
-            this.btnRegLecListado.TabIndex = 52;
-            this.btnRegLecListado.Text = "Genera Listado";
-            this.btnRegLecListado.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnRegLecListado.UseVisualStyleBackColor = true;
-            this.btnRegLecListado.Click += new System.EventHandler(this.btnRegLecListado_Click);
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ForeColor = System.Drawing.SystemColors.Window;
+            this.label3.Location = new System.Drawing.Point(300, 7);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(35, 16);
+            this.label3.TabIndex = 53;
+            this.label3.Text = "Año";
             // 
-            // btnFiltrar
+            // lblInd
             // 
-            this.btnFiltrar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnFiltrar.Enabled = false;
-            this.btnFiltrar.Image = global::WFPGranjas.Properties.Resources.filtrar;
-            this.btnFiltrar.Location = new System.Drawing.Point(94, 59);
-            this.btnFiltrar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(23, 25);
-            this.btnFiltrar.TabIndex = 41;
-            this.btnFiltrar.UseVisualStyleBackColor = true;
-            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
+            this.lblInd.AutoSize = true;
+            this.lblInd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInd.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblInd.Location = new System.Drawing.Point(151, 7);
+            this.lblInd.Name = "lblInd";
+            this.lblInd.Size = new System.Drawing.Size(37, 16);
+            this.lblInd.TabIndex = 52;
+            this.lblInd.Text = "Mes";
             // 
             // btnCapturaLec
             // 
             this.btnCapturaLec.Image = global::WFPGranjas.Properties.Resources.expediente;
-            this.btnCapturaLec.Location = new System.Drawing.Point(153, 4);
+            this.btnCapturaLec.Location = new System.Drawing.Point(423, 3);
             this.btnCapturaLec.Name = "btnCapturaLec";
             this.btnCapturaLec.Size = new System.Drawing.Size(89, 24);
             this.btnCapturaLec.TabIndex = 51;
@@ -501,38 +594,6 @@
             this.btnCapturaLec.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCapturaLec.UseVisualStyleBackColor = true;
             this.btnCapturaLec.Click += new System.EventHandler(this.btnCapturaLec_Click);
-            // 
-            // mNuevo
-            // 
-            this.mNuevo.Image = global::WFPGranjas.Properties.Resources.nuevo;
-            this.mNuevo.Name = "mNuevo";
-            this.mNuevo.Size = new System.Drawing.Size(70, 20);
-            this.mNuevo.Text = "Nuevo";
-            this.mNuevo.Visible = false;
-            // 
-            // mEditar
-            // 
-            this.mEditar.Image = global::WFPGranjas.Properties.Resources.editar;
-            this.mEditar.Name = "mEditar";
-            this.mEditar.Size = new System.Drawing.Size(65, 20);
-            this.mEditar.Text = "Editar";
-            this.mEditar.Visible = false;
-            // 
-            // mEliminar
-            // 
-            this.mEliminar.Image = global::WFPGranjas.Properties.Resources.eliminar;
-            this.mEliminar.Name = "mEliminar";
-            this.mEliminar.Size = new System.Drawing.Size(78, 20);
-            this.mEliminar.Text = "Eliminar";
-            this.mEliminar.Visible = false;
-            // 
-            // mSalir
-            // 
-            this.mSalir.Image = global::WFPGranjas.Properties.Resources.cerrar;
-            this.mSalir.Name = "mSalir";
-            this.mSalir.Size = new System.Drawing.Size(67, 20);
-            this.mSalir.Text = "Cerrar";
-            this.mSalir.Click += new System.EventHandler(this.mSalir_Click);
             // 
             // frmRegLecturas
             // 
@@ -543,14 +604,19 @@
             this.Controls.Add(this.gbListado);
             this.Controls.Add(this.pnlPrinBancos);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmRegLecturas";
             this.Text = "frmRegLecturas";
             this.Load += new System.EventHandler(this.frmRegLecturas_Load);
             this.pnlPrinBancos.ResumeLayout(false);
             this.pnlPrinBancos.PerformLayout();
-            this.menuStripX.ResumeLayout(false);
-            this.menuStripX.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
+            this.menuStripBancos.ResumeLayout(false);
+            this.menuStripBancos.PerformLayout();
             this.gbCaptura.ResumeLayout(false);
             this.gbCaptura.PerformLayout();
             this.gbListado.ResumeLayout(false);
@@ -565,11 +631,6 @@
 
         #endregion
         private System.Windows.Forms.Panel pnlPrinBancos;
-        private System.Windows.Forms.MenuStrip menuStripX;
-        private System.Windows.Forms.ToolStripMenuItem mNuevo;
-        private System.Windows.Forms.ToolStripMenuItem mEditar;
-        private System.Windows.Forms.ToolStripMenuItem mEliminar;
-        private System.Windows.Forms.ToolStripMenuItem mSalir;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.GroupBox gbCaptura;
         private System.Windows.Forms.Label label12;
@@ -596,12 +657,22 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel pnlCaptura;
         private System.Windows.Forms.Button btnCapturaLec;
-        private System.Windows.Forms.MaskedTextBox maskPeriodo;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button btnUltimo;
         private System.Windows.Forms.Button btnSiguiente;
         private System.Windows.Forms.Button btnAnterior;
         private System.Windows.Forms.Button btnPrimero;
         private System.Windows.Forms.Button btnRegLecListado;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem holaToolStripMenuItem;
+        private System.Windows.Forms.MenuStrip menuStripBancos;
+        private System.Windows.Forms.ToolStripMenuItem mNuevoBanco;
+        private System.Windows.Forms.ToolStripMenuItem mEditarBanco;
+        private System.Windows.Forms.ToolStripMenuItem mEliminarBanco;
+        private System.Windows.Forms.ToolStripMenuItem mSalirBanco;
+        private System.Windows.Forms.ComboBox cmbAnios;
+        private System.Windows.Forms.ComboBox cmbPeriodos;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblInd;
+        private System.Windows.Forms.Button btnTerminaCap;
     }
 }

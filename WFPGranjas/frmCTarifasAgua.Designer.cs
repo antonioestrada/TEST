@@ -697,6 +697,7 @@
             this.Controls.Add(this.pnlPrinBancos);
             this.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximizeBox = false;
             this.Name = "frmTarifasAgua";
             this.Text = "frmTarifasAgua";
             this.Load += new System.EventHandler(this.frmTarifasAgua_Load);

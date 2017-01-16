@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBoxForm = new System.Windows.Forms.GroupBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.btnCancelBancos = new System.Windows.Forms.Button();
             this.pnlEncabezado = new System.Windows.Forms.Panel();
             this.lblEncabezadoBancos = new System.Windows.Forms.Label();
@@ -53,7 +54,6 @@
             this.mEditarBanco = new System.Windows.Forms.ToolStripMenuItem();
             this.mEliminarBanco = new System.Windows.Forms.ToolStripMenuItem();
             this.mSalirBanco = new System.Windows.Forms.ToolStripMenuItem();
-            this.label5 = new System.Windows.Forms.Label();
             this.groupBoxForm.SuspendLayout();
             this.pnlEncabezado.SuspendLayout();
             this.pnlResultBancos.SuspendLayout();
@@ -87,6 +87,17 @@
             this.groupBoxForm.TabIndex = 8;
             this.groupBoxForm.TabStop = false;
             this.groupBoxForm.Text = "Registro";
+            // 
+            // label5
+            // 
+            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(203, 273);
+            this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(143, 16);
+            this.label5.TabIndex = 11;
+            this.label5.Text = "* Campos Obligatorios";
             // 
             // btnCancelBancos
             // 
@@ -339,17 +350,6 @@
             this.mSalirBanco.Text = "Cerrar";
             this.mSalirBanco.Click += new System.EventHandler(this.mSalirBanco_Click);
             // 
-            // label5
-            // 
-            this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(203, 273);
-            this.label5.Margin = new System.Windows.Forms.Padding(6, 0, 6, 0);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(143, 16);
-            this.label5.TabIndex = 11;
-            this.label5.Text = "* Campos Obligatorios";
-            // 
             // frmCBancos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -364,6 +364,7 @@
             this.MainMenuStrip = this.menuStripBancos;
             this.Margin = new System.Windows.Forms.Padding(4);
             this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "frmCBancos";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.Text = "Catálogo: Bancos";

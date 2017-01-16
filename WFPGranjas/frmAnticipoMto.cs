@@ -210,7 +210,7 @@ namespace WFPGranjas
                 pagoTotal = 0;
                 DateTime thisDay = DateTime.Today;
                 lblFechaSys.Text = thisDay.ToString("D");
-
+                btnCapturaR.Focus();
             }
         }
 
@@ -218,11 +218,12 @@ namespace WFPGranjas
         {
             Boolean resultado = false;
             PrcAnticipos prcAnticipos = new PrcAnticipos();
-            Object[] parames = {  idLote , servicio };
+            Object[] parames = { idLote, servicio };
             resultado = prcAnticipos.validacionAdeudo(parames);
-            if (resultado)
+            if (resultado && servicio != 5 )
             {
-                MessageBox.Show("El usuario no puede dar anticipo , Ya que cuenta con cuotas atrasadas");
+                MessageBox.Show("El usuario no puede dar anticipo. Cuenta con cuotas atrasadas");
+                txtColono.Focus();
             }
             else
             {
@@ -233,10 +234,12 @@ namespace WFPGranjas
                     listaCuotasPag = new List<int>();
                     // Extrae meses con anticipo
                     prcAnticipos.consultaCuotasPagadas(listaCuotasPag, idLote);
-                    validaMeses();
+                    int periodoActualBD = prcAnticipos.obtienePeriodoActual();
+                    validaMeses(periodoActualBD);
                 }
                 if (servicio == 3)
                 {
+                    txtTotalAgua.Focus();
                     prcAnticipos.consultaBancos(cmbBancoCheq);
                     prcAnticipos.consultaBancos(cmbBancoFicha);
                     groupCuota.Visible = true;
@@ -247,9 +250,70 @@ namespace WFPGranjas
                     btnAddCuota.Visible = true;
                     dgPartidasR.Columns[0].Width = 500;
                     dgPartidasR.Columns[2].Width = 304;
-
                     dgPartidasR.Columns[1].Visible = false;
+                    btnAddCuota.Enabled = true;
+                    txtTotalAgua.Focus();
+                    txtTotalAgua.SelectAll();
+                    //code tonka 19-10-16
+                    txtImpEf.Text = "0.00";
+                    txtImpChq.Text = "0.00";
+                    txtImpFicha.Text = "0.00";
+                    txtFicha.Text = "";
+                    txtCheque.Text = "";
+                    txtTotalAgua.Text = "0.00";
+                    txtImporte.Text = "0.00";
+                    txtTotal.Text = "0.00";
+                    txtDescuento.Text = "0.00";
+                    pnlMetodoPago.Visible = false;
+                    dgPartidasR.Rows.Clear();
                 }
+              
+            }
+
+            if (servicio == 5)
+            {
+                
+                groupCuota.Size = new Size(826, 390);
+                panelCapturaTop.Size = new Size(820, 74);
+                lblConcepto.Visible = true;
+                txtConcepto.Visible = true;
+                cmbCCPadre.Visible = true;
+                cmbCCHijo.Visible = true;
+                cmbCCHijo.Location = new System.Drawing.Point(102, 48);
+                cmbCCPadre.Location = new System.Drawing.Point(102, 28);
+                txtTotalAgua.Focus();
+                prcAnticipos.consultaBancos(cmbBancoCheq);
+                prcAnticipos.consultaBancos(cmbBancoFicha);
+                groupCuota.Visible = true;
+                lblAntAgua.Visible = true;
+                lblAntAgua.Text = "Importe del Servicio :";
+                txtTotalAgua.Visible = true;
+                lblDescuento.Visible = false;
+                txtDescuento.Visible = false;
+                btnAddCuota.Visible = true;
+                dgPartidasR.Columns[0].Width = 300;
+                dgPartidasR.Columns[0].HeaderText = "Concepto";
+                dgPartidasR.Columns[1].Width = 354;
+                dgPartidasR.Columns[1].HeaderText = "Referencia";
+                dgPartidasR.Columns[2].Width = 158;
+               
+                dgPartidasR.Columns[1].Visible = true;
+                btnAddCuota.Enabled = true;
+                txtTotalAgua.Focus();
+                txtTotalAgua.SelectAll();
+                //code tonka 19-10-16
+                txtImpEf.Text = "0.00";
+                txtImpChq.Text = "0.00";
+                txtImpFicha.Text = "0.00";
+                txtFicha.Text = "";
+                txtCheque.Text = "";
+                txtTotalAgua.Text = "0.00";
+                txtImporte.Text = "0.00";
+                txtTotal.Text = "0.00";
+                txtDescuento.Text = "0.00";
+                pnlMetodoPago.Visible = false;
+                dgPartidasR.Rows.Clear();
+
             }
         }
 
@@ -257,24 +321,31 @@ namespace WFPGranjas
         {
            
             listaMeses = obtieneMeses();
-            PrcAnticipos prcAnticipos= new PrcAnticipos();
-            double importeTotal=prcAnticipos.generaCuotas(dgPartidasR, id_colono, idManzana, idLote, listaMeses);
-            pnlMeses.Visible = false;
-            groupCuota.Visible = true;
-            txtImporte.Text = String.Format(CultureInfo.InvariantCulture,"{0:0,0.00}", importeTotal);
-            txtDescuento.Text = "0.00";
-            txtTotal.Text = String.Format(CultureInfo.InvariantCulture, "{0:0,0.00}", importeTotal);
-            pagoTotal = importeTotal ;
-            prcAnticipos.consultaBancos(cmbBancoCheq);
-            prcAnticipos.consultaBancos(cmbBancoFicha);
-            txtImpEf.Text = "0.00";
-            txtImpChq.Text = "0.00";
-            txtImpFicha.Text = "0.00";
-            txtDescuento.Text = "0.00";
-            //tom modificacion
-            pnlMetodoPago.Visible = true;
-            dgPartidasR.ClearSelection();
-
+            if (listaMeses == "" || listaMeses == null)
+            {
+                MessageBox.Show("¡Selecciona al menos un mes de mantenimiento a anticipar!");
+            }
+            else
+            {
+                PrcAnticipos prcAnticipos = new PrcAnticipos();
+                double importeTotal = prcAnticipos.generaCuotas(dgPartidasR, id_colono, idManzana, idLote, listaMeses);
+                pnlMeses.Visible = false;
+                groupCuota.Visible = true;
+                txtImporte.Text = String.Format(CultureInfo.InvariantCulture, "{0:0,0.00}", importeTotal);
+                txtDescuento.Text = "0.00";
+                txtTotal.Text = String.Format(CultureInfo.InvariantCulture, "{0:0,0.00}", importeTotal);
+                pagoTotal = importeTotal;
+                prcAnticipos.consultaBancos(cmbBancoCheq);
+                prcAnticipos.consultaBancos(cmbBancoFicha);
+                txtImpEf.Text = "0.00";
+                txtImpChq.Text = "0.00";
+                txtImpFicha.Text = "0.00";
+                txtDescuento.Text = "0.00";
+                //tom modificacion
+                pnlMetodoPago.Visible = true;
+                dgPartidasR.ClearSelection();
+                txtImpEf.Focus();
+            }
         }
 
         private void txtColono_KeyDown(object sender, KeyEventArgs e)
@@ -283,6 +354,37 @@ namespace WFPGranjas
             BeanCProp.buscaColonoDir(dgPropietario, txtColono.Text.ToString());
             dgPropietario.Visible = true;
             dgPropietario.BringToFront();
+            //code tonka 19-10-2016
+            if ((int)e.KeyValue == (int)Keys.Enter)
+            {
+                //aqui codigo
+                int retornoB = compruebaPropietario(dgPropietario);
+                if (retornoB == 1)
+                {
+                    dgPropietario.Visible = false;
+                    lblColono.Visible = true;
+                    txtColono.Text = "";
+                    groupDColono.Visible = true;
+                    DateTime thisDay = DateTime.Today;
+                    lblFechaSys.Text = thisDay.ToString("D");
+                    gbDRecibo.Visible = true;
+                    btnCapturaR.Enabled = true;
+                    groupCuota.Visible = false;
+                    btnCapturaR.Focus();
+                }
+                //code tonka 18/10/2016
+                else
+                {
+                    txtColono.Text = "";
+                    txtLote.Text = "";
+                    groupDColono.Visible = false;
+                    groupCuota.Visible = false;
+                    gbDRecibo.Visible = false;
+                    pnlMeses.Visible = false;
+                    dgPropietario.Visible = false;
+                    MessageBox.Show("El Colono no se encuentra registrado. Por favor intente nuevamente.");
+                }
+            }
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -290,11 +392,11 @@ namespace WFPGranjas
             pnlMeses.Visible = false;
         }
 
-        public void validaMeses()
+        public void validaMeses( int periodoActualBD)
         {
 
             DateTime fechaActual = DateTime.Now;
-            int mes = fechaActual.Month;
+            int mes = periodoActualBD;
             mes = mes + 1;
             foreach (CheckBox chk in groupBoxMeses.Controls)
             {
@@ -361,25 +463,40 @@ namespace WFPGranjas
 
             if (pagoTotal == totalImporte)
             {
-               
+
                 
-                    Object[] parames = { id_colono, idManzana, idLote, listaMeses, importeEfectivo, txtCheque.Text, bancoCheque, importeCheque, txtFicha.Text, bancoFicha, importFicha, descuento, servicio };
+               
+                   Object[] paramesCasaClub  =  { id_colono, importeEfectivo, txtCheque.Text, bancoCheque, importeCheque, txtFicha.Text, bancoFicha, importFicha, servicio, cmbCCHijo.Text, txtConcepto.Text };
+                  
+                    Object[] parames =  { id_colono, idManzana, idLote, listaMeses, importeEfectivo, txtCheque.Text, bancoCheque, importeCheque, txtFicha.Text, bancoFicha, importFicha, descuento, servicio };
+
+                if(servicio==5)
+                     resultado = prcAnticipos.registroCuotas(paramesCasaClub, servicio);
+                else
                     resultado = prcAnticipos.registroCuotas(parames, servicio);
 
             }
             else {
                 if(totalImporte  > pagoTotal)
-                    MessageBox.Show("!El importe es mayor que el total a pagar¡");
+                    MessageBox.Show("¡El importe es mayor que el total a pagar!");
                 else
-                    MessageBox.Show("!El importe es  menor que el total a pagar¡");
+                    MessageBox.Show("¡El importe es  menor que el total a pagar!");
             }
             if (resultado)
             {
                 txtImpEf.Text    = "0.00";
                 txtImpChq.Text   = "0.00";
                 txtImpFicha.Text = "0.00";
+                txtFicha.Text = "";
+                txtCheque.Text = "";
+                txtTotalAgua.Text = "0.00";
+                txtImporte.Text = "0.00";
+                txtTotal.Text = "0.00";
+                txtDescuento.Text = "0.00";
+                pnlMetodoPago.Visible = false;
+                dgPartidasR.Rows.Clear();
                 groupCuota.Visible = false;
-                MessageBox.Show("!Se registro Correctamente el Pago¡");
+                MessageBox.Show("¡Se registro Correctamente el Pago!");
             }
 
         }
@@ -432,8 +549,17 @@ namespace WFPGranjas
 
         private void frmAnticipoMto_Load(object sender, EventArgs e)
         {
-
-            var BeanCLotesMza = new Backend.Catalogos.CManzanaLotes();
+            DateTime thisDay = DateTime.Today;
+            lblFechaSys.Text = thisDay.ToString("D");
+            if (servicio == 2)
+            {
+                panelTop.BackColor = Color.MediumSeaGreen;
+            }
+            else if (servicio == 3)
+            {
+                panelTop.BackColor = Color.SteelBlue;
+            }
+                var BeanCLotesMza = new Backend.Catalogos.CManzanaLotes();
             BeanCLotesMza.consultaMazaCombo(cmbManzana);
         }
 
@@ -442,9 +568,7 @@ namespace WFPGranjas
             if ((int)e.KeyChar == (int)Keys.Enter)
             {
                 //aqui codigo
-                BuscaIdLote();
-               
-               
+                BuscaIdLote();               
             }
         }
 
@@ -488,34 +612,132 @@ namespace WFPGranjas
 
         private void btnAddCuota_Click(object sender, EventArgs e)
         {
-            //lenamos nuestro grid con nuestro reader.
-            if (Double.Parse(txtTotalAgua.Text) > 0)
+            string mensaje = "monto a anticipar";
+            if (servicio == 5)
             {
-                int renglon = dgPartidasR.Rows.Add();
+                mensaje = "monto del servicio";
+            }
 
-                //Servicio
-                dgPartidasR.Rows[renglon].Cells[0].Value ="Anticipo de cuota de Agua";
+            if (txtTotalAgua.Text == "" || txtTotalAgua.Text == null )
+            {
+               
+                MessageBox.Show("¡Ingresa el "+ mensaje + "!");
+                txtTotalAgua.Focus();
+                txtImpEf.SelectAll();
+            }else
+            if (servicio == 5 && txtConcepto.Text == "")
+            {
+                mensaje = "monto del servicio";
+                if (txtConcepto.Text == "")
+                    MessageBox.Show("¡Ingresa el concepto del servicio!");
 
-                dgPartidasR.Columns[1].Visible = false;
-                //Cuota
-                String importe = String.Format(CultureInfo.InvariantCulture,
-                                 "{0:0,0.0}", txtTotalAgua.Text);
-                dgPartidasR.Rows[renglon].Cells[2].Value = "$ " + importe;
+            }
+            else
+            {
+                //lenamos nuestro grid con nuestro reader.
+                if (Double.Parse(txtTotalAgua.Text) > 0)
+                {
+                    int renglon = dgPartidasR.Rows.Add();
+                    //Cuota
+                    String importe = String.Format(CultureInfo.InvariantCulture,
+                                     "{0:0,0.0}", txtTotalAgua.Text);
+                    dgPartidasR.Rows[renglon].Cells[2].Value = "$ " + importe;
 
-                pagoTotal  += Double.Parse(txtTotalAgua.Text);
-                txtImporte.Text = String.Format(CultureInfo.InvariantCulture, "{0:0,0.00}", txtTotalAgua.Text);
-                txtDescuento.Text = "0.00";
-                txtTotal.Text = String.Format(CultureInfo.InvariantCulture, "{0:0,0.00}", txtTotalAgua.Text);
+                    pagoTotal += Double.Parse(txtTotalAgua.Text);
 
-                //tonka
-                pnlMetodoPago.Visible=true;
 
+                    //Servicio
+                    if (servicio == 3)
+                    {
+                        dgPartidasR.Rows[renglon].Cells[0].Value = "Anticipo de cuota de Agua";
+                        dgPartidasR.Columns[1].Visible = false;
+                      
+                    }
+                    if (servicio == 5)
+                    {
+                        dgPartidasR.Rows[renglon].Cells[0].Value = "" +txtConcepto.Text;
+                        dgPartidasR.Columns[1].Visible = true;
+                        dgPartidasR.Rows[renglon].Cells[1].Value =""+cmbCCPadre.Text+" - "+cmbCCHijo.Text;
+                        //stxtConcepto.Text = "";
+                        
+                    }
+                    txtImporte.Text = String.Format(CultureInfo.InvariantCulture, "{0:0,0.00}", txtTotalAgua.Text);
+                    txtDescuento.Text = "0.00";
+                    txtTotal.Text = String.Format(CultureInfo.InvariantCulture, "{0:0,0.00}", pagoTotal);
+                    txtTotalAgua.Text = "0.00";
+                    //tonka
+                    btnAddCuota.Enabled = false;
+                    pnlMetodoPago.Visible = true;
+                    txtImpEf.Focus();
+                    txtImpEf.SelectAll();
+                }
+                else
+                {
+                    MessageBox.Show("El "+ mensaje + " debe ser mayor a cero.");
+                    txtTotalAgua.Focus();
+                }
             }
         }
 
         private void txtImpFicha_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnBuscar_Click(object sender, EventArgs e)
+        {
+            BuscaIdLote();
+        }
+
+        private void txtTotalAgua_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtTotalAgua.SelectAll();
+        }
+
+        private void txtCheque_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtCheque.SelectAll();
+        }
+
+        private void txtFicha_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtFicha.SelectAll();
+        }
+
+        private void txtImpChq_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtImpChq.SelectAll();
+        }
+
+        private void txtImpFicha_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtImpFicha.SelectAll();
+        }
+
+        private void txtImpEf_MouseClick(object sender, MouseEventArgs e)
+        {
+            txtImpFicha.SelectAll();
+        }
+
+
+        private void txtTotalAgua_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            validaNumeros(txtTotalAgua, sender, e);
+        }
+
+        private void txtImpChq_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            validaNumeros(txtImpChq, sender, e);
+        }
+
+        private void txtImpFicha_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            validaNumeros(txtImpFicha, sender, e);
+        }
+
+        private void txtImpEf_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            validaNumeros(txtImpEf, sender, e);
         }
 
         public Boolean validaNumeros(TextBox txt, object sender, KeyPressEventArgs e) {
@@ -573,8 +795,8 @@ namespace WFPGranjas
                 idManzana = int.Parse(cmbManzana.SelectedValue.ToString());
                 idLote = resultado.idLoteDTO;
                 // String numeroRomano = utilities.numeroRomano(int.Parse(row.Cells[3].Value.ToString()));
-                lblMzaLote.Text = "Manzana: " + cmbManzana.SelectedText + " Lote: " + txtLote.Text;
-       
+                // lblMzaLote.Text = "Manzana: " + cmbManzana.SelectedText + " Lote: " + txtLote.Text;
+                lblMzaLote.Text = resultado.direccionDTO;
                 dgPropietario.Visible = false;
                 lblColono.Visible = true;
                 txtColono.Text = "";
@@ -583,8 +805,21 @@ namespace WFPGranjas
                 btnCapturaR.Enabled = true;
                 groupCuota.Visible = false;
                 pnlMeses.Visible = false;
+                gbDRecibo.Visible = true;
+                btnCapturaR.Focus();
+            } 
+            //code tonka 18/10/2016
+            else
+            {
+                txtColono.Text = "";
+                txtLote.Text = "";
+                groupDColono.Visible = false;
+                groupCuota.Visible = false;
+                gbDRecibo.Visible = false;
+                pnlMeses.Visible = false;
+                MessageBox.Show("El Lote no se encuentra registrado. Por favor intente nuevamente.");
             }
-          
+
         }
         #endregion
 

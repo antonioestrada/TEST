@@ -109,32 +109,13 @@ namespace WFPGranjas.Backend.Procesos
 }
         #endregion
 
-        #region consulta cuotas pagadas Mantenimiento
-        public void consultaCuotasPagadas(List<int> cmb,int idLote)
-        {
-
-
-            //iniciamos la conexion con el servidor
-            // Backend.Conexion.IniciarSesion(vGlobal.Server, vGlobal.BD, vGlobal.Usr, vGlobal.Pwd, vGlobal.BD);
-            //llenamos nuestro reader con la consulta de nuestro SP
-            IDataReader reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_frm_Antp_CAnticipos("+idLote+")");
-            //siclamos cada registro que contiene nuestro reader
-           
-            while (reader.Read())
-            {
-                 cmb.Add(int.Parse(reader.GetValue(0).ToString()));
-
-            }
-          
-            Conexion.FinalizarSesion();
-        }
-        #endregion
+       
         #region registra  cuotas
-        public Boolean registroCuotas(Object[] parames)
+        public int registroCuotas(Object[] parames)
         {
-            Boolean resultado = false;
+            int resultado = 0;
             System.Data.IDataReader resul = Conexion.GDatos.TraerDataReader("gestion_granjas.sp_frm_PagoMto_AddPago", parames);
-            resultado = Convert.ToBoolean(resul.GetValue(0));
+            resultado = Convert.ToInt16(resul.GetValue(0));
             /*
             while (resul.Read())
             {

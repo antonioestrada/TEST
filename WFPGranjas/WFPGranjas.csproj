@@ -68,6 +68,7 @@
     <Compile Include="Backend\Conexion.cs" />
     <Compile Include="Backend\GDatos.cs" />
     <Compile Include="Backend\Globales.cs" />
+    <Compile Include="Backend\Procesos\Bitacora.cs" />
     <Compile Include="Backend\Procesos\CMail.cs" />
     <Compile Include="Backend\Procesos\CRegLecturas.cs" />
     <Compile Include="Backend\Procesos\PrcConvenios.cs" />
@@ -91,11 +92,46 @@
       <DependentUpon>crReciboAgua.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="crReciboConvenio.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crReciboConvenio.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="crReciboManto.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crReciboManto.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="crRegLecturas.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crRegLecturas.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="crSubGraficaRA.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crSubGraficaRA.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="crSubLecturasRA.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crSubLecturasRA.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="crSubTarifasRA.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crSubTarifasRA.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="dsEdoCuenta.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsEdoCuenta.xsd</DependentUpon>
     </Compile>
     <Compile Include="dsMedidores.cs">
       <DependentUpon>dsMedidores.xsd</DependentUpon>
@@ -112,6 +148,16 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsReciboAgua.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsReciboConvenio.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsReciboConvenio.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsReciboManto1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsReciboManto.xsd</DependentUpon>
     </Compile>
     <Compile Include="frmConvenios.cs">
       <SubType>Form</SubType>
@@ -227,6 +273,12 @@
     <Compile Include="frmRegLecturas.Designer.cs">
       <DependentUpon>frmRegLecturas.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReporteCuotas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporteCuotas.Designer.cs">
+      <DependentUpon>frmReporteCuotas.cs</DependentUpon>
+    </Compile>
     <Compile Include="MDIPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -267,9 +319,29 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crReciboAgua.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="crReciboConvenio.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crReciboConvenio.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crReciboManto.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crReciboManto.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="crRegLecturas.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crRegLecturas.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crSubGraficaRA.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crSubGraficaRA.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crSubLecturasRA.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crSubLecturasRA.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crSubTarifasRA.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crSubTarifasRA.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="frmConvenios.resx">
       <DependentUpon>frmConvenios.cs</DependentUpon>
@@ -328,6 +400,9 @@
     <EmbeddedResource Include="frmRegLecturas.resx">
       <DependentUpon>frmRegLecturas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteCuotas.resx">
+      <DependentUpon>frmReporteCuotas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MDIPrincipal.resx">
       <DependentUpon>MDIPrincipal.cs</DependentUpon>
       <SubType>Designer</SubType>
@@ -350,6 +425,17 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptSubMedidor.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="dsEdoCuenta.xsc">
+      <DependentUpon>dsEdoCuenta.xsd</DependentUpon>
+    </None>
+    <None Include="dsEdoCuenta.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsEdoCuenta.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsEdoCuenta.xss">
+      <DependentUpon>dsEdoCuenta.xsd</DependentUpon>
+    </None>
     <None Include="dsMedidores.xsc">
       <DependentUpon>dsMedidores.xsd</DependentUpon>
     </None>
@@ -371,6 +457,28 @@
     </None>
     <None Include="dsReciboAgua.xss">
       <DependentUpon>dsReciboAgua.xsd</DependentUpon>
+    </None>
+    <None Include="dsReciboConvenio.xsc">
+      <DependentUpon>dsReciboConvenio.xsd</DependentUpon>
+    </None>
+    <None Include="dsReciboConvenio.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsReciboConvenio.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsReciboConvenio.xss">
+      <DependentUpon>dsReciboConvenio.xsd</DependentUpon>
+    </None>
+    <None Include="dsReciboManto.xsc">
+      <DependentUpon>dsReciboManto.xsd</DependentUpon>
+    </None>
+    <None Include="dsReciboManto.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsReciboManto1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsReciboManto.xss">
+      <DependentUpon>dsReciboManto.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
@@ -814,6 +922,18 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\LOGO.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\acuerdo16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\acuerdo2_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calculadora24.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\calculadoraB24.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

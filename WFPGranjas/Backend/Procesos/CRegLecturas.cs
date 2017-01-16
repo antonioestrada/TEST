@@ -24,7 +24,10 @@ namespace WFPGranjas.Backend.Procesos
             resultado.anioAnt = Convert.ToInt16(resul.GetValue(1));
             resultado.lectura = resul.GetValue(2).ToString();
             resultado.lecturaAnt = resul.GetValue(3).ToString();
+            Conexion.FinalizarSesion();
             return resultado;
+            
+
         }
         #endregion
         #region consulta catalogo manzanas/lotes
@@ -54,6 +57,20 @@ namespace WFPGranjas.Backend.Procesos
                 dgConsulta.Rows[renglon].Cells[5].Value = reader.GetValue(5).ToString();
             }
             Conexion.FinalizarSesion();
+        }
+        #endregion
+
+        #region validad la catidad de lecturas contra cantidad de medidores
+        public int validaRegLecturas(Object[] parames)
+        {
+            int resultado;
+            System.Data.IDataReader resul = Conexion.GDatos.TraerDataReader("gestion_granjas.sp_frm_RegLecturas_valida", parames);
+            //seteo las variables de mi clase  ResultadoTrnx
+           // ResultadoTrnx resultado = new ResultadoTrnx();
+            //seteo 
+            resultado = Convert.ToInt16(resul.GetValue(0));
+            Conexion.FinalizarSesion();
+            return resultado;
         }
         #endregion
     }
