@@ -26,5 +26,7 @@ namespace WFPGranjas.Backend.Catalogos
         public String tarifa { get; set; }
         //para anio
         public String anio { get; set; }
+        //Importe
+        public double moratorio { get; set; }
     }
 }

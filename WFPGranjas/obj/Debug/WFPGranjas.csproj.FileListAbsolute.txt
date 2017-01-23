@@ -219,3 +219,4 @@ C:\Users\cbestred\Documents\Test_granjas\WFPGranjas\obj\Debug\WFPGranjas.rptMedi
 C:\Users\cbestred\Documents\Test_granjas\WFPGranjas\obj\Debug\WFPGranjas.rptReciboAgua.resources
 C:\Users\cbestred\Documents\Test_granjas\WFPGranjas\obj\Debug\WFPGranjas.rptRegLecturas.resources
 C:\Users\cbestred\Documents\Test_granjas\WFPGranjas\obj\Debug\WFPGranjas.csproj.GenerateResource.Cache
+C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.frmReporteCuotas.resources

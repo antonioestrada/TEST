@@ -156,14 +156,20 @@ namespace WFPGranjas
                                               {
                                                   ValueType = typeof (string),
                                                   HeaderText = "Periodo",
-                                                  Width = 130
+                                                  Width = 140
 
                                               },
                                                new DataGridViewTextBoxColumn
                                               {
                                                   ValueType = typeof (string),
                                                   HeaderText = "Importe",
-                                                  Width = 150
+                                                  Width = 160
+
+                                              } , new DataGridViewTextBoxColumn
+                                              {
+                                                  ValueType = typeof (String),
+                                                  HeaderText = "Moratorio",
+                                                  Width = 160
 
                                               },
                                                new DataGridViewTextBoxColumn
@@ -171,13 +177,6 @@ namespace WFPGranjas
                                                   ValueType = typeof (String),
                                                   HeaderText = "Estatus",
                                                   Width = 110
-
-                                              },
-                                               new DataGridViewTextBoxColumn
-                                              {
-                                                  ValueType = typeof (String),
-                                                  HeaderText = "Tarifa",
-                                                  Width = 190
 
                                               },
                                                new DataGridViewTextBoxColumn
@@ -619,16 +618,20 @@ namespace WFPGranjas
                     //idServicio
                     dgPartidasR.Rows[renglon].Cells[1].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].idServicio;
                     //Cuota
+                    double cuota = double.Parse(cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].importe.ToString());
+                    double mora = double.Parse(cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].moratorio.ToString());
                     String importe = String.Format(CultureInfo.InvariantCulture,
-                                     "{0:0,0.00}", cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].importe.ToString());
+                                     "{0:0,0.00}", cuota-mora);
                     dgPartidasR.Rows[renglon].Cells[2].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].importe;
 
                     dgPartidasR.Rows[renglon].Cells[3].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].idPeriodo;
                     dgPartidasR.Rows[renglon].Cells[4].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].servicio;
                     dgPartidasR.Rows[renglon].Cells[5].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].periodo;
                     dgPartidasR.Rows[renglon].Cells[6].Value = "$ " + importe;
-                    dgPartidasR.Rows[renglon].Cells[7].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].estatus;
-                    dgPartidasR.Rows[renglon].Cells[8].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].tarifa;
+                    String moratorio = String.Format(CultureInfo.InvariantCulture,
+                                   "{0:0,0.00}",  mora);
+                    dgPartidasR.Rows[renglon].Cells[7].Value ="$ "+ moratorio;
+                    dgPartidasR.Rows[renglon].Cells[8].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].estatus;
                     dgPartidasR.Rows[renglon].Cells[9].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].anio;
                     dgPartidasR.Rows[renglon].Cells[10].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].id;
 
