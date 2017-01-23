@@ -87,6 +87,19 @@ namespace WFPGranjas.Backend.Procesos
             return resultado;
         }
         #endregion
+        #region valida CBA
+        public Boolean validaCBA()
+        {
+
+            System.Data.IDataReader resul = Conexion.GDatos.TraerDataReader("gestion_granjas.sp_frm_PrcCuotas_ValidaCBA");
+
+            //seteo 
+            Boolean resultado = Convert.ToBoolean(resul.GetValue(0));
+            Conexion.FinalizarSesion();
+
+            return resultado;
+        }
+        #endregion
 
     }
 }

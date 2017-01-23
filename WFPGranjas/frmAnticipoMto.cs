@@ -217,6 +217,7 @@ namespace WFPGranjas
         private void btnCapturaR_Click(object sender, EventArgs e)
         {
             Boolean resultado = false;
+            pagoTotal = 0;
             PrcAnticipos prcAnticipos = new PrcAnticipos();
             Object[] parames = { idLote, servicio };
             resultado = prcAnticipos.validacionAdeudo(parames);

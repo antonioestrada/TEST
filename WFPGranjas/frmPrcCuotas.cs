@@ -88,7 +88,8 @@ namespace WFPGranjas
                         var BeanCPeriodo = new Backend.Procesos.PrcCuotaMto();
                         Object[] parames = { periodo, anio };
                         Boolean validacion = BeanCPeriodo.validaLecturasAgua(parames);
-                        if (validacion)
+                        Boolean pendienteCBA  = BeanCPeriodo.validaCBA();
+                        if (validacion && !pendienteCBA)
                         {
                             lblInfo.Visible = true;
                             progressBar1.Visible = true;
@@ -99,8 +100,13 @@ namespace WFPGranjas
                           
                         }
                         else {
-                            MessageBox.Show("No a cargado las lecturas del periodo seleccionado");
+                            if(!validacion)
+                                 MessageBox.Show("No a cargado las lecturas del periodo seleccionado");
+                            if (pendienteCBA)
+                                MessageBox.Show("No a cargado las cuotas base de agua (CBA) ");
                         }
+                        // validacion = BeanCPeriodo.validaCBA();
+
                     }
                 }
             }           
