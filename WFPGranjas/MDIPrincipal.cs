@@ -581,29 +581,26 @@ namespace WFPGranjas
             childFormReporteRL.Show();
         }
 
-        private void fcAAnualidades_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void amImprimirAC_Click(object sender, EventArgs e)
         {
-
+            cerrarVentanas();
+            rptAvisosCobranza childAvisosCob = new rptAvisosCobranza();
+            childAvisosCob.StartPosition = FormStartPosition.CenterScreen;
+            childAvisosCob.MdiParent = this;
+            childAvisosCob.Show();
         }
 
-        private void cgCuotas_Click(object sender, EventArgs e)
+      
+
+        private void acImprimirAC_Click(object sender, EventArgs e)
         {
-
-        }
-
-        private void cgCuentasContables_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void serviciosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
+            cerrarVentanas();
+            frmGeneraAvisos childAvisosCob = new frmGeneraAvisos();
+            childAvisosCob.StartPosition = FormStartPosition.CenterScreen;
+            childAvisosCob.MdiParent = this;
+            childAvisosCob.Show();
         }
     }
-}
+    }

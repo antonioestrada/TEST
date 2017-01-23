@@ -219,3 +219,6 @@ C:\Users\cbestred\Documents\Test_granjas\WFPGranjas\obj\Debug\WFPGranjas.rptMedi
 C:\Users\cbestred\Documents\Test_granjas\WFPGranjas\obj\Debug\WFPGranjas.rptReciboAgua.resources
 C:\Users\cbestred\Documents\Test_granjas\WFPGranjas\obj\Debug\WFPGranjas.rptRegLecturas.resources
 C:\Users\cbestred\Documents\Test_granjas\WFPGranjas\obj\Debug\WFPGranjas.csproj.GenerateResource.Cache
+C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\WFPGranjas.frmGeneraAvisos.resources
+C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\WFPGranjas.frmGeneraAvisosPDF.resources
+C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\WFPGranjas.rptAvisosCobranza.resources

@@ -416,6 +416,7 @@
             this.acImprimirAC.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
             this.acImprimirAC.Size = new System.Drawing.Size(300, 22);
             this.acImprimirAC.Text = "Imprimir Avisos de Cobranza";
+            this.acImprimirAC.Click += new System.EventHandler(this.acImprimirAC_Click);
             // 
             // menuAReportes
             // 
@@ -729,7 +730,6 @@
             this.fcAAnualidades.Name = "fcAAnualidades";
             this.fcAAnualidades.Size = new System.Drawing.Size(182, 22);
             this.fcAAnualidades.Text = "Anualidades";
-            this.fcAAnualidades.Click += new System.EventHandler(this.fcAAnualidades_Click);
             // 
             // toolStripMenuItem9
             // 
@@ -996,7 +996,6 @@
             this.cgCuotas.Name = "cgCuotas";
             this.cgCuotas.Size = new System.Drawing.Size(186, 22);
             this.cgCuotas.Text = "Cuotas";
-            this.cgCuotas.Click += new System.EventHandler(this.cgCuotas_Click);
             // 
             // cgcMantenimiento
             // 
@@ -1018,7 +1017,6 @@
             this.cgCuentasContables.Name = "cgCuentasContables";
             this.cgCuentasContables.Size = new System.Drawing.Size(186, 22);
             this.cgCuentasContables.Text = "Cuentas Contables";
-            this.cgCuentasContables.Click += new System.EventHandler(this.cgCuentasContables_Click);
             // 
             // menuCSistema
             // 
@@ -1068,7 +1066,6 @@
             this.serviciosToolStripMenuItem.Name = "serviciosToolStripMenuItem";
             this.serviciosToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.serviciosToolStripMenuItem.Text = "Servicios";
-            this.serviciosToolStripMenuItem.Click += new System.EventHandler(this.serviciosToolStripMenuItem_Click);
             // 
             // conceptosToolStripMenuItem
             // 
