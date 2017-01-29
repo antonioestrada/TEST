@@ -118,6 +118,24 @@ namespace WFPGranjas.Backend.Procesos
         }
         #endregion
 
+        #region obitene  los meses registrador por servicio
+        public int obtieneBitacoraCuotas(Object[] parames)
+        {
+            int resultado = 0;
+            System.Data.IDataReader resul = Conexion.GDatos.TraerDataReader("gestion_granjas.sp_valida_Periodo_Captura",parames);
+            resultado = Convert.ToInt16(resul.GetValue(0));
+            /*
+            while (resul.Read())
+            {
+                //seteo 
+                 resultado = Convert.ToBoolean(resul.GetValue(0));
+            }*/
+            Conexion.FinalizarSesion();
+
+            return resultado;
+        }
+        #endregion
+
         #region registra  cuotas
         public Boolean registroCuotas(Object[] parames,int servicio)
         {

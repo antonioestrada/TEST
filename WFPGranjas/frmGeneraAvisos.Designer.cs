@@ -42,29 +42,29 @@
             this.lblInd = new System.Windows.Forms.Label();
             this.btnCapturaLec = new System.Windows.Forms.Button();
             this.gbSeleccion = new System.Windows.Forms.GroupBox();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.txtLote = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblDir = new System.Windows.Forms.Label();
+            this.pXLote = new System.Windows.Forms.Panel();
             this.cmbManzana = new System.Windows.Forms.ComboBox();
             this.label6 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.btnBuscar = new System.Windows.Forms.Button();
+            this.txtLote = new System.Windows.Forms.TextBox();
+            this.lblAsoc = new System.Windows.Forms.Label();
+            this.btnEjecutar = new System.Windows.Forms.Button();
             this.rbColono = new System.Windows.Forms.RadioButton();
             this.rbTodos = new System.Windows.Forms.RadioButton();
             this.pnlResultBancos = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblMenBancos = new System.Windows.Forms.Label();
-            this.lblAsoc = new System.Windows.Forms.Label();
-            this.btnEjecutar = new System.Windows.Forms.Button();
-            this.pXLote = new System.Windows.Forms.Panel();
-            this.lblDir = new System.Windows.Forms.Label();
             this.pnlPrinBancos.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.menuStripBancos.SuspendLayout();
             this.groupBoxForm.SuspendLayout();
             this.pnlCaptura.SuspendLayout();
             this.gbSeleccion.SuspendLayout();
+            this.pXLote.SuspendLayout();
             this.pnlResultBancos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            this.pXLote.SuspendLayout();
             this.SuspendLayout();
             // 
             // pnlPrinBancos
@@ -205,7 +205,7 @@
             this.btnCapturaLec.Name = "btnCapturaLec";
             this.btnCapturaLec.Size = new System.Drawing.Size(89, 24);
             this.btnCapturaLec.TabIndex = 51;
-            this.btnCapturaLec.Text = "Capturar";
+            this.btnCapturaLec.Text = "Consulta";
             this.btnCapturaLec.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCapturaLec.UseVisualStyleBackColor = true;
             this.btnCapturaLec.Click += new System.EventHandler(this.btnCapturaLec_Click);
@@ -225,6 +225,60 @@
             this.gbSeleccion.TabIndex = 12;
             this.gbSeleccion.TabStop = false;
             this.gbSeleccion.Text = "Opción";
+            // 
+            // lblDir
+            // 
+            this.lblDir.AutoSize = true;
+            this.lblDir.Location = new System.Drawing.Point(4, 103);
+            this.lblDir.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblDir.Name = "lblDir";
+            this.lblDir.Size = new System.Drawing.Size(69, 13);
+            this.lblDir.TabIndex = 55;
+            this.lblDir.Text = "DIRECCION:";
+            this.lblDir.Visible = false;
+            // 
+            // pXLote
+            // 
+            this.pXLote.Controls.Add(this.cmbManzana);
+            this.pXLote.Controls.Add(this.label6);
+            this.pXLote.Controls.Add(this.label3);
+            this.pXLote.Controls.Add(this.btnBuscar);
+            this.pXLote.Controls.Add(this.txtLote);
+            this.pXLote.Location = new System.Drawing.Point(167, 40);
+            this.pXLote.Name = "pXLote";
+            this.pXLote.Size = new System.Drawing.Size(259, 36);
+            this.pXLote.TabIndex = 54;
+            this.pXLote.Visible = false;
+            // 
+            // cmbManzana
+            // 
+            this.cmbManzana.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbManzana.FormattingEnabled = true;
+            this.cmbManzana.Location = new System.Drawing.Point(39, 8);
+            this.cmbManzana.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbManzana.Name = "cmbManzana";
+            this.cmbManzana.Size = new System.Drawing.Size(72, 21);
+            this.cmbManzana.TabIndex = 9;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(125, 13);
+            this.label6.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(23, 13);
+            this.label6.TabIndex = 11;
+            this.label6.Text = "LT:";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(10, 12);
+            this.label3.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(26, 13);
+            this.label3.TabIndex = 8;
+            this.label3.Text = "MZ:";
             // 
             // btnBuscar
             // 
@@ -247,35 +301,28 @@
             this.txtLote.Size = new System.Drawing.Size(74, 20);
             this.txtLote.TabIndex = 10;
             // 
-            // label3
+            // lblAsoc
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 12);
-            this.label3.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(26, 13);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "MZ:";
+            this.lblAsoc.AutoSize = true;
+            this.lblAsoc.Location = new System.Drawing.Point(4, 86);
+            this.lblAsoc.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
+            this.lblAsoc.Name = "lblAsoc";
+            this.lblAsoc.Size = new System.Drawing.Size(65, 13);
+            this.lblAsoc.TabIndex = 53;
+            this.lblAsoc.Text = "ASOCIADO:";
+            this.lblAsoc.Visible = false;
             // 
-            // cmbManzana
+            // btnEjecutar
             // 
-            this.cmbManzana.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbManzana.FormattingEnabled = true;
-            this.cmbManzana.Location = new System.Drawing.Point(39, 8);
-            this.cmbManzana.Margin = new System.Windows.Forms.Padding(4);
-            this.cmbManzana.Name = "cmbManzana";
-            this.cmbManzana.Size = new System.Drawing.Size(72, 21);
-            this.cmbManzana.TabIndex = 9;
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(125, 13);
-            this.label6.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(23, 13);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "LT:";
+            this.btnEjecutar.Image = global::WFPGranjas.Properties.Resources.aceptar;
+            this.btnEjecutar.Location = new System.Drawing.Point(321, 86);
+            this.btnEjecutar.Name = "btnEjecutar";
+            this.btnEjecutar.Size = new System.Drawing.Size(99, 30);
+            this.btnEjecutar.TabIndex = 52;
+            this.btnEjecutar.Text = "EJECUTAR";
+            this.btnEjecutar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEjecutar.UseVisualStyleBackColor = true;
+            this.btnEjecutar.Click += new System.EventHandler(this.btnEjecutar_Click);
             // 
             // rbColono
             // 
@@ -286,6 +333,7 @@
             this.rbColono.TabIndex = 1;
             this.rbColono.Text = "MZ/LT";
             this.rbColono.UseVisualStyleBackColor = true;
+            this.rbColono.Visible = false;
             this.rbColono.CheckedChanged += new System.EventHandler(this.rbColono_CheckedChanged);
             // 
             // rbTodos
@@ -332,53 +380,6 @@
             this.lblMenBancos.TabIndex = 0;
             this.lblMenBancos.Text = "¡Se guardo correcatmente!";
             // 
-            // lblAsoc
-            // 
-            this.lblAsoc.AutoSize = true;
-            this.lblAsoc.Location = new System.Drawing.Point(4, 86);
-            this.lblAsoc.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.lblAsoc.Name = "lblAsoc";
-            this.lblAsoc.Size = new System.Drawing.Size(65, 13);
-            this.lblAsoc.TabIndex = 53;
-            this.lblAsoc.Text = "ASOCIADO:";
-            this.lblAsoc.Visible = false;
-            // 
-            // btnEjecutar
-            // 
-            this.btnEjecutar.Image = global::WFPGranjas.Properties.Resources.aceptar;
-            this.btnEjecutar.Location = new System.Drawing.Point(321, 86);
-            this.btnEjecutar.Name = "btnEjecutar";
-            this.btnEjecutar.Size = new System.Drawing.Size(99, 30);
-            this.btnEjecutar.TabIndex = 52;
-            this.btnEjecutar.Text = "EJECUTAR";
-            this.btnEjecutar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEjecutar.UseVisualStyleBackColor = true;
-            this.btnEjecutar.Click += new System.EventHandler(this.btnEjecutar_Click);
-            // 
-            // pXLote
-            // 
-            this.pXLote.Controls.Add(this.cmbManzana);
-            this.pXLote.Controls.Add(this.label6);
-            this.pXLote.Controls.Add(this.label3);
-            this.pXLote.Controls.Add(this.btnBuscar);
-            this.pXLote.Controls.Add(this.txtLote);
-            this.pXLote.Location = new System.Drawing.Point(167, 40);
-            this.pXLote.Name = "pXLote";
-            this.pXLote.Size = new System.Drawing.Size(259, 36);
-            this.pXLote.TabIndex = 54;
-            this.pXLote.Visible = false;
-            // 
-            // lblDir
-            // 
-            this.lblDir.AutoSize = true;
-            this.lblDir.Location = new System.Drawing.Point(4, 103);
-            this.lblDir.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.lblDir.Name = "lblDir";
-            this.lblDir.Size = new System.Drawing.Size(69, 13);
-            this.lblDir.TabIndex = 55;
-            this.lblDir.Text = "DIRECCION:";
-            this.lblDir.Visible = false;
-            // 
             // frmGeneraAvisos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -400,11 +401,11 @@
             this.pnlCaptura.PerformLayout();
             this.gbSeleccion.ResumeLayout(false);
             this.gbSeleccion.PerformLayout();
+            this.pXLote.ResumeLayout(false);
+            this.pXLote.PerformLayout();
             this.pnlResultBancos.ResumeLayout(false);
             this.pnlResultBancos.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            this.pXLote.ResumeLayout(false);
-            this.pXLote.PerformLayout();
             this.ResumeLayout(false);
 
         }

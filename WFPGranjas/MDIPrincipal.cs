@@ -482,7 +482,7 @@ namespace WFPGranjas
         {
             cerrarVentanas();
             //if (childFormCatUsuarios ==null)
-            frmRegLecturas childFormRegLect = new frmRegLecturas(usuario);
+            frmRegLecturas childFormRegLect = new frmRegLecturas(usuario,1);
             childFormRegLect.StartPosition = FormStartPosition.CenterScreen;
             childFormRegLect.Text = "REGISTRO DE LECTURAS DEL MES";
 
@@ -586,7 +586,7 @@ namespace WFPGranjas
         private void amImprimirAC_Click(object sender, EventArgs e)
         {
             cerrarVentanas();
-            rptAvisosCobranza childAvisosCob = new rptAvisosCobranza();
+            frmGeneraAvisos childAvisosCob = new frmGeneraAvisos();
             childAvisosCob.StartPosition = FormStartPosition.CenterScreen;
             childAvisosCob.MdiParent = this;
             childAvisosCob.Show();
@@ -601,6 +601,19 @@ namespace WFPGranjas
             childAvisosCob.StartPosition = FormStartPosition.CenterScreen;
             childAvisosCob.MdiParent = this;
             childAvisosCob.Show();
+        }
+
+        private void acCBA_Click(object sender, EventArgs e)
+        {
+            cerrarVentanas();
+            //if (childFormCatUsuarios ==null)
+            frmRegLecturas childFormRegLect = new frmRegLecturas(usuario,2);
+            childFormRegLect.StartPosition = FormStartPosition.CenterScreen;
+            childFormRegLect.Text = "REGISTRO DE CBA MENSUAL";
+
+            childFormRegLect.MdiParent = this;
+            //  childFormCatPerfiles.Size = new Size(370, 365);
+            childFormRegLect.Show();
         }
     }
     }

@@ -12,7 +12,7 @@
   <xs:element name="dsMedidores" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsMedidores" msprop:Generator_UserDSName="dsMedidores">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DTMedidores" msprop:Generator_TableClassName="DTMedidoresDataTable" msprop:Generator_TableVarName="tableDTMedidores" msprop:Generator_TablePropName="DTMedidores" msprop:Generator_RowDeletingName="DTMedidoresRowDeleting" msprop:Generator_RowChangingName="DTMedidoresRowChanging" msprop:Generator_RowEvHandlerName="DTMedidoresRowChangeEventHandler" msprop:Generator_RowDeletedName="DTMedidoresRowDeleted" msprop:Generator_UserTableName="DTMedidores" msprop:Generator_RowChangedName="DTMedidoresRowChanged" msprop:Generator_RowEvArgName="DTMedidoresRowChangeEvent" msprop:Generator_RowClassName="DTMedidoresRow">
+        <xs:element name="DTMedidores" msprop:Generator_TableClassName="DTMedidoresDataTable" msprop:Generator_TableVarName="tableDTMedidores" msprop:Generator_RowChangedName="DTMedidoresRowChanged" msprop:Generator_TablePropName="DTMedidores" msprop:Generator_RowDeletingName="DTMedidoresRowDeleting" msprop:Generator_RowChangingName="DTMedidoresRowChanging" msprop:Generator_RowEvHandlerName="DTMedidoresRowChangeEventHandler" msprop:Generator_RowDeletedName="DTMedidoresRowDeleted" msprop:Generator_RowClassName="DTMedidoresRow" msprop:Generator_UserTableName="DTMedidores" msprop:Generator_RowEvArgName="DTMedidoresRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="manzana" msprop:Generator_ColumnVarNameInTable="columnmanzana" msprop:Generator_ColumnPropNameInRow="manzana" msprop:Generator_ColumnPropNameInTable="manzanaColumn" msprop:Generator_UserColumnName="manzana" type="xs:string" minOccurs="0" />
@@ -24,7 +24,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DTRegLecturas" msprop:Generator_TableClassName="DTRegLecturasDataTable" msprop:Generator_TableVarName="tableDTRegLecturas" msprop:Generator_RowChangedName="DTRegLecturasRowChanged" msprop:Generator_TablePropName="DTRegLecturas" msprop:Generator_RowDeletingName="DTRegLecturasRowDeleting" msprop:Generator_RowChangingName="DTRegLecturasRowChanging" msprop:Generator_RowEvHandlerName="DTRegLecturasRowChangeEventHandler" msprop:Generator_RowDeletedName="DTRegLecturasRowDeleted" msprop:Generator_RowClassName="DTRegLecturasRow" msprop:Generator_UserTableName="DTRegLecturas" msprop:Generator_RowEvArgName="DTRegLecturasRowChangeEvent">
+        <xs:element name="DTRegLecturas" msprop:Generator_TableClassName="DTRegLecturasDataTable" msprop:Generator_TableVarName="tableDTRegLecturas" msprop:Generator_TablePropName="DTRegLecturas" msprop:Generator_RowDeletingName="DTRegLecturasRowDeleting" msprop:Generator_RowChangingName="DTRegLecturasRowChanging" msprop:Generator_RowEvHandlerName="DTRegLecturasRowChangeEventHandler" msprop:Generator_RowDeletedName="DTRegLecturasRowDeleted" msprop:Generator_UserTableName="DTRegLecturas" msprop:Generator_RowChangedName="DTRegLecturasRowChanged" msprop:Generator_RowEvArgName="DTRegLecturasRowChangeEvent" msprop:Generator_RowClassName="DTRegLecturasRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="medidor" msprop:Generator_ColumnVarNameInTable="columnmedidor" msprop:Generator_ColumnPropNameInRow="medidor" msprop:Generator_ColumnPropNameInTable="medidorColumn" msprop:Generator_UserColumnName="medidor" type="xs:string" minOccurs="0" />
@@ -32,6 +32,7 @@
               <xs:element name="manzana" msprop:Generator_ColumnVarNameInTable="columnmanzana" msprop:Generator_ColumnPropNameInRow="manzana" msprop:Generator_ColumnPropNameInTable="manzanaColumn" msprop:Generator_UserColumnName="manzana" type="xs:string" minOccurs="0" />
               <xs:element name="lote" msprop:Generator_ColumnVarNameInTable="columnlote" msprop:Generator_ColumnPropNameInRow="lote" msprop:Generator_ColumnPropNameInTable="loteColumn" msprop:Generator_UserColumnName="lote" type="xs:string" minOccurs="0" />
               <xs:element name="lectura" msprop:Generator_ColumnVarNameInTable="columnlectura" msprop:Generator_ColumnPropNameInRow="lectura" msprop:Generator_ColumnPropNameInTable="lecturaColumn" msprop:Generator_UserColumnName="lectura" type="xs:string" minOccurs="0" />
+              <xs:element name="id_manzana" msprop:Generator_ColumnVarNameInTable="columnid_manzana" msprop:Generator_ColumnPropNameInRow="id_manzana" msprop:Generator_ColumnPropNameInTable="id_manzanaColumn" msprop:Generator_UserColumnName="id_manzana" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

@@ -106,7 +106,7 @@ namespace WFPGranjas
 
         private void btnEjecutar_Click(object sender, EventArgs e)
         {
-            frmGeneraAvisosPDF browser = new frmGeneraAvisosPDF(Convert.ToString(id_lote));
+            frmGeneraAvisosPDF browser = new frmGeneraAvisosPDF(cmbPeriodos.SelectedValue.ToString(), cmbAnios.SelectedValue.ToString());
             browser.Show();
         }
 

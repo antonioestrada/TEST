@@ -21,12 +21,45 @@ namespace WFPGranjas
         String anio = null;
         int servicio = 0;
         string usuario = null;
+        int opcion = 0;
         //|||||||||||||||fin tonka-1216071216|||||||||||||||||
-        public frmRegLecturas(string usuario)
+        public frmRegLecturas(string usuario, int opcion)
         {
             InitializeComponent();
             definicionDGListado();
             this.usuario = usuario;
+            this.opcion = opcion;
+            iniciaOpcion();
+
+
+        }
+
+        public void iniciaOpcion()
+        {
+            //carga los periodos activos para cada servicio.
+            consultaPer(opcion);
+            //es para registro lecturas
+            if (this.opcion == 1)
+            {
+                lblEtiqueta.Text = "Lectura Actual:";
+                lblLecAnterior.Visible = true;
+                txtLecAnterior.Visible = true;
+                lblConsumo.Visible = true;
+                txtConsumo.Visible = true;
+                pnlCaptura.BackColor = Color.SteelBlue;
+                pnlPrinBancos.BackColor = Color.SteelBlue;
+            }
+            //es para registro lecturas
+            if (this.opcion == 2)
+            {
+                lblEtiqueta.Text = "CBA Asignada:";
+                lblLecAnterior.Visible = false;
+                txtLecAnterior.Visible = false;
+                lblConsumo.Visible = false;
+                txtConsumo.Visible = false;
+                pnlCaptura.BackColor = Color.Orange;
+                pnlPrinBancos.BackColor = Color.Orange;
+            }
         }
 
         #region Definicion de Estructura de Columnas DataGridView listado medidores
@@ -93,7 +126,8 @@ namespace WFPGranjas
             var BeanListadoMed = new Backend.Procesos.CRegLecturas();
             BeanListadoMed.consultaListadoMedidores(dg, op,inIdMzana,inLote,inNombre);
             compruebaRenMedidor(dg);
-            valoresLecturas(id_medidor, mesG, anioG);
+            //id del medidor, mes, periodo, anio, opcion=2 es para consultar medidores y 3 para consultar CBA asignada
+            valoresLecturas(id_medidor, mesG, anioG,this.opcion);
             calcula_consumo();
         }
         #endregion
@@ -144,21 +178,27 @@ namespace WFPGranjas
             lblDireccion.Text = dg.SelectedRows[0].Cells[3].Value.ToString();
             lblContrato.Text = dg.SelectedRows[0].Cells[4].Value.ToString();
             lblMedidor.Text = dg.SelectedRows[0].Cells[5].Value.ToString();
-            valoresLecturas(id_medidor, mesG, anioG);
+            //id del medidor, mes, periodo, anio, opcion=2 es para consultar medidores y 3 para consultar CBA asignada
+            valoresLecturas(id_medidor, mesG, anioG,this.opcion);
             calcula_consumo();
         }
         #endregion
 
         #region toma valores de Cada Medidor para lecturas
-        public void valoresLecturas(int inIDMedidor, int inPeriodo, int inAnio)
+        public void valoresLecturas(int inIDMedidor, int inPeriodo, int inAnio, int inOp)
         {
+            if (inOp == 1)
+                inOp = 2;
+            else if (inOp == 2)
+                inOp = 3;
             //definimos los parametros que pasaran al sp
             Object[] parames = {
-                2,
-                inIDMedidor,//id_lote solo agregamos el parametro id_lote para continuar con la ejecucion del sp
+                inOp,
+                inIDMedidor,//id_medidor solo agregamos el parametro id_lote para continuar con la ejecucion del sp
                 inPeriodo,
                 inAnio,
-                0//lectura la dejamos en cero
+                0,//lectura la dejamos en cero no usamos en esta ocasion
+                0//consumo en 0 no usamos en esta ocasion
             };
             //cachamos el valor que retorna nuestro sp
             Backend.Catalogos.ResultadoTrnx resultado = new Backend.Catalogos.ResultadoTrnx();
@@ -172,15 +212,22 @@ namespace WFPGranjas
         #endregion
 
         #region Registra lecturas
-        public void registraLecturas(int inIDMedidor, int inPeriodo, int inAnio, int inLectura)
+        public void registraLecturas(int inIDMedidor, int inPeriodo, int inAnio, int inLectura,int inConsumo, int inOp)
         {
+            //inOp=1 registra lecturas y retorna la lectura
+            //inOp=4 registra CBA mensual y retorna el CBA asignado
+            if (inOp == 1)
+                inOp = 1;
+            else if (inOp == 2)
+                inOp = 4;
             //definimos los parametros que pasaran al sp
             Object[] parames = {
-                1,
+                inOp,
                 inIDMedidor,//id_lote solo agregamos el parametro id_lote para continuar con la ejecucion del sp
                 inPeriodo,
                 inAnio,
-                inLectura
+                inLectura,
+                inConsumo
             };
             //cachamos el valor que retorna nuestro sp
             Backend.Catalogos.ResultadoTrnx resultado = new Backend.Catalogos.ResultadoTrnx();
@@ -204,7 +251,8 @@ namespace WFPGranjas
             listadoDG(dgListado,1,0,"","");
             compruebaRenMedidor(dgListado);
             //muestra lecturas y periodos
-            valoresLecturas(id_medidor, mesG, anioG);
+            //id del medidor, mes, periodo, anio, opcion=2 es para consultar medidores y 3 para consultar CBA asignada
+            valoresLecturas(id_medidor, mesG, anioG,this.opcion);
             gbCaptura.Visible = true;
             calcula_consumo();
         }
@@ -234,7 +282,7 @@ namespace WFPGranjas
         }
         private void frmRegLecturas_Load(object sender, EventArgs e)
         {
-            consultaPer();
+            
             //carga combo del catalogo de  manzanas 
             var BeanCLotesMza = new Backend.Catalogos.CManzanaLotes();
             BeanCLotesMza.consultaMazaComboRPT(cmbFiltroMza);
@@ -301,82 +349,175 @@ namespace WFPGranjas
             int currenR = dgListado.SelectedRows[0].Index;
             if (countGrid > 0)
             {
-                
-                //MessageBox.Show(txtLecActual.Text);
-                if (Int16.Parse(txtLecActual.Text) > Int16.Parse(txtLecAnterior.Text))
+                if (this.opcion == 1)
                 {
-                    if (Int16.Parse(txtLecActual.Text) == 0)
-                        registraLecturas(id_medidor, mesG, anioG, Int16.Parse(txtLecAnterior.Text));
-                    else
-                        registraLecturas(id_medidor, mesG, anioG, Int16.Parse(txtLecActual.Text));
-                
-                    dgListado.Focus();
-                    if (countGrid - 1 == currenR)
-                        MessageBox.Show("No hay mas registros");
-                    else
+                    //MessageBox.Show(txtLecActual.Text);
+                    if (Int16.Parse(txtLecActual.Text) >= Int16.Parse(txtLecAnterior.Text))
                     {
-                    
-                        dgListado.Rows[currenR + 1].Selected = true;
-                        dgListado.FirstDisplayedScrollingRowIndex = currenR;
-                        valoresRen(dgListado, currenR + 1);
+                        calcula_consumo();
+                        // MessageBox.Show(txtConsumo.Text);
+                        if (Int16.Parse(txtLecActual.Text) == 0)
+                        {
+                            //opcion1 es para registrar LECTURAS
+                            //opcion2 es para registrar CBA
+                            registraLecturas(id_medidor, mesG, anioG, Int32.Parse(txtLecAnterior.Text), Int32.Parse(txtConsumo.Text), this.opcion);
+                        }
+                        else
+                        {
+                            //opcion1 es para registrar LECTURAS
+                            //opcion2 es para registrar CBA
+                            registraLecturas(id_medidor, mesG, anioG, Int32.Parse(txtLecActual.Text), Int32.Parse(txtConsumo.Text), this.opcion);
+                        }
+
+                        dgListado.Focus();
+                        if (countGrid - 1 == currenR)
+                            MessageBox.Show("No hay mas registros");
+                        else
+                        {
+
+                            dgListado.Rows[currenR + 1].Selected = true;
+                            dgListado.FirstDisplayedScrollingRowIndex = currenR;
+                            valoresRen(dgListado, currenR + 1);
+                        }
                     }
+                    else
+                        MessageBox.Show("La lectura debe ser mayor o igual a la lectura anterior.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
-                else
-                    MessageBox.Show("La lectura debe ser mayor a la lectura anterior");
+                else if (this.opcion == 2)
+                {
+                    //MessageBox.Show(txtLecActual.Text);
+                    if (Int16.Parse(txtLecActual.Text) >0)
+                    {
+                        calcula_consumo();
+                        // MessageBox.Show(txtConsumo.Text);
+                        if (Int16.Parse(txtLecActual.Text) == 0)
+                        {
+                            //opcion1 es para registrar LECTURAS
+                            //opcion2 es para registrar CBA
+                            registraLecturas(id_medidor, mesG, anioG, Int32.Parse(txtLecAnterior.Text), Int32.Parse(txtConsumo.Text), this.opcion);
+                        }
+                        else
+                        {
+                            //opcion1 es para registrar LECTURAS
+                            //opcion2 es para registrar CBA
+                            registraLecturas(id_medidor, mesG, anioG, Int32.Parse(txtLecActual.Text), Int32.Parse(txtConsumo.Text), this.opcion);
+                        }
+
+                        dgListado.Focus();
+                        if (countGrid - 1 == currenR)
+                            MessageBox.Show("No hay mas registros");
+                        else
+                        {
+
+                            dgListado.Rows[currenR + 1].Selected = true;
+                            dgListado.FirstDisplayedScrollingRowIndex = currenR;
+                            valoresRen(dgListado, currenR + 1);
+                        }
+                    }
+                    else
+                        MessageBox.Show("Atención. CBA asignado debe ser mayor a CERO.", "Validación", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
             }
         }
         
         private void btnCapturaLec_Click(object sender, EventArgs e)
         {
+            //define bean para obtener periodo actual de la tabla cat_periodos
             var BeanCPeriodoActual = new Backend.Procesos.PrcAnticipos();
+            //obtiene el periodo actual de la tabla cat_periodos
             int periodoActual = BeanCPeriodoActual.obtienePeriodoActual();
+            Object[] parames = {
+                4
+            };
+            int mesesCerrados = BeanCPeriodoActual.obtieneBitacoraCuotas(parames);
+            
+
             periodo = cmbPeriodos.SelectedValue.ToString();
-            if (periodoActual != int.Parse(periodo))
+            if (opcion == 1)
             {
-                object itemFirst = cmbPeriodos.SelectedItem;
-                Dictionary<String, String> periodos = new Dictionary<String, String>();
-                String mensajePeriodo = "Debe de realizar primero el cierre de mes, ";
-                mensajePeriodo += Environment.NewLine;
-                mensajePeriodo += "Antes del registro de lecturas del mes de " + cmbPeriodos.Text;
-                MessageBox.Show(mensajePeriodo);
-            }
-            else
-            { 
-
-               
-                //MessageBox.Show("" + maskPeriodo.Text.Trim() + "- contenido", maskPeriodo.Text+" length"+ longCad);
-                //MessageBox.Show(""+Convert.ToInt16(cmbPeriodos.SelectedValue.ToString().Length + cmbAnios.SelectedValue.ToString().Length));
-                if (Convert.ToInt16(cmbPeriodos.SelectedValue.ToString().Length + cmbAnios.SelectedValue.ToString().Length) == 6)
+                if (periodoActual != int.Parse(periodo))
                 {
-                    //int mes = Int16.Parse(maskPeriodo.Text.Substring(0, 2));
-                    //int anio = Int16.Parse(maskPeriodo.Text.Substring(3, 4));
-                    // if (mes <= 12 && anio >= 2000)
-                    //{
-                    //MessageBox.Show("Mes: " + maskPeriodo.Text.Substring(0, 2) + " Año: " + maskPeriodo.Text.Substring(3, 4));
-                    // mesG = Int16.Parse(maskPeriodo.Text.Substring(0, 2));
-                    //anioG = Int16.Parse(maskPeriodo.Text.Substring(3, 4));
-                    mesG = Int16.Parse(cmbPeriodos.SelectedValue.ToString());
-                    anioG = Int16.Parse(cmbAnios.SelectedValue.ToString());
-                    muestraDatos();
-
-                    //}
-                    //else
-                    // {
-                    // MessageBox.Show("Formato de Fecha incorrecta. Verifica que el año sea apartir del 2000");
-                    //ocultaDatos();
-                    //}
+                    object itemFirst = cmbPeriodos.SelectedItem;
+                    Dictionary<String, String> periodos = new Dictionary<String, String>();
+                    String mensajePeriodo = "Debe de realizar primero el cierre de mes, ";
+                    mensajePeriodo += Environment.NewLine;
+                    mensajePeriodo += "Antes del registro de lecturas del mes de " + cmbPeriodos.Text;
+                    MessageBox.Show(mensajePeriodo);
                 }
                 else
                 {
-                    MessageBox.Show("Ingresa correctamente la fecha.");
-                    ocultaDatos();
+
+
+                    //MessageBox.Show("" + maskPeriodo.Text.Trim() + "- contenido", maskPeriodo.Text+" length"+ longCad);
+                    //MessageBox.Show(""+Convert.ToInt16(cmbPeriodos.SelectedValue.ToString().Length + cmbAnios.SelectedValue.ToString().Length));
+                    if (Convert.ToInt16(cmbPeriodos.SelectedValue.ToString().Length + cmbAnios.SelectedValue.ToString().Length) == 6)
+                    {
+                        //int mes = Int16.Parse(maskPeriodo.Text.Substring(0, 2));
+                        //int anio = Int16.Parse(maskPeriodo.Text.Substring(3, 4));
+                        // if (mes <= 12 && anio >= 2000)
+                        //{
+                        //MessageBox.Show("Mes: " + maskPeriodo.Text.Substring(0, 2) + " Año: " + maskPeriodo.Text.Substring(3, 4));
+                        // mesG = Int16.Parse(maskPeriodo.Text.Substring(0, 2));
+                        //anioG = Int16.Parse(maskPeriodo.Text.Substring(3, 4));
+                        mesG = Int16.Parse(cmbPeriodos.SelectedValue.ToString());
+                        anioG = Int16.Parse(cmbAnios.SelectedValue.ToString());
+                        muestraDatos();
+
+                        //}
+                        //else
+                        // {
+                        // MessageBox.Show("Formato de Fecha incorrecta. Verifica que el año sea apartir del 2000");
+                        //ocultaDatos();
+                        //}
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ingresa correctamente la fecha.");
+                        ocultaDatos();
+                    }
+                }
+            }
+            else if (opcion == 2)
+            {
+                if (mesesCerrados == 12)
+                {
+                    MessageBox.Show("Ya se han asignado los CBA's de cada periodo del año en curso.");
+                }
+                else
+                {
+                    if (Convert.ToInt16(cmbPeriodos.SelectedValue.ToString().Length + cmbAnios.SelectedValue.ToString().Length) == 6)
+                    {
+                        //int mes = Int16.Parse(maskPeriodo.Text.Substring(0, 2));
+                        //int anio = Int16.Parse(maskPeriodo.Text.Substring(3, 4));
+                        // if (mes <= 12 && anio >= 2000)
+                        //{
+                        //MessageBox.Show("Mes: " + maskPeriodo.Text.Substring(0, 2) + " Año: " + maskPeriodo.Text.Substring(3, 4));
+                        // mesG = Int16.Parse(maskPeriodo.Text.Substring(0, 2));
+                        //anioG = Int16.Parse(maskPeriodo.Text.Substring(3, 4));
+                        mesG = Int16.Parse(cmbPeriodos.SelectedValue.ToString());
+                        anioG = Int16.Parse(cmbAnios.SelectedValue.ToString());
+                        muestraDatos();
+
+                        //}
+                        //else
+                        // {
+                        // MessageBox.Show("Formato de Fecha incorrecta. Verifica que el año sea apartir del 2000");
+                        //ocultaDatos();
+                        //}
+                    }
+                    else
+                    {
+                        MessageBox.Show("Ingresa correctamente la fecha.");
+                        ocultaDatos();
+                    }
                 }
             }
         }
         Backend.Utilerias util = new Backend.Utilerias();
         private void txtLecActual_KeyPress(object sender, KeyPressEventArgs e)
         {
-            util.validarNumeros(e, txtLecActual);
+            //util.validarNumeros(e, txtLecActual);
+            util.validaEnteros(e, txtLecActual);
         }
 
         private void btnRegLecListado_Click(object sender, EventArgs e)
@@ -422,12 +563,25 @@ namespace WFPGranjas
         private void button1_Click(object sender, EventArgs e)
         {
             MessageBox.Show("id_med:" + id_medidor + " mes:" + mesG + " anio:" + anioG);
-            valoresLecturas(id_medidor, mesG, anioG);
+            //id del medidor, mes, periodo, anio, opcion=2 es para consultar medidores y 3 para consultar CBA asignada
+            valoresLecturas(id_medidor, mesG, anioG,this.opcion);
         }
 
         private void btnTerminaCap_Click(object sender, EventArgs e)
         {
-            string message = "Periodo a Cerrar Registro de Lecturas: Mes: " + cmbPeriodos.SelectedValue.ToString() + " Año: " + cmbAnios.SelectedValue.ToString() + "¿Estas Seguro?";
+            string message = "";
+            string message2 = "";
+            if (this.opcion == 1)
+            {
+                message = "Periodo a Cerrar Registro de Lecturas: Mes: " + cmbPeriodos.SelectedValue.ToString() + " Año: " + cmbAnios.SelectedValue.ToString() + "¿Estas Seguro?";
+                message2 = "¡Aun faltan registrar lecturas!";
+            }
+            else if (this.opcion == 2)
+            {
+                message = "Periodo a Cerrar Asignacion de CBA: Mes: " + cmbPeriodos.SelectedValue.ToString() + " Año: " + cmbAnios.SelectedValue.ToString() + "¿Estas Seguro?";
+                message2 = "¡Aun faltan asignar CBA's a los medidores para este periodo!";
+            }
+
             string caption = "Confirmacion del Proceso ";
             MessageBoxButtons buttons = MessageBoxButtons.YesNo;
             DialogResult result;
@@ -441,17 +595,17 @@ namespace WFPGranjas
             if (result == DialogResult.Yes)
             {
                 var BeanCValidaLec = new Backend.Procesos.CRegLecturas();
-                Object[] parames = { cmbPeriodos.SelectedValue.ToString(), cmbAnios.SelectedValue.ToString(), usuario };
+                Object[] parames = { this.opcion,cmbPeriodos.SelectedValue.ToString(), cmbAnios.SelectedValue.ToString(), usuario };
                 //Object[] parames = { "07", "2016" };
                 int validaReg = BeanCValidaLec.validaRegLecturas(parames);
                 if (validaReg == 0)
                 {
-                    MessageBox.Show("El registró de lecturas se cerró correctamente");
+                    MessageBox.Show("El Periodo se cerró correctamente");
                     this.Close();
                 }
                 else
                 {
-                    MessageBox.Show("¡Aun falta registrar lecturas!");
+                    MessageBox.Show(message2);
                 }
             }
         }
@@ -468,12 +622,21 @@ namespace WFPGranjas
         }
         //|||||||||||||||inicio tonka-1216|||||||||||||||||
         #region Consulta Periodo para el registro de Lecturas
-        public void consultaPer()
+        public void consultaPer(int op)
         {
-           // gbEstatus.Visible = false;
+            int consultaServicio=0;
+            //consultaServicio 1 es para registro de lecturas
+            //consultaServicio 2 es para Mantenimiento
+            //consultaServicio 3 es para Agua
+            //consultaServicio 4 es para Periodo de registro de CBA
+            if (op == 1)
+                consultaServicio = 1;
+            else if (op == 2)
+                consultaServicio = 4;
+            // gbEstatus.Visible = false;
             var BeanCPeriodo = new Backend.Procesos.PrcCuotaMto();
-            BeanCPeriodo.consultaPeriodos(cmbPeriodos, 1, 1);
-            BeanCPeriodo.consultaPeriodos(cmbAnios, 2, 1);
+            BeanCPeriodo.consultaPeriodos(cmbPeriodos, 1, consultaServicio);
+            BeanCPeriodo.consultaPeriodos(cmbAnios, 2, consultaServicio);
         }
         #endregion
         //|||||||||||||||fin tonka-1216|||||||||||||||||

@@ -577,6 +577,11 @@ namespace WFPGranjas
             }
         }
 
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void btnAddT2_Click(object sender, EventArgs e)
         {
             var BeanCSiguienteRen = new Backend.Catalogos.CTarifasAgua();
