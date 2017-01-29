@@ -44,8 +44,8 @@
             this.btnSiguiente = new System.Windows.Forms.Button();
             this.btnAnterior = new System.Windows.Forms.Button();
             this.btnPrimero = new System.Windows.Forms.Button();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lblConsumo = new System.Windows.Forms.Label();
+            this.lblEtiqueta = new System.Windows.Forms.Label();
             this.lblLecAnterior = new System.Windows.Forms.Label();
             this.txtConsumo = new System.Windows.Forms.TextBox();
             this.txtLecActual = new System.Windows.Forms.TextBox();
@@ -176,8 +176,8 @@
             this.gbCaptura.Controls.Add(this.btnSiguiente);
             this.gbCaptura.Controls.Add(this.btnAnterior);
             this.gbCaptura.Controls.Add(this.btnPrimero);
-            this.gbCaptura.Controls.Add(this.label12);
-            this.gbCaptura.Controls.Add(this.label11);
+            this.gbCaptura.Controls.Add(this.lblConsumo);
+            this.gbCaptura.Controls.Add(this.lblEtiqueta);
             this.gbCaptura.Controls.Add(this.lblLecAnterior);
             this.gbCaptura.Controls.Add(this.txtConsumo);
             this.gbCaptura.Controls.Add(this.txtLecActual);
@@ -233,6 +233,7 @@
             this.btnUltimo.TabIndex = 63;
             this.btnUltimo.Text = ">|";
             this.btnUltimo.UseVisualStyleBackColor = true;
+            this.btnUltimo.Visible = false;
             this.btnUltimo.Click += new System.EventHandler(this.btnUltimo_Click);
             // 
             // btnSiguiente
@@ -265,27 +266,27 @@
             this.btnPrimero.UseVisualStyleBackColor = true;
             this.btnPrimero.Click += new System.EventHandler(this.btnPrimero_Click);
             // 
-            // label12
+            // lblConsumo
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(209, 241);
-            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(76, 16);
-            this.label12.TabIndex = 59;
-            this.label12.Text = "Consumo:";
+            this.lblConsumo.AutoSize = true;
+            this.lblConsumo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblConsumo.Location = new System.Drawing.Point(209, 241);
+            this.lblConsumo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblConsumo.Name = "lblConsumo";
+            this.lblConsumo.Size = new System.Drawing.Size(76, 16);
+            this.lblConsumo.TabIndex = 59;
+            this.lblConsumo.Text = "Consumo:";
             // 
-            // label11
+            // lblEtiqueta
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.Location = new System.Drawing.Point(175, 213);
-            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(110, 16);
-            this.label11.TabIndex = 58;
-            this.label11.Text = "Lectura Actual:";
+            this.lblEtiqueta.AutoSize = true;
+            this.lblEtiqueta.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblEtiqueta.Location = new System.Drawing.Point(175, 213);
+            this.lblEtiqueta.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblEtiqueta.Name = "lblEtiqueta";
+            this.lblEtiqueta.Size = new System.Drawing.Size(110, 16);
+            this.lblEtiqueta.TabIndex = 58;
+            this.lblEtiqueta.Text = "Lectura Actual:";
             // 
             // lblLecAnterior
             // 
@@ -527,7 +528,7 @@
             // 
             // pnlCaptura
             // 
-            this.pnlCaptura.BackColor = System.Drawing.Color.Orange;
+            this.pnlCaptura.BackColor = System.Drawing.Color.SteelBlue;
             this.pnlCaptura.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pnlCaptura.Controls.Add(this.cmbAnios);
             this.pnlCaptura.Controls.Add(this.cmbPeriodos);
@@ -633,8 +634,8 @@
         private System.Windows.Forms.Panel pnlPrinBancos;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.GroupBox gbCaptura;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label lblConsumo;
+        private System.Windows.Forms.Label lblEtiqueta;
         private System.Windows.Forms.Label lblLecAnterior;
         private System.Windows.Forms.TextBox txtConsumo;
         private System.Windows.Forms.TextBox txtLecActual;

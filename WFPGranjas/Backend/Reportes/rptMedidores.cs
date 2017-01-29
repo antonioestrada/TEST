@@ -62,7 +62,7 @@ namespace WFPGranjas.Backend.Reportes
             dsMedidores dsM = new dsMedidores();
             while (reader.Read())
             {
-                dsM.DTRegLecturas.AddDTRegLecturasRow(reader.GetValue(0).ToString(), reader.GetValue(1).ToString(), reader.GetValue(2).ToString(), reader.GetValue(3).ToString(), reader.GetValue(4).ToString());
+                dsM.DTRegLecturas.AddDTRegLecturasRow(reader.GetValue(0).ToString(), reader.GetValue(1).ToString(), reader.GetValue(2).ToString(), reader.GetValue(3).ToString(), reader.GetValue(4).ToString(),Int32.Parse(reader.GetValue(5).ToString()));
             }
             Conexion.FinalizarSesion();
 

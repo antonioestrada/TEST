@@ -16,14 +16,14 @@ namespace WFPGranjas {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class crRegLecturas : ReportClass {
+    public class crAvisosCobranza : ReportClass {
         
-        public crRegLecturas() {
+        public crAvisosCobranza() {
         }
         
         public override string ResourceName {
             get {
-                return "crRegLecturas.rpt";
+                return "crAvisosCobranza.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace WFPGranjas {
         
         public override string FullResourceName {
             get {
-                return "WFPGranjas.crRegLecturas.rpt";
+                return "WFPGranjas.crAvisosCobranza.rpt";
             }
             set {
                 // Do nothing
@@ -66,7 +66,7 @@ namespace WFPGranjas {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section GroupHeaderSection2 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
             get {
                 return this.ReportDefinition.Sections[2];
             }
@@ -74,7 +74,7 @@ namespace WFPGranjas {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
             get {
                 return this.ReportDefinition.Sections[3];
             }
@@ -82,41 +82,17 @@ namespace WFPGranjas {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section GroupFooterSection2 {
-            get {
-                return this.ReportDefinition.Sections[4];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
-            get {
-                return this.ReportDefinition.Sections[5];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
         public CrystalDecisions.CrystalReports.Engine.Section Section5 {
             get {
-                return this.ReportDefinition.Sections[6];
-            }
-        }
-        
-        [Browsable(false)]
-        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.Shared.IParameterField Parameter_empresa {
-            get {
-                return this.DataDefinition.ParameterFields[0];
+                return this.ReportDefinition.Sections[4];
             }
         }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedcrRegLecturas : Component, ICachedReport {
+    public class CachedcrAvisosCobranza : Component, ICachedReport {
         
-        public CachedcrRegLecturas() {
+        public CachedcrAvisosCobranza() {
         }
         
         [Browsable(false)]
@@ -153,7 +129,7 @@ namespace WFPGranjas {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            crRegLecturas rpt = new crRegLecturas();
+            crAvisosCobranza rpt = new crAvisosCobranza();
             rpt.Site = this.Site;
             return rpt;
         }

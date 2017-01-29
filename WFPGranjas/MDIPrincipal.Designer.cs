@@ -145,6 +145,7 @@
             this.toolStripMenuItem41 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator18 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem42 = new System.Windows.Forms.ToolStripMenuItem();
+            this.acCBA = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.pnlMenuPrincipal.SuspendLayout();
@@ -358,7 +359,6 @@
             // 
             this.amConvenios.ImageTransparentColor = System.Drawing.Color.Black;
             this.amConvenios.Name = "amConvenios";
-            this.amConvenios.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
             this.amConvenios.Size = new System.Drawing.Size(255, 22);
             this.amConvenios.Text = "Registro de Convenios";
             this.amConvenios.Click += new System.EventHandler(this.OpenFile);
@@ -374,7 +374,8 @@
             this.acLecturas,
             this.acGeneracionCA,
             this.toolStripSeparator6,
-            this.acImprimirAC});
+            this.acImprimirAC,
+            this.acCBA});
             this.menuAAgua.Image = global::WFPGranjas.Properties.Resources.riego;
             this.menuAAgua.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.menuAAgua.Name = "menuAAgua";
@@ -388,8 +389,7 @@
             this.acLecturas.Image = global::WFPGranjas.Properties.Resources.velocimetro;
             this.acLecturas.ImageTransparentColor = System.Drawing.Color.Black;
             this.acLecturas.Name = "acLecturas";
-            this.acLecturas.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.acLecturas.Size = new System.Drawing.Size(300, 22);
+            this.acLecturas.Size = new System.Drawing.Size(255, 22);
             this.acLecturas.Text = "Registro de Lecturas del Mes";
             this.acLecturas.Click += new System.EventHandler(this.acLecturas_Click);
             // 
@@ -398,24 +398,23 @@
             this.acGeneracionCA.Image = global::WFPGranjas.Properties.Resources.transferir;
             this.acGeneracionCA.ImageTransparentColor = System.Drawing.Color.Black;
             this.acGeneracionCA.Name = "acGeneracionCA";
-            this.acGeneracionCA.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
-            this.acGeneracionCA.Size = new System.Drawing.Size(300, 22);
+            this.acGeneracionCA.Size = new System.Drawing.Size(255, 22);
             this.acGeneracionCA.Text = "Generación de Cuotas del Mes";
             this.acGeneracionCA.Click += new System.EventHandler(this.acGeneracionCA_Click);
             // 
             // toolStripSeparator6
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
-            this.toolStripSeparator6.Size = new System.Drawing.Size(297, 6);
+            this.toolStripSeparator6.Size = new System.Drawing.Size(252, 6);
             // 
             // acImprimirAC
             // 
             this.acImprimirAC.Image = global::WFPGranjas.Properties.Resources.impresora;
             this.acImprimirAC.ImageTransparentColor = System.Drawing.Color.Black;
             this.acImprimirAC.Name = "acImprimirAC";
-            this.acImprimirAC.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.acImprimirAC.Size = new System.Drawing.Size(300, 22);
+            this.acImprimirAC.Size = new System.Drawing.Size(255, 22);
             this.acImprimirAC.Text = "Imprimir Avisos de Cobranza";
+            this.acImprimirAC.Click += new System.EventHandler(this.acImprimirAC_Click);
             // 
             // menuAReportes
             // 
@@ -439,7 +438,7 @@
             this.toolBarToolStripMenuItem.CheckOnClick = true;
             this.toolBarToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.toolBarToolStripMenuItem.Name = "toolBarToolStripMenuItem";
-            this.toolBarToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.toolBarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.toolBarToolStripMenuItem.Text = "&Toolbar";
             this.toolBarToolStripMenuItem.Visible = false;
             this.toolBarToolStripMenuItem.Click += new System.EventHandler(this.ToolBarToolStripMenuItem_Click);
@@ -450,7 +449,7 @@
             this.statusBarToolStripMenuItem.CheckOnClick = true;
             this.statusBarToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.statusBarToolStripMenuItem.Name = "statusBarToolStripMenuItem";
-            this.statusBarToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.statusBarToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.statusBarToolStripMenuItem.Text = "&Status Bar";
             this.statusBarToolStripMenuItem.Visible = false;
             this.statusBarToolStripMenuItem.Click += new System.EventHandler(this.StatusBarToolStripMenuItem_Click);
@@ -458,21 +457,21 @@
             // arMedidores
             // 
             this.arMedidores.Name = "arMedidores";
-            this.arMedidores.Size = new System.Drawing.Size(138, 22);
+            this.arMedidores.Size = new System.Drawing.Size(152, 22);
             this.arMedidores.Text = "Medidores";
             this.arMedidores.Click += new System.EventHandler(this.arMedidores_Click);
             // 
             // arRegLecturas
             // 
             this.arRegLecturas.Name = "arRegLecturas";
-            this.arRegLecturas.Size = new System.Drawing.Size(138, 22);
+            this.arRegLecturas.Size = new System.Drawing.Size(152, 22);
             this.arRegLecturas.Text = "R. Agua";
             this.arRegLecturas.Click += new System.EventHandler(this.arRegLecturas_Click);
             // 
             // arRManto
             // 
             this.arRManto.Name = "arRManto";
-            this.arRManto.Size = new System.Drawing.Size(138, 22);
+            this.arRManto.Size = new System.Drawing.Size(152, 22);
             this.arRManto.Text = "R. Mantto";
             this.arRManto.Click += new System.EventHandler(this.arRManto_Click);
             // 
@@ -488,7 +487,7 @@
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.optionsToolStripMenuItem.Text = "&Options";
             // 
             // windowsMenu
@@ -729,7 +728,6 @@
             this.fcAAnualidades.Name = "fcAAnualidades";
             this.fcAAnualidades.Size = new System.Drawing.Size(182, 22);
             this.fcAAnualidades.Text = "Anualidades";
-            this.fcAAnualidades.Click += new System.EventHandler(this.fcAAnualidades_Click);
             // 
             // toolStripMenuItem9
             // 
@@ -997,7 +995,6 @@
             this.cgCuotas.Name = "cgCuotas";
             this.cgCuotas.Size = new System.Drawing.Size(186, 22);
             this.cgCuotas.Text = "Cuotas";
-            this.cgCuotas.Click += new System.EventHandler(this.cgCuotas_Click);
             // 
             // cgcMantenimiento
             // 
@@ -1019,7 +1016,6 @@
             this.cgCuentasContables.Name = "cgCuentasContables";
             this.cgCuentasContables.Size = new System.Drawing.Size(186, 22);
             this.cgCuentasContables.Text = "Cuentas Contables";
-            this.cgCuentasContables.Click += new System.EventHandler(this.cgCuentasContables_Click);
             // 
             // menuCSistema
             // 
@@ -1041,40 +1037,39 @@
             // toolStripSeparator22
             // 
             this.toolStripSeparator22.Name = "toolStripSeparator22";
-            this.toolStripSeparator22.Size = new System.Drawing.Size(135, 6);
+            this.toolStripSeparator22.Size = new System.Drawing.Size(149, 6);
             // 
             // csUsuarios
             // 
             this.csUsuarios.Name = "csUsuarios";
-            this.csUsuarios.Size = new System.Drawing.Size(138, 22);
+            this.csUsuarios.Size = new System.Drawing.Size(152, 22);
             this.csUsuarios.Text = "Usuarios";
             this.csUsuarios.Click += new System.EventHandler(this.csUsuarios_Click);
             // 
             // csPuestos
             // 
             this.csPuestos.Name = "csPuestos";
-            this.csPuestos.Size = new System.Drawing.Size(138, 22);
+            this.csPuestos.Size = new System.Drawing.Size(152, 22);
             this.csPuestos.Text = "Puestos";
             this.csPuestos.Click += new System.EventHandler(this.csPuestos_Click);
             // 
             // csPerfiles
             // 
             this.csPerfiles.Name = "csPerfiles";
-            this.csPerfiles.Size = new System.Drawing.Size(138, 22);
+            this.csPerfiles.Size = new System.Drawing.Size(152, 22);
             this.csPerfiles.Text = "Perfiles";
             this.csPerfiles.Click += new System.EventHandler(this.csPerfiles_Click);
             // 
             // serviciosToolStripMenuItem
             // 
             this.serviciosToolStripMenuItem.Name = "serviciosToolStripMenuItem";
-            this.serviciosToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.serviciosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.serviciosToolStripMenuItem.Text = "Servicios";
-            this.serviciosToolStripMenuItem.Click += new System.EventHandler(this.serviciosToolStripMenuItem_Click);
             // 
             // conceptosToolStripMenuItem
             // 
             this.conceptosToolStripMenuItem.Name = "conceptosToolStripMenuItem";
-            this.conceptosToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.conceptosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.conceptosToolStripMenuItem.Text = "Conceptos";
             // 
             // menuCAyuda
@@ -1216,6 +1211,13 @@
             this.toolStripMenuItem42.Name = "toolStripMenuItem42";
             this.toolStripMenuItem42.Size = new System.Drawing.Size(179, 22);
             this.toolStripMenuItem42.Text = "&About ... ...";
+            // 
+            // acCBA
+            // 
+            this.acCBA.Name = "acCBA";
+            this.acCBA.Size = new System.Drawing.Size(255, 22);
+            this.acCBA.Text = "Registro de CBA mensual";
+            this.acCBA.Click += new System.EventHandler(this.acCBA_Click);
             // 
             // MDIPrincipal
             // 
@@ -1380,6 +1382,7 @@
         private System.Windows.Forms.ToolStripMenuItem arRegLecturas;
         private System.Windows.Forms.ToolStripMenuItem arRManto;
         private System.Windows.Forms.ToolStripMenuItem cuotasExtraordinariasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem acCBA;
     }
 }
 

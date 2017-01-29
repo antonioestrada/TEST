@@ -80,8 +80,15 @@
     <Compile Include="Backend\Procesos\Cuota.cs" />
     <Compile Include="Backend\Properties.cs" />
     <Compile Include="Backend\Reportes\rptMedidores.cs" />
+    <Compile Include="Backend\Reportes\rptCobranza.cs" />
     <Compile Include="Backend\Reportes\rptRecibos.cs" />
     <Compile Include="Backend\Utilerias.cs" />
+    <Compile Include="crAvisosCobranza.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crAvisosCobranza.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="crMedidorSQL.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -130,6 +137,11 @@
       <DependentUpon>crSubTarifasRA.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="dsAvisosCobranza.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsAvisosCobranza.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dsEdoCuenta.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -173,11 +185,25 @@
     <Compile Include="frmCCalculoManto.designer.cs">
       <DependentUpon>frmCCalculoManto.cs</DependentUpon>
     </Compile>
+<<<<<<< HEAD
     <Compile Include="frmCancelacion.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmCancelacion.Designer.cs">
       <DependentUpon>frmCancelacion.cs</DependentUpon>
+=======
+    <Compile Include="frmGeneraAvisos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGeneraAvisos.Designer.cs">
+      <DependentUpon>frmGeneraAvisos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmGeneraAvisosPDF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmGeneraAvisosPDF.Designer.cs">
+      <DependentUpon>frmGeneraAvisosPDF.cs</DependentUpon>
+>>>>>>> a34375bca3cd7bfdb5a1a9d6e815ba770088afa0
     </Compile>
     <Compile Include="frmParametrosSys.cs">
       <SubType>Form</SubType>
@@ -295,6 +321,12 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="rptAvisosCobranza.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="rptAvisosCobranza.Designer.cs">
+      <DependentUpon>rptAvisosCobranza.cs</DependentUpon>
+    </Compile>
     <Compile Include="rptMedidores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -319,6 +351,10 @@
       <DependentUpon>rptSubMedidor.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="crAvisosCobranza.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crAvisosCobranza.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="crMedidorSQL.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crMedidorSQL.cs</LastGenOutput>
@@ -357,8 +393,16 @@
     <EmbeddedResource Include="frmCCalculoManto.resx">
       <DependentUpon>frmCCalculoManto.cs</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
     <EmbeddedResource Include="frmCancelacion.resx">
       <DependentUpon>frmCancelacion.cs</DependentUpon>
+=======
+    <EmbeddedResource Include="frmGeneraAvisos.resx">
+      <DependentUpon>frmGeneraAvisos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmGeneraAvisosPDF.resx">
+      <DependentUpon>frmGeneraAvisosPDF.cs</DependentUpon>
+>>>>>>> a34375bca3cd7bfdb5a1a9d6e815ba770088afa0
     </EmbeddedResource>
     <EmbeddedResource Include="frmParametrosSys.resx">
       <DependentUpon>frmParametrosSys.cs</DependentUpon>
@@ -423,6 +467,9 @@
       <SubType>Designer</SubType>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="rptAvisosCobranza.resx">
+      <DependentUpon>rptAvisosCobranza.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="rptMedidores.resx">
       <DependentUpon>rptMedidores.cs</DependentUpon>
     </EmbeddedResource>
@@ -436,6 +483,17 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptSubMedidor.cs</LastGenOutput>
     </EmbeddedResource>
+    <None Include="dsAvisosCobranza.xsc">
+      <DependentUpon>dsAvisosCobranza.xsd</DependentUpon>
+    </None>
+    <None Include="dsAvisosCobranza.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsAvisosCobranza.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsAvisosCobranza.xss">
+      <DependentUpon>dsAvisosCobranza.xsd</DependentUpon>
+    </None>
     <None Include="dsEdoCuenta.xsc">
       <DependentUpon>dsEdoCuenta.xsd</DependentUpon>
     </None>

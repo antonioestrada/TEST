@@ -56,6 +56,15 @@ namespace WFPGranjas.Backend
             //  txt.Text = d.ToString("000,000,000.000"); 
             // txt.Text = txt.Text.ToString( "$ ###,###,###.##0");
         }
+        public void validaEnteros(KeyPressEventArgs e,TextBox txt)
+        {
+            if (!(char.IsNumber(e.KeyChar)) && (e.KeyChar != (char)Keys.Back))
+            {
+                MessageBox.Show("Solo se permiten numeros Enteros", "Advertencia", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                e.Handled = true;
+                return;
+            }
+        }
 
         public String numeroRomano(int numero) {
             String numeroRmano=null;

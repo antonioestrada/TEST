@@ -482,7 +482,7 @@ namespace WFPGranjas
         {
             cerrarVentanas();
             //if (childFormCatUsuarios ==null)
-            frmRegLecturas childFormRegLect = new frmRegLecturas(usuario);
+            frmRegLecturas childFormRegLect = new frmRegLecturas(usuario,1);
             childFormRegLect.StartPosition = FormStartPosition.CenterScreen;
             childFormRegLect.Text = "REGISTRO DE LECTURAS DEL MES";
 
@@ -581,29 +581,39 @@ namespace WFPGranjas
             childFormReporteRL.Show();
         }
 
-        private void fcAAnualidades_Click(object sender, EventArgs e)
-        {
-
-        }
+       
 
         private void amImprimirAC_Click(object sender, EventArgs e)
         {
-
+            cerrarVentanas();
+            frmGeneraAvisos childAvisosCob = new frmGeneraAvisos();
+            childAvisosCob.StartPosition = FormStartPosition.CenterScreen;
+            childAvisosCob.MdiParent = this;
+            childAvisosCob.Show();
         }
 
-        private void cgCuotas_Click(object sender, EventArgs e)
-        {
+      
 
+        private void acImprimirAC_Click(object sender, EventArgs e)
+        {
+            cerrarVentanas();
+            frmGeneraAvisos childAvisosCob = new frmGeneraAvisos();
+            childAvisosCob.StartPosition = FormStartPosition.CenterScreen;
+            childAvisosCob.MdiParent = this;
+            childAvisosCob.Show();
         }
 
-        private void cgCuentasContables_Click(object sender, EventArgs e)
+        private void acCBA_Click(object sender, EventArgs e)
         {
+            cerrarVentanas();
+            //if (childFormCatUsuarios ==null)
+            frmRegLecturas childFormRegLect = new frmRegLecturas(usuario,2);
+            childFormRegLect.StartPosition = FormStartPosition.CenterScreen;
+            childFormRegLect.Text = "REGISTRO DE CBA MENSUAL";
 
-        }
-
-        private void serviciosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
+            childFormRegLect.MdiParent = this;
+            //  childFormCatPerfiles.Size = new Size(370, 365);
+            childFormRegLect.Show();
         }
 
         private void fcCancelacionR_Click(object sender, EventArgs e)
@@ -620,4 +630,4 @@ namespace WFPGranjas
 
         }
     }
-}
+    }
