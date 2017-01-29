@@ -220,3 +220,4 @@ C:\Users\cbestred\Documents\Test_granjas\WFPGranjas\obj\Debug\WFPGranjas.rptReci
 C:\Users\cbestred\Documents\Test_granjas\WFPGranjas\obj\Debug\WFPGranjas.rptRegLecturas.resources
 C:\Users\cbestred\Documents\Test_granjas\WFPGranjas\obj\Debug\WFPGranjas.csproj.GenerateResource.Cache
 C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.frmReporteCuotas.resources
+C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.frmCancelacion.resources

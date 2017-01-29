@@ -605,5 +605,19 @@ namespace WFPGranjas
         {
 
         }
+
+        private void fcCancelacionR_Click(object sender, EventArgs e)
+        {
+            cerrarVentanas();
+            //if (childFormCatUsuarios ==null)
+            frmCancelacion childFormCatPerfiles = new frmCancelacion(5);
+            childFormCatPerfiles.Text = "Ingresos por Servicios Casa Club";
+            childFormCatPerfiles.StartPosition = FormStartPosition.CenterScreen;
+            childFormCatPerfiles.MdiParent = this;
+
+            childFormCatPerfiles.Size = new Size(849, 580);
+            childFormCatPerfiles.Show();
+
+        }
     }
 }

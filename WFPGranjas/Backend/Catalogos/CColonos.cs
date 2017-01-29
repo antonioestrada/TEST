@@ -140,5 +140,37 @@ namespace WFPGranjas.Backend.Catalogos
             Conexion.FinalizarSesion();
         }
         #endregion
+
+
+        #region Busca Colono Dir
+        public DatosColono buscaColonoFolio( int folio)
+        {
+            DatosColono datosColono = new DatosColono();
+        
+
+            //llenamos nuestro reader con la consulta de nuestro SP
+            IDataReader reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_catalogo_CColonoFolio(" + folio + ")");
+            //siclamos cada registro que contiene nuestro reader
+            while (reader.Read())
+            {
+                //id_colono
+                datosColono.idColono = int.Parse( reader.GetValue(0).ToString());
+                //nombre
+                datosColono .nombre= reader.GetValue(1).ToString() + " - M " + reader.GetValue(8).ToString() + " L " + reader.GetValue(6).ToString();
+
+                //direccion
+                datosColono.direccion = reader.GetValue(2).ToString();
+                datosColono.correo = reader.GetValue(4).ToString();
+                datosColono.idLote = int.Parse(reader.GetValue(5).ToString());
+                datosColono.lote = reader.GetValue(6).ToString();
+                datosColono.idManzana = int.Parse(reader.GetValue(7).ToString());
+                datosColono.manzana = reader.GetValue(8).ToString();
+                datosColono.folio = int.Parse(reader.GetValue(9).ToString());
+                datosColono.fechaPago = reader.GetValue(10).ToString();
+            }
+            Conexion.FinalizarSesion();
+            return datosColono;
+        }
+        #endregion
     }
 }

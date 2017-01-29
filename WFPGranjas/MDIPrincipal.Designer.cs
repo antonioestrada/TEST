@@ -748,6 +748,7 @@
             this.fcCancelacionR.Name = "fcCancelacionR";
             this.fcCancelacionR.Size = new System.Drawing.Size(224, 22);
             this.fcCancelacionR.Text = "Cancelación de Recibo";
+            this.fcCancelacionR.Click += new System.EventHandler(this.fcCancelacionR_Click);
             // 
             // menuFCobranza
             // 

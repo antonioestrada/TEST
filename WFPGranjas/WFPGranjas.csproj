@@ -64,6 +64,7 @@
     <Compile Include="Backend\Catalogos\CTarifas.cs" />
     <Compile Include="Backend\Catalogos\CTarifasAgua.cs" />
     <Compile Include="Backend\Catalogos\CUsuarios.cs" />
+    <Compile Include="Backend\Catalogos\DatosColono.cs" />
     <Compile Include="Backend\Catalogos\ResultadoTrnx.cs" />
     <Compile Include="Backend\Conexion.cs" />
     <Compile Include="Backend\GDatos.cs" />
@@ -71,6 +72,7 @@
     <Compile Include="Backend\Procesos\Bitacora.cs" />
     <Compile Include="Backend\Procesos\CMail.cs" />
     <Compile Include="Backend\Procesos\CRegLecturas.cs" />
+    <Compile Include="Backend\Procesos\PrcCancelacion.cs" />
     <Compile Include="Backend\Procesos\PrcConvenios.cs" />
     <Compile Include="Backend\Procesos\PrcCuotaMto.cs" />
     <Compile Include="Backend\Procesos\PrcPagoMto.cs" />
@@ -170,6 +172,12 @@
     </Compile>
     <Compile Include="frmCCalculoManto.designer.cs">
       <DependentUpon>frmCCalculoManto.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCancelacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCancelacion.Designer.cs">
+      <DependentUpon>frmCancelacion.cs</DependentUpon>
     </Compile>
     <Compile Include="frmParametrosSys.cs">
       <SubType>Form</SubType>
@@ -348,6 +356,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCCalculoManto.resx">
       <DependentUpon>frmCCalculoManto.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCancelacion.resx">
+      <DependentUpon>frmCancelacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmParametrosSys.resx">
       <DependentUpon>frmParametrosSys.cs</DependentUpon>
