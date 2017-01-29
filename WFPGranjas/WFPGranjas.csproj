@@ -185,13 +185,12 @@
     <Compile Include="frmCCalculoManto.designer.cs">
       <DependentUpon>frmCCalculoManto.cs</DependentUpon>
     </Compile>
-<<<<<<< HEAD
     <Compile Include="frmCancelacion.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmCancelacion.Designer.cs">
       <DependentUpon>frmCancelacion.cs</DependentUpon>
-=======
+    </Compile>
     <Compile Include="frmGeneraAvisos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -203,7 +202,6 @@
     </Compile>
     <Compile Include="frmGeneraAvisosPDF.Designer.cs">
       <DependentUpon>frmGeneraAvisosPDF.cs</DependentUpon>
->>>>>>> a34375bca3cd7bfdb5a1a9d6e815ba770088afa0
     </Compile>
     <Compile Include="frmParametrosSys.cs">
       <SubType>Form</SubType>
@@ -393,16 +391,15 @@
     <EmbeddedResource Include="frmCCalculoManto.resx">
       <DependentUpon>frmCCalculoManto.cs</DependentUpon>
     </EmbeddedResource>
-<<<<<<< HEAD
+
     <EmbeddedResource Include="frmCancelacion.resx">
       <DependentUpon>frmCancelacion.cs</DependentUpon>
-=======
+    </EmbeddedResource>
     <EmbeddedResource Include="frmGeneraAvisos.resx">
       <DependentUpon>frmGeneraAvisos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGeneraAvisosPDF.resx">
       <DependentUpon>frmGeneraAvisosPDF.cs</DependentUpon>
->>>>>>> a34375bca3cd7bfdb5a1a9d6e815ba770088afa0
     </EmbeddedResource>
     <EmbeddedResource Include="frmParametrosSys.resx">
       <DependentUpon>frmParametrosSys.cs</DependentUpon>
