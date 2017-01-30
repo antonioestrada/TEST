@@ -248,7 +248,6 @@
             this.pXLote.Name = "pXLote";
             this.pXLote.Size = new System.Drawing.Size(259, 36);
             this.pXLote.TabIndex = 54;
-            this.pXLote.Visible = false;
             // 
             // cmbManzana
             // 
@@ -333,7 +332,6 @@
             this.rbColono.TabIndex = 1;
             this.rbColono.Text = "MZ/LT";
             this.rbColono.UseVisualStyleBackColor = true;
-            this.rbColono.Visible = false;
             this.rbColono.CheckedChanged += new System.EventHandler(this.rbColono_CheckedChanged);
             // 
             // rbTodos

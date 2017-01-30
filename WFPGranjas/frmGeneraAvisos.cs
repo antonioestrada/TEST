@@ -108,6 +108,7 @@ namespace WFPGranjas
         {
             frmGeneraAvisosPDF browser = new frmGeneraAvisosPDF(cmbPeriodos.SelectedValue.ToString(), cmbAnios.SelectedValue.ToString());
             browser.Show();
+            MessageBox.Show("" + id_lote);
         }
 
         private void rbColono_CheckedChanged(object sender, EventArgs e)
