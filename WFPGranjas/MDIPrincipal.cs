@@ -629,5 +629,15 @@ namespace WFPGranjas
             childFormCatPerfiles.Show();
 
         }
+
+        private void toolStripMenuItem11_Click(object sender, EventArgs e)
+        {
+            cerrarVentanas();
+            //if (childFormCatUsuarios ==null)
+            frmPrcCuotas childFormGenCuotas = new frmPrcCuotas(99, usuario);
+            childFormGenCuotas.StartPosition = FormStartPosition.CenterScreen;
+            childFormGenCuotas.MdiParent = this;
+            childFormGenCuotas.Show();
+        }
     }
     }

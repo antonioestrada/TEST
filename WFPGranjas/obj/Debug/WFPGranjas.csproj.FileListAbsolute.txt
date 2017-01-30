@@ -226,4 +226,10 @@ C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.frmReporteCuota
 C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.frmCancelacion.resources
 >>>>>>> c3499bae845216da887852c7fcc21ed1de02587f
 >>>>>>> a34375bca3cd7bfdb5a1a9d6e815ba770088afa0
+<<<<<<< HEAD
 C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\WFPGranjas.frmCancelacion.resources
+=======
+C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.frmGeneraAvisos.resources
+C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.frmGeneraAvisosPDF.resources
+C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.rptAvisosCobranza.resources
+>>>>>>> 7623ddab9e0fc8744a796a408402d0ba2725a5de

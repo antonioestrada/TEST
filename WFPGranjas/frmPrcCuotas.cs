@@ -30,6 +30,7 @@ namespace WFPGranjas
                 lblTitleCuota.Text = "GENERACION DE CUOTAS DE MANTENIMIENTO";
                 pbAgua.Visible = false;
                 pbManto.Visible = true;
+                actualizaDatos();
             }
 
             if (servicio == 3)
@@ -38,8 +39,19 @@ namespace WFPGranjas
                 lblTitleCuota.Text = "GENERACION DE CUOTAS DE CONSUMO DE AGUA";
                 pbAgua.Visible = true;
                 pbManto.Visible = false;
+                actualizaDatos();
             }
-            actualizaDatos();
+
+
+            if (servicio == 99)
+            {
+                groupBox1.BackColor = Color.DarkSalmon;
+                lblTitleCuota.Text = "GENERACION DE CIERRE DE PERIODO";
+                pbAgua.Visible = true;
+                pbManto.Visible = false;
+                actualizaDatosCierre();
+            }
+           
 
         }
 
@@ -89,7 +101,9 @@ namespace WFPGranjas
                         Object[] parames = { periodo, anio };
                         Boolean validacion = BeanCPeriodo.validaLecturasAgua(parames);
                         Boolean pendienteCBA  = BeanCPeriodo.validaCBA();
-                        if (validacion && !pendienteCBA)
+                        Boolean pendienteCuotaMA = BeanCPeriodo.validaCuotaMA();
+
+                        if (validacion && !pendienteCBA && !pendienteCuotaMA)
                         {
                             lblInfo.Visible = true;
                             progressBar1.Visible = true;
@@ -104,6 +118,8 @@ namespace WFPGranjas
                                  MessageBox.Show("No a cargado las lecturas del periodo seleccionado");
                             if (pendienteCBA)
                                 MessageBox.Show("No a cargado las cuotas base de agua (CBA) ");
+                            if (pendienteCuotaMA)
+                                MessageBox.Show("No a generado las cuotas de mantenimiento ");
                         }
                         // validacion = BeanCPeriodo.validaCBA();
 
@@ -136,7 +152,34 @@ namespace WFPGranjas
                 lblValidaPeriodo.ForeColor = Color.DarkRed;
             }
         }
-       
+
+
+        public void actualizaDatosCierre()
+        {
+            gbEstatus.Visible = false;
+            var BeanCPeriodo = new Backend.Procesos.PrcCuotaMto();
+            BeanCPeriodo.consultaPeriodos(cmbPeriodos, 1, servicio);
+            BeanCPeriodo.consultaPeriodos(cmbAnios, 2, servicio);
+            var BeanCPeriodoActual = new Backend.Procesos.PrcAnticipos();
+            int periodoActual = BeanCPeriodoActual.obtienePeriodoActual();
+            periodo = cmbPeriodos.SelectedValue.ToString();
+
+            if (periodoActual != int.Parse(periodo))
+            {
+                object itemFirst = cmbPeriodos.SelectedItem;
+                Dictionary<String, String> periodos = new Dictionary<String, String>();
+                //  periodos.Add(cmbPeriodos.SelectedItem.ToString());
+                btnGenCuotas.Enabled = true;
+                lblValidaPeriodo.Visible = true;
+               // String mensajePeriodo = "   Debe de realizar el cierre de mes, ";
+               // mensajePeriodo += Environment.NewLine;
+                //mensajePeriodo += " Antes de generar las cuotas de " + cmbPeriodos.Text;
+                //lblValidaPeriodo.Text = mensajePeriodo;
+                //lblValidaPeriodo.Font = new Font(lblValidaPeriodo.Font, FontStyle.Bold);
+                //lblValidaPeriodo.ForeColor = Color.DarkRed;
+            }
+        }
+
 
         public void generacionCuotas() {
 

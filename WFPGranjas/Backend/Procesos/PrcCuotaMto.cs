@@ -101,5 +101,19 @@ namespace WFPGranjas.Backend.Procesos
         }
         #endregion
 
+        #region valida CBA
+        public Boolean validaCuotaMA()
+        {
+
+            System.Data.IDataReader resul = Conexion.GDatos.TraerDataReader("gestion_granjas.sp_frm_PrcCuotas_ValidaCuotaMA");
+
+            //seteo 
+            Boolean resultado = Convert.ToBoolean(resul.GetValue(0));
+            Conexion.FinalizarSesion();
+
+            return resultado;
+        }
+        #endregion
+
     }
 }

@@ -56,6 +56,7 @@
             this.acGeneracionCA = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.acImprimirAC = new System.Windows.Forms.ToolStripMenuItem();
+            this.acCBA = new System.Windows.Forms.ToolStripMenuItem();
             this.menuAReportes = new System.Windows.Forms.ToolStripMenuItem();
             this.toolBarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusBarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -145,7 +146,6 @@
             this.toolStripMenuItem41 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator18 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem42 = new System.Windows.Forms.ToolStripMenuItem();
-            this.acCBA = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.pnlMenuPrincipal.SuspendLayout();
@@ -306,12 +306,12 @@
             this.menuStripAdmon.Dock = System.Windows.Forms.DockStyle.Fill;
             this.menuStripAdmon.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStripAdmon.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuAAyuda,
             this.menuAManto,
             this.menuAAgua,
             this.menuAReportes,
             this.toolsMenu,
-            this.windowsMenu,
-            this.menuAAyuda});
+            this.windowsMenu});
             this.menuStripAdmon.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
             this.menuStripAdmon.Location = new System.Drawing.Point(0, 0);
             this.menuStripAdmon.MdiWindowListItem = this.windowsMenu;
@@ -416,6 +416,13 @@
             this.acImprimirAC.Text = "Imprimir Avisos de Cobranza";
             this.acImprimirAC.Click += new System.EventHandler(this.acImprimirAC_Click);
             // 
+            // acCBA
+            // 
+            this.acCBA.Name = "acCBA";
+            this.acCBA.Size = new System.Drawing.Size(255, 22);
+            this.acCBA.Text = "Registro de CBA mensual";
+            this.acCBA.Click += new System.EventHandler(this.acCBA_Click);
+            // 
             // menuAReportes
             // 
             this.menuAReportes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -487,7 +494,7 @@
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.optionsToolStripMenuItem.Text = "&Options";
             // 
             // windowsMenu
@@ -773,8 +780,9 @@
             this.toolStripMenuItem11.ImageTransparentColor = System.Drawing.Color.Black;
             this.toolStripMenuItem11.Name = "toolStripMenuItem11";
             this.toolStripMenuItem11.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
-            this.toolStripMenuItem11.Size = new System.Drawing.Size(176, 22);
-            this.toolStripMenuItem11.Text = "&Undo";
+            this.toolStripMenuItem11.Size = new System.Drawing.Size(200, 22);
+            this.toolStripMenuItem11.Text = "Cierre de Mes";
+            this.toolStripMenuItem11.Click += new System.EventHandler(this.toolStripMenuItem11_Click);
             // 
             // toolStripMenuItem12
             // 
@@ -1037,39 +1045,39 @@
             // toolStripSeparator22
             // 
             this.toolStripSeparator22.Name = "toolStripSeparator22";
-            this.toolStripSeparator22.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator22.Size = new System.Drawing.Size(135, 6);
             // 
             // csUsuarios
             // 
             this.csUsuarios.Name = "csUsuarios";
-            this.csUsuarios.Size = new System.Drawing.Size(152, 22);
+            this.csUsuarios.Size = new System.Drawing.Size(138, 22);
             this.csUsuarios.Text = "Usuarios";
             this.csUsuarios.Click += new System.EventHandler(this.csUsuarios_Click);
             // 
             // csPuestos
             // 
             this.csPuestos.Name = "csPuestos";
-            this.csPuestos.Size = new System.Drawing.Size(152, 22);
+            this.csPuestos.Size = new System.Drawing.Size(138, 22);
             this.csPuestos.Text = "Puestos";
             this.csPuestos.Click += new System.EventHandler(this.csPuestos_Click);
             // 
             // csPerfiles
             // 
             this.csPerfiles.Name = "csPerfiles";
-            this.csPerfiles.Size = new System.Drawing.Size(152, 22);
+            this.csPerfiles.Size = new System.Drawing.Size(138, 22);
             this.csPerfiles.Text = "Perfiles";
             this.csPerfiles.Click += new System.EventHandler(this.csPerfiles_Click);
             // 
             // serviciosToolStripMenuItem
             // 
             this.serviciosToolStripMenuItem.Name = "serviciosToolStripMenuItem";
-            this.serviciosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.serviciosToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.serviciosToolStripMenuItem.Text = "Servicios";
             // 
             // conceptosToolStripMenuItem
             // 
             this.conceptosToolStripMenuItem.Name = "conceptosToolStripMenuItem";
-            this.conceptosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.conceptosToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.conceptosToolStripMenuItem.Text = "Conceptos";
             // 
             // menuCAyuda
@@ -1211,13 +1219,6 @@
             this.toolStripMenuItem42.Name = "toolStripMenuItem42";
             this.toolStripMenuItem42.Size = new System.Drawing.Size(179, 22);
             this.toolStripMenuItem42.Text = "&About ... ...";
-            // 
-            // acCBA
-            // 
-            this.acCBA.Name = "acCBA";
-            this.acCBA.Size = new System.Drawing.Size(255, 22);
-            this.acCBA.Text = "Registro de CBA mensual";
-            this.acCBA.Click += new System.EventHandler(this.acCBA_Click);
             // 
             // MDIPrincipal
             // 
