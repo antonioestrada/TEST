@@ -73,6 +73,20 @@ namespace WFPGranjas.Backend.Procesos
         }
         #endregion
 
+        #region registra  cuotas
+        public Boolean registroCierreMes(Object[] parames)
+        {
+
+            System.Data.IDataReader resul = Conexion.GDatos.TraerDataReader("gestion_granjas.sp_frm_PrcCierre_Mes", parames);
+
+            //seteo 
+            Boolean resultado = Convert.ToBoolean(resul.GetValue(0));
+            Conexion.FinalizarSesion();
+
+            return resultado;
+        }
+        #endregion
+
 
         #region valida lecturas de agua
         public Boolean validaLecturasAgua(Object[] parames)
