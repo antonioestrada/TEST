@@ -634,7 +634,7 @@ namespace WFPGranjas
         {
             cerrarVentanas();
             //if (childFormCatUsuarios ==null)
-            frmPrcCuotas childFormGenCuotas = new frmPrcCuotas(99, usuario);
+            frmPrcCuotas childFormGenCuotas = new frmPrcCuotas(0, usuario);
             childFormGenCuotas.StartPosition = FormStartPosition.CenterScreen;
             childFormGenCuotas.MdiParent = this;
             childFormGenCuotas.Show();

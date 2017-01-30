@@ -43,12 +43,14 @@ namespace WFPGranjas
             }
 
 
-            if (servicio == 99)
+            if (servicio == 0)
             {
                 groupBox1.BackColor = Color.DarkSalmon;
                 lblTitleCuota.Text = "GENERACION DE CIERRE DE PERIODO";
                 pbAgua.Visible = true;
                 pbManto.Visible = false;
+                btnGenCuotas.Text = "Gnerar cierre";
+
                 actualizaDatosCierre();
             }
            
@@ -67,6 +69,9 @@ namespace WFPGranjas
                  message = "Deseas iniciar la Generacion de Cuotas de Mantenimiento?";
             if (servicio == 3)
                 message = "Deseas iniciar la Generacion de Cuotas de Agua?";
+
+            if (servicio == 0)
+                message = "Deseas iniciar el cierre de mes?";
 
 
             string caption = "Confirmacion del Proceso ";
@@ -124,6 +129,19 @@ namespace WFPGranjas
                         // validacion = BeanCPeriodo.validaCBA();
 
                     }
+                    if (servicio == 0)
+                    {
+                        lblInfo.Visible = true;
+                        progressBar1.Visible = true;
+                        lblInfoMsj.Visible = true;
+
+                        bwProgress.RunWorkerAsync();
+                        //   btnCancelar.Enabled = true;
+                        btnGenCuotas.Enabled = false;
+
+                    }
+
+
                 }
             }           
 
@@ -170,7 +188,7 @@ namespace WFPGranjas
                 Dictionary<String, String> periodos = new Dictionary<String, String>();
                 //  periodos.Add(cmbPeriodos.SelectedItem.ToString());
                 btnGenCuotas.Enabled = true;
-                lblValidaPeriodo.Visible = true;
+                lblValidaPeriodo.Visible = false;
                // String mensajePeriodo = "   Debe de realizar el cierre de mes, ";
                // mensajePeriodo += Environment.NewLine;
                 //mensajePeriodo += " Antes de generar las cuotas de " + cmbPeriodos.Text;
@@ -191,6 +209,8 @@ namespace WFPGranjas
                 resultado = BeanCPeriodo.registroCuotasMA(parames);
             if (servicio == 3)
                 resultado = BeanCPeriodo.registroCuotasAgua(parames);
+            if(servicio==0)
+                resultado = BeanCPeriodo.registroCierreMes(parames);
 
             if (resultado)
             {
@@ -255,11 +275,16 @@ namespace WFPGranjas
                 modulo = "Mantenimiento.Generacion Cuotas Mantenimiento";
 
             }
-            else
+            if (servicio == 3)
             {
                 modulo = "Cuotas Agua.Generacion Cuotas de Agua";
             }
 
+            if (servicio == 0)
+            {
+                modulo = "Cierre.Generacion de cierre de mes";
+                lblInfoMsj.Text = "Finalizo la generacion del cierre";
+            }
             Object[] parames2 = { usuario, "Administracion." + modulo, "Generacion de cuotas del mes :" + cmbPeriodos.Text, "OK", "Satisfactorio" };
             bitacora.registroBitacora(parames2);
             btnGenCuotas.Visible = false;
