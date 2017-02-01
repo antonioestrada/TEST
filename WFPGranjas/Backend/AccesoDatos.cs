@@ -39,12 +39,12 @@ namespace AccesoDatos
 
 
                         connectionString.Password = MPassword;
-
+                        connectionString.DefaultCommandTimeout = 0;
 
                //         connectionString.Charset = "UTF8";
 
 
-                 //       connectionString.Dialect = 3;
+                        //       connectionString.Dialect = 3;
 
                         return connectionString.ToString();
                     }
