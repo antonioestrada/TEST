@@ -26,7 +26,8 @@ namespace WFPGranjas
         Dictionary<int, String> cmbCuotas;
         Utilerias utilities = new Utilerias();
         PrcPagoMto prcPago = new PrcPagoMto();
-        
+        DatosColono colono;
+
         #region Definicion de Estructura de Columnas DataGridView Cuotas
         //DEFINIMOS LA ESTRUCTURA DE NUESTRO GRID LISTADO
         public void definicionDGCuotas()
@@ -98,6 +99,22 @@ namespace WFPGranjas
 
         private void btnCapturaR_Click(object sender, EventArgs e)
         {
+            buscaFolioPago();
+
+        }
+
+  
+        private void txtColono_KeyDown(object sender, KeyEventArgs e)
+        {
+           
+            if ((int)e.KeyValue == (int)Keys.Enter)
+            {
+                buscaFolioPago();
+            }
+        }
+
+        public void buscaFolioPago() {
+
             if (txtColono.Text == null)
             {
                 MessageBox.Show("Ingrese el numero de folio");
@@ -106,9 +123,9 @@ namespace WFPGranjas
             {
                 var BeanCProp = new Backend.Catalogos.CColonos();
 
-                DatosColono colono = BeanCProp.buscaColonoFolio(int.Parse(txtColono.Text));
+                colono = BeanCProp.buscaColonoFolio(int.Parse(txtColono.Text));
 
-                if (colono != null)
+                if (colono.nombre != null)
                 {
                     txtColono.Text = "";
                     groupDColono.Visible = true;
@@ -129,6 +146,15 @@ namespace WFPGranjas
                     PrcCancelacion prcCancelacion = new PrcCancelacion();
                     double importeTotal = prcCancelacion.consultaPago(dgPartidasR, colono.folio, lblMoratorio, lblImporte, lblTotalImporte);
                     dgPartidasR.Visible = true;
+                    Object[] parames = { colono .folio};
+                    Boolean validacion = prcCancelacion.validaEstatusPago(parames);
+                    if (validacion)
+                        btnCapturaPago.Visible = false;
+                    else
+                        btnCapturaPago.Visible = true;
+
+                    if (validacion)
+                        panelEstatus.Visible = true;
 
                 }
                 else
@@ -141,22 +167,7 @@ namespace WFPGranjas
 
                 }
             }
-
         }
-
-  
-        private void txtColono_KeyDown(object sender, KeyEventArgs e)
-        {
-           
-            if ((int)e.KeyValue == (int)Keys.Enter)
-            {
-                
-                    MessageBox.Show("El Colono no se encuentra registrado. Por favor intente nuevamente.");
-             
-            }
-           
-        }
-
 
         public Boolean validaNumeros(TextBox txt, object sender, KeyPressEventArgs e)
         {
@@ -206,8 +217,12 @@ namespace WFPGranjas
 
         private void btnCapturaPago_Click(object sender, EventArgs e)
         {
-         //   Object[] parames = { listaIDKardex, idLote, servicio, importeEfectivo, txtCheque.Text, bancoCheque, importeCheque, txtFicha.Text, bancoFicha, importFicha, multas, id_colono };
-         //   resultado = prcPago.registroCuotas(parames);
+            //
+            PrcCancelacion prcCancelacion = new PrcCancelacion();
+            Object[] parames = { colono.folio };
+            int resultado = prcCancelacion.registroCancelacion(parames);
+            if(resultado>0)
+                MessageBox.Show("¡Se realizo la cancelacion del pago!");
         }
         
     

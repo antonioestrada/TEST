@@ -76,6 +76,8 @@
             this.lblFechaSys = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.btnCapturaR = new System.Windows.Forms.Button();
+            this.lblMora = new System.Windows.Forms.Label();
+            this.txtMora = new System.Windows.Forms.TextBox();
             this.groupDColono.SuspendLayout();
             this.groupCuota.SuspendLayout();
             this.panelCapturaCenter.SuspendLayout();
@@ -171,6 +173,8 @@
             // 
             // panelCapturaButtom
             // 
+            this.panelCapturaButtom.Controls.Add(this.lblMora);
+            this.panelCapturaButtom.Controls.Add(this.txtMora);
             this.panelCapturaButtom.Controls.Add(this.pnlMetodoPago);
             this.panelCapturaButtom.Controls.Add(this.label7);
             this.panelCapturaButtom.Controls.Add(this.lblMultas);
@@ -370,7 +374,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(622, 66);
+            this.label7.Location = new System.Drawing.Point(622, 95);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(96, 16);
             this.label7.TabIndex = 5;
@@ -379,7 +383,7 @@
             // lblMultas
             // 
             this.lblMultas.AutoSize = true;
-            this.lblMultas.Location = new System.Drawing.Point(570, 37);
+            this.lblMultas.Location = new System.Drawing.Point(570, 64);
             this.lblMultas.Name = "lblMultas";
             this.lblMultas.Size = new System.Drawing.Size(148, 16);
             this.lblMultas.TabIndex = 4;
@@ -398,7 +402,7 @@
             // 
             this.txtTotal.Enabled = false;
             this.txtTotal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtTotal.Location = new System.Drawing.Point(719, 62);
+            this.txtTotal.Location = new System.Drawing.Point(719, 91);
             this.txtTotal.Name = "txtTotal";
             this.txtTotal.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtTotal.Size = new System.Drawing.Size(100, 22);
@@ -407,7 +411,7 @@
             // 
             // txtMultas
             // 
-            this.txtMultas.Location = new System.Drawing.Point(719, 34);
+            this.txtMultas.Location = new System.Drawing.Point(719, 61);
             this.txtMultas.Name = "txtMultas";
             this.txtMultas.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.txtMultas.Size = new System.Drawing.Size(100, 22);
@@ -628,6 +632,25 @@
             this.btnCapturaR.UseVisualStyleBackColor = true;
             this.btnCapturaR.Click += new System.EventHandler(this.btnCapturaR_Click);
             // 
+            // lblMora
+            // 
+            this.lblMora.AutoSize = true;
+            this.lblMora.Location = new System.Drawing.Point(641, 37);
+            this.lblMora.Name = "lblMora";
+            this.lblMora.Size = new System.Drawing.Size(71, 16);
+            this.lblMora.TabIndex = 26;
+            this.lblMora.Text = "Moratorio :";
+            // 
+            // txtMora
+            // 
+            this.txtMora.Enabled = false;
+            this.txtMora.Location = new System.Drawing.Point(719, 33);
+            this.txtMora.Name = "txtMora";
+            this.txtMora.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtMora.Size = new System.Drawing.Size(100, 22);
+            this.txtMora.TabIndex = 27;
+            this.txtMora.Text = "0.00";
+            // 
             // frmPagoMto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -717,5 +740,7 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label6;
         public System.Windows.Forms.Panel panelTop;
+        private System.Windows.Forms.Label lblMora;
+        private System.Windows.Forms.TextBox txtMora;
     }
 }

@@ -621,7 +621,7 @@ namespace WFPGranjas
             cerrarVentanas();
             //if (childFormCatUsuarios ==null)
             frmCancelacion childFormCatPerfiles = new frmCancelacion(5);
-            childFormCatPerfiles.Text = "Ingresos por Servicios Casa Club";
+            childFormCatPerfiles.Text = "Cancelacion de recibos";
             childFormCatPerfiles.StartPosition = FormStartPosition.CenterScreen;
             childFormCatPerfiles.MdiParent = this;
 
