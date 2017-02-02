@@ -101,6 +101,7 @@ namespace WFPGranjas.Backend.Procesos
             return resultado;
         }
         #endregion
+
         #region valida CBA
         public Boolean validaCBA()
         {

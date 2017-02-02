@@ -20,7 +20,7 @@ namespace WFPGranjas
         int id_colono = 0,idManzana=0,idLote=0;
         String listaIDKardex;
         int servicio =0;
-        double pagoTotal = 0;
+        double pagoTotal = 0,moraTotal=0, importeTotal=0;
         double saldoAnticipo = 0;
         Dictionary<int, Cuota> cuotas;
         Dictionary<int, String> cmbCuotas;
@@ -281,6 +281,8 @@ namespace WFPGranjas
              long fileCreationFileTime = dt.ToFileTime();
              MessageBox.Show(fileCreationFileTime+" - " +dt.ToLocalTime().ToString());*/
             pagoTotal = 0;
+            moraTotal=0;
+            importeTotal = 0;
             Boolean resultado = false;
             PrcAnticipos prcAnticipos = new PrcAnticipos();
             Object[] parames = {  idLote, servicio };
@@ -636,7 +638,10 @@ namespace WFPGranjas
                     dgPartidasR.Rows[renglon].Cells[10].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].id;
 
                     pagoTotal +=double.Parse(cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].importe.ToString());
-                    
+                    moraTotal += mora;
+                    importeTotal += cuota;
+                    moratorio = String.Format(CultureInfo.InvariantCulture,
+                                  "{0:0,0.00}", moraTotal);
                     double mlt = 0;
                     if (txtMultas.Text != null && !txtMultas.Text.Equals(""))
                         mlt = double.Parse(txtMultas.Text);
@@ -662,8 +667,10 @@ namespace WFPGranjas
 
                     importe = String.Format(CultureInfo.InvariantCulture,
                   "{0:0,0.00}", pagoTotal);
-
-                    txtImporte.Text = importe;
+                    string importeTot = String.Format(CultureInfo.InvariantCulture,
+                  "{0:0,0.00}", importeTotal);
+                    txtMora.Text = moratorio;
+                    txtImporte.Text = importeTot;
                     txtTotal.Text = importe;
 
                     //tom modificacion

@@ -470,7 +470,7 @@ namespace WFPGranjas
         {
             cerrarVentanas();
             //if (childFormCatUsuarios ==null)
-            frmAnticipoMto childFormCatPerfiles = new frmAnticipoMto(2);
+            frmAnticipoMto childFormCatPerfiles = new frmAnticipoMto(2,false);
             childFormCatPerfiles.Text = "Anualidades y Anticipo de Mantenimiento";
             childFormCatPerfiles.StartPosition = FormStartPosition.CenterScreen;
             childFormCatPerfiles.MdiParent = this;
@@ -506,7 +506,7 @@ namespace WFPGranjas
         {
             cerrarVentanas();
             //if (childFormCatUsuarios ==null)
-            frmAnticipoMto childFormCatPerfiles = new frmAnticipoMto(3);
+            frmAnticipoMto childFormCatPerfiles = new frmAnticipoMto(3,false);
             childFormCatPerfiles.Text = "ANTICIPOS A CUOTAS DE AGUA";
             childFormCatPerfiles.StartPosition = FormStartPosition.CenterScreen;
 
@@ -556,7 +556,7 @@ namespace WFPGranjas
         {
             cerrarVentanas();
             //if (childFormCatUsuarios ==null)
-            frmAnticipoMto childFormCatPerfiles = new frmAnticipoMto(5);
+            frmAnticipoMto childFormCatPerfiles = new frmAnticipoMto(5,false);
             childFormCatPerfiles.Text = "Ingresos por Servicios Casa Club";
             childFormCatPerfiles.StartPosition = FormStartPosition.CenterScreen;
             childFormCatPerfiles.MdiParent = this;
@@ -621,7 +621,7 @@ namespace WFPGranjas
             cerrarVentanas();
             //if (childFormCatUsuarios ==null)
             frmCancelacion childFormCatPerfiles = new frmCancelacion(5);
-            childFormCatPerfiles.Text = "Ingresos por Servicios Casa Club";
+            childFormCatPerfiles.Text = "Cancelacion de recibos";
             childFormCatPerfiles.StartPosition = FormStartPosition.CenterScreen;
             childFormCatPerfiles.MdiParent = this;
 
@@ -640,6 +640,7 @@ namespace WFPGranjas
             childFormGenCuotas.Show();
         }
 
+<<<<<<< HEAD
         private void cierreDeMesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             cerrarVentanas();
@@ -657,6 +658,19 @@ namespace WFPGranjas
             childFormGenCBAMensual.StartPosition = FormStartPosition.CenterScreen;
             childFormGenCBAMensual.MdiParent = this;
             childFormGenCBAMensual.Show();
+=======
+        private void fcAAnualidades_Click(object sender, EventArgs e)
+        {
+            cerrarVentanas();
+            //if (childFormCatUsuarios ==null)
+            frmAnticipoMto childFormCatPerfiles = new frmAnticipoMto(2, true);
+            childFormCatPerfiles.Text = "Anticipos anuales";
+            childFormCatPerfiles.StartPosition = FormStartPosition.CenterScreen;
+            childFormCatPerfiles.MdiParent = this;
+
+            childFormCatPerfiles.Size = new Size(849, 580);
+            childFormCatPerfiles.Show();
+>>>>>>> 5d0f5af9384b67408bc29b6bb6e16af1bacb04fc
         }
     }
     }

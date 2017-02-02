@@ -36,24 +36,26 @@
             this.panelCapturaCenter = new System.Windows.Forms.Panel();
             this.dgPartidasR = new System.Windows.Forms.DataGridView();
             this.panelCapturaButtom = new System.Windows.Forms.Panel();
-            this.btnCapturaPago = new System.Windows.Forms.Button();
+            this.lblTotalImporte = new System.Windows.Forms.Label();
+            this.lblMoratorio = new System.Windows.Forms.Label();
+            this.lblImporte = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.lblMultas = new System.Windows.Forms.Label();
+            this.btnCapturaPago = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.panelCapturaTop = new System.Windows.Forms.Panel();
+            this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.txtColono = new System.Windows.Forms.TextBox();
             this.panelTop = new System.Windows.Forms.Panel();
             this.btnCapturaR = new System.Windows.Forms.Button();
             this.gbDRecibo = new System.Windows.Forms.GroupBox();
+            this.lblFolio = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.lblFechaSys = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblFolio = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblImporte = new System.Windows.Forms.Label();
-            this.lblMoratorio = new System.Windows.Forms.Label();
-            this.lblTotalImporte = new System.Windows.Forms.Label();
+            this.panelEstatus = new System.Windows.Forms.Panel();
+            this.label3 = new System.Windows.Forms.Label();
             this.groupDColono.SuspendLayout();
             this.groupCuota.SuspendLayout();
             this.panelCapturaCenter.SuspendLayout();
@@ -62,6 +64,7 @@
             this.panelCapturaTop.SuspendLayout();
             this.panelTop.SuspendLayout();
             this.gbDRecibo.SuspendLayout();
+            this.panelEstatus.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupDColono
@@ -146,6 +149,7 @@
             // 
             // panelCapturaButtom
             // 
+            this.panelCapturaButtom.Controls.Add(this.panelEstatus);
             this.panelCapturaButtom.Controls.Add(this.lblTotalImporte);
             this.panelCapturaButtom.Controls.Add(this.lblMoratorio);
             this.panelCapturaButtom.Controls.Add(this.lblImporte);
@@ -159,18 +163,32 @@
             this.panelCapturaButtom.Size = new System.Drawing.Size(820, 161);
             this.panelCapturaButtom.TabIndex = 14;
             // 
-            // btnCapturaPago
+            // lblTotalImporte
             // 
-            this.btnCapturaPago.Image = global::WFPGranjas.Properties.Resources.conseguir_dinero24;
-            this.btnCapturaPago.Location = new System.Drawing.Point(274, 81);
-            this.btnCapturaPago.Name = "btnCapturaPago";
-            this.btnCapturaPago.Size = new System.Drawing.Size(240, 32);
-            this.btnCapturaPago.TabIndex = 24;
-            this.btnCapturaPago.Text = "Cancelar pago";
-            this.btnCapturaPago.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnCapturaPago.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCapturaPago.UseVisualStyleBackColor = true;
-            this.btnCapturaPago.Click += new System.EventHandler(this.btnCapturaPago_Click);
+            this.lblTotalImporte.AutoSize = true;
+            this.lblTotalImporte.Location = new System.Drawing.Point(708, 66);
+            this.lblTotalImporte.Name = "lblTotalImporte";
+            this.lblTotalImporte.Size = new System.Drawing.Size(45, 16);
+            this.lblTotalImporte.TabIndex = 27;
+            this.lblTotalImporte.Text = "label3";
+            // 
+            // lblMoratorio
+            // 
+            this.lblMoratorio.AutoSize = true;
+            this.lblMoratorio.Location = new System.Drawing.Point(708, 36);
+            this.lblMoratorio.Name = "lblMoratorio";
+            this.lblMoratorio.Size = new System.Drawing.Size(45, 16);
+            this.lblMoratorio.TabIndex = 26;
+            this.lblMoratorio.Text = "label3";
+            // 
+            // lblImporte
+            // 
+            this.lblImporte.AutoSize = true;
+            this.lblImporte.Location = new System.Drawing.Point(708, 8);
+            this.lblImporte.Name = "lblImporte";
+            this.lblImporte.Size = new System.Drawing.Size(67, 16);
+            this.lblImporte.TabIndex = 25;
+            this.lblImporte.Text = "lblImporte";
             // 
             // label7
             // 
@@ -190,6 +208,19 @@
             this.lblMultas.TabIndex = 4;
             this.lblMultas.Text = "Moratorio : ";
             // 
+            // btnCapturaPago
+            // 
+            this.btnCapturaPago.Image = global::WFPGranjas.Properties.Resources.conseguir_dinero24;
+            this.btnCapturaPago.Location = new System.Drawing.Point(274, 81);
+            this.btnCapturaPago.Name = "btnCapturaPago";
+            this.btnCapturaPago.Size = new System.Drawing.Size(240, 32);
+            this.btnCapturaPago.TabIndex = 24;
+            this.btnCapturaPago.Text = "Cancelar pago";
+            this.btnCapturaPago.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnCapturaPago.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnCapturaPago.UseVisualStyleBackColor = true;
+            this.btnCapturaPago.Click += new System.EventHandler(this.btnCapturaPago_Click);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
@@ -207,6 +238,16 @@
             this.panelCapturaTop.Name = "panelCapturaTop";
             this.panelCapturaTop.Size = new System.Drawing.Size(820, 43);
             this.panelCapturaTop.TabIndex = 13;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(340, 13);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(120, 16);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Detalle de pago";
             // 
             // label5
             // 
@@ -268,6 +309,26 @@
             this.gbDRecibo.TabStop = false;
             this.gbDRecibo.Visible = false;
             // 
+            // lblFolio
+            // 
+            this.lblFolio.AutoSize = true;
+            this.lblFolio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblFolio.Location = new System.Drawing.Point(64, 13);
+            this.lblFolio.Name = "lblFolio";
+            this.lblFolio.Size = new System.Drawing.Size(64, 18);
+            this.lblFolio.TabIndex = 13;
+            this.lblFolio.Text = "000000: ";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(7, 15);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(51, 16);
+            this.label1.TabIndex = 12;
+            this.label1.Text = "Folio :";
+            // 
             // lblFechaSys
             // 
             this.lblFechaSys.AutoSize = true;
@@ -287,62 +348,25 @@
             this.label13.TabIndex = 0;
             this.label13.Text = "Fecha del Recibo:";
             // 
-            // label1
+            // panelEstatus
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(7, 15);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(51, 16);
-            this.label1.TabIndex = 12;
-            this.label1.Text = "Folio :";
+            this.panelEstatus.BackColor = System.Drawing.Color.Bisque;
+            this.panelEstatus.Controls.Add(this.label3);
+            this.panelEstatus.Location = new System.Drawing.Point(221, 8);
+            this.panelEstatus.Name = "panelEstatus";
+            this.panelEstatus.Size = new System.Drawing.Size(333, 67);
+            this.panelEstatus.TabIndex = 28;
+            this.panelEstatus.Visible = false;
             // 
-            // lblFolio
+            // label3
             // 
-            this.lblFolio.AutoSize = true;
-            this.lblFolio.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblFolio.Location = new System.Drawing.Point(64, 13);
-            this.lblFolio.Name = "lblFolio";
-            this.lblFolio.Size = new System.Drawing.Size(64, 18);
-            this.lblFolio.TabIndex = 13;
-            this.lblFolio.Text = "000000: ";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(340, 13);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(120, 16);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Detalle de pago";
-            // 
-            // lblImporte
-            // 
-            this.lblImporte.AutoSize = true;
-            this.lblImporte.Location = new System.Drawing.Point(708, 8);
-            this.lblImporte.Name = "lblImporte";
-            this.lblImporte.Size = new System.Drawing.Size(67, 16);
-            this.lblImporte.TabIndex = 25;
-            this.lblImporte.Text = "lblImporte";
-            // 
-            // lblMoratorio
-            // 
-            this.lblMoratorio.AutoSize = true;
-            this.lblMoratorio.Location = new System.Drawing.Point(708, 36);
-            this.lblMoratorio.Name = "lblMoratorio";
-            this.lblMoratorio.Size = new System.Drawing.Size(45, 16);
-            this.lblMoratorio.TabIndex = 26;
-            this.lblMoratorio.Text = "label3";
-            // 
-            // lblTotalImporte
-            // 
-            this.lblTotalImporte.AutoSize = true;
-            this.lblTotalImporte.Location = new System.Drawing.Point(708, 66);
-            this.lblTotalImporte.Name = "lblTotalImporte";
-            this.lblTotalImporte.Size = new System.Drawing.Size(45, 16);
-            this.lblTotalImporte.TabIndex = 27;
-            this.lblTotalImporte.Text = "label3";
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(28, 21);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(276, 20);
+            this.label3.TabIndex = 0;
+            this.label3.Text = "El recibo se encuentra cancelado";
             // 
             // frmCancelacion
             // 
@@ -374,6 +398,8 @@
             this.panelTop.PerformLayout();
             this.gbDRecibo.ResumeLayout(false);
             this.gbDRecibo.PerformLayout();
+            this.panelEstatus.ResumeLayout(false);
+            this.panelEstatus.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -405,5 +431,7 @@
         private System.Windows.Forms.Label lblImporte;
         private System.Windows.Forms.Label lblTotalImporte;
         private System.Windows.Forms.Label lblMoratorio;
+        private System.Windows.Forms.Panel panelEstatus;
+        private System.Windows.Forms.Label label3;
     }
 }

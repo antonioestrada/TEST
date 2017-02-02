@@ -40,12 +40,15 @@ namespace AccesoDatos
 
                         connectionString.Password = MPassword;
                         connectionString.DefaultCommandTimeout = 0;
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5d0f5af9384b67408bc29b6bb6e16af1bacb04fc
 
                //         connectionString.Charset = "UTF8";
 
 
-                 //       connectionString.Dialect = 3;
+                        //       connectionString.Dialect = 3;
 
                         return connectionString.ToString();
                     }
