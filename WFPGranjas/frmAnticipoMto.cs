@@ -511,7 +511,7 @@ namespace WFPGranjas
 
                 
                
-                   Object[] paramesCasaClub  =  { id_colono, importeEfectivo, txtCheque.Text, bancoCheque, importeCheque, txtFicha.Text, bancoFicha, importFicha, servicio, cmbCCHijo.Text, txtConcepto.Text };
+                   Object[] paramesCasaClub  =  { idLote, importeEfectivo, txtCheque.Text, bancoCheque, importeCheque, txtFicha.Text, bancoFicha, importFicha, servicio, cmbCCHijo.Text, txtConcepto.Text };
                   
                     Object[] parames =  { id_colono, idManzana, idLote, listaMeses, importeEfectivo, txtCheque.Text, bancoCheque, importeCheque, txtFicha.Text, bancoFicha, importFicha, descuento, servicio,anual };
 

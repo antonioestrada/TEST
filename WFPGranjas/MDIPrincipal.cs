@@ -671,5 +671,15 @@ namespace WFPGranjas
             childFormCatPerfiles.Size = new Size(849, 580);
             childFormCatPerfiles.Show();
         }
+
+        private void cuotasExtraordinariasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cerrarVentanas();
+            frmPagoMto childFormCuotasConvenio = new frmPagoMto(5);
+            childFormCuotasConvenio.MdiParent = this;
+            childFormCuotasConvenio.StartPosition = FormStartPosition.CenterScreen;
+            childFormCuotasConvenio.Text = "INGRESOS CASA CLUB";
+            childFormCuotasConvenio.Show();
+        }
     }
     }
