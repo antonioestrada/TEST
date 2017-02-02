@@ -173,6 +173,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsReciboManto.xsd</DependentUpon>
     </Compile>
+    <Compile Include="frmCalculaCBAMensual.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCalculaCBAMensual.Designer.cs">
+      <DependentUpon>frmCalculaCBAMensual.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmConvenios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -385,13 +391,15 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crSubTarifasRA.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCalculaCBAMensual.resx">
+      <DependentUpon>frmCalculaCBAMensual.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmConvenios.resx">
       <DependentUpon>frmConvenios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCCalculoManto.resx">
       <DependentUpon>frmCCalculoManto.cs</DependentUpon>
     </EmbeddedResource>
-
     <EmbeddedResource Include="frmCancelacion.resx">
       <DependentUpon>frmCancelacion.cs</DependentUpon>
     </EmbeddedResource>

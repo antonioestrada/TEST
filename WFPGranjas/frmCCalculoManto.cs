@@ -431,13 +431,14 @@ namespace WFPGranjas
             {
                 Backend.Utilerias util = new Backend.Utilerias();
                 String fechaFormato = util.formatoFecha(dFecha_Aplica.Text);
-                abcTarifas(tipo_mov, idTarifa, tipoCalculo, descripcionTar, txtBase, fechaFormato);               
+                abcTarifas(tipo_mov, idTarifa, tipoCalculo, descripcionTar, txtBase, fechaFormato);
                 // editaParametros(1, "param_Manto1", Convert.ToString(tipoCalculo));
                 //editaParametros(1, "param_Manto2", txtBase.Text);
                 //Backend.Utilerias util = new Backend.Utilerias();             
                 //String fechaFormato = util.formatoFecha(dFecha_Aplica.Text);
                 //editaParametros(1, "param_Manto3", fechaFormato);
                 //cargaValores();
+                limpiaCancela();
 
             }
         }

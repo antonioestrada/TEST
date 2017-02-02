@@ -29,7 +29,7 @@ namespace WFPGranjas
 
         private void frmGeneraAvisos_Load(object sender, EventArgs e)
         {
-            consultaPer();
+            //consultaPer();
             //carga combo del catalogo de  manzanas 
             var BeanCLotesMza = new Backend.Catalogos.CManzanaLotes();
             BeanCLotesMza.consultaMazaCombo(cmbManzana);
@@ -108,7 +108,7 @@ namespace WFPGranjas
         {
             frmGeneraAvisosPDF browser = new frmGeneraAvisosPDF(cmbPeriodos.SelectedValue.ToString(), cmbAnios.SelectedValue.ToString());
             browser.Show();
-            MessageBox.Show("" + id_lote);
+            //MessageBox.Show("" + id_lote);
         }
 
         private void rbColono_CheckedChanged(object sender, EventArgs e)

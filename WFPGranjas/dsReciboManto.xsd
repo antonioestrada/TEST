@@ -12,7 +12,7 @@
   <xs:element name="dsReciboMAnto" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsReciboMAnto" msprop:Generator_UserDSName="dsReciboMAnto">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DTRMColono" msprop:Generator_TableClassName="DTRMColonoDataTable" msprop:Generator_TableVarName="tableDTRMColono" msprop:Generator_RowChangedName="DTRMColonoRowChanged" msprop:Generator_TablePropName="DTRMColono" msprop:Generator_RowDeletingName="DTRMColonoRowDeleting" msprop:Generator_RowChangingName="DTRMColonoRowChanging" msprop:Generator_RowEvHandlerName="DTRMColonoRowChangeEventHandler" msprop:Generator_RowDeletedName="DTRMColonoRowDeleted" msprop:Generator_RowClassName="DTRMColonoRow" msprop:Generator_UserTableName="DTRMColono" msprop:Generator_RowEvArgName="DTRMColonoRowChangeEvent">
+        <xs:element name="DTRMColono" msprop:Generator_TableClassName="DTRMColonoDataTable" msprop:Generator_TableVarName="tableDTRMColono" msprop:Generator_TablePropName="DTRMColono" msprop:Generator_RowDeletingName="DTRMColonoRowDeleting" msprop:Generator_RowChangingName="DTRMColonoRowChanging" msprop:Generator_RowEvHandlerName="DTRMColonoRowChangeEventHandler" msprop:Generator_RowDeletedName="DTRMColonoRowDeleted" msprop:Generator_UserTableName="DTRMColono" msprop:Generator_RowChangedName="DTRMColonoRowChanged" msprop:Generator_RowEvArgName="DTRMColonoRowChangeEvent" msprop:Generator_RowClassName="DTRMColonoRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_lote" msprop:Generator_ColumnVarNameInTable="columnid_lote" msprop:Generator_ColumnPropNameInRow="id_lote" msprop:Generator_ColumnPropNameInTable="id_loteColumn" msprop:Generator_UserColumnName="id_lote" type="xs:int" minOccurs="0" />
@@ -23,7 +23,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DTRMPartidas" msprop:Generator_TableClassName="DTRMPartidasDataTable" msprop:Generator_TableVarName="tableDTRMPartidas" msprop:Generator_RowChangedName="DTRMPartidasRowChanged" msprop:Generator_TablePropName="DTRMPartidas" msprop:Generator_RowDeletingName="DTRMPartidasRowDeleting" msprop:Generator_RowChangingName="DTRMPartidasRowChanging" msprop:Generator_RowEvHandlerName="DTRMPartidasRowChangeEventHandler" msprop:Generator_RowDeletedName="DTRMPartidasRowDeleted" msprop:Generator_RowClassName="DTRMPartidasRow" msprop:Generator_UserTableName="DTRMPartidas" msprop:Generator_RowEvArgName="DTRMPartidasRowChangeEvent">
+        <xs:element name="DTRMPartidas" msprop:Generator_TableClassName="DTRMPartidasDataTable" msprop:Generator_TableVarName="tableDTRMPartidas" msprop:Generator_TablePropName="DTRMPartidas" msprop:Generator_RowDeletingName="DTRMPartidasRowDeleting" msprop:Generator_RowChangingName="DTRMPartidasRowChanging" msprop:Generator_RowEvHandlerName="DTRMPartidasRowChangeEventHandler" msprop:Generator_RowDeletedName="DTRMPartidasRowDeleted" msprop:Generator_UserTableName="DTRMPartidas" msprop:Generator_RowChangedName="DTRMPartidasRowChanged" msprop:Generator_RowEvArgName="DTRMPartidasRowChangeEvent" msprop:Generator_RowClassName="DTRMPartidasRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_lote" msprop:Generator_ColumnVarNameInTable="columnid_lote" msprop:Generator_ColumnPropNameInRow="id_lote" msprop:Generator_ColumnPropNameInTable="id_loteColumn" msprop:Generator_UserColumnName="id_lote" type="xs:int" minOccurs="0" />
@@ -34,7 +34,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DTRMPagos" msprop:Generator_TableClassName="DTRMPagosDataTable" msprop:Generator_TableVarName="tableDTRMPagos" msprop:Generator_TablePropName="DTRMPagos" msprop:Generator_RowDeletingName="DTRMPagosRowDeleting" msprop:Generator_RowChangingName="DTRMPagosRowChanging" msprop:Generator_RowEvHandlerName="DTRMPagosRowChangeEventHandler" msprop:Generator_RowDeletedName="DTRMPagosRowDeleted" msprop:Generator_UserTableName="DTRMPagos" msprop:Generator_RowChangedName="DTRMPagosRowChanged" msprop:Generator_RowEvArgName="DTRMPagosRowChangeEvent" msprop:Generator_RowClassName="DTRMPagosRow">
+        <xs:element name="DTRMPagos" msprop:Generator_TableClassName="DTRMPagosDataTable" msprop:Generator_TableVarName="tableDTRMPagos" msprop:Generator_RowChangedName="DTRMPagosRowChanged" msprop:Generator_TablePropName="DTRMPagos" msprop:Generator_RowDeletingName="DTRMPagosRowDeleting" msprop:Generator_RowChangingName="DTRMPagosRowChanging" msprop:Generator_RowEvHandlerName="DTRMPagosRowChangeEventHandler" msprop:Generator_RowDeletedName="DTRMPagosRowDeleted" msprop:Generator_RowClassName="DTRMPagosRow" msprop:Generator_UserTableName="DTRMPagos" msprop:Generator_RowEvArgName="DTRMPagosRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_lote" msprop:Generator_ColumnVarNameInTable="columnid_lote" msprop:Generator_ColumnPropNameInRow="id_lote" msprop:Generator_ColumnPropNameInTable="id_loteColumn" msprop:Generator_UserColumnName="id_lote" type="xs:int" minOccurs="0" />
@@ -45,6 +45,16 @@
               <xs:element name="no_ficha" msprop:Generator_ColumnVarNameInTable="columnno_ficha" msprop:Generator_ColumnPropNameInRow="no_ficha" msprop:Generator_ColumnPropNameInTable="no_fichaColumn" msprop:Generator_UserColumnName="no_ficha" type="xs:string" minOccurs="0" />
               <xs:element name="importe_ficha" msprop:Generator_ColumnVarNameInTable="columnimporte_ficha" msprop:Generator_ColumnPropNameInRow="importe_ficha" msprop:Generator_ColumnPropNameInTable="importe_fichaColumn" msprop:Generator_UserColumnName="importe_ficha" type="xs:decimal" minOccurs="0" />
               <xs:element name="fecha_pago" msprop:Generator_ColumnVarNameInTable="columnfecha_pago" msprop:Generator_ColumnPropNameInRow="fecha_pago" msprop:Generator_ColumnPropNameInTable="fecha_pagoColumn" msprop:Generator_UserColumnName="fecha_pago" type="xs:dateTime" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DTRMMora" msprop:Generator_TableClassName="DTRMMoraDataTable" msprop:Generator_TableVarName="tableDTRMMora" msprop:Generator_TablePropName="DTRMMora" msprop:Generator_RowDeletingName="DTRMMoraRowDeleting" msprop:Generator_RowChangingName="DTRMMoraRowChanging" msprop:Generator_RowEvHandlerName="DTRMMoraRowChangeEventHandler" msprop:Generator_RowDeletedName="DTRMMoraRowDeleted" msprop:Generator_UserTableName="DTRMMora" msprop:Generator_RowChangedName="DTRMMoraRowChanged" msprop:Generator_RowEvArgName="DTRMMoraRowChangeEvent" msprop:Generator_RowClassName="DTRMMoraRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id_lote" msprop:Generator_ColumnVarNameInTable="columnid_lote" msprop:Generator_ColumnPropNameInRow="id_lote" msprop:Generator_ColumnPropNameInTable="id_loteColumn" msprop:Generator_UserColumnName="id_lote" type="xs:int" minOccurs="0" />
+              <xs:element name="folio_pago" msdata:Caption="servicio" msprop:Generator_ColumnVarNameInTable="columnfolio_pago" msprop:Generator_ColumnPropNameInRow="folio_pago" msprop:Generator_ColumnPropNameInTable="folio_pagoColumn" msprop:Generator_UserColumnName="folio_pago" type="xs:int" minOccurs="0" />
+              <xs:element name="mora" msdata:Caption="periodo" msprop:Generator_ColumnVarNameInTable="columnmora" msprop:Generator_ColumnPropNameInRow="mora" msprop:Generator_ColumnPropNameInTable="moraColumn" msprop:Generator_UserColumnName="mora" type="xs:decimal" minOccurs="0" />
+              <xs:element name="tipo_pago" msdata:Caption="importe" msprop:Generator_ColumnVarNameInTable="columntipo_pago" msprop:Generator_ColumnPropNameInRow="tipo_pago" msprop:Generator_ColumnPropNameInTable="tipo_pagoColumn" msprop:Generator_UserColumnName="tipo_pago" type="xs:int" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

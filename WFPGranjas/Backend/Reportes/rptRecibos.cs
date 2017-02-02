@@ -79,6 +79,14 @@ namespace WFPGranjas.Backend.Reportes
             }
             Conexion.FinalizarSesion();
 
+            //***********DATOS DE MORATORIO*********************
+            reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_report_ReciboAgua(7,'" + inParam1 + "','" + inParam2 + "','0')");
+            while (reader.Read())
+            {
+                dsR.DTRAMora.AddDTRAMoraRow(Int32.Parse(reader.GetValue(0).ToString()), Int32.Parse(reader.GetValue(1).ToString()), Decimal.Parse(reader.GetValue(2).ToString()), Int32.Parse(reader.GetValue(3).ToString()));
+            }
+            Conexion.FinalizarSesion();
+
             cryRpt.SetDataSource(dsR);
             crySubRpt.SetDataSource(dsR.Tables["DTRALectura"]);
             crySubGraficaRpt.SetDataSource(dsR.Tables["DTRAGrafica"]);
@@ -135,6 +143,14 @@ namespace WFPGranjas.Backend.Reportes
             while (reader.Read())
             {
                 dsR.DTRMPagos.AddDTRMPagosRow(Int32.Parse(reader.GetValue(0).ToString()), reader.GetValue(1).ToString().PadLeft(12, char.Parse("0")), Decimal.Parse(reader.GetValue(2).ToString()), reader.GetValue(3).ToString(), Decimal.Parse(reader.GetValue(4).ToString()), reader.GetValue(5).ToString(), Decimal.Parse(reader.GetValue(6).ToString()), DateTime.Parse(reader.GetValue(7).ToString()));
+            }
+            Conexion.FinalizarSesion();
+
+            //***********DATOS DE MORATORIO*********************
+            reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_report_ReciboManto(7,'" + inParam1 + "','" + inParam2 + "','0')");
+            while (reader.Read())
+            {
+                dsR.DTRMMora.AddDTRMMoraRow(Int32.Parse(reader.GetValue(0).ToString()), Int32.Parse(reader.GetValue(1).ToString()), Decimal.Parse(reader.GetValue(2).ToString()), Int32.Parse(reader.GetValue(3).ToString()));
             }
             Conexion.FinalizarSesion();
 

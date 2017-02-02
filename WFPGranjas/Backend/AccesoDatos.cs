@@ -39,7 +39,7 @@ namespace AccesoDatos
 
 
                         connectionString.Password = MPassword;
-                        connectionString.ConnectionTimeout = 100000;
+                        connectionString.DefaultCommandTimeout = 0;
 
 
                //         connectionString.Charset = "UTF8";

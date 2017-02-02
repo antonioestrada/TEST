@@ -231,3 +231,4 @@ C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.frmGeneraAvisos
 C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.frmGeneraAvisosPDF.resources
 C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.rptAvisosCobranza.resources
 >>>>>>> 7623ddab9e0fc8744a796a408402d0ba2725a5de
+C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\WFPGranjas.frmCalculaCBAMensual.resources

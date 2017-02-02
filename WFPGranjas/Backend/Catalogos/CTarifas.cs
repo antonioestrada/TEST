@@ -125,5 +125,39 @@ namespace WFPGranjas.Backend.Catalogos
             return resultado;
         }
         #endregion
+
+        #region consulta Cuotas CBA DG
+        public void consultaCBAMensual(DataGridView dgConsulta, int inOp, string inAnio, int idMedidor)
+        {
+            //limpiamos el datagridview
+            dgConsulta.Rows.Clear();
+            //llenamos nuestro reader con la consulta de nuestro SP
+            IDataReader reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_frm_CalculaCBA_Mensua("+inOp+",0,"+inAnio+","+idMedidor+")");
+            //siclamos cada registro que contiene nuestro reader
+            while (reader.Read())
+            {
+                //lenamos nuestro grid con nuestro reader.
+                int renglon = dgConsulta.Rows.Add();
+                //id_tarifa
+                dgConsulta.Rows[renglon].Cells[0].Value = reader.GetValue(0).ToString();
+                //descripcion
+                dgConsulta.Rows[renglon].Cells[1].Value =Int32.Parse(reader.GetValue(1).ToString());
+                //valor
+                dgConsulta.Rows[renglon].Cells[2].Value = Int32.Parse(reader.GetValue(2).ToString());
+                //fecha_apl
+                dgConsulta.Rows[renglon].Cells[3].Value = Decimal.Parse(reader.GetValue(3).ToString());
+                //descripcion
+                dgConsulta.Rows[renglon].Cells[1].Value =double.Parse( reader.GetValue(4).ToString());
+                //valor
+                dgConsulta.Rows[renglon].Cells[2].Value = double.Parse(reader.GetValue(5).ToString());
+                //fecha_apl
+                dgConsulta.Rows[renglon].Cells[3].Value = double.Parse(reader.GetValue(6).ToString());
+
+
+            }
+
+            Conexion.FinalizarSesion();
+        }
+        #endregion
     }
 }
