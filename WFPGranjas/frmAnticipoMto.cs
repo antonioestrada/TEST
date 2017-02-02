@@ -173,6 +173,8 @@ namespace WFPGranjas
                         idLote = Convert.ToInt16(row.Cells[3].Value);
                         // String numeroRomano = utilities.numeroRomano(int.Parse(row.Cells[3].Value.ToString()));
                         lblMzaLote.Text ="Manzana: "+ row.Cells[6].Value + " Lote: " + row.Cells[4].Value;
+                        if (id_colono == 0)
+                            servicio = 7;
                         //MessageBox.Show("id_manzana" + id_manzana);
                     }
 
