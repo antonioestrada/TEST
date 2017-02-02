@@ -132,7 +132,7 @@ namespace WFPGranjas.Backend.Catalogos
             //limpiamos el datagridview
             dgConsulta.Rows.Clear();
             //llenamos nuestro reader con la consulta de nuestro SP
-            IDataReader reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_frm_CalculaCBA_Mensua("+inOp+",0,"+inAnio+","+idMedidor+")");
+            IDataReader reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_frm_CalculaCBA(" + inOp+",0,"+inAnio+","+idMedidor+")");
             //siclamos cada registro que contiene nuestro reader
             while (reader.Read())
             {
