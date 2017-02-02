@@ -689,6 +689,7 @@
             this.cuotasExtraordinariasToolStripMenuItem.Name = "cuotasExtraordinariasToolStripMenuItem";
             this.cuotasExtraordinariasToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
             this.cuotasExtraordinariasToolStripMenuItem.Text = "Cuotas Extraordinarias";
+            this.cuotasExtraordinariasToolStripMenuItem.Click += new System.EventHandler(this.cuotasExtraordinariasToolStripMenuItem_Click);
             // 
             // toolStripSeparator10
             // 

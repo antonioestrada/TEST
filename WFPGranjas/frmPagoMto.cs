@@ -295,6 +295,8 @@ namespace WFPGranjas
                     MessageBox.Show("El lote no tiene cuotas de agua atrasadas");
                 if (servicio == 4)
                     MessageBox.Show("El lote no tiene convenio");
+                if (servicio == 5)
+                    MessageBox.Show("El lote no tiene cuota de casa club");
 
                 txtColono.Focus();
             }
