@@ -98,7 +98,7 @@ namespace WFPGranjas
         {
             var BeanCargaV = new Backend.Catalogos.CTarifas();
             //carga grid
-            BeanCargaV.consultaCBAMensual(dgHistorico,1,"2017",1);
+            //BeanCargaV.consultaCBAMensual(dgHistorico,1,"2017",1);
            
         }
     }
