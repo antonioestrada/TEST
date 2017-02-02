@@ -639,8 +639,7 @@ namespace WFPGranjas
             childFormGenCuotas.MdiParent = this;
             childFormGenCuotas.Show();
         }
-
-<<<<<<< HEAD
+        
         private void cierreDeMesToolStripMenuItem_Click(object sender, EventArgs e)
         {
             cerrarVentanas();
@@ -658,7 +657,8 @@ namespace WFPGranjas
             childFormGenCBAMensual.StartPosition = FormStartPosition.CenterScreen;
             childFormGenCBAMensual.MdiParent = this;
             childFormGenCBAMensual.Show();
-=======
+        }
+
         private void fcAAnualidades_Click(object sender, EventArgs e)
         {
             cerrarVentanas();
@@ -670,7 +670,6 @@ namespace WFPGranjas
 
             childFormCatPerfiles.Size = new Size(849, 580);
             childFormCatPerfiles.Show();
->>>>>>> 5d0f5af9384b67408bc29b6bb6e16af1bacb04fc
         }
     }
     }

@@ -38,49 +38,49 @@ namespace WFPGranjas
                                               },
                                               new DataGridViewTextBoxColumn
                                               {
-                                                  ValueType = typeof (Int32),
+                                                  ValueType = typeof (int),
                                                   HeaderText = "Consumo Promedio",
                                                   Width = 105
                                               },
                                               new DataGridViewTextBoxColumn
                                               {
-                                                  ValueType = typeof (Int32),
+                                                  ValueType = typeof (decimal),
                                                   HeaderText = "Consumo Anual Promedio",
-                                                  Width = 70
+                                                  Width = 100
                                               },
                                               new DataGridViewTextBoxColumn
                                               {
-                                                  ValueType = typeof (Decimal),
+                                                  ValueType = typeof (decimal),
                                                   HeaderText = "Porcentaceje",
-                                                  Width = 85
+                                                  Width = 100
                                               },
                                               new DataGridViewTextBoxColumn
                                               {
-                                                  ValueType = typeof (Double),
+                                                  ValueType = typeof (double),
                                                   HeaderText = "CBA",
-                                                  Width = 20
+                                                  Width = 100
                                               },
                                               new DataGridViewTextBoxColumn
                                               {
                                                   ValueType = typeof (double),
                                                   HeaderText = "CBA Anualizado",
-                                                  Width = 20
+                                                  Width = 100
                                               },
                                               new DataGridViewTextBoxColumn
                                               {
                                                   ValueType = typeof (double),
                                                   HeaderText = "CBA Calculado",
-                                                  Width = 20
+                                                  Width = 100
                                               }
                                       });
 
             //dgBancos.RowHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.TopRight;
             //dgBancos.RowHeadersDefaultCellStyle.Padding = new Padding(0);
-            dgHistorico.Columns[0].Visible = false;
+           /* dgHistorico.Columns[0].Visible = false;
             dgHistorico.Columns[2].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             dgHistorico.Columns[2].DefaultCellStyle.Format = "##,##0.0000";
             dgHistorico.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
-            dgHistorico.Columns[5].Visible = false;
+            dgHistorico.Columns[5].Visible = false;*/
         }
         #endregion
 
@@ -98,7 +98,7 @@ namespace WFPGranjas
         {
             var BeanCargaV = new Backend.Catalogos.CTarifas();
             //carga grid
-            //BeanCargaV.consultaCBAMensual(dgHistorico,1,"2017",1);
+            BeanCargaV.consultaCBAMensual(dgHistorico,1,"2017",1);
            
         }
     }

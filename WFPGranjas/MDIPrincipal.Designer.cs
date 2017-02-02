@@ -504,11 +504,8 @@
             this.toolBarToolStripMenuItem.CheckOnClick = true;
             this.toolBarToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.toolBarToolStripMenuItem.Name = "toolBarToolStripMenuItem";
-<<<<<<< HEAD
             this.toolBarToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-=======
             this.toolBarToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
->>>>>>> 5d0f5af9384b67408bc29b6bb6e16af1bacb04fc
             this.toolBarToolStripMenuItem.Text = "&Toolbar";
             this.toolBarToolStripMenuItem.Visible = false;
             this.toolBarToolStripMenuItem.Click += new System.EventHandler(this.ToolBarToolStripMenuItem_Click);
@@ -519,11 +516,8 @@
             this.statusBarToolStripMenuItem.CheckOnClick = true;
             this.statusBarToolStripMenuItem.CheckState = System.Windows.Forms.CheckState.Checked;
             this.statusBarToolStripMenuItem.Name = "statusBarToolStripMenuItem";
-<<<<<<< HEAD
             this.statusBarToolStripMenuItem.Size = new System.Drawing.Size(157, 22);
-=======
             this.statusBarToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
->>>>>>> 5d0f5af9384b67408bc29b6bb6e16af1bacb04fc
             this.statusBarToolStripMenuItem.Text = "&Status Bar";
             this.statusBarToolStripMenuItem.Visible = false;
             this.statusBarToolStripMenuItem.Click += new System.EventHandler(this.StatusBarToolStripMenuItem_Click);
@@ -531,33 +525,24 @@
             // arMedidores
             // 
             this.arMedidores.Name = "arMedidores";
-<<<<<<< HEAD
             this.arMedidores.Size = new System.Drawing.Size(157, 22);
-=======
             this.arMedidores.Size = new System.Drawing.Size(138, 22);
->>>>>>> 5d0f5af9384b67408bc29b6bb6e16af1bacb04fc
             this.arMedidores.Text = "Medidores";
             this.arMedidores.Click += new System.EventHandler(this.arMedidores_Click);
             // 
             // arRegLecturas
             // 
             this.arRegLecturas.Name = "arRegLecturas";
-<<<<<<< HEAD
             this.arRegLecturas.Size = new System.Drawing.Size(157, 22);
-=======
             this.arRegLecturas.Size = new System.Drawing.Size(138, 22);
->>>>>>> 5d0f5af9384b67408bc29b6bb6e16af1bacb04fc
             this.arRegLecturas.Text = "R. Agua";
             this.arRegLecturas.Click += new System.EventHandler(this.arRegLecturas_Click);
             // 
             // arRManto
             // 
             this.arRManto.Name = "arRManto";
-<<<<<<< HEAD
             this.arRManto.Size = new System.Drawing.Size(157, 22);
-=======
             this.arRManto.Size = new System.Drawing.Size(138, 22);
->>>>>>> 5d0f5af9384b67408bc29b6bb6e16af1bacb04fc
             this.arRManto.Text = "R. Mantto";
             this.arRManto.Click += new System.EventHandler(this.arRManto_Click);
             // 

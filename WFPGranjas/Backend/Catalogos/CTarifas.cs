@@ -132,26 +132,26 @@ namespace WFPGranjas.Backend.Catalogos
             //limpiamos el datagridview
             dgConsulta.Rows.Clear();
             //llenamos nuestro reader con la consulta de nuestro SP
-            IDataReader reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_frm_CalculaCBA(" + inOp+",0,"+inAnio+","+idMedidor+")");
+            IDataReader reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_frm_CalculaCBA_Mensual(" + inOp+",0,"+inAnio+","+idMedidor+")");
             //siclamos cada registro que contiene nuestro reader
             while (reader.Read())
             {
                 //lenamos nuestro grid con nuestro reader.
                 int renglon = dgConsulta.Rows.Add();
                 //id_tarifa
-                dgConsulta.Rows[renglon].Cells[0].Value = reader.GetValue(0).ToString();
+                dgConsulta.Rows[renglon].Cells[0].Value = reader.GetValue(1).ToString();
                 //descripcion
-                dgConsulta.Rows[renglon].Cells[1].Value =Int32.Parse(reader.GetValue(1).ToString());
+                dgConsulta.Rows[renglon].Cells[1].Value =reader.GetValue(2).ToString();
                 //valor
-                dgConsulta.Rows[renglon].Cells[2].Value = Int32.Parse(reader.GetValue(2).ToString());
+                dgConsulta.Rows[renglon].Cells[2].Value = reader.GetValue(3).ToString();
                 //fecha_apl
-                dgConsulta.Rows[renglon].Cells[3].Value = Decimal.Parse(reader.GetValue(3).ToString());
+                dgConsulta.Rows[renglon].Cells[3].Value = reader.GetValue(4).ToString();
                 //descripcion
-                dgConsulta.Rows[renglon].Cells[1].Value =double.Parse( reader.GetValue(4).ToString());
+                dgConsulta.Rows[renglon].Cells[4].Value =reader.GetValue(5).ToString();
                 //valor
-                dgConsulta.Rows[renglon].Cells[2].Value = double.Parse(reader.GetValue(5).ToString());
+                dgConsulta.Rows[renglon].Cells[5].Value = reader.GetValue(6).ToString();
                 //fecha_apl
-                dgConsulta.Rows[renglon].Cells[3].Value = double.Parse(reader.GetValue(6).ToString());
+                dgConsulta.Rows[renglon].Cells[6].Value = reader.GetValue(7).ToString();
 
 
             }
