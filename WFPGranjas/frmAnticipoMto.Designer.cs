@@ -60,6 +60,10 @@
             this.txtDescuento = new System.Windows.Forms.TextBox();
             this.txtImporte = new System.Windows.Forms.TextBox();
             this.panelCapturaTop = new System.Windows.Forms.Panel();
+            this.cmbCCPadre = new System.Windows.Forms.ComboBox();
+            this.cmbCCHijo = new System.Windows.Forms.ComboBox();
+            this.txtConcepto = new System.Windows.Forms.TextBox();
+            this.lblConcepto = new System.Windows.Forms.Label();
             this.btnAddCuota = new System.Windows.Forms.Button();
             this.lblAntAgua = new System.Windows.Forms.Label();
             this.txtTotalAgua = new System.Windows.Forms.TextBox();
@@ -93,10 +97,6 @@
             this.lblFechaSys = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.btnCapturaR = new System.Windows.Forms.Button();
-            this.lblConcepto = new System.Windows.Forms.Label();
-            this.txtConcepto = new System.Windows.Forms.TextBox();
-            this.cmbCCHijo = new System.Windows.Forms.ComboBox();
-            this.cmbCCPadre = new System.Windows.Forms.ComboBox();
             this.groupDColono.SuspendLayout();
             this.groupCuota.SuspendLayout();
             this.panelCapturaCenter.SuspendLayout();
@@ -464,6 +464,47 @@
             this.panelCapturaTop.Name = "panelCapturaTop";
             this.panelCapturaTop.Size = new System.Drawing.Size(820, 34);
             this.panelCapturaTop.TabIndex = 13;
+            // 
+            // cmbCCPadre
+            // 
+            this.cmbCCPadre.FormattingEnabled = true;
+            this.cmbCCPadre.Items.AddRange(new object[] {
+            "42000 Otros Ingresos"});
+            this.cmbCCPadre.Location = new System.Drawing.Point(204, 8);
+            this.cmbCCPadre.Name = "cmbCCPadre";
+            this.cmbCCPadre.Size = new System.Drawing.Size(220, 24);
+            this.cmbCCPadre.TabIndex = 11;
+            this.cmbCCPadre.Visible = false;
+            // 
+            // cmbCCHijo
+            // 
+            this.cmbCCHijo.FormattingEnabled = true;
+            this.cmbCCHijo.Items.AddRange(new object[] {
+            "420102 Telefono Fax",
+            "420101 Servicios Prestados"});
+            this.cmbCCHijo.Location = new System.Drawing.Point(15, 6);
+            this.cmbCCHijo.Name = "cmbCCHijo";
+            this.cmbCCHijo.Size = new System.Drawing.Size(220, 24);
+            this.cmbCCHijo.TabIndex = 10;
+            this.cmbCCHijo.Visible = false;
+            // 
+            // txtConcepto
+            // 
+            this.txtConcepto.Location = new System.Drawing.Point(99, 7);
+            this.txtConcepto.Name = "txtConcepto";
+            this.txtConcepto.Size = new System.Drawing.Size(282, 22);
+            this.txtConcepto.TabIndex = 9;
+            this.txtConcepto.Visible = false;
+            // 
+            // lblConcepto
+            // 
+            this.lblConcepto.AutoSize = true;
+            this.lblConcepto.Location = new System.Drawing.Point(20, 9);
+            this.lblConcepto.Name = "lblConcepto";
+            this.lblConcepto.Size = new System.Drawing.Size(72, 16);
+            this.lblConcepto.TabIndex = 8;
+            this.lblConcepto.Text = "Concepto :";
+            this.lblConcepto.Visible = false;
             // 
             // btnAddCuota
             // 
@@ -844,51 +885,10 @@
             this.btnCapturaR.Name = "btnCapturaR";
             this.btnCapturaR.Size = new System.Drawing.Size(156, 26);
             this.btnCapturaR.TabIndex = 5;
-            this.btnCapturaR.Text = "Capturar Recibo";
+            this.btnCapturaR.Text = "Capturar";
             this.btnCapturaR.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCapturaR.UseVisualStyleBackColor = true;
             this.btnCapturaR.Click += new System.EventHandler(this.btnCapturaR_Click);
-            // 
-            // lblConcepto
-            // 
-            this.lblConcepto.AutoSize = true;
-            this.lblConcepto.Location = new System.Drawing.Point(20, 9);
-            this.lblConcepto.Name = "lblConcepto";
-            this.lblConcepto.Size = new System.Drawing.Size(72, 16);
-            this.lblConcepto.TabIndex = 8;
-            this.lblConcepto.Text = "Concepto :";
-            this.lblConcepto.Visible = false;
-            // 
-            // txtConcepto
-            // 
-            this.txtConcepto.Location = new System.Drawing.Point(99, 7);
-            this.txtConcepto.Name = "txtConcepto";
-            this.txtConcepto.Size = new System.Drawing.Size(282, 22);
-            this.txtConcepto.TabIndex = 9;
-            this.txtConcepto.Visible = false;
-            // 
-            // cmbCCHijo
-            // 
-            this.cmbCCHijo.FormattingEnabled = true;
-            this.cmbCCHijo.Items.AddRange(new object[] {
-            "420102 Telefono Fax",
-            "420101 Servicios Prestados"});
-            this.cmbCCHijo.Location = new System.Drawing.Point(15, 6);
-            this.cmbCCHijo.Name = "cmbCCHijo";
-            this.cmbCCHijo.Size = new System.Drawing.Size(220, 24);
-            this.cmbCCHijo.TabIndex = 10;
-            this.cmbCCHijo.Visible = false;
-            // 
-            // cmbCCPadre
-            // 
-            this.cmbCCPadre.FormattingEnabled = true;
-            this.cmbCCPadre.Items.AddRange(new object[] {
-            "42000 Otros Ingresos"});
-            this.cmbCCPadre.Location = new System.Drawing.Point(204, 8);
-            this.cmbCCPadre.Name = "cmbCCPadre";
-            this.cmbCCPadre.Size = new System.Drawing.Size(220, 24);
-            this.cmbCCPadre.TabIndex = 11;
-            this.cmbCCPadre.Visible = false;
             // 
             // frmAnticipoMto
             // 

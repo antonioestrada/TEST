@@ -18,10 +18,11 @@ namespace WFPGranjas
     public partial class frmAnticipoMto : Form
     {
         int id_colono = 0,idManzana=0,idLote=0;
-        String listaMeses;
+        String listaMeses, anual=null;
         List<int> listaCuotasPag;
         double pagoTotal = 0;
         int servicio = 0;
+        Boolean esAnual=false;
         Utilerias utilities = new Utilerias();
         #region Definicion de Estructura de Columnas DataGridView PROPIETARIOS
         //DEFINIMOS LA ESTRUCTURA DE NUESTRO GRID LISTADO
@@ -185,12 +186,15 @@ namespace WFPGranjas
             return retorno;
         }
         #endregion
-        public frmAnticipoMto(int servicio)
+        public frmAnticipoMto(int servicio, Boolean esAnual)
         {
             InitializeComponent();
             definicionDGBuscaColono();
             definicionDGCuotas();
             this.servicio = servicio;
+            this.esAnual = esAnual;
+            if (esAnual)
+                anual = "Anual";
         }
 
      
@@ -236,7 +240,12 @@ namespace WFPGranjas
                     // Extrae meses con anticipo
                     prcAnticipos.consultaCuotasPagadas(listaCuotasPag, idLote);
                     int periodoActualBD = prcAnticipos.obtienePeriodoActual();
-                    validaMeses(periodoActualBD);
+                    if (esAnual) {
+                          validaAnualidad(periodoActualBD);
+                         
+                    }
+                    else
+                        validaMeses(periodoActualBD);
                 }
                 if (servicio == 3)
                 {
@@ -422,6 +431,39 @@ namespace WFPGranjas
             }
 
         }
+
+        public void validaAnualidad(int periodoActualBD)
+        {
+
+            DateTime fechaActual = DateTime.Now;
+            int mes = periodoActualBD;
+            mes = mes + 1;
+            foreach (CheckBox chk in groupBoxMeses.Controls)
+            {
+
+                string nombre = chk.Name;
+                string subcadena1 = nombre.Substring(3, 2);
+                int mesNum = int.Parse(subcadena1);
+             
+                chk.Enabled = false;
+
+                if (validaPeriodoAnticipo(mesNum))
+                {
+                    chk.Enabled = false;
+                    chk.BackColor = Color.LightBlue;
+                }
+                else
+                {
+                    if (mes <= mesNum)
+                        chk.Checked = true;
+
+                    chk.BackColor = Color.FloralWhite;
+                   
+                }
+
+            }
+            
+        }
         public Boolean validaPeriodoAnticipo(int periodo) {
             Boolean resultado = false;
             for (int i = 0; i < listaCuotasPag.Count(); i++)
@@ -469,7 +511,7 @@ namespace WFPGranjas
                
                    Object[] paramesCasaClub  =  { id_colono, importeEfectivo, txtCheque.Text, bancoCheque, importeCheque, txtFicha.Text, bancoFicha, importFicha, servicio, cmbCCHijo.Text, txtConcepto.Text };
                   
-                    Object[] parames =  { id_colono, idManzana, idLote, listaMeses, importeEfectivo, txtCheque.Text, bancoCheque, importeCheque, txtFicha.Text, bancoFicha, importFicha, descuento, servicio };
+                    Object[] parames =  { id_colono, idManzana, idLote, listaMeses, importeEfectivo, txtCheque.Text, bancoCheque, importeCheque, txtFicha.Text, bancoFicha, importFicha, descuento, servicio,anual };
 
                 if(servicio==5)
                      resultado = prcAnticipos.registroCuotas(paramesCasaClub, servicio);
