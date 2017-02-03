@@ -483,7 +483,7 @@ namespace WFPGranjas
                 string anio     = row.Cells[9].Value.ToString();
                 if(servicio==3)
                 prcPago.consultaCuotasAgua(listaID, idLote,periodo, anio);
-                if(servicio==2)
+                if(servicio==2 || servicio==5)
                     listaID.Add(idLote);
                 if (servicio == 4)
                     listaID.Add(idLote);
