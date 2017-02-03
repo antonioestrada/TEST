@@ -32,9 +32,9 @@
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.otreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip = new System.Windows.Forms.MenuStrip();
+            this.mPreview = new System.Windows.Forms.ToolStripMenuItem();
             this.mNuevo = new System.Windows.Forms.ToolStripMenuItem();
             this.mEditar = new System.Windows.Forms.ToolStripMenuItem();
-            this.mEliminar = new System.Windows.Forms.ToolStripMenuItem();
             this.mSalir = new System.Windows.Forms.ToolStripMenuItem();
             this.label4 = new System.Windows.Forms.Label();
             this.pnlEncabezado = new System.Windows.Forms.Panel();
@@ -44,8 +44,8 @@
             this.pnlResult = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblMensaje = new System.Windows.Forms.Label();
-            this.btnCancel = new System.Windows.Forms.Button();
-            this.btnGuardar = new System.Windows.Forms.Button();
+            this.cmbAnios = new System.Windows.Forms.ComboBox();
+            this.cmbPeriodos = new System.Windows.Forms.ComboBox();
             this.pnlPrinBancos.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -66,7 +66,7 @@
             this.pnlPrinBancos.Location = new System.Drawing.Point(0, 0);
             this.pnlPrinBancos.Margin = new System.Windows.Forms.Padding(5);
             this.pnlPrinBancos.Name = "pnlPrinBancos";
-            this.pnlPrinBancos.Size = new System.Drawing.Size(623, 28);
+            this.pnlPrinBancos.Size = new System.Drawing.Size(820, 28);
             this.pnlPrinBancos.TabIndex = 9;
             // 
             // menuStrip2
@@ -90,16 +90,24 @@
             // menuStrip
             // 
             this.menuStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mPreview,
             this.mNuevo,
             this.mEditar,
-            this.mSalir,
-            this.mEliminar});
+            this.mSalir});
             this.menuStrip.Location = new System.Drawing.Point(0, 0);
             this.menuStrip.Name = "menuStrip";
             this.menuStrip.Padding = new System.Windows.Forms.Padding(15, 2, 0, 2);
-            this.menuStrip.Size = new System.Drawing.Size(623, 24);
+            this.menuStrip.Size = new System.Drawing.Size(820, 24);
             this.menuStrip.TabIndex = 1;
             this.menuStrip.Text = "menuStrip1";
+            // 
+            // mPreview
+            // 
+            this.mPreview.Image = global::WFPGranjas.Properties.Resources.eliminar;
+            this.mPreview.Name = "mPreview";
+            this.mPreview.Size = new System.Drawing.Size(135, 20);
+            this.mPreview.Text = "Preview Cutas CBA";
+            this.mPreview.Click += new System.EventHandler(this.mPreview_Click_1);
             // 
             // mNuevo
             // 
@@ -107,6 +115,7 @@
             this.mNuevo.Name = "mNuevo";
             this.mNuevo.Size = new System.Drawing.Size(116, 20);
             this.mNuevo.Text = "Generar Cuotas";
+            this.mNuevo.Click += new System.EventHandler(this.mNuevo_Click);
             // 
             // mEditar
             // 
@@ -114,14 +123,7 @@
             this.mEditar.Name = "mEditar";
             this.mEditar.Size = new System.Drawing.Size(165, 20);
             this.mEditar.Text = "Consulta CBA Asignadas";
-            // 
-            // mEliminar
-            // 
-            this.mEliminar.Image = global::WFPGranjas.Properties.Resources.eliminar;
-            this.mEliminar.Name = "mEliminar";
-            this.mEliminar.Size = new System.Drawing.Size(78, 20);
-            this.mEliminar.Text = "Eliminar";
-            this.mEliminar.Visible = false;
+            this.mEditar.Click += new System.EventHandler(this.mEditar_Click);
             // 
             // mSalir
             // 
@@ -148,11 +150,13 @@
             this.pnlEncabezado.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.pnlEncabezado.BackColor = System.Drawing.Color.DarkKhaki;
+            this.pnlEncabezado.Controls.Add(this.cmbAnios);
+            this.pnlEncabezado.Controls.Add(this.cmbPeriodos);
             this.pnlEncabezado.Controls.Add(this.lblEncabezado);
             this.pnlEncabezado.Location = new System.Drawing.Point(0, 38);
             this.pnlEncabezado.Margin = new System.Windows.Forms.Padding(5);
             this.pnlEncabezado.Name = "pnlEncabezado";
-            this.pnlEncabezado.Size = new System.Drawing.Size(623, 30);
+            this.pnlEncabezado.Size = new System.Drawing.Size(820, 30);
             this.pnlEncabezado.TabIndex = 18;
             // 
             // lblEncabezado
@@ -163,7 +167,7 @@
             this.lblEncabezado.AutoSize = true;
             this.lblEncabezado.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEncabezado.ForeColor = System.Drawing.SystemColors.MenuText;
-            this.lblEncabezado.Location = new System.Drawing.Point(257, 7);
+            this.lblEncabezado.Location = new System.Drawing.Point(35, 8);
             this.lblEncabezado.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.lblEncabezado.Name = "lblEncabezado";
             this.lblEncabezado.Size = new System.Drawing.Size(100, 16);
@@ -176,10 +180,10 @@
             this.groupBox2.Controls.Add(this.dgHistorico);
             this.groupBox2.Location = new System.Drawing.Point(12, 76);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(599, 199);
+            this.groupBox2.Size = new System.Drawing.Size(799, 239);
             this.groupBox2.TabIndex = 37;
             this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Historico";
+            this.groupBox2.Text = "Resultado:";
             // 
             // dgHistorico
             // 
@@ -197,7 +201,7 @@
             this.dgHistorico.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.Single;
             this.dgHistorico.RowHeadersVisible = false;
             this.dgHistorico.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgHistorico.Size = new System.Drawing.Size(593, 180);
+            this.dgHistorico.Size = new System.Drawing.Size(793, 220);
             this.dgHistorico.TabIndex = 37;
             // 
             // pnlResult
@@ -205,7 +209,7 @@
             this.pnlResult.BackColor = System.Drawing.Color.DeepSkyBlue;
             this.pnlResult.Controls.Add(this.pictureBox1);
             this.pnlResult.Controls.Add(this.lblMensaje);
-            this.pnlResult.Location = new System.Drawing.Point(94, 281);
+            this.pnlResult.Location = new System.Drawing.Point(366, 321);
             this.pnlResult.Name = "pnlResult";
             this.pnlResult.Size = new System.Drawing.Size(442, 24);
             this.pnlResult.TabIndex = 40;
@@ -231,48 +235,42 @@
             this.lblMensaje.TabIndex = 0;
             this.lblMensaje.Text = "¡Se guardo correcatmente!";
             // 
-            // btnCancel
+            // cmbAnios
             // 
-            this.btnCancel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnCancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.btnCancel.Image = global::WFPGranjas.Properties.Resources.cancelarIco;
-            this.btnCancel.Location = new System.Drawing.Point(320, 316);
-            this.btnCancel.Margin = new System.Windows.Forms.Padding(4);
-            this.btnCancel.Name = "btnCancel";
-            this.btnCancel.Size = new System.Drawing.Size(99, 30);
-            this.btnCancel.TabIndex = 39;
-            this.btnCancel.Text = "Cancelar";
-            this.btnCancel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCancel.UseVisualStyleBackColor = true;
+            this.cmbAnios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbAnios.Enabled = false;
+            this.cmbAnios.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbAnios.FormattingEnabled = true;
+            this.cmbAnios.Location = new System.Drawing.Point(453, 3);
+            this.cmbAnios.Name = "cmbAnios";
+            this.cmbAnios.Size = new System.Drawing.Size(84, 24);
+            this.cmbAnios.TabIndex = 57;
+            this.cmbAnios.Visible = false;
             // 
-            // btnGuardar
+            // cmbPeriodos
             // 
-            this.btnGuardar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.btnGuardar.Image = global::WFPGranjas.Properties.Resources.aceptar;
-            this.btnGuardar.Location = new System.Drawing.Point(213, 316);
-            this.btnGuardar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Size = new System.Drawing.Size(99, 30);
-            this.btnGuardar.TabIndex = 38;
-            this.btnGuardar.Text = "Guardar";
-            this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnGuardar.UseVisualStyleBackColor = true;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            this.cmbPeriodos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPeriodos.Enabled = false;
+            this.cmbPeriodos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbPeriodos.FormattingEnabled = true;
+            this.cmbPeriodos.Location = new System.Drawing.Point(307, 3);
+            this.cmbPeriodos.Name = "cmbPeriodos";
+            this.cmbPeriodos.Size = new System.Drawing.Size(109, 24);
+            this.cmbPeriodos.TabIndex = 56;
+            this.cmbPeriodos.Visible = false;
             // 
             // frmCalculaCBAMensual
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(623, 351);
+            this.ClientSize = new System.Drawing.Size(820, 351);
             this.Controls.Add(this.pnlResult);
-            this.Controls.Add(this.btnCancel);
-            this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.pnlEncabezado);
             this.Controls.Add(this.pnlPrinBancos);
             this.Name = "frmCalculaCBAMensual";
             this.Text = "Cálculo de CBA Mensual";
-            this.Load += new System.EventHandler(this.frmCalculaCBAMensual_Load);
+            this.Load += new System.EventHandler(this.frmCalculaCBAMensual_Load_1);
             this.pnlPrinBancos.ResumeLayout(false);
             this.pnlPrinBancos.PerformLayout();
             this.menuStrip2.ResumeLayout(false);
@@ -298,7 +296,7 @@
         private System.Windows.Forms.MenuStrip menuStrip;
         private System.Windows.Forms.ToolStripMenuItem mNuevo;
         private System.Windows.Forms.ToolStripMenuItem mEditar;
-        private System.Windows.Forms.ToolStripMenuItem mEliminar;
+        private System.Windows.Forms.ToolStripMenuItem mPreview;
         private System.Windows.Forms.ToolStripMenuItem mSalir;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Panel pnlEncabezado;
@@ -308,7 +306,7 @@
         private System.Windows.Forms.Panel pnlResult;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.Label lblMensaje;
-        private System.Windows.Forms.Button btnCancel;
-        private System.Windows.Forms.Button btnGuardar;
+        private System.Windows.Forms.ComboBox cmbAnios;
+        private System.Windows.Forms.ComboBox cmbPeriodos;
     }
 }

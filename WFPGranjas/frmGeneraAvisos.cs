@@ -29,7 +29,7 @@ namespace WFPGranjas
 
         private void frmGeneraAvisos_Load(object sender, EventArgs e)
         {
-            //consultaPer();
+            consultaPer();
             //carga combo del catalogo de  manzanas 
             var BeanCLotesMza = new Backend.Catalogos.CManzanaLotes();
             BeanCLotesMza.consultaMazaCombo(cmbManzana);
@@ -40,7 +40,7 @@ namespace WFPGranjas
         {
             // gbEstatus.Visible = false;
             var BeanCPeriodo = new Backend.Procesos.PrcCuotaMto();
-            BeanCPeriodo.consultaPeriodos(cmbPeriodos, 1, 1);
+            BeanCPeriodo.consultaPeriodos(cmbPeriodos, 3, 1);
             BeanCPeriodo.consultaPeriodos(cmbAnios, 2, 1);
 
         }

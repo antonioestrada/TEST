@@ -554,15 +554,7 @@ namespace WFPGranjas
 
         private void fcCasaC_Click(object sender, EventArgs e)
         {
-            cerrarVentanas();
-            //if (childFormCatUsuarios ==null)
-            frmAnticipoMto childFormCatPerfiles = new frmAnticipoMto(5,false);
-            childFormCatPerfiles.Text = "Ingresos por Servicios Casa Club";
-            childFormCatPerfiles.StartPosition = FormStartPosition.CenterScreen;
-            childFormCatPerfiles.MdiParent = this;
-
-            childFormCatPerfiles.Size = new Size(849, 580);
-            childFormCatPerfiles.Show();
+            
         }
 
         private void arRegLecturas_Click(object sender, EventArgs e)
@@ -674,12 +666,30 @@ namespace WFPGranjas
 
         private void cuotasExtraordinariasToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            
+        }
+
+        private void ingresosCasaClubToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             cerrarVentanas();
             frmPagoMto childFormCuotasConvenio = new frmPagoMto(5);
             childFormCuotasConvenio.MdiParent = this;
             childFormCuotasConvenio.StartPosition = FormStartPosition.CenterScreen;
             childFormCuotasConvenio.Text = "INGRESOS CASA CLUB";
             childFormCuotasConvenio.Show();
+        }
+
+        private void cuotasCasaClubToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cerrarVentanas();
+            //if (childFormCatUsuarios ==null)
+            frmAnticipoMto childFormCatPerfiles = new frmAnticipoMto(5, false);
+            childFormCatPerfiles.Text = "Ingresos por Servicios Casa Club";
+            childFormCatPerfiles.StartPosition = FormStartPosition.CenterScreen;
+            childFormCatPerfiles.MdiParent = this;
+
+            childFormCatPerfiles.Size = new Size(849, 580);
+            childFormCatPerfiles.Show();
         }
     }
     }
