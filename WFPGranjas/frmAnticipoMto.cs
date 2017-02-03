@@ -455,11 +455,7 @@ namespace WFPGranjas
                 int mesNum = int.Parse(subcadena1);
                 chk.Checked = true;
                 chk.Enabled = false;
-                
-                   // if (mesNum != 12 && mesNum!=1 )
-                      
-
-                    chk.BackColor = Color.FloralWhite;
+                chk.BackColor = Color.FloralWhite;
              
 
             }
