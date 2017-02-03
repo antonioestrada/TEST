@@ -243,8 +243,15 @@ namespace WFPGranjas
                     prcAnticipos.consultaCuotasPagadas(listaCuotasPag, idLote);
                     int periodoActualBD = prcAnticipos.obtienePeriodoActual();
                     if (esAnual) {
-                          validaAnualidad(periodoActualBD);
-                         
+                        if(periodoActualBD==12 || periodoActualBD==1)
+                            validaAnualidad(periodoActualBD);
+                        else
+                        {
+                            pnlMeses.Visible = false;
+                            MessageBox.Show("No se puede realizar el atincipo anual porque esta fuera del periodo activo");
+
+                        }
+
                     }
                     else
                         validaMeses(periodoActualBD);
@@ -449,19 +456,12 @@ namespace WFPGranjas
              
                 chk.Enabled = false;
 
-                if (validaPeriodoAnticipo(mesNum))
-                {
-                    chk.Enabled = false;
-                    chk.BackColor = Color.LightBlue;
-                }
-                else
-                {
+               
                    // if (mesNum != 12 && mesNum!=1 )
                         chk.Checked = true;
 
                     chk.BackColor = Color.FloralWhite;
-                   
-                }
+             
 
             }
             
