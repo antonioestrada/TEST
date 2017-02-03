@@ -456,19 +456,12 @@ namespace WFPGranjas
              
                 chk.Enabled = false;
 
-                if (validaPeriodoAnticipo(mesNum))
-                {
-                    chk.Enabled = false;
-                    chk.BackColor = Color.LightBlue;
-                }
-                else
-                {
+               
                    // if (mesNum != 12 && mesNum!=1 )
                         chk.Checked = true;
 
                     chk.BackColor = Color.FloralWhite;
-                   
-                }
+             
 
             }
             
