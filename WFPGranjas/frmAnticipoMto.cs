@@ -340,7 +340,7 @@ namespace WFPGranjas
             else
             {
                 PrcAnticipos prcAnticipos = new PrcAnticipos();
-                double importeTotal = prcAnticipos.generaCuotas(dgPartidasR, id_colono, idManzana, idLote, listaMeses);
+                double importeTotal = prcAnticipos.generaCuotas(dgPartidasR, id_colono, idManzana, idLote, listaMeses,esAnual);
                 pnlMeses.Visible = false;
                 groupCuota.Visible = true;
                 txtImporte.Text = String.Format(CultureInfo.InvariantCulture, "{0:0,0.00}", importeTotal);
@@ -456,7 +456,7 @@ namespace WFPGranjas
                 }
                 else
                 {
-                    if (mes <= mesNum)
+                   // if (mesNum != 12 && mesNum!=1 )
                         chk.Checked = true;
 
                     chk.BackColor = Color.FloralWhite;

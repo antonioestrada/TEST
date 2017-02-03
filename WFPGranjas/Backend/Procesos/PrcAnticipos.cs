@@ -16,14 +16,14 @@ namespace WFPGranjas.Backend.Procesos
     {
        
         #region genera  cuotas
-        public double generaCuotas(DataGridView dgConsulta, int idColono, int idManzana, int idLote, string listadoMeses)
+        public double generaCuotas(DataGridView dgConsulta, int idColono, int idManzana, int idLote, string listadoMeses,Boolean esAnual)
         {
             //limpiamos el datagridview
             //Conexion.conectar();
             dgConsulta.Rows.Clear();
             double importeTotal = 0;
             //llenamos nuestro reader con la consulta de nuestro SP
-            IDataReader reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_frm_Antp_CalculaPartidas(" + idColono + "," + idManzana + "," + idLote + ",'" + listadoMeses + "')");
+            IDataReader reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_frm_Antp_CalculaPartidas(" + idColono + "," + idManzana + "," + idLote + ",'" + listadoMeses + "',"+ esAnual + ")");
             //siclamos cada registro que contiene nuestro reader
             while (reader.Read())
             {
