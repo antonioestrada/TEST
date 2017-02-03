@@ -325,12 +325,12 @@ namespace WFPGranjas
             }
         }
 
-        private void btnApliCalculoAnt_Click(object sender, EventArgs e)
+        private void btnApliCalculoAn9t_Click(object sender, EventArgs e)
         {
            
             listaIDKardex = obtieneIDKardex();
             PrcAnticipos prcAnticipos= new PrcAnticipos();
-            double importeTotal=prcAnticipos.generaCuotas(dgPartidasR, id_colono, idManzana, idLote, listaIDKardex);
+            double importeTotal=prcAnticipos.generaCuotas(dgPartidasR, id_colono, idManzana, idLote, listaIDKardex,false);
          
             groupCuota.Visible = true;
             txtImporte.Text = String.Format(CultureInfo.InvariantCulture,"{0:0,0.00}", importeTotal);
