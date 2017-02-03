@@ -634,12 +634,7 @@ namespace WFPGranjas
         
         private void cierreDeMesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            cerrarVentanas();
-            //if (childFormCatUsuarios ==null)
-            frmPrcCuotas childFormGenCuotas = new frmPrcCuotas(0, usuario);
-            childFormGenCuotas.StartPosition = FormStartPosition.CenterScreen;
-            childFormGenCuotas.MdiParent = this;
-            childFormGenCuotas.Show();
+            
         }
 
         private void cgcCBA_Click(object sender, EventArgs e)
@@ -690,6 +685,22 @@ namespace WFPGranjas
 
             childFormCatPerfiles.Size = new Size(849, 580);
             childFormCatPerfiles.Show();
+        }
+
+        private void menuAAyuda_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolsMenu_Click(object sender, EventArgs e)
+        {
+            cerrarVentanas();
+            //if (childFormCatUsuarios ==null)
+            frmPrcCuotas childFormGenCuotas = new frmPrcCuotas(0, usuario);
+            childFormGenCuotas.StartPosition = FormStartPosition.CenterScreen;
+            childFormGenCuotas.Text = "Cierre Mensual";
+            childFormGenCuotas.MdiParent = this;
+            childFormGenCuotas.Show();
         }
     }
     }

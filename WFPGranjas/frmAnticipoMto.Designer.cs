@@ -405,9 +405,9 @@
             this.lblDescuento.AutoSize = true;
             this.lblDescuento.Location = new System.Drawing.Point(612, 40);
             this.lblDescuento.Name = "lblDescuento";
-            this.lblDescuento.Size = new System.Drawing.Size(91, 16);
+            this.lblDescuento.Size = new System.Drawing.Size(76, 16);
             this.lblDescuento.TabIndex = 4;
-            this.lblDescuento.Text = "Descuento % ";
+            this.lblDescuento.Text = "Descuento:";
             // 
             // label4
             // 

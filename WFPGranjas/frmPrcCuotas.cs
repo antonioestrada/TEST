@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WFPGranjas.Backend.Catalogos;
 
 namespace WFPGranjas
 {
@@ -170,7 +171,18 @@ namespace WFPGranjas
                 lblValidaPeriodo.ForeColor = Color.DarkRed;
             }
         }
-
+        #region Muestra estatus
+        public void muestraEstatus()
+        {
+            var BeanCEstatus = new Backend.Catalogos.CManzanaLotes();
+            ResultadoTrnx resultado = new ResultadoTrnx();
+            //ejecutamos el sp donde nos mostrara los siguientes datos como id del lote, nombre del colono, direccion, y superficie del lote
+            resultado = BeanCEstatus.consultaPeriodos();
+            //almacenamos el id del lote en la variable global local
+            MDIPrincipal status = new MDIPrincipal();
+            status.tsPeriodo.Text = resultado.periodoEstatus;
+        }
+        #endregion
 
         public void actualizaDatosCierre()
         {
@@ -284,6 +296,7 @@ namespace WFPGranjas
             {
                 modulo = "Cierre.Generacion de cierre de mes";
                 lblInfoMsj.Text = "Finalizo la generacion del cierre";
+                muestraEstatus();
             }
             Object[] parames2 = { usuario, "Administracion." + modulo, "Generacion de cuotas del mes :" + cmbPeriodos.Text, "OK", "Satisfactorio" };
             bitacora.registroBitacora(parames2);
