@@ -76,7 +76,7 @@ namespace WFPGranjas.Backend.Procesos
                 cuota.moratorio = Double.Parse(reader.GetValue(10).ToString());
                 //  arreglo.Cve_resultado = id;
                 // puesto.Mensaje = reader.GetValue(3).ToString();
-                if (servicio == 2)
+                if (servicio == 2  || servicio==5)
                 {
                     cmbCuotas2.Add(i, reader.GetValue(3).ToString());
                     
