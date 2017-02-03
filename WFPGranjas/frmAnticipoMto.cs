@@ -453,12 +453,11 @@ namespace WFPGranjas
                 string nombre = chk.Name;
                 string subcadena1 = nombre.Substring(3, 2);
                 int mesNum = int.Parse(subcadena1);
-             
+                chk.Checked = true;
                 chk.Enabled = false;
-
-               
+                
                    // if (mesNum != 12 && mesNum!=1 )
-                        chk.Checked = true;
+                      
 
                     chk.BackColor = Color.FloralWhite;
              
