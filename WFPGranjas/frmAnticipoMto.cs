@@ -243,8 +243,15 @@ namespace WFPGranjas
                     prcAnticipos.consultaCuotasPagadas(listaCuotasPag, idLote);
                     int periodoActualBD = prcAnticipos.obtienePeriodoActual();
                     if (esAnual) {
-                          validaAnualidad(periodoActualBD);
-                         
+                        if(periodoActualBD==12 || periodoActualBD==1)
+                            validaAnualidad(periodoActualBD);
+                        else
+                        {
+                            pnlMeses.Visible = false;
+                            MessageBox.Show("No se puede realizar el atincipo anual porque esta fuera del periodo activo");
+
+                        }
+
                     }
                     else
                         validaMeses(periodoActualBD);
