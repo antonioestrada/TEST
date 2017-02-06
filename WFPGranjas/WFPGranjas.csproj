@@ -55,6 +55,7 @@
   <ItemGroup>
     <Compile Include="Backend\AccesoDatos.cs" />
     <Compile Include="Backend\Catalogos\CBancos.cs" />
+    <Compile Include="Backend\Catalogos\CConceptos.cs" />
     <Compile Include="Backend\Catalogos\CColonos.cs" />
     <Compile Include="Backend\Catalogos\CManzanaLotes.cs" />
     <Compile Include="Backend\Catalogos\CMedidores.cs" />
@@ -178,6 +179,12 @@
     </Compile>
     <Compile Include="frmCalculaCBAMensual.Designer.cs">
       <DependentUpon>frmCalculaCBAMensual.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmCConceptosCC.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCConceptosCC.Designer.cs">
+      <DependentUpon>frmCConceptosCC.cs</DependentUpon>
     </Compile>
     <Compile Include="frmConvenios.cs">
       <SubType>Form</SubType>
@@ -331,6 +338,12 @@
     <Compile Include="rptAvisosCobranza.Designer.cs">
       <DependentUpon>rptAvisosCobranza.cs</DependentUpon>
     </Compile>
+    <Compile Include="rptConsumos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="rptConsumos.Designer.cs">
+      <DependentUpon>rptConsumos.cs</DependentUpon>
+    </Compile>
     <Compile Include="rptMedidores.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -393,6 +406,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCalculaCBAMensual.resx">
       <DependentUpon>frmCalculaCBAMensual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCConceptosCC.resx">
+      <DependentUpon>frmCConceptosCC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmConvenios.resx">
       <DependentUpon>frmConvenios.cs</DependentUpon>
@@ -474,6 +490,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="rptAvisosCobranza.resx">
       <DependentUpon>rptAvisosCobranza.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="rptConsumos.resx">
+      <DependentUpon>rptConsumos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="rptMedidores.resx">
       <DependentUpon>rptMedidores.cs</DependentUpon>

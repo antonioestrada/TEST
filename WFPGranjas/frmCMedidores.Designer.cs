@@ -389,12 +389,12 @@
             // 
             this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(226, 230);
+            this.label9.Location = new System.Drawing.Point(193, 230);
             this.label9.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(150, 16);
+            this.label9.Size = new System.Drawing.Size(184, 16);
             this.label9.TabIndex = 25;
-            this.label9.Text = "Cuota Autorizada C.N.A:";
+            this.label9.Text = "Cuota Base Autorizada C.B.A:";
             // 
             // txtM2
             // 

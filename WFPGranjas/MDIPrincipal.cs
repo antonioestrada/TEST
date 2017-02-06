@@ -378,7 +378,7 @@ namespace WFPGranjas
             cerrarVentanas();
             frmCColonos childFormCatColonos = new frmCColonos();
             childFormCatColonos.MdiParent = this;
-            childFormCatColonos.StartPosition = FormStartPosition.CenterScreen;
+            childFormCatColonos.StartPosition = FormStartPosition.Manual;
             childFormCatColonos.Size = new Size(573, 470);
             childFormCatColonos.Show();
         }
@@ -415,12 +415,7 @@ namespace WFPGranjas
 
         private void cgcMantenimiento_Click(object sender, EventArgs e)
         {
-            cerrarVentanas();
-            frmCCalculoManto childFormMantenimiento = new frmCCalculoManto();
-            childFormMantenimiento.MdiParent = this;
-            childFormMantenimiento.StartPosition = FormStartPosition.CenterScreen;
-            childFormMantenimiento.Size = new Size(553, 340);
-            childFormMantenimiento.Show();
+            
         }
 
         private void csUsuarios_Click(object sender, EventArgs e)
@@ -533,11 +528,7 @@ namespace WFPGranjas
 
         private void cgcAgua_Click(object sender, EventArgs e)
         {
-            cerrarVentanas();
-            frmTarifasAgua childFormTarifaAgua = new frmTarifasAgua();
-            childFormTarifaAgua.MdiParent = this;
-            childFormTarifaAgua.StartPosition = FormStartPosition.CenterScreen;
-            childFormTarifaAgua.Show();
+            
         
         }
 
@@ -639,11 +630,7 @@ namespace WFPGranjas
 
         private void cgcCBA_Click(object sender, EventArgs e)
         {
-            cerrarVentanas();
-            frmCalculaCBAMensual childFormGenCBAMensual = new frmCalculaCBAMensual();
-            childFormGenCBAMensual.StartPosition = FormStartPosition.CenterScreen;
-            childFormGenCBAMensual.MdiParent = this;
-            childFormGenCBAMensual.Show();
+            
         }
 
         private void fcAAnualidades_Click(object sender, EventArgs e)
@@ -701,6 +688,58 @@ namespace WFPGranjas
             childFormGenCuotas.Text = "Cierre Mensual";
             childFormGenCuotas.MdiParent = this;
             childFormGenCuotas.Show();
+        }
+
+        private void calculoDeCBAToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cerrarVentanas();
+            frmCalculaCBAMensual childFormGenCBAMensual = new frmCalculaCBAMensual();
+            childFormGenCBAMensual.StartPosition = FormStartPosition.CenterScreen;
+            childFormGenCBAMensual.MdiParent = this;
+            childFormGenCBAMensual.Show();
+        }
+
+        private void cgcaTarifas_Click(object sender, EventArgs e)
+        {
+            cerrarVentanas();
+            //opcion 1 es para tarifas de agua
+            frmTarifasAgua childFormTarifaAgua = new frmTarifasAgua(1);
+            childFormTarifaAgua.MdiParent = this;
+            childFormTarifaAgua.StartPosition = FormStartPosition.CenterScreen;
+            childFormTarifaAgua.Text = "Tarifas de Cuotas de Agua";
+            childFormTarifaAgua.Show();
+        }
+
+        private void cgcmTarifas_Click(object sender, EventArgs e)
+        {
+            cerrarVentanas();
+            frmCCalculoManto childFormMantenimiento = new frmCCalculoManto();
+            childFormMantenimiento.MdiParent = this;
+            childFormMantenimiento.StartPosition = FormStartPosition.CenterScreen;
+            childFormMantenimiento.Size = new Size(553, 340);
+            childFormMantenimiento.Show();
+        }
+
+        private void cgcmDescuentos_Click(object sender, EventArgs e)
+        {
+            cerrarVentanas();
+            //opcion 2 es para descuentos en anualidades de mantenimiento
+            frmTarifasAgua childFormTarifaAgua = new frmTarifasAgua(2);
+            childFormTarifaAgua.MdiParent = this;
+            childFormTarifaAgua.StartPosition = FormStartPosition.CenterScreen;
+            childFormTarifaAgua.Text = "Porcentaje de Descuento en Anualidades";
+            childFormTarifaAgua.Show();
+        }
+
+        private void cgConceptosCC_Click(object sender, EventArgs e)
+        {
+            cerrarVentanas();
+            frmCConceptosCC childFormCatColonos = new frmCConceptosCC();
+            childFormCatColonos.MdiParent = this;
+            childFormCatColonos.StartPosition = FormStartPosition.Manual;
+            childFormCatColonos.Size = new Size(506, 367);
+
+            childFormCatColonos.Show();
         }
     }
     }

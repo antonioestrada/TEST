@@ -183,6 +183,26 @@ namespace WFPGranjas.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap aviso_de_error_2_ {
+            get {
+                object obj = ResourceManager.GetObject("aviso-de-error(2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap aviso_de_error_3_ {
+            get {
+                object obj = ResourceManager.GetObject("aviso-de-error(3)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap b1_uno {
             get {
                 object obj = ResourceManager.GetObject("b1_uno", resourceCulture);
@@ -823,6 +843,26 @@ namespace WFPGranjas.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap mensaje_publico {
+            get {
+                object obj = ResourceManager.GetObject("mensaje-publico", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap mensaje_publico_1_ {
+            get {
+                object obj = ResourceManager.GetObject("mensaje-publico(1)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap metodo_de_pago24 {
             get {
                 object obj = ResourceManager.GetObject("metodo-de-pago24", resourceCulture);
@@ -856,6 +896,16 @@ namespace WFPGranjas.Properties {
         internal static System.Drawing.Bitmap navegador {
             get {
                 object obj = ResourceManager.GetObject("navegador", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap notificacion {
+            get {
+                object obj = ResourceManager.GetObject("notificacion", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -946,6 +996,16 @@ namespace WFPGranjas.Properties {
         internal static System.Drawing.Bitmap sistema {
             get {
                 object obj = ResourceManager.GetObject("sistema", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap smartphone {
+            get {
+                object obj = ResourceManager.GetObject("smartphone", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

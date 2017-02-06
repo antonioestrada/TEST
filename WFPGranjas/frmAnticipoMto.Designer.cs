@@ -97,6 +97,7 @@
             this.lblFechaSys = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.btnCapturaR = new System.Windows.Forms.Button();
+            this.btnGuardaCuota = new System.Windows.Forms.Button();
             this.groupDColono.SuspendLayout();
             this.groupCuota.SuspendLayout();
             this.panelCapturaCenter.SuspendLayout();
@@ -194,6 +195,7 @@
             // 
             // panelCapturaButtom
             // 
+            this.panelCapturaButtom.Controls.Add(this.btnGuardaCuota);
             this.panelCapturaButtom.Controls.Add(this.pnlMetodoPago);
             this.panelCapturaButtom.Controls.Add(this.label7);
             this.panelCapturaButtom.Controls.Add(this.lblDescuento);
@@ -890,6 +892,20 @@
             this.btnCapturaR.UseVisualStyleBackColor = true;
             this.btnCapturaR.Click += new System.EventHandler(this.btnCapturaR_Click);
             // 
+            // btnGuardaCuota
+            // 
+            this.btnGuardaCuota.Image = global::WFPGranjas.Properties.Resources.conseguir_dinero24;
+            this.btnGuardaCuota.Location = new System.Drawing.Point(570, 96);
+            this.btnGuardaCuota.Name = "btnGuardaCuota";
+            this.btnGuardaCuota.Size = new System.Drawing.Size(240, 32);
+            this.btnGuardaCuota.TabIndex = 21;
+            this.btnGuardaCuota.Text = "Generar Cuota";
+            this.btnGuardaCuota.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGuardaCuota.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnGuardaCuota.UseVisualStyleBackColor = true;
+            this.btnGuardaCuota.Visible = false;
+            this.btnGuardaCuota.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmAnticipoMto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1005,5 +1021,6 @@
         private System.Windows.Forms.TextBox txtConcepto;
         private System.Windows.Forms.ComboBox cmbCCPadre;
         private System.Windows.Forms.ComboBox cmbCCHijo;
+        private System.Windows.Forms.Button btnGuardaCuota;
     }
 }

@@ -655,7 +655,7 @@ namespace WFPGranjas
             string mensaje = "monto a anticipar";
             if (servicio == 5)
             {
-                mensaje = "monto del servicio";
+                mensaje = "Monto del servicio";
             }
 
             if (txtTotalAgua.Text == "" || txtTotalAgua.Text == null )
@@ -691,7 +691,7 @@ namespace WFPGranjas
                     {
                         dgPartidasR.Rows[renglon].Cells[0].Value = "Anticipo de cuota de Agua";
                         dgPartidasR.Columns[1].Visible = false;
-                      
+                        pnlMetodoPago.Visible = true;
                     }
                     if (servicio == 5)
                     {
@@ -699,7 +699,13 @@ namespace WFPGranjas
                         dgPartidasR.Columns[1].Visible = true;
                         dgPartidasR.Rows[renglon].Cells[1].Value =""+cmbCCPadre.Text+" - "+cmbCCHijo.Text;
                         //stxtConcepto.Text = "";
-                        
+                        pnlMetodoPago.Visible = false;
+                        //tonka
+                        txtDescuento.Visible = false;
+                        pnlMetodoPago.Visible = false;
+                        btnGuardaCuota.Visible = true;
+
+
                     }
                     txtImporte.Text = String.Format(CultureInfo.InvariantCulture, "{0:0,0.00}", txtTotalAgua.Text);
                     txtDescuento.Text = "0.00";
@@ -707,7 +713,6 @@ namespace WFPGranjas
                     txtTotalAgua.Text = "0.00";
                     //tonka
                     btnAddCuota.Enabled = false;
-                    pnlMetodoPago.Visible = true;
                     txtImpEf.Focus();
                     txtImpEf.SelectAll();
                 }
@@ -773,6 +778,74 @@ namespace WFPGranjas
         private void txtImpFicha_KeyPress_1(object sender, KeyPressEventArgs e)
         {
             validaNumeros(txtImpFicha, sender, e);
+        }
+        //AQUI ES PARA GUARDAR CUOTA DE SERVICIOS CASA CLUB
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Boolean resultado = false;
+            PrcAnticipos prcAnticipos = new PrcAnticipos();
+
+            double importeEfectivo = double.Parse(txtImporte.Text);
+            int bancoCheque = int.Parse(cmbBancoCheq.SelectedValue.ToString());
+            double importeCheque = 0;
+            if (txtImpChq.Text != "" && txtImpChq.Text != ".")
+            {
+                importeCheque = double.Parse(txtImpChq.Text);
+            }
+            int bancoFicha = int.Parse(cmbBancoFicha.SelectedValue.ToString());
+            double importFicha = 0;
+            if (txtImpFicha.Text != "" && txtImpFicha.Text != ".")
+            {
+                importFicha = double.Parse(txtImpFicha.Text);
+            }
+            double totalImporte = (importeEfectivo + importeCheque + importFicha);
+            double descuento = 0;
+
+
+            if (txtDescuento.Text != "" && txtDescuento.Text != ".")
+            {
+                descuento = double.Parse(txtDescuento.Text);
+            }
+
+            if (pagoTotal == totalImporte)
+            {
+
+
+
+                Object[] paramesCasaClub = { idLote, importeEfectivo, txtCheque.Text, bancoCheque, importeCheque, txtFicha.Text, bancoFicha, importFicha, servicio, cmbCCHijo.Text, txtConcepto.Text };
+
+                Object[] parames = { id_colono, idManzana, idLote, listaMeses, importeEfectivo, txtCheque.Text, bancoCheque, importeCheque, txtFicha.Text, bancoFicha, importFicha, descuento, servicio, anual };
+
+                if (servicio == 5)
+                    resultado = prcAnticipos.registroCuotas(paramesCasaClub, servicio);
+                else
+                    resultado = prcAnticipos.registroCuotas(parames, servicio);
+
+            }
+            else
+            {
+                if (totalImporte > pagoTotal)
+                    MessageBox.Show("¡El importe es mayor que el total a pagar!");
+                else
+                    MessageBox.Show("¡El importe es  menor que el total a pagar!");
+            }
+            if (resultado)
+            {
+                txtImpEf.Text = "0.00";
+                txtImpChq.Text = "0.00";
+                txtImpFicha.Text = "0.00";
+                txtFicha.Text = "";
+                txtCheque.Text = "";
+                txtTotalAgua.Text = "0.00";
+                txtImporte.Text = "0.00";
+                txtTotal.Text = "0.00";
+                txtDescuento.Text = "0.00";
+                pnlMetodoPago.Visible = false;
+                dgPartidasR.Rows.Clear();
+                groupCuota.Visible = false;
+                MessageBox.Show("¡Se registro Correctamente el Pago!");
+            }
+
         }
 
         private void txtImpEf_KeyPress_1(object sender, KeyPressEventArgs e)

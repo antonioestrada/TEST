@@ -38,14 +38,14 @@
             this.mSalir = new System.Windows.Forms.ToolStripMenuItem();
             this.label4 = new System.Windows.Forms.Label();
             this.pnlEncabezado = new System.Windows.Forms.Panel();
+            this.cmbAnios = new System.Windows.Forms.ComboBox();
+            this.cmbPeriodos = new System.Windows.Forms.ComboBox();
             this.lblEncabezado = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dgHistorico = new System.Windows.Forms.DataGridView();
             this.pnlResult = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblMensaje = new System.Windows.Forms.Label();
-            this.cmbAnios = new System.Windows.Forms.ComboBox();
-            this.cmbPeriodos = new System.Windows.Forms.ComboBox();
             this.pnlPrinBancos.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.menuStrip.SuspendLayout();
@@ -105,8 +105,8 @@
             // 
             this.mPreview.Image = global::WFPGranjas.Properties.Resources.eliminar;
             this.mPreview.Name = "mPreview";
-            this.mPreview.Size = new System.Drawing.Size(135, 20);
-            this.mPreview.Text = "Preview Cutas CBA";
+            this.mPreview.Size = new System.Drawing.Size(138, 20);
+            this.mPreview.Text = "Revisar Cuotas CBA";
             this.mPreview.Click += new System.EventHandler(this.mPreview_Click_1);
             // 
             // mNuevo
@@ -158,6 +158,30 @@
             this.pnlEncabezado.Name = "pnlEncabezado";
             this.pnlEncabezado.Size = new System.Drawing.Size(820, 30);
             this.pnlEncabezado.TabIndex = 18;
+            // 
+            // cmbAnios
+            // 
+            this.cmbAnios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbAnios.Enabled = false;
+            this.cmbAnios.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbAnios.FormattingEnabled = true;
+            this.cmbAnios.Location = new System.Drawing.Point(453, 3);
+            this.cmbAnios.Name = "cmbAnios";
+            this.cmbAnios.Size = new System.Drawing.Size(84, 24);
+            this.cmbAnios.TabIndex = 57;
+            this.cmbAnios.Visible = false;
+            // 
+            // cmbPeriodos
+            // 
+            this.cmbPeriodos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPeriodos.Enabled = false;
+            this.cmbPeriodos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cmbPeriodos.FormattingEnabled = true;
+            this.cmbPeriodos.Location = new System.Drawing.Point(307, 3);
+            this.cmbPeriodos.Name = "cmbPeriodos";
+            this.cmbPeriodos.Size = new System.Drawing.Size(109, 24);
+            this.cmbPeriodos.TabIndex = 56;
+            this.cmbPeriodos.Visible = false;
             // 
             // lblEncabezado
             // 
@@ -235,30 +259,6 @@
             this.lblMensaje.TabIndex = 0;
             this.lblMensaje.Text = "¡Se guardo correcatmente!";
             // 
-            // cmbAnios
-            // 
-            this.cmbAnios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbAnios.Enabled = false;
-            this.cmbAnios.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbAnios.FormattingEnabled = true;
-            this.cmbAnios.Location = new System.Drawing.Point(453, 3);
-            this.cmbAnios.Name = "cmbAnios";
-            this.cmbAnios.Size = new System.Drawing.Size(84, 24);
-            this.cmbAnios.TabIndex = 57;
-            this.cmbAnios.Visible = false;
-            // 
-            // cmbPeriodos
-            // 
-            this.cmbPeriodos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbPeriodos.Enabled = false;
-            this.cmbPeriodos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbPeriodos.FormattingEnabled = true;
-            this.cmbPeriodos.Location = new System.Drawing.Point(307, 3);
-            this.cmbPeriodos.Name = "cmbPeriodos";
-            this.cmbPeriodos.Size = new System.Drawing.Size(109, 24);
-            this.cmbPeriodos.TabIndex = 56;
-            this.cmbPeriodos.Visible = false;
-            // 
             // frmCalculaCBAMensual
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -269,7 +269,7 @@
             this.Controls.Add(this.pnlEncabezado);
             this.Controls.Add(this.pnlPrinBancos);
             this.Name = "frmCalculaCBAMensual";
-            this.Text = "Cálculo de CBA Mensual";
+            this.Text = "Calculo de CBA Mensual";
             this.Load += new System.EventHandler(this.frmCalculaCBAMensual_Load_1);
             this.pnlPrinBancos.ResumeLayout(false);
             this.pnlPrinBancos.PerformLayout();

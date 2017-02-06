@@ -34,17 +34,19 @@
             this.mEliminar = new System.Windows.Forms.ToolStripMenuItem();
             this.mSalir = new System.Windows.Forms.ToolStripMenuItem();
             this.pnlPrinBancos = new System.Windows.Forms.Panel();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
+            this.label4 = new System.Windows.Forms.Label();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.otreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.label4 = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.pnlResult = new System.Windows.Forms.Panel();
             this.gbRenglonT1 = new System.Windows.Forms.GroupBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.btnSaveCNAT1 = new System.Windows.Forms.Button();
-            this.txtBCNA = new System.Windows.Forms.TextBox();
-            this.checkBCNAT1 = new System.Windows.Forms.CheckBox();
             this.btnBorraTablaT1 = new System.Windows.Forms.Button();
             this.btnEditT1 = new System.Windows.Forms.Button();
             this.btnAddT1 = new System.Windows.Forms.Button();
@@ -57,18 +59,21 @@
             this.btnEditT2 = new System.Windows.Forms.Button();
             this.btnAddT2 = new System.Windows.Forms.Button();
             this.lblCuotaBase = new System.Windows.Forms.Label();
-            this.btnSaveCNAT2 = new System.Windows.Forms.Button();
-            this.txtCBT2 = new System.Windows.Forms.TextBox();
-            this.checkBCNAT2 = new System.Windows.Forms.CheckBox();
             this.dgTarifa2 = new System.Windows.Forms.DataGridView();
+            this.pnlBottomT2 = new System.Windows.Forms.Panel();
             this.gbRenglonT2 = new System.Windows.Forms.GroupBox();
             this.btnAplicaT2 = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.txtImporteT2 = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.txtM3T2 = new System.Windows.Forms.TextBox();
-            this.pnlBottomT2 = new System.Windows.Forms.Panel();
             this.lblMas200 = new System.Windows.Forms.Label();
+            this.btnSaveCNAT1 = new System.Windows.Forms.Button();
+            this.txtBCNA = new System.Windows.Forms.TextBox();
+            this.checkBCNAT1 = new System.Windows.Forms.CheckBox();
+            this.btnSaveCNAT2 = new System.Windows.Forms.Button();
+            this.txtCBT2 = new System.Windows.Forms.TextBox();
+            this.checkBCNAT2 = new System.Windows.Forms.CheckBox();
             this.btnSaveCExcedeT2 = new System.Windows.Forms.Button();
             this.txtCBaseExcedenteT2 = new System.Windows.Forms.TextBox();
             this.checBExcedenteT2 = new System.Windows.Forms.CheckBox();
@@ -83,14 +88,10 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabControl2 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.label7 = new System.Windows.Forms.Label();
+            this.lblInstruccion = new System.Windows.Forms.Label();
             this.menuStrip.SuspendLayout();
             this.pnlPrinBancos.SuspendLayout();
+            this.menuStrip1.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -99,12 +100,11 @@
             this.pnlResult2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgTarifa2)).BeginInit();
-            this.gbRenglonT2.SuspendLayout();
             this.pnlBottomT2.SuspendLayout();
+            this.gbRenglonT2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabControl2.SuspendLayout();
             this.tabPage3.SuspendLayout();
-            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip
@@ -168,6 +168,64 @@
             this.pnlPrinBancos.Size = new System.Drawing.Size(551, 28);
             this.pnlPrinBancos.TabIndex = 9;
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
+            this.toolStripMenuItem2,
+            this.toolStripMenuItem3,
+            this.toolStripMenuItem4});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Padding = new System.Windows.Forms.Padding(15, 2, 0, 2);
+            this.menuStrip1.Size = new System.Drawing.Size(551, 24);
+            this.menuStrip1.TabIndex = 12;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Image = global::WFPGranjas.Properties.Resources.nuevo;
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(70, 20);
+            this.toolStripMenuItem1.Text = "Nuevo";
+            this.toolStripMenuItem1.Visible = false;
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Image = global::WFPGranjas.Properties.Resources.editar;
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            this.toolStripMenuItem2.Size = new System.Drawing.Size(65, 20);
+            this.toolStripMenuItem2.Text = "Editar";
+            this.toolStripMenuItem2.Visible = false;
+            // 
+            // toolStripMenuItem3
+            // 
+            this.toolStripMenuItem3.Image = global::WFPGranjas.Properties.Resources.eliminar;
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(78, 20);
+            this.toolStripMenuItem3.Text = "Eliminar";
+            this.toolStripMenuItem3.Visible = false;
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Image = global::WFPGranjas.Properties.Resources.cerrar;
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(67, 20);
+            this.toolStripMenuItem4.Text = "Cerrar";
+            this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.label4.Location = new System.Drawing.Point(25, 6);
+            this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(131, 16);
+            this.label4.TabIndex = 0;
+            this.label4.Text = "Catálogo: Bancos";
+            // 
             // menuStrip2
             // 
             this.menuStrip2.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -185,18 +243,6 @@
             this.otreToolStripMenuItem.Name = "otreToolStripMenuItem";
             this.otreToolStripMenuItem.Size = new System.Drawing.Size(40, 26);
             this.otreToolStripMenuItem.Text = "otre";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label4.Location = new System.Drawing.Point(25, 6);
-            this.label4.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(131, 16);
-            this.label4.TabIndex = 0;
-            this.label4.Text = "Catálogo: Bancos";
             // 
             // tabControl1
             // 
@@ -250,38 +296,6 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(443, 70);
             this.label1.TabIndex = 49;
-            // 
-            // btnSaveCNAT1
-            // 
-            this.btnSaveCNAT1.Image = global::WFPGranjas.Properties.Resources.aceptar;
-            this.btnSaveCNAT1.Location = new System.Drawing.Point(479, 14);
-            this.btnSaveCNAT1.Name = "btnSaveCNAT1";
-            this.btnSaveCNAT1.Size = new System.Drawing.Size(32, 24);
-            this.btnSaveCNAT1.TabIndex = 44;
-            this.btnSaveCNAT1.UseVisualStyleBackColor = true;
-            this.btnSaveCNAT1.Visible = false;
-            this.btnSaveCNAT1.Click += new System.EventHandler(this.btnSaveCNAT1_Click);
-            // 
-            // txtBCNA
-            // 
-            this.txtBCNA.Location = new System.Drawing.Point(379, 15);
-            this.txtBCNA.Name = "txtBCNA";
-            this.txtBCNA.ReadOnly = true;
-            this.txtBCNA.Size = new System.Drawing.Size(100, 22);
-            this.txtBCNA.TabIndex = 43;
-            this.txtBCNA.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBCNA_KeyPress);
-            // 
-            // checkBCNAT1
-            // 
-            this.checkBCNAT1.AutoSize = true;
-            this.checkBCNAT1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBCNAT1.Location = new System.Drawing.Point(238, 17);
-            this.checkBCNAT1.Name = "checkBCNAT1";
-            this.checkBCNAT1.Size = new System.Drawing.Size(84, 20);
-            this.checkBCNAT1.TabIndex = 42;
-            this.checkBCNAT1.Text = "Tarifa 1:";
-            this.checkBCNAT1.UseVisualStyleBackColor = true;
-            this.checkBCNAT1.CheckedChanged += new System.EventHandler(this.checkBCNAT1_CheckedChanged);
             // 
             // btnBorraTablaT1
             // 
@@ -432,38 +446,6 @@
     "rá el importe que corresponda a su consumo de acuerdo a la relación siguiente:";
             this.lblCuotaBase.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // btnSaveCNAT2
-            // 
-            this.btnSaveCNAT2.Image = global::WFPGranjas.Properties.Resources.aceptar;
-            this.btnSaveCNAT2.Location = new System.Drawing.Point(479, 42);
-            this.btnSaveCNAT2.Name = "btnSaveCNAT2";
-            this.btnSaveCNAT2.Size = new System.Drawing.Size(32, 24);
-            this.btnSaveCNAT2.TabIndex = 47;
-            this.btnSaveCNAT2.UseVisualStyleBackColor = true;
-            this.btnSaveCNAT2.Visible = false;
-            this.btnSaveCNAT2.Click += new System.EventHandler(this.btnSaveCNAT2_Click);
-            // 
-            // txtCBT2
-            // 
-            this.txtCBT2.Location = new System.Drawing.Point(379, 43);
-            this.txtCBT2.Name = "txtCBT2";
-            this.txtCBT2.ReadOnly = true;
-            this.txtCBT2.Size = new System.Drawing.Size(100, 22);
-            this.txtCBT2.TabIndex = 46;
-            this.txtCBT2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCBT2_KeyPress);
-            // 
-            // checkBCNAT2
-            // 
-            this.checkBCNAT2.AutoSize = true;
-            this.checkBCNAT2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBCNAT2.Location = new System.Drawing.Point(238, 45);
-            this.checkBCNAT2.Name = "checkBCNAT2";
-            this.checkBCNAT2.Size = new System.Drawing.Size(94, 20);
-            this.checkBCNAT2.TabIndex = 45;
-            this.checkBCNAT2.Text = "Tarifa 1A:";
-            this.checkBCNAT2.UseVisualStyleBackColor = true;
-            this.checkBCNAT2.CheckedChanged += new System.EventHandler(this.checkBCNAT2_CheckedChanged);
-            // 
             // dgTarifa2
             // 
             this.dgTarifa2.AllowUserToAddRows = false;
@@ -482,6 +464,15 @@
             this.dgTarifa2.Size = new System.Drawing.Size(722, 155);
             this.dgTarifa2.TabIndex = 39;
             this.dgTarifa2.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgTarifa2_CellMouseClick);
+            // 
+            // pnlBottomT2
+            // 
+            this.pnlBottomT2.Controls.Add(this.gbRenglonT2);
+            this.pnlBottomT2.Controls.Add(this.lblMas200);
+            this.pnlBottomT2.Location = new System.Drawing.Point(3, 262);
+            this.pnlBottomT2.Name = "pnlBottomT2";
+            this.pnlBottomT2.Size = new System.Drawing.Size(732, 51);
+            this.pnlBottomT2.TabIndex = 60;
             // 
             // gbRenglonT2
             // 
@@ -544,15 +535,6 @@
             this.txtM3T2.Size = new System.Drawing.Size(100, 22);
             this.txtM3T2.TabIndex = 0;
             // 
-            // pnlBottomT2
-            // 
-            this.pnlBottomT2.Controls.Add(this.gbRenglonT2);
-            this.pnlBottomT2.Controls.Add(this.lblMas200);
-            this.pnlBottomT2.Location = new System.Drawing.Point(3, 262);
-            this.pnlBottomT2.Name = "pnlBottomT2";
-            this.pnlBottomT2.Size = new System.Drawing.Size(732, 51);
-            this.pnlBottomT2.TabIndex = 60;
-            // 
             // lblMas200
             // 
             this.lblMas200.Location = new System.Drawing.Point(3, 3);
@@ -561,6 +543,70 @@
             this.lblMas200.TabIndex = 52;
             this.lblMas200.Text = "En consumos mayores a la relacion anterior se cobrará  cada metro cúbico a $ y  a" +
     "l importe que resulte se le sumará la cuota base.  ";
+            // 
+            // btnSaveCNAT1
+            // 
+            this.btnSaveCNAT1.Image = global::WFPGranjas.Properties.Resources.aceptar;
+            this.btnSaveCNAT1.Location = new System.Drawing.Point(479, 14);
+            this.btnSaveCNAT1.Name = "btnSaveCNAT1";
+            this.btnSaveCNAT1.Size = new System.Drawing.Size(32, 24);
+            this.btnSaveCNAT1.TabIndex = 44;
+            this.btnSaveCNAT1.UseVisualStyleBackColor = true;
+            this.btnSaveCNAT1.Visible = false;
+            this.btnSaveCNAT1.Click += new System.EventHandler(this.btnSaveCNAT1_Click);
+            // 
+            // txtBCNA
+            // 
+            this.txtBCNA.Location = new System.Drawing.Point(379, 15);
+            this.txtBCNA.Name = "txtBCNA";
+            this.txtBCNA.ReadOnly = true;
+            this.txtBCNA.Size = new System.Drawing.Size(100, 22);
+            this.txtBCNA.TabIndex = 43;
+            this.txtBCNA.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtBCNA_KeyPress);
+            // 
+            // checkBCNAT1
+            // 
+            this.checkBCNAT1.AutoSize = true;
+            this.checkBCNAT1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBCNAT1.Location = new System.Drawing.Point(238, 17);
+            this.checkBCNAT1.Name = "checkBCNAT1";
+            this.checkBCNAT1.Size = new System.Drawing.Size(84, 20);
+            this.checkBCNAT1.TabIndex = 42;
+            this.checkBCNAT1.Text = "Tarifa 1:";
+            this.checkBCNAT1.UseVisualStyleBackColor = true;
+            this.checkBCNAT1.CheckedChanged += new System.EventHandler(this.checkBCNAT1_CheckedChanged);
+            // 
+            // btnSaveCNAT2
+            // 
+            this.btnSaveCNAT2.Image = global::WFPGranjas.Properties.Resources.aceptar;
+            this.btnSaveCNAT2.Location = new System.Drawing.Point(479, 42);
+            this.btnSaveCNAT2.Name = "btnSaveCNAT2";
+            this.btnSaveCNAT2.Size = new System.Drawing.Size(32, 24);
+            this.btnSaveCNAT2.TabIndex = 47;
+            this.btnSaveCNAT2.UseVisualStyleBackColor = true;
+            this.btnSaveCNAT2.Visible = false;
+            this.btnSaveCNAT2.Click += new System.EventHandler(this.btnSaveCNAT2_Click);
+            // 
+            // txtCBT2
+            // 
+            this.txtCBT2.Location = new System.Drawing.Point(379, 43);
+            this.txtCBT2.Name = "txtCBT2";
+            this.txtCBT2.ReadOnly = true;
+            this.txtCBT2.Size = new System.Drawing.Size(100, 22);
+            this.txtCBT2.TabIndex = 46;
+            this.txtCBT2.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtCBT2_KeyPress);
+            // 
+            // checkBCNAT2
+            // 
+            this.checkBCNAT2.AutoSize = true;
+            this.checkBCNAT2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBCNAT2.Location = new System.Drawing.Point(238, 45);
+            this.checkBCNAT2.Name = "checkBCNAT2";
+            this.checkBCNAT2.Size = new System.Drawing.Size(94, 20);
+            this.checkBCNAT2.TabIndex = 45;
+            this.checkBCNAT2.Text = "Tarifa 1A:";
+            this.checkBCNAT2.UseVisualStyleBackColor = true;
+            this.checkBCNAT2.CheckedChanged += new System.EventHandler(this.checkBCNAT2_CheckedChanged);
             // 
             // btnSaveCExcedeT2
             // 
@@ -685,7 +731,7 @@
             // 
             // tabPage3
             // 
-            this.tabPage3.Controls.Add(this.label7);
+            this.tabPage3.Controls.Add(this.lblInstruccion);
             this.tabPage3.Controls.Add(this.checkBCNAT1);
             this.tabPage3.Controls.Add(this.btnSaveCExcedeT2);
             this.tabPage3.Controls.Add(this.txtBCNA);
@@ -703,61 +749,15 @@
             this.tabPage3.Text = "Tarifas";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
-            // menuStrip1
+            // lblInstruccion
             // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
-            this.toolStripMenuItem2,
-            this.toolStripMenuItem3,
-            this.toolStripMenuItem4});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Padding = new System.Windows.Forms.Padding(15, 2, 0, 2);
-            this.menuStrip1.Size = new System.Drawing.Size(551, 24);
-            this.menuStrip1.TabIndex = 12;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.Image = global::WFPGranjas.Properties.Resources.nuevo;
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(70, 20);
-            this.toolStripMenuItem1.Text = "Nuevo";
-            this.toolStripMenuItem1.Visible = false;
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Image = global::WFPGranjas.Properties.Resources.editar;
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            this.toolStripMenuItem2.Size = new System.Drawing.Size(65, 20);
-            this.toolStripMenuItem2.Text = "Editar";
-            this.toolStripMenuItem2.Visible = false;
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.Image = global::WFPGranjas.Properties.Resources.eliminar;
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(78, 20);
-            this.toolStripMenuItem3.Text = "Eliminar";
-            this.toolStripMenuItem3.Visible = false;
-            // 
-            // toolStripMenuItem4
-            // 
-            this.toolStripMenuItem4.Image = global::WFPGranjas.Properties.Resources.cerrar;
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(67, 20);
-            this.toolStripMenuItem4.Text = "Cerrar";
-            this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
-            // 
-            // label7
-            // 
-            this.label7.Location = new System.Drawing.Point(8, 14);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(224, 52);
-            this.label7.TabIndex = 56;
-            this.label7.Text = "Selecciona la casilla de la tarifa a modificar. Y finalmente confirma los cambios" +
+            this.lblInstruccion.Location = new System.Drawing.Point(8, 14);
+            this.lblInstruccion.Name = "lblInstruccion";
+            this.lblInstruccion.Size = new System.Drawing.Size(224, 52);
+            this.lblInstruccion.TabIndex = 56;
+            this.lblInstruccion.Text = "Selecciona la casilla de la tarifa a modificar. Y finalmente confirma los cambios" +
     ".";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.lblInstruccion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // frmTarifasAgua
             // 
@@ -777,6 +777,8 @@
             this.menuStrip.PerformLayout();
             this.pnlPrinBancos.ResumeLayout(false);
             this.pnlPrinBancos.PerformLayout();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
             this.tabControl1.ResumeLayout(false);
@@ -787,15 +789,13 @@
             this.pnlResult2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgTarifa2)).EndInit();
+            this.pnlBottomT2.ResumeLayout(false);
             this.gbRenglonT2.ResumeLayout(false);
             this.gbRenglonT2.PerformLayout();
-            this.pnlBottomT2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabControl2.ResumeLayout(false);
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -861,6 +861,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label lblInstruccion;
     }
 }

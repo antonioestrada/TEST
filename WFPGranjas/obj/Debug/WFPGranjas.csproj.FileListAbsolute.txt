@@ -309,3 +309,5 @@ C:\Users\joane\Documents\GRANJASTXGIT-pr\WFPGranjas\bin\Debug\ShockwaveFlashObje
 C:\Users\joane\Documents\GRANJASTXGIT-pr\WFPGranjas\bin\Debug\CrystalDecisions.ReportAppServer.CommonControls.dll
 C:\Users\joane\Documents\GRANJASTXGIT-pr\WFPGranjas\bin\Debug\stdole.dll
 C:\Users\joane\Documents\GRANJASTXGIT-pr\WFPGranjas\bin\Debug\MySql.Data.xml
+C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\WFPGranjas.rptConsumos.resources
+C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\WFPGranjas.frmCConceptosCC.resources

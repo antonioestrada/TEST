@@ -16,12 +16,19 @@ namespace WFPGranjas
     public partial class frmTarifasAgua : Form
     {
         int idTarifaAgua = 0, tipo_mov=0;
+        int opServicio = 0;
+        string parametro1 = "";
+        string parametro2 = "";
+        string parametro3 = "";
+
         Backend.Utilerias castDigitos =new Backend.Utilerias();
-        public frmTarifasAgua()
+        public frmTarifasAgua(int op)
         {
             InitializeComponent();
             definicionDGTarifa1();
             definicionDGTarifa2();
+            this.opServicio = op;
+            
         }
 
         #region Definicion de Estructura de Columnas DataGridView Tarifa 1
@@ -176,25 +183,54 @@ namespace WFPGranjas
         #endregion
 
         //ESTE CODIGO ES PARA LA TABLA DE PARAM
-        #region carga valores CalculoManto
-        public void cargaValores()
+        #region carga valores tarifas de cobro cba y porcentajes en anualidades
+        public void cargaValores(int op)
         {
+            //op=1 es para bases cba
+            if (op==1)
+            {
+                tabPage3.Text = "Tarifas CBA";
+                lblInstruccion.Text = "Selecciona la casilla de la tarifa a modificar. Y finalmente confirma los cambios.";
+                checkBCNAT1.Text = "Tarifa 1";
+                checkBCNAT2.Text = "tarifa 1A";
+                checBExcedenteT2.Text = "tarifa 2";
+                checBExcedenteT2.Visible = true;
+                txtCBaseExcedenteT2.Visible = true;
+                pnlPrinBancos.BackColor = Color.SteelBlue;
+
+                parametro1 = "param_BCNA";
+                parametro2 = "param_CBASE2";
+                parametro3 = "param_BEXCEDENTE2";
+            }
+            //op=2 es para porcentajes de descuento en anualidades mtto
+            else if (op==2)
+            {
+                tabPage3.Text = "Descuentos en Anualidades";
+                lblInstruccion.Text = "Selecciona la casilla del descuento a modificar. Y finalmente confirma los cambios.";
+                checkBCNAT1.Text = "Descuento 1";
+                checkBCNAT2.Text = "Descuento 2";
+                checBExcedenteT2.Visible = false;
+                txtCBaseExcedenteT2.Visible = false;
+                parametro1 = "param_Descuento1";
+                parametro2 = "param_Descuento2";
+                pnlPrinBancos.BackColor = Color.Green;
+            }
             var BeanCBeanParamAgua = new Backend.Catalogos.CParametros();
             ResultadoTrnx resultado = new ResultadoTrnx();
             //ejecutamos el sp donde nos mostrara los siguientes datos como valor definido en parametros
 
             //almacenamos datos en la variable global local
             //param_BCNA es para la base CNA tarifa 1
-            resultado = BeanCBeanParamAgua.consultaParam("param_BCNA");
+            resultado = BeanCBeanParamAgua.consultaParam(parametro1);
             txtBCNA.Text = resultado.Pvalor;
 
             //param_CBASE2 es para la cuota base tarifa 2
-            resultado = BeanCBeanParamAgua.consultaParam("param_CBASE2");
+            resultado = BeanCBeanParamAgua.consultaParam(parametro2);
             txtCBT2.Text = resultado.Pvalor;
             lblCuotaBase.Text = "Los usuarios con Tarifa 2 pagarán mensualmente una cuota base de $ " + resultado.Pvalor + " y a esta se le sumará el importe que corresponda a su consumo de acuerdo a la relación siguiente:";
 
             //param_BEXCEDENTE2 es para tarifa 2 cuando el consumo es mayor a los 200 m3
-            resultado = BeanCBeanParamAgua.consultaParam("param_BEXCEDENTE2");
+            resultado = BeanCBeanParamAgua.consultaParam(parametro3);
             txtCBaseExcedenteT2.Text = resultado.Pvalor;
             lblMas200.Text = "En consumos mayores se cobrará  cada metro cúbico a $ "+ resultado.Pvalor +" y  al importe que resulte se le sumará la cuota base.  ";
 
@@ -258,7 +294,7 @@ namespace WFPGranjas
         {
             textIN.ReadOnly = true;
             btnIN.Visible = false;
-            cargaValores();
+            cargaValores(opServicio);
         }
         #endregion
 
@@ -286,7 +322,7 @@ namespace WFPGranjas
                 editaParametros(1, param_Base, txtValor.Text, men, resul);
                 checkInActive(txtValor, btnOk);
                 checkEdo.Checked = false;
-                cargaValores();
+                cargaValores(opServicio);
             }
         }
         #endregion
@@ -374,7 +410,7 @@ namespace WFPGranjas
 
         private void frmTarifasAgua_Load(object sender, EventArgs e)
         {
-            cargaValores();
+            cargaValores(opServicio);
 
             var BeanCTarifasAgua = new Backend.Catalogos.CTarifasAgua();
             BeanCTarifasAgua.consultaTarifasAgua(dgTarifa1, 1, 1);
@@ -400,17 +436,17 @@ namespace WFPGranjas
 
         private void btnSaveCNAT1_Click(object sender, EventArgs e)
         {
-            editaValores("param_BCNA", txtBCNA, btnSaveCNAT1, checkBCNAT1, lblMensaje, pnlResult);
+            editaValores(parametro1, txtBCNA, btnSaveCNAT1, checkBCNAT1, lblMensaje, pnlResult);
         }
 
         private void btnSaveCNAT2_Click(object sender, EventArgs e)
         {
-            editaValores("param_CBASE2", txtCBT2, btnSaveCNAT2, checkBCNAT2, lblMensaje2, pnlResult2);
+            editaValores(parametro2, txtCBT2, btnSaveCNAT2, checkBCNAT2, lblMensaje2, pnlResult2);
         }
 
         private void btnSaveCExcedeT2_Click(object sender, EventArgs e)
         {
-            editaValores("param_BEXCEDENTE2", txtCBaseExcedenteT2, btnSaveCExcedeT2, checBExcedenteT2, lblMensaje2, pnlResult2);
+            editaValores(parametro3, txtCBaseExcedenteT2, btnSaveCExcedeT2, checBExcedenteT2, lblMensaje2, pnlResult2);
         }
 
         private void dgTarifa1_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)

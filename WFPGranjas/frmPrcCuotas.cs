@@ -50,7 +50,7 @@ namespace WFPGranjas
                 lblTitleCuota.Text = "GENERACION DE CIERRE DE PERIODO";
                 pbAgua.Visible = true;
                 pbManto.Visible = false;
-                btnGenCuotas.Text = "Gnerar cierre";
+                btnGenCuotas.Text = "Generar cierre";
 
                 actualizaDatosCierre();
             }
@@ -121,11 +121,11 @@ namespace WFPGranjas
                         }
                         else {
                             if(!validacion)
-                                 MessageBox.Show("No a cargado las lecturas del periodo seleccionado");
+                                 MessageBox.Show("No ha cargado las lecturas del periodo seleccionado");
                             if (pendienteCBA)
-                                MessageBox.Show("No a cargado las cuotas base de agua (CBA) ");
+                                MessageBox.Show("No ha cargado las cuotas base de agua (CBA) ");
                             if (pendienteCuotaMA)
-                                MessageBox.Show("No a generado las cuotas de mantenimiento ");
+                                MessageBox.Show("No ha generado las cuotas de mantenimiento ");
                         }
                         // validacion = BeanCPeriodo.validaCBA();
 

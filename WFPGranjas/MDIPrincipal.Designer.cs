@@ -116,18 +116,22 @@
             this.tpCatalogos = new System.Windows.Forms.TabPage();
             this.menuStripCat = new System.Windows.Forms.MenuStrip();
             this.menuCGeneral = new System.Windows.Forms.ToolStripMenuItem();
-            this.cgColonos = new System.Windows.Forms.ToolStripMenuItem();
-            this.cgBancos = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator19 = new System.Windows.Forms.ToolStripSeparator();
+            this.cgColonos = new System.Windows.Forms.ToolStripMenuItem();
             this.cgManzanas = new System.Windows.Forms.ToolStripMenuItem();
             this.cgLotes = new System.Windows.Forms.ToolStripMenuItem();
-            this.cgMedidores = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.cgMedidores = new System.Windows.Forms.ToolStripMenuItem();
+            this.cgBancos = new System.Windows.Forms.ToolStripMenuItem();
+            this.cgCuentasContables = new System.Windows.Forms.ToolStripMenuItem();
             this.cgCuotas = new System.Windows.Forms.ToolStripMenuItem();
             this.cgcMantenimiento = new System.Windows.Forms.ToolStripMenuItem();
+            this.cgcmTarifas = new System.Windows.Forms.ToolStripMenuItem();
+            this.cgcmDescuentos = new System.Windows.Forms.ToolStripMenuItem();
             this.cgcAgua = new System.Windows.Forms.ToolStripMenuItem();
-            this.cgcCBA = new System.Windows.Forms.ToolStripMenuItem();
-            this.cgCuentasContables = new System.Windows.Forms.ToolStripMenuItem();
+            this.cgcaTarifas = new System.Windows.Forms.ToolStripMenuItem();
+            this.cgcaCBA = new System.Windows.Forms.ToolStripMenuItem();
+            this.cgConceptosCC = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCSistema = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator22 = new System.Windows.Forms.ToolStripSeparator();
             this.csUsuarios = new System.Windows.Forms.ToolStripMenuItem();
@@ -302,7 +306,7 @@
             this.tpAdmon.Name = "tpAdmon";
             this.tpAdmon.Size = new System.Drawing.Size(835, 64);
             this.tpAdmon.TabIndex = 0;
-            this.tpAdmon.Text = "Administración";
+            this.tpAdmon.Text = "Administracion";
             // 
             // menuStripAdmon
             // 
@@ -405,7 +409,7 @@
             this.acGeneracionCA.ImageTransparentColor = System.Drawing.Color.Black;
             this.acGeneracionCA.Name = "acGeneracionCA";
             this.acGeneracionCA.Size = new System.Drawing.Size(255, 22);
-            this.acGeneracionCA.Text = "Generación de Cuotas del Mes";
+            this.acGeneracionCA.Text = "Generacion de Cuotas del Mes";
             this.acGeneracionCA.Click += new System.EventHandler(this.acGeneracionCA_Click);
             // 
             // toolStripSeparator6
@@ -512,7 +516,7 @@
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.optionsToolStripMenuItem.Text = "&Options";
             this.optionsToolStripMenuItem.Visible = false;
             // 
@@ -792,7 +796,7 @@
             this.fcCancelacionR.Image = global::WFPGranjas.Properties.Resources.documento;
             this.fcCancelacionR.Name = "fcCancelacionR";
             this.fcCancelacionR.Size = new System.Drawing.Size(224, 22);
-            this.fcCancelacionR.Text = "Cancelación de Recibo";
+            this.fcCancelacionR.Text = "Cancelacion de Recibo";
             this.fcCancelacionR.Click += new System.EventHandler(this.fcCancelacionR_Click);
             // 
             // menuFCobranza
@@ -810,7 +814,7 @@
             this.menuFCobranza.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.menuFCobranza.Name = "menuFCobranza";
             this.menuFCobranza.Size = new System.Drawing.Size(131, 60);
-            this.menuFCobranza.Text = "Crédito y C&obranza";
+            this.menuFCobranza.Text = "Credito y C&obranza";
             this.menuFCobranza.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.menuFCobranza.Visible = false;
             // 
@@ -945,7 +949,7 @@
             this.tpCatalogos.Name = "tpCatalogos";
             this.tpCatalogos.Size = new System.Drawing.Size(835, 64);
             this.tpCatalogos.TabIndex = 3;
-            this.tpCatalogos.Text = "Catálogos";
+            this.tpCatalogos.Text = "Catalogos";
             this.tpCatalogos.UseVisualStyleBackColor = true;
             // 
             // menuStripCat
@@ -969,15 +973,16 @@
             // 
             this.menuCGeneral.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.menuCGeneral.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cgColonos,
-            this.cgBancos,
             this.toolStripSeparator19,
+            this.cgColonos,
             this.cgManzanas,
             this.cgLotes,
             this.cgMedidores,
             this.toolStripSeparator3,
-            this.cgCuotas,
-            this.cgCuentasContables});
+            this.cgBancos,
+            this.cgConceptosCC,
+            this.cgCuentasContables,
+            this.cgCuotas});
             this.menuCGeneral.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuCGeneral.ForeColor = System.Drawing.SystemColors.ControlText;
             this.menuCGeneral.Image = global::WFPGranjas.Properties.Resources.catalogo1;
@@ -989,98 +994,131 @@
             this.menuCGeneral.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.menuCGeneral.Visible = false;
             // 
+            // toolStripSeparator19
+            // 
+            this.toolStripSeparator19.Name = "toolStripSeparator19";
+            this.toolStripSeparator19.Size = new System.Drawing.Size(274, 6);
+            // 
             // cgColonos
             // 
             this.cgColonos.Image = global::WFPGranjas.Properties.Resources.usuario;
             this.cgColonos.ImageTransparentColor = System.Drawing.Color.Black;
             this.cgColonos.Name = "cgColonos";
-            this.cgColonos.Size = new System.Drawing.Size(186, 22);
+            this.cgColonos.Size = new System.Drawing.Size(277, 22);
             this.cgColonos.Text = "Colonos";
             this.cgColonos.Click += new System.EventHandler(this.cgColonos_Click);
-            // 
-            // cgBancos
-            // 
-            this.cgBancos.Image = global::WFPGranjas.Properties.Resources.comprobar24;
-            this.cgBancos.ImageTransparentColor = System.Drawing.Color.Black;
-            this.cgBancos.Name = "cgBancos";
-            this.cgBancos.Size = new System.Drawing.Size(186, 22);
-            this.cgBancos.Text = "Bancos";
-            this.cgBancos.Click += new System.EventHandler(this.cgBancos_Click);
-            // 
-            // toolStripSeparator19
-            // 
-            this.toolStripSeparator19.Name = "toolStripSeparator19";
-            this.toolStripSeparator19.Size = new System.Drawing.Size(183, 6);
             // 
             // cgManzanas
             // 
             this.cgManzanas.Name = "cgManzanas";
-            this.cgManzanas.Size = new System.Drawing.Size(186, 22);
+            this.cgManzanas.Size = new System.Drawing.Size(277, 22);
             this.cgManzanas.Text = "Manzanas";
             this.cgManzanas.Click += new System.EventHandler(this.cgManzanas_Click);
             // 
             // cgLotes
             // 
             this.cgLotes.Name = "cgLotes";
-            this.cgLotes.Size = new System.Drawing.Size(186, 22);
+            this.cgLotes.Size = new System.Drawing.Size(277, 22);
             this.cgLotes.Text = "Lotes";
             this.cgLotes.Click += new System.EventHandler(this.cgLotes_Click);
+            // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(274, 6);
             // 
             // cgMedidores
             // 
             this.cgMedidores.Image = global::WFPGranjas.Properties.Resources.velocimetro;
             this.cgMedidores.Name = "cgMedidores";
-            this.cgMedidores.Size = new System.Drawing.Size(186, 22);
+            this.cgMedidores.Size = new System.Drawing.Size(277, 22);
             this.cgMedidores.Text = "Medidores";
             this.cgMedidores.Click += new System.EventHandler(this.cgMedidores_Click);
             // 
-            // toolStripSeparator3
+            // cgBancos
             // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(183, 6);
-            // 
-            // cgCuotas
-            // 
-            this.cgCuotas.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cgcMantenimiento,
-            this.cgcAgua,
-            this.cgcCBA});
-            this.cgCuotas.Image = global::WFPGranjas.Properties.Resources.monedas;
-            this.cgCuotas.Name = "cgCuotas";
-            this.cgCuotas.Size = new System.Drawing.Size(186, 22);
-            this.cgCuotas.Text = "Cuotas";
-            // 
-            // cgcMantenimiento
-            // 
-            this.cgcMantenimiento.Image = global::WFPGranjas.Properties.Resources.brote;
-            this.cgcMantenimiento.Name = "cgcMantenimiento";
-            this.cgcMantenimiento.Size = new System.Drawing.Size(168, 22);
-            this.cgcMantenimiento.Text = "Mantenimiento";
-            this.cgcMantenimiento.Click += new System.EventHandler(this.cgcMantenimiento_Click);
-            // 
-            // cgcAgua
-            // 
-            this.cgcAgua.Image = global::WFPGranjas.Properties.Resources.riego;
-            this.cgcAgua.Name = "cgcAgua";
-            this.cgcAgua.Size = new System.Drawing.Size(168, 22);
-            this.cgcAgua.Text = "Agua";
-            this.cgcAgua.Click += new System.EventHandler(this.cgcAgua_Click);
-            // 
-            // cgcCBA
-            // 
-            this.cgcCBA.Image = global::WFPGranjas.Properties.Resources.reportar24;
-            this.cgcCBA.Name = "cgcCBA";
-            this.cgcCBA.Size = new System.Drawing.Size(168, 22);
-            this.cgcCBA.Text = "Calculo de CBA";
-            this.cgcCBA.Click += new System.EventHandler(this.cgcCBA_Click);
+            this.cgBancos.Image = global::WFPGranjas.Properties.Resources.comprobar24;
+            this.cgBancos.ImageTransparentColor = System.Drawing.Color.Black;
+            this.cgBancos.Name = "cgBancos";
+            this.cgBancos.Size = new System.Drawing.Size(277, 22);
+            this.cgBancos.Text = "Bancos";
+            this.cgBancos.Click += new System.EventHandler(this.cgBancos_Click);
             // 
             // cgCuentasContables
             // 
             this.cgCuentasContables.ImageTransparentColor = System.Drawing.Color.Black;
             this.cgCuentasContables.Name = "cgCuentasContables";
-            this.cgCuentasContables.Size = new System.Drawing.Size(186, 22);
+            this.cgCuentasContables.Size = new System.Drawing.Size(277, 22);
             this.cgCuentasContables.Text = "Cuentas Contables";
             this.cgCuentasContables.Visible = false;
+            // 
+            // cgCuotas
+            // 
+            this.cgCuotas.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cgcMantenimiento,
+            this.cgcAgua});
+            this.cgCuotas.Image = global::WFPGranjas.Properties.Resources.monedas;
+            this.cgCuotas.Name = "cgCuotas";
+            this.cgCuotas.Size = new System.Drawing.Size(277, 22);
+            this.cgCuotas.Text = "Cuotas";
+            // 
+            // cgcMantenimiento
+            // 
+            this.cgcMantenimiento.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cgcmTarifas,
+            this.cgcmDescuentos});
+            this.cgcMantenimiento.Image = global::WFPGranjas.Properties.Resources.brote;
+            this.cgcMantenimiento.Name = "cgcMantenimiento";
+            this.cgcMantenimiento.Size = new System.Drawing.Size(235, 22);
+            this.cgcMantenimiento.Text = "Servicios de Mantenimiento";
+            this.cgcMantenimiento.Click += new System.EventHandler(this.cgcMantenimiento_Click);
+            // 
+            // cgcmTarifas
+            // 
+            this.cgcmTarifas.Name = "cgcmTarifas";
+            this.cgcmTarifas.Size = new System.Drawing.Size(205, 22);
+            this.cgcmTarifas.Text = "Tarifas";
+            this.cgcmTarifas.Click += new System.EventHandler(this.cgcmTarifas_Click);
+            // 
+            // cgcmDescuentos
+            // 
+            this.cgcmDescuentos.Name = "cgcmDescuentos";
+            this.cgcmDescuentos.Size = new System.Drawing.Size(205, 22);
+            this.cgcmDescuentos.Text = "Descuentos Anualidad";
+            this.cgcmDescuentos.Click += new System.EventHandler(this.cgcmDescuentos_Click);
+            // 
+            // cgcAgua
+            // 
+            this.cgcAgua.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cgcaTarifas,
+            this.cgcaCBA});
+            this.cgcAgua.Image = global::WFPGranjas.Properties.Resources.riego;
+            this.cgcAgua.Name = "cgcAgua";
+            this.cgcAgua.Size = new System.Drawing.Size(235, 22);
+            this.cgcAgua.Text = "Servicios de Agua";
+            this.cgcAgua.Click += new System.EventHandler(this.cgcAgua_Click);
+            // 
+            // cgcaTarifas
+            // 
+            this.cgcaTarifas.Name = "cgcaTarifas";
+            this.cgcaTarifas.Size = new System.Drawing.Size(168, 22);
+            this.cgcaTarifas.Text = "Tarifas";
+            this.cgcaTarifas.Click += new System.EventHandler(this.cgcaTarifas_Click);
+            // 
+            // cgcaCBA
+            // 
+            this.cgcaCBA.Name = "cgcaCBA";
+            this.cgcaCBA.Size = new System.Drawing.Size(168, 22);
+            this.cgcaCBA.Text = "Calculo de CBA";
+            this.cgcaCBA.Click += new System.EventHandler(this.calculoDeCBAToolStripMenuItem_Click);
+            // 
+            // cgConceptosCC
+            // 
+            this.cgConceptosCC.Image = global::WFPGranjas.Properties.Resources.metodo_de_pago24;
+            this.cgConceptosCC.Name = "cgConceptosCC";
+            this.cgConceptosCC.Size = new System.Drawing.Size(277, 22);
+            this.cgConceptosCC.Text = "Conceptos por Ingresos Casa Club";
+            this.cgConceptosCC.Click += new System.EventHandler(this.cgConceptosCC_Click);
             // 
             // menuCSistema
             // 
@@ -1102,13 +1140,13 @@
             // toolStripSeparator22
             // 
             this.toolStripSeparator22.Name = "toolStripSeparator22";
-            this.toolStripSeparator22.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator22.Size = new System.Drawing.Size(135, 6);
             // 
             // csUsuarios
             // 
             this.csUsuarios.Image = global::WFPGranjas.Properties.Resources.buscando_usuario;
             this.csUsuarios.Name = "csUsuarios";
-            this.csUsuarios.Size = new System.Drawing.Size(152, 22);
+            this.csUsuarios.Size = new System.Drawing.Size(138, 22);
             this.csUsuarios.Text = "Usuarios";
             this.csUsuarios.Click += new System.EventHandler(this.csUsuarios_Click);
             // 
@@ -1116,7 +1154,7 @@
             // 
             this.csPuestos.Image = global::WFPGranjas.Properties.Resources.organizacion;
             this.csPuestos.Name = "csPuestos";
-            this.csPuestos.Size = new System.Drawing.Size(152, 22);
+            this.csPuestos.Size = new System.Drawing.Size(138, 22);
             this.csPuestos.Text = "Puestos";
             this.csPuestos.Click += new System.EventHandler(this.csPuestos_Click);
             // 
@@ -1124,21 +1162,21 @@
             // 
             this.csPerfiles.Image = global::WFPGranjas.Properties.Resources.red;
             this.csPerfiles.Name = "csPerfiles";
-            this.csPerfiles.Size = new System.Drawing.Size(152, 22);
+            this.csPerfiles.Size = new System.Drawing.Size(138, 22);
             this.csPerfiles.Text = "Perfiles";
             this.csPerfiles.Click += new System.EventHandler(this.csPerfiles_Click);
             // 
             // serviciosToolStripMenuItem
             // 
             this.serviciosToolStripMenuItem.Name = "serviciosToolStripMenuItem";
-            this.serviciosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.serviciosToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.serviciosToolStripMenuItem.Text = "Servicios";
             this.serviciosToolStripMenuItem.Visible = false;
             // 
             // conceptosToolStripMenuItem
             // 
             this.conceptosToolStripMenuItem.Name = "conceptosToolStripMenuItem";
-            this.conceptosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.conceptosToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.conceptosToolStripMenuItem.Text = "Conceptos";
             this.conceptosToolStripMenuItem.Visible = false;
             // 
@@ -1200,7 +1238,7 @@
             this.tpConfig.Name = "tpConfig";
             this.tpConfig.Size = new System.Drawing.Size(835, 64);
             this.tpConfig.TabIndex = 2;
-            this.tpConfig.Text = "Configuración";
+            this.tpConfig.Text = "Configuracion";
             this.tpConfig.UseVisualStyleBackColor = true;
             // 
             // menuStripConfig
@@ -1297,7 +1335,7 @@
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStripAdmon;
             this.Name = "MDIPrincipal";
-            this.Text = "ASOCIACIÓN DE COLONOS DE GRANJAS RESIDENCIALES DE TEQUISQUIAPAN AC";
+            this.Text = "ASOCIACION DE COLONOS DE GRANJAS RESIDENCIALES DE TEQUISQUIAPAN AC";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MDIPrincipal_FormClosing);
             this.Load += new System.EventHandler(this.MDIPrincipal_Load);
@@ -1447,10 +1485,14 @@
         private System.Windows.Forms.ToolStripMenuItem cuotasExtraordinariasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem acCBA;
         private System.Windows.Forms.ToolStripMenuItem cierreDeMesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cgcCBA;
         private System.Windows.Forms.ToolStripMenuItem ingresosCasaClubToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cuotasCasaClubToolStripMenuItem;
         public System.Windows.Forms.ToolStripStatusLabel tsPeriodo;
+        private System.Windows.Forms.ToolStripMenuItem cgcmTarifas;
+        private System.Windows.Forms.ToolStripMenuItem cgcmDescuentos;
+        private System.Windows.Forms.ToolStripMenuItem cgcaTarifas;
+        private System.Windows.Forms.ToolStripMenuItem cgcaCBA;
+        private System.Windows.Forms.ToolStripMenuItem cgConceptosCC;
     }
 }
 

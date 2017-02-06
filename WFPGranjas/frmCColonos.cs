@@ -180,7 +180,7 @@ namespace WFPGranjas
             Backend.Utilerias limpia = new Backend.Utilerias();
             limpia.limpiarTextboxGroupBox(groupBoxForm);
             this.Size = new Size(573, 470);
-            pnlPrinBancos.BackColor = Color.Green;
+            pnlPrinBancos.BackColor = Color.MediumTurquoise;
             pnlResult.Visible = false;
             mNuevo.Enabled = true;
             mEditar.Enabled = true;

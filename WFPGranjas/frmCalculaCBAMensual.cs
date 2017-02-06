@@ -129,13 +129,13 @@ namespace WFPGranjas
         }
         public void termina(object o, RunWorkerCompletedEventArgs e)
         {
-            MessageBox.Show("termino proceso");
+            MessageBox.Show("Termino proceso");
         }
 
         private void mPreview_Click_1(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
-            definicionDGHistorico("Periodo", "Consumo Promedio", "Consumo Anual Promedio", "Porcentaceje", "CBA", "CBA Anualizado", "CBA Calculado");
+            definicionDGHistorico("Mes", "Consumo Promedio", "Consumo Anual Promedio", "Porcentaje", "CBA", "CBA Anualizado", "CBA Calculado");
             var BeanCargaV = new Backend.Catalogos.CTarifas();
             //carga grid
             BeanCargaV.consultaCBAMensual(dgHistorico, 2, anio, 0);
@@ -146,7 +146,7 @@ namespace WFPGranjas
         {
             this.Cursor = Cursors.WaitCursor;
             
-            definicionDGHistorico("Direccion", "medidor", "Colono", "superficio", "CBA", "periodo", "CBA Cálculado");
+            definicionDGHistorico("Direccion", "Medidor", "Colono", "Superficie", "CBA", "Mes", "CBA Calculado");
             var BeanCargaV = new Backend.Catalogos.CTarifas();
             //carga grid
             BeanCargaV.consultaCBAMensual(dgHistorico, 3, anio, 0);
@@ -158,7 +158,7 @@ namespace WFPGranjas
         {
             consultaPer();
             anio= cmbAnios.SelectedValue.ToString();
-            lblEncabezado.Text = "Generación del Cálculo Mensual CBA: " + anio;
+            lblEncabezado.Text = "Generación del Calculo Mensual CBA: " + anio;
 
         }
         //|||||||||||||||inicio tonka-210117|||||||||||||||||
