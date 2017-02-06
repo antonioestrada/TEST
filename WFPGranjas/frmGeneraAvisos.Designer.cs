@@ -28,56 +28,53 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmGeneraAvisos));
             this.pnlPrinBancos = new System.Windows.Forms.Panel();
             this.menuStrip2 = new System.Windows.Forms.MenuStrip();
             this.otreToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.menuStripBancos = new System.Windows.Forms.MenuStrip();
-            this.mSalirBanco = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStripColonos = new System.Windows.Forms.MenuStrip();
+            this.mNuevo = new System.Windows.Forms.ToolStripMenuItem();
+            this.mEditar = new System.Windows.Forms.ToolStripMenuItem();
+            this.mEliminar = new System.Windows.Forms.ToolStripMenuItem();
+            this.mSalir = new System.Windows.Forms.ToolStripMenuItem();
             this.label4 = new System.Windows.Forms.Label();
-            this.groupBoxForm = new System.Windows.Forms.GroupBox();
-            this.pnlCaptura = new System.Windows.Forms.Panel();
-            this.cmbAnios = new System.Windows.Forms.ComboBox();
-            this.cmbPeriodos = new System.Windows.Forms.ComboBox();
+            this.pnlBody = new System.Windows.Forms.Panel();
+            this.checkAv1 = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.lblInd = new System.Windows.Forms.Label();
-            this.btnCapturaLec = new System.Windows.Forms.Button();
-            this.gbSeleccion = new System.Windows.Forms.GroupBox();
-            this.lblDir = new System.Windows.Forms.Label();
-            this.pXLote = new System.Windows.Forms.Panel();
-            this.cmbManzana = new System.Windows.Forms.ComboBox();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.btnBuscar = new System.Windows.Forms.Button();
-            this.txtLote = new System.Windows.Forms.TextBox();
-            this.lblAsoc = new System.Windows.Forms.Label();
-            this.btnEjecutar = new System.Windows.Forms.Button();
-            this.rbColono = new System.Windows.Forms.RadioButton();
-            this.rbTodos = new System.Windows.Forms.RadioButton();
-            this.pnlResultBancos = new System.Windows.Forms.Panel();
+            this.rtbAviso = new System.Windows.Forms.RichTextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.txtFooter4 = new System.Windows.Forms.TextBox();
+            this.checkAv2 = new System.Windows.Forms.CheckBox();
+            this.txtFooter3 = new System.Windows.Forms.TextBox();
+            this.txtFooter2 = new System.Windows.Forms.TextBox();
+            this.txtFooter1 = new System.Windows.Forms.TextBox();
+            this.lblInstruccion = new System.Windows.Forms.Label();
+            this.btnSave1 = new System.Windows.Forms.Button();
+            this.btnSave2 = new System.Windows.Forms.Button();
+            this.pnlResult = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.lblMenBancos = new System.Windows.Forms.Label();
+            this.lblMensaje = new System.Windows.Forms.Label();
             this.pnlPrinBancos.SuspendLayout();
             this.menuStrip2.SuspendLayout();
-            this.menuStripBancos.SuspendLayout();
-            this.groupBoxForm.SuspendLayout();
-            this.pnlCaptura.SuspendLayout();
-            this.gbSeleccion.SuspendLayout();
-            this.pXLote.SuspendLayout();
-            this.pnlResultBancos.SuspendLayout();
+            this.menuStripColonos.SuspendLayout();
+            this.pnlBody.SuspendLayout();
+            this.panel1.SuspendLayout();
+            this.pnlResult.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlPrinBancos
             // 
-            this.pnlPrinBancos.BackColor = System.Drawing.Color.Green;
+            this.pnlPrinBancos.BackColor = System.Drawing.Color.MediumTurquoise;
             this.pnlPrinBancos.Controls.Add(this.menuStrip2);
-            this.pnlPrinBancos.Controls.Add(this.menuStripBancos);
+            this.pnlPrinBancos.Controls.Add(this.menuStripColonos);
             this.pnlPrinBancos.Controls.Add(this.label4);
             this.pnlPrinBancos.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlPrinBancos.Location = new System.Drawing.Point(0, 0);
+            this.pnlPrinBancos.Margin = new System.Windows.Forms.Padding(4);
             this.pnlPrinBancos.Name = "pnlPrinBancos";
-            this.pnlPrinBancos.Size = new System.Drawing.Size(459, 28);
-            this.pnlPrinBancos.TabIndex = 6;
+            this.pnlPrinBancos.Size = new System.Drawing.Size(806, 32);
+            this.pnlPrinBancos.TabIndex = 8;
             // 
             // menuStrip2
             // 
@@ -85,7 +82,8 @@
             this.otreToolStripMenuItem});
             this.menuStrip2.Location = new System.Drawing.Point(0, 24);
             this.menuStrip2.Name = "menuStrip2";
-            this.menuStrip2.Size = new System.Drawing.Size(881, 24);
+            this.menuStrip2.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
+            this.menuStrip2.Size = new System.Drawing.Size(955, 24);
             this.menuStrip2.TabIndex = 11;
             this.menuStrip2.Text = "menuStrip2";
             this.menuStrip2.Visible = false;
@@ -96,313 +94,270 @@
             this.otreToolStripMenuItem.Size = new System.Drawing.Size(40, 20);
             this.otreToolStripMenuItem.Text = "otre";
             // 
-            // menuStripBancos
+            // menuStripColonos
             // 
-            this.menuStripBancos.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.mSalirBanco});
-            this.menuStripBancos.Location = new System.Drawing.Point(0, 0);
-            this.menuStripBancos.Name = "menuStripBancos";
-            this.menuStripBancos.Size = new System.Drawing.Size(459, 24);
-            this.menuStripBancos.TabIndex = 2;
-            this.menuStripBancos.Text = "menuStrip1";
+            this.menuStripColonos.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mNuevo,
+            this.mEditar,
+            this.mEliminar,
+            this.mSalir});
+            this.menuStripColonos.Location = new System.Drawing.Point(0, 0);
+            this.menuStripColonos.Name = "menuStripColonos";
+            this.menuStripColonos.Padding = new System.Windows.Forms.Padding(7, 2, 0, 2);
+            this.menuStripColonos.Size = new System.Drawing.Size(806, 24);
+            this.menuStripColonos.TabIndex = 1;
+            this.menuStripColonos.Text = "menuStrip1";
             // 
-            // mSalirBanco
+            // mNuevo
             // 
-            this.mSalirBanco.Image = global::WFPGranjas.Properties.Resources.cerrar;
-            this.mSalirBanco.Name = "mSalirBanco";
-            this.mSalirBanco.Size = new System.Drawing.Size(67, 20);
-            this.mSalirBanco.Text = "Cerrar";
-            this.mSalirBanco.Click += new System.EventHandler(this.mSalirBanco_Click);
+            this.mNuevo.Image = global::WFPGranjas.Properties.Resources.nuevo;
+            this.mNuevo.Name = "mNuevo";
+            this.mNuevo.Size = new System.Drawing.Size(70, 20);
+            this.mNuevo.Text = "Nuevo";
+            this.mNuevo.Visible = false;
+            // 
+            // mEditar
+            // 
+            this.mEditar.Image = global::WFPGranjas.Properties.Resources.editar;
+            this.mEditar.Name = "mEditar";
+            this.mEditar.Size = new System.Drawing.Size(65, 20);
+            this.mEditar.Text = "Editar";
+            this.mEditar.Visible = false;
+            // 
+            // mEliminar
+            // 
+            this.mEliminar.Image = global::WFPGranjas.Properties.Resources.eliminar;
+            this.mEliminar.Name = "mEliminar";
+            this.mEliminar.Size = new System.Drawing.Size(78, 20);
+            this.mEliminar.Text = "Eliminar";
+            this.mEliminar.Visible = false;
+            // 
+            // mSalir
+            // 
+            this.mSalir.Image = global::WFPGranjas.Properties.Resources.cerrar;
+            this.mSalir.Name = "mSalir";
+            this.mSalir.Size = new System.Drawing.Size(67, 20);
+            this.mSalir.Text = "Cerrar";
+            this.mSalir.Click += new System.EventHandler(this.mSalir_Click);
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label4.Location = new System.Drawing.Point(10, 6);
+            this.label4.Location = new System.Drawing.Point(11, 7);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(131, 16);
             this.label4.TabIndex = 0;
             this.label4.Text = "Catálogo: Bancos";
             // 
-            // groupBoxForm
+            // pnlBody
             // 
-            this.groupBoxForm.Controls.Add(this.pnlCaptura);
-            this.groupBoxForm.Controls.Add(this.gbSeleccion);
-            this.groupBoxForm.Controls.Add(this.pnlResultBancos);
-            this.groupBoxForm.Dock = System.Windows.Forms.DockStyle.Left;
-            this.groupBoxForm.Location = new System.Drawing.Point(0, 28);
-            this.groupBoxForm.Margin = new System.Windows.Forms.Padding(4);
-            this.groupBoxForm.Name = "groupBoxForm";
-            this.groupBoxForm.Padding = new System.Windows.Forms.Padding(4, 10, 4, 10);
-            this.groupBoxForm.Size = new System.Drawing.Size(454, 233);
-            this.groupBoxForm.TabIndex = 9;
-            this.groupBoxForm.TabStop = false;
-            this.groupBoxForm.Text = "Registro";
+            this.pnlBody.BackColor = System.Drawing.SystemColors.Window;
+            this.pnlBody.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlBody.Controls.Add(this.btnSave1);
+            this.pnlBody.Controls.Add(this.lblInstruccion);
+            this.pnlBody.Controls.Add(this.label1);
+            this.pnlBody.Controls.Add(this.rtbAviso);
+            this.pnlBody.Controls.Add(this.checkAv1);
+            this.pnlBody.Location = new System.Drawing.Point(12, 39);
+            this.pnlBody.Name = "pnlBody";
+            this.pnlBody.Size = new System.Drawing.Size(780, 150);
+            this.pnlBody.TabIndex = 9;
             // 
-            // pnlCaptura
+            // checkAv1
             // 
-            this.pnlCaptura.BackColor = System.Drawing.Color.Orange;
-            this.pnlCaptura.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pnlCaptura.Controls.Add(this.cmbAnios);
-            this.pnlCaptura.Controls.Add(this.cmbPeriodos);
-            this.pnlCaptura.Controls.Add(this.label1);
-            this.pnlCaptura.Controls.Add(this.lblInd);
-            this.pnlCaptura.Controls.Add(this.btnCapturaLec);
-            this.pnlCaptura.Location = new System.Drawing.Point(12, 26);
-            this.pnlCaptura.Name = "pnlCaptura";
-            this.pnlCaptura.Size = new System.Drawing.Size(430, 32);
-            this.pnlCaptura.TabIndex = 50;
-            // 
-            // cmbAnios
-            // 
-            this.cmbAnios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbAnios.Enabled = false;
-            this.cmbAnios.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbAnios.FormattingEnabled = true;
-            this.cmbAnios.Location = new System.Drawing.Point(241, 3);
-            this.cmbAnios.Name = "cmbAnios";
-            this.cmbAnios.Size = new System.Drawing.Size(84, 24);
-            this.cmbAnios.TabIndex = 55;
-            // 
-            // cmbPeriodos
-            // 
-            this.cmbPeriodos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbPeriodos.Enabled = false;
-            this.cmbPeriodos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cmbPeriodos.FormattingEnabled = true;
-            this.cmbPeriodos.Location = new System.Drawing.Point(95, 3);
-            this.cmbPeriodos.Name = "cmbPeriodos";
-            this.cmbPeriodos.Size = new System.Drawing.Size(109, 24);
-            this.cmbPeriodos.TabIndex = 54;
+            this.checkAv1.AutoSize = true;
+            this.checkAv1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkAv1.Location = new System.Drawing.Point(262, 25);
+            this.checkAv1.Name = "checkAv1";
+            this.checkAv1.Size = new System.Drawing.Size(70, 20);
+            this.checkAv1.TabIndex = 46;
+            this.checkAv1.Text = "Aviso:";
+            this.checkAv1.UseVisualStyleBackColor = true;
+            this.checkAv1.CheckedChanged += new System.EventHandler(this.checkAv1_CheckedChanged);
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.SystemColors.Window;
-            this.label1.Location = new System.Drawing.Point(208, 7);
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(425, 6);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 16);
-            this.label1.TabIndex = 53;
-            this.label1.Text = "Año";
+            this.label1.Size = new System.Drawing.Size(216, 13);
+            this.label1.TabIndex = 1;
+            this.label1.Text = "AVISOS Y NOTIFICACIONES GENERALES";
             // 
-            // lblInd
+            // rtbAviso
             // 
-            this.lblInd.AutoSize = true;
-            this.lblInd.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInd.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblInd.Location = new System.Drawing.Point(59, 7);
-            this.lblInd.Name = "lblInd";
-            this.lblInd.Size = new System.Drawing.Size(37, 16);
-            this.lblInd.TabIndex = 52;
-            this.lblInd.Text = "Mes";
+            this.rtbAviso.Location = new System.Drawing.Point(330, 25);
+            this.rtbAviso.Name = "rtbAviso";
+            this.rtbAviso.ReadOnly = true;
+            this.rtbAviso.Size = new System.Drawing.Size(402, 119);
+            this.rtbAviso.TabIndex = 0;
+            this.rtbAviso.Text = resources.GetString("rtbAviso.Text");
             // 
-            // btnCapturaLec
+            // panel1
             // 
-            this.btnCapturaLec.Image = global::WFPGranjas.Properties.Resources.expediente;
-            this.btnCapturaLec.Location = new System.Drawing.Point(331, 3);
-            this.btnCapturaLec.Name = "btnCapturaLec";
-            this.btnCapturaLec.Size = new System.Drawing.Size(89, 24);
-            this.btnCapturaLec.TabIndex = 51;
-            this.btnCapturaLec.Text = "Consulta";
-            this.btnCapturaLec.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnCapturaLec.UseVisualStyleBackColor = true;
-            this.btnCapturaLec.Click += new System.EventHandler(this.btnCapturaLec_Click);
+            this.panel1.BackColor = System.Drawing.SystemColors.Window;
+            this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.panel1.Controls.Add(this.txtFooter4);
+            this.panel1.Controls.Add(this.btnSave2);
+            this.panel1.Controls.Add(this.checkAv2);
+            this.panel1.Controls.Add(this.txtFooter3);
+            this.panel1.Controls.Add(this.txtFooter2);
+            this.panel1.Controls.Add(this.txtFooter1);
+            this.panel1.Location = new System.Drawing.Point(12, 196);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(780, 114);
+            this.panel1.TabIndex = 10;
             // 
-            // gbSeleccion
+            // txtFooter4
             // 
-            this.gbSeleccion.Controls.Add(this.lblDir);
-            this.gbSeleccion.Controls.Add(this.pXLote);
-            this.gbSeleccion.Controls.Add(this.lblAsoc);
-            this.gbSeleccion.Controls.Add(this.btnEjecutar);
-            this.gbSeleccion.Controls.Add(this.rbColono);
-            this.gbSeleccion.Controls.Add(this.rbTodos);
-            this.gbSeleccion.Enabled = false;
-            this.gbSeleccion.Location = new System.Drawing.Point(13, 67);
-            this.gbSeleccion.Name = "gbSeleccion";
-            this.gbSeleccion.Size = new System.Drawing.Size(429, 122);
-            this.gbSeleccion.TabIndex = 12;
-            this.gbSeleccion.TabStop = false;
-            this.gbSeleccion.Text = "Opción";
+            this.txtFooter4.Location = new System.Drawing.Point(78, 85);
+            this.txtFooter4.MaxLength = 130;
+            this.txtFooter4.Name = "txtFooter4";
+            this.txtFooter4.ReadOnly = true;
+            this.txtFooter4.Size = new System.Drawing.Size(656, 20);
+            this.txtFooter4.TabIndex = 3;
+            this.txtFooter4.Text = "Linea 4";
+            this.txtFooter4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // lblDir
+            // checkAv2
             // 
-            this.lblDir.AutoSize = true;
-            this.lblDir.Location = new System.Drawing.Point(4, 103);
-            this.lblDir.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.lblDir.Name = "lblDir";
-            this.lblDir.Size = new System.Drawing.Size(69, 13);
-            this.lblDir.TabIndex = 55;
-            this.lblDir.Text = "DIRECCION:";
-            this.lblDir.Visible = false;
+            this.checkAv2.AutoSize = true;
+            this.checkAv2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkAv2.Location = new System.Drawing.Point(16, 7);
+            this.checkAv2.Name = "checkAv2";
+            this.checkAv2.Size = new System.Drawing.Size(56, 20);
+            this.checkAv2.TabIndex = 47;
+            this.checkAv2.Text = "Info:";
+            this.checkAv2.UseVisualStyleBackColor = true;
+            this.checkAv2.CheckedChanged += new System.EventHandler(this.checkAv2_CheckedChanged);
             // 
-            // pXLote
+            // txtFooter3
             // 
-            this.pXLote.Controls.Add(this.cmbManzana);
-            this.pXLote.Controls.Add(this.label6);
-            this.pXLote.Controls.Add(this.label3);
-            this.pXLote.Controls.Add(this.btnBuscar);
-            this.pXLote.Controls.Add(this.txtLote);
-            this.pXLote.Location = new System.Drawing.Point(167, 40);
-            this.pXLote.Name = "pXLote";
-            this.pXLote.Size = new System.Drawing.Size(259, 36);
-            this.pXLote.TabIndex = 54;
+            this.txtFooter3.Location = new System.Drawing.Point(78, 59);
+            this.txtFooter3.MaxLength = 130;
+            this.txtFooter3.Name = "txtFooter3";
+            this.txtFooter3.ReadOnly = true;
+            this.txtFooter3.Size = new System.Drawing.Size(656, 20);
+            this.txtFooter3.TabIndex = 2;
+            this.txtFooter3.Text = "Linea 3";
+            this.txtFooter3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // cmbManzana
+            // txtFooter2
             // 
-            this.cmbManzana.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbManzana.FormattingEnabled = true;
-            this.cmbManzana.Location = new System.Drawing.Point(39, 8);
-            this.cmbManzana.Margin = new System.Windows.Forms.Padding(4);
-            this.cmbManzana.Name = "cmbManzana";
-            this.cmbManzana.Size = new System.Drawing.Size(72, 21);
-            this.cmbManzana.TabIndex = 9;
+            this.txtFooter2.Location = new System.Drawing.Point(78, 33);
+            this.txtFooter2.MaxLength = 130;
+            this.txtFooter2.Name = "txtFooter2";
+            this.txtFooter2.ReadOnly = true;
+            this.txtFooter2.Size = new System.Drawing.Size(656, 20);
+            this.txtFooter2.TabIndex = 1;
+            this.txtFooter2.Text = "Linea 2";
+            this.txtFooter2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label6
+            // txtFooter1
             // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(125, 13);
-            this.label6.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(23, 13);
-            this.label6.TabIndex = 11;
-            this.label6.Text = "LT:";
+            this.txtFooter1.Location = new System.Drawing.Point(78, 7);
+            this.txtFooter1.MaxLength = 130;
+            this.txtFooter1.Name = "txtFooter1";
+            this.txtFooter1.ReadOnly = true;
+            this.txtFooter1.Size = new System.Drawing.Size(656, 20);
+            this.txtFooter1.TabIndex = 0;
+            this.txtFooter1.Text = "Linea 1";
+            this.txtFooter1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // label3
+            // lblInstruccion
             // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(10, 12);
-            this.label3.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(26, 13);
-            this.label3.TabIndex = 8;
-            this.label3.Text = "MZ:";
+            this.lblInstruccion.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblInstruccion.Location = new System.Drawing.Point(13, 57);
+            this.lblInstruccion.Name = "lblInstruccion";
+            this.lblInstruccion.Size = new System.Drawing.Size(224, 52);
+            this.lblInstruccion.TabIndex = 57;
+            this.lblInstruccion.Text = "Selecciona la casilla a modificar. Y finalmente confirma los cambios.";
+            this.lblInstruccion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // btnBuscar
+            // btnSave1
             // 
-            this.btnBuscar.Image = global::WFPGranjas.Properties.Resources.busca_mini;
-            this.btnBuscar.Location = new System.Drawing.Point(228, 9);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(25, 23);
-            this.btnBuscar.TabIndex = 12;
-            this.btnBuscar.TabStop = false;
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
+            this.btnSave1.Image = global::WFPGranjas.Properties.Resources.aceptar;
+            this.btnSave1.Location = new System.Drawing.Point(738, 25);
+            this.btnSave1.Name = "btnSave1";
+            this.btnSave1.Size = new System.Drawing.Size(32, 24);
+            this.btnSave1.TabIndex = 58;
+            this.btnSave1.UseVisualStyleBackColor = true;
+            this.btnSave1.Visible = false;
+            this.btnSave1.Click += new System.EventHandler(this.btnSave1_Click);
             // 
-            // txtLote
+            // btnSave2
             // 
-            this.txtLote.Location = new System.Drawing.Point(150, 10);
-            this.txtLote.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
-            this.txtLote.MaxLength = 10;
-            this.txtLote.Name = "txtLote";
-            this.txtLote.Size = new System.Drawing.Size(74, 20);
-            this.txtLote.TabIndex = 10;
+            this.btnSave2.Image = global::WFPGranjas.Properties.Resources.aceptar;
+            this.btnSave2.Location = new System.Drawing.Point(740, 7);
+            this.btnSave2.Name = "btnSave2";
+            this.btnSave2.Size = new System.Drawing.Size(32, 24);
+            this.btnSave2.TabIndex = 59;
+            this.btnSave2.UseVisualStyleBackColor = true;
+            this.btnSave2.Visible = false;
+            this.btnSave2.Click += new System.EventHandler(this.btnSave2_Click);
             // 
-            // lblAsoc
+            // pnlResult
             // 
-            this.lblAsoc.AutoSize = true;
-            this.lblAsoc.Location = new System.Drawing.Point(4, 86);
-            this.lblAsoc.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
-            this.lblAsoc.Name = "lblAsoc";
-            this.lblAsoc.Size = new System.Drawing.Size(65, 13);
-            this.lblAsoc.TabIndex = 53;
-            this.lblAsoc.Text = "ASOCIADO:";
-            this.lblAsoc.Visible = false;
-            // 
-            // btnEjecutar
-            // 
-            this.btnEjecutar.Image = global::WFPGranjas.Properties.Resources.aceptar;
-            this.btnEjecutar.Location = new System.Drawing.Point(321, 86);
-            this.btnEjecutar.Name = "btnEjecutar";
-            this.btnEjecutar.Size = new System.Drawing.Size(99, 30);
-            this.btnEjecutar.TabIndex = 52;
-            this.btnEjecutar.Text = "EJECUTAR";
-            this.btnEjecutar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEjecutar.UseVisualStyleBackColor = true;
-            this.btnEjecutar.Click += new System.EventHandler(this.btnEjecutar_Click);
-            // 
-            // rbColono
-            // 
-            this.rbColono.AutoSize = true;
-            this.rbColono.Location = new System.Drawing.Point(37, 51);
-            this.rbColono.Name = "rbColono";
-            this.rbColono.Size = new System.Drawing.Size(59, 17);
-            this.rbColono.TabIndex = 1;
-            this.rbColono.Text = "MZ/LT";
-            this.rbColono.UseVisualStyleBackColor = true;
-            this.rbColono.CheckedChanged += new System.EventHandler(this.rbColono_CheckedChanged);
-            // 
-            // rbTodos
-            // 
-            this.rbTodos.AutoSize = true;
-            this.rbTodos.Checked = true;
-            this.rbTodos.Location = new System.Drawing.Point(37, 20);
-            this.rbTodos.Name = "rbTodos";
-            this.rbTodos.Size = new System.Drawing.Size(55, 17);
-            this.rbTodos.TabIndex = 0;
-            this.rbTodos.TabStop = true;
-            this.rbTodos.Text = "Todos";
-            this.rbTodos.UseVisualStyleBackColor = true;
-            this.rbTodos.CheckedChanged += new System.EventHandler(this.rbTodos_CheckedChanged);
-            // 
-            // pnlResultBancos
-            // 
-            this.pnlResultBancos.BackColor = System.Drawing.Color.DeepSkyBlue;
-            this.pnlResultBancos.Controls.Add(this.pictureBox1);
-            this.pnlResultBancos.Controls.Add(this.lblMenBancos);
-            this.pnlResultBancos.Location = new System.Drawing.Point(28, 195);
-            this.pnlResultBancos.Name = "pnlResultBancos";
-            this.pnlResultBancos.Size = new System.Drawing.Size(317, 24);
-            this.pnlResultBancos.TabIndex = 7;
-            this.pnlResultBancos.Visible = false;
+            this.pnlResult.BackColor = System.Drawing.Color.DeepSkyBlue;
+            this.pnlResult.Controls.Add(this.pictureBox1);
+            this.pnlResult.Controls.Add(this.lblMensaje);
+            this.pnlResult.Location = new System.Drawing.Point(422, 317);
+            this.pnlResult.Margin = new System.Windows.Forms.Padding(4);
+            this.pnlResult.Name = "pnlResult";
+            this.pnlResult.Size = new System.Drawing.Size(370, 28);
+            this.pnlResult.TabIndex = 11;
+            this.pnlResult.Visible = false;
             // 
             // pictureBox1
             // 
             this.pictureBox1.BackgroundImage = global::WFPGranjas.Properties.Resources.info;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox1.Location = new System.Drawing.Point(5, 4);
+            this.pictureBox1.Location = new System.Drawing.Point(6, 5);
+            this.pictureBox1.Margin = new System.Windows.Forms.Padding(4);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(19, 18);
+            this.pictureBox1.Size = new System.Drawing.Size(22, 21);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 
-            // lblMenBancos
+            // lblMensaje
             // 
-            this.lblMenBancos.AutoSize = true;
-            this.lblMenBancos.ForeColor = System.Drawing.SystemColors.Window;
-            this.lblMenBancos.Location = new System.Drawing.Point(30, 4);
-            this.lblMenBancos.Name = "lblMenBancos";
-            this.lblMenBancos.Size = new System.Drawing.Size(133, 13);
-            this.lblMenBancos.TabIndex = 0;
-            this.lblMenBancos.Text = "¡Se guardo correcatmente!";
+            this.lblMensaje.AutoSize = true;
+            this.lblMensaje.ForeColor = System.Drawing.SystemColors.Window;
+            this.lblMensaje.Location = new System.Drawing.Point(35, 5);
+            this.lblMensaje.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblMensaje.Name = "lblMensaje";
+            this.lblMensaje.Size = new System.Drawing.Size(133, 13);
+            this.lblMensaje.TabIndex = 0;
+            this.lblMensaje.Text = "¡Se guardo correcatmente!";
             // 
             // frmGeneraAvisos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(459, 261);
-            this.Controls.Add(this.groupBoxForm);
+            this.ClientSize = new System.Drawing.Size(806, 348);
+            this.Controls.Add(this.pnlResult);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.pnlBody);
             this.Controls.Add(this.pnlPrinBancos);
             this.Name = "frmGeneraAvisos";
-            this.Text = "AVISOS DE CONBRANZA";
+            this.Text = "Gestiona Avisos";
             this.Load += new System.EventHandler(this.frmGeneraAvisos_Load);
             this.pnlPrinBancos.ResumeLayout(false);
             this.pnlPrinBancos.PerformLayout();
             this.menuStrip2.ResumeLayout(false);
             this.menuStrip2.PerformLayout();
-            this.menuStripBancos.ResumeLayout(false);
-            this.menuStripBancos.PerformLayout();
-            this.groupBoxForm.ResumeLayout(false);
-            this.pnlCaptura.ResumeLayout(false);
-            this.pnlCaptura.PerformLayout();
-            this.gbSeleccion.ResumeLayout(false);
-            this.gbSeleccion.PerformLayout();
-            this.pXLote.ResumeLayout(false);
-            this.pXLote.PerformLayout();
-            this.pnlResultBancos.ResumeLayout(false);
-            this.pnlResultBancos.PerformLayout();
+            this.menuStripColonos.ResumeLayout(false);
+            this.menuStripColonos.PerformLayout();
+            this.pnlBody.ResumeLayout(false);
+            this.pnlBody.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
+            this.pnlResult.ResumeLayout(false);
+            this.pnlResult.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
 
@@ -413,30 +368,27 @@
         private System.Windows.Forms.Panel pnlPrinBancos;
         private System.Windows.Forms.MenuStrip menuStrip2;
         private System.Windows.Forms.ToolStripMenuItem otreToolStripMenuItem;
-        private System.Windows.Forms.MenuStrip menuStripBancos;
-        private System.Windows.Forms.ToolStripMenuItem mSalirBanco;
+        private System.Windows.Forms.MenuStrip menuStripColonos;
+        private System.Windows.Forms.ToolStripMenuItem mNuevo;
+        private System.Windows.Forms.ToolStripMenuItem mEditar;
+        private System.Windows.Forms.ToolStripMenuItem mEliminar;
+        private System.Windows.Forms.ToolStripMenuItem mSalir;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.GroupBox groupBoxForm;
-        private System.Windows.Forms.GroupBox gbSeleccion;
-        private System.Windows.Forms.RadioButton rbColono;
-        private System.Windows.Forms.RadioButton rbTodos;
-        private System.Windows.Forms.Panel pnlResultBancos;
-        private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label lblMenBancos;
-        private System.Windows.Forms.Button btnBuscar;
-        private System.Windows.Forms.TextBox txtLote;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox cmbManzana;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Panel pnlCaptura;
-        private System.Windows.Forms.ComboBox cmbAnios;
-        private System.Windows.Forms.ComboBox cmbPeriodos;
+        private System.Windows.Forms.Panel pnlBody;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label lblInd;
-        private System.Windows.Forms.Button btnCapturaLec;
-        private System.Windows.Forms.Label lblAsoc;
-        private System.Windows.Forms.Button btnEjecutar;
-        private System.Windows.Forms.Panel pXLote;
-        private System.Windows.Forms.Label lblDir;
+        private System.Windows.Forms.RichTextBox rtbAviso;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox txtFooter4;
+        private System.Windows.Forms.TextBox txtFooter3;
+        private System.Windows.Forms.TextBox txtFooter2;
+        private System.Windows.Forms.TextBox txtFooter1;
+        private System.Windows.Forms.CheckBox checkAv1;
+        private System.Windows.Forms.CheckBox checkAv2;
+        private System.Windows.Forms.Label lblInstruccion;
+        private System.Windows.Forms.Button btnSave1;
+        private System.Windows.Forms.Button btnSave2;
+        private System.Windows.Forms.Panel pnlResult;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label lblMensaje;
     }
 }

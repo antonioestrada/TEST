@@ -210,11 +210,17 @@
     <Compile Include="frmGeneraAvisos.Designer.cs">
       <DependentUpon>frmGeneraAvisos.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmGeneraAvisosPDF.cs">
+    <Compile Include="frmImprimeAvisos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmGeneraAvisosPDF.Designer.cs">
-      <DependentUpon>frmGeneraAvisosPDF.cs</DependentUpon>
+    <Compile Include="frmImprimeAvisos.Designer.cs">
+      <DependentUpon>frmImprimeAvisos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmImprimeAvisosPDF.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmImprimeAvisosPDF.Designer.cs">
+      <DependentUpon>frmImprimeAvisosPDF.cs</DependentUpon>
     </Compile>
     <Compile Include="frmParametrosSys.cs">
       <SubType>Form</SubType>
@@ -422,8 +428,11 @@
     <EmbeddedResource Include="frmGeneraAvisos.resx">
       <DependentUpon>frmGeneraAvisos.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmGeneraAvisosPDF.resx">
-      <DependentUpon>frmGeneraAvisosPDF.cs</DependentUpon>
+    <EmbeddedResource Include="frmImprimeAvisos.resx">
+      <DependentUpon>frmImprimeAvisos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmImprimeAvisosPDF.resx">
+      <DependentUpon>frmImprimeAvisosPDF.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmParametrosSys.resx">
       <DependentUpon>frmParametrosSys.cs</DependentUpon>
@@ -1048,6 +1057,24 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\red.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\aviso-de-error%282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\aviso-de-error%283%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\notificacion.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mensaje-publico.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\smartphone.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\mensaje-publico%281%29.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

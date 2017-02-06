@@ -118,19 +118,9 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <metadata name="menuStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>552, 4</value>
+    <value>17, 56</value>
   </metadata>
-  <metadata name="menuStripColonos.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>667, 4</value>
+  <metadata name="menuStripBancos.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
+    <value>132, 56</value>
   </metadata>
-  <metadata name="menuStrip2.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>552, 4</value>
-  </metadata>
-  <metadata name="menuStripColonos.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>667, 4</value>
-  </metadata>
-  <data name="rtbAviso.Text" xml:space="preserve">
-    <value>DESASOLVE TANQUE DE ALMACENAMIENTO - Se les informa que se tiene programado la limpieza y desasolve del tanque de almacenamiento de agua potable (esquina Calzada San Jose y Calzada de Guadalupe) para el próximo día 11 de Diciembre del año en curso. 
-La actividad de desasolve estimamos nos tome aproximadamente 10 horas, a partir de las 9:00 am, por lo que se les recomienda tomar sus precauciones evitando durante este día el riego de jardines y ahorrando agua de tinacos y cisternas. Cualquier duda, favor de comunicarse a la Administración con la Srita Stefanoni.</value>
-  </data>
 </root>

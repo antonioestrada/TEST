@@ -569,7 +569,7 @@ namespace WFPGranjas
         private void amImprimirAC_Click(object sender, EventArgs e)
         {
             cerrarVentanas();
-            frmGeneraAvisos childAvisosCob = new frmGeneraAvisos();
+            frmImprimeAvisos childAvisosCob = new frmImprimeAvisos();
             childAvisosCob.StartPosition = FormStartPosition.CenterScreen;
             childAvisosCob.MdiParent = this;
             childAvisosCob.Show();
@@ -580,7 +580,7 @@ namespace WFPGranjas
         private void acImprimirAC_Click(object sender, EventArgs e)
         {
             cerrarVentanas();
-            frmGeneraAvisos childAvisosCob = new frmGeneraAvisos();
+            frmImprimeAvisos childAvisosCob = new frmImprimeAvisos();
             childAvisosCob.StartPosition = FormStartPosition.CenterScreen;
             childAvisosCob.MdiParent = this;
             childAvisosCob.Show();
@@ -740,6 +740,24 @@ namespace WFPGranjas
             childFormCatColonos.Size = new Size(506, 367);
 
             childFormCatColonos.Show();
+        }
+
+        private void aaImprimirAv_Click(object sender, EventArgs e)
+        {
+            cerrarVentanas();
+            frmImprimeAvisos childAvisosCob = new frmImprimeAvisos();
+            childAvisosCob.StartPosition = FormStartPosition.CenterScreen;
+            childAvisosCob.MdiParent = this;
+            childAvisosCob.Show();
+        }
+
+        private void aaAvisos_Click(object sender, EventArgs e)
+        {
+            cerrarVentanas();
+            frmGeneraAvisos childGenAvisos = new frmGeneraAvisos(1);
+            childGenAvisos.StartPosition = FormStartPosition.Manual;
+            childGenAvisos.MdiParent = this;
+            childGenAvisos.Show();
         }
     }
     }

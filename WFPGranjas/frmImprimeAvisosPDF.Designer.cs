@@ -1,6 +1,6 @@
 ﻿namespace WFPGranjas
 {
-    partial class frmGeneraAvisosPDF
+    partial class frmImprimeAvisosPDF
     {
         /// <summary>
         /// Required designer variable.

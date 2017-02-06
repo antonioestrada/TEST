@@ -50,12 +50,10 @@
             this.amConvenios = new System.Windows.Forms.ToolStripMenuItem();
             this.amGeneracionCM = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
-            this.amImprimirAC = new System.Windows.Forms.ToolStripMenuItem();
             this.menuAAgua = new System.Windows.Forms.ToolStripMenuItem();
             this.acLecturas = new System.Windows.Forms.ToolStripMenuItem();
             this.acGeneracionCA = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
-            this.acImprimirAC = new System.Windows.Forms.ToolStripMenuItem();
             this.acCBA = new System.Windows.Forms.ToolStripMenuItem();
             this.menuAReportes = new System.Windows.Forms.ToolStripMenuItem();
             this.toolBarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -64,7 +62,10 @@
             this.arRegLecturas = new System.Windows.Forms.ToolStripMenuItem();
             this.arRManto = new System.Windows.Forms.ToolStripMenuItem();
             this.cierreDeMesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolsMenu = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuAAvisos = new System.Windows.Forms.ToolStripMenuItem();
+            this.aaAvisos = new System.Windows.Forms.ToolStripMenuItem();
+            this.aaImprimirAv = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuACierreM = new System.Windows.Forms.ToolStripMenuItem();
             this.optionsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuAAyuda = new System.Windows.Forms.ToolStripMenuItem();
             this.contentsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -84,8 +85,8 @@
             this.menuFCaja = new System.Windows.Forms.ToolStripMenuItem();
             this.fcCuotasM = new System.Windows.Forms.ToolStripMenuItem();
             this.fcCuotasA = new System.Windows.Forms.ToolStripMenuItem();
-            this.fcCuotasEC = new System.Windows.Forms.ToolStripMenuItem();
-            this.cuotasExtraordinariasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fcCuotasC = new System.Windows.Forms.ToolStripMenuItem();
+            this.fcCuotasEx = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator10 = new System.Windows.Forms.ToolStripSeparator();
             this.fcCasaC = new System.Windows.Forms.ToolStripMenuItem();
             this.ingresosCasaClubToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -94,7 +95,7 @@
             this.fcAManto = new System.Windows.Forms.ToolStripMenuItem();
             this.fcAAgua = new System.Windows.Forms.ToolStripMenuItem();
             this.fcAAnualidades = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
+            this.fcDesgloseCon = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator20 = new System.Windows.Forms.ToolStripSeparator();
             this.fcCancelacionR = new System.Windows.Forms.ToolStripMenuItem();
             this.menuFCobranza = new System.Windows.Forms.ToolStripMenuItem();
@@ -120,9 +121,10 @@
             this.cgColonos = new System.Windows.Forms.ToolStripMenuItem();
             this.cgManzanas = new System.Windows.Forms.ToolStripMenuItem();
             this.cgLotes = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.cgMedidores = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
             this.cgBancos = new System.Windows.Forms.ToolStripMenuItem();
+            this.cgConceptosCC = new System.Windows.Forms.ToolStripMenuItem();
             this.cgCuentasContables = new System.Windows.Forms.ToolStripMenuItem();
             this.cgCuotas = new System.Windows.Forms.ToolStripMenuItem();
             this.cgcMantenimiento = new System.Windows.Forms.ToolStripMenuItem();
@@ -131,7 +133,6 @@
             this.cgcAgua = new System.Windows.Forms.ToolStripMenuItem();
             this.cgcaTarifas = new System.Windows.Forms.ToolStripMenuItem();
             this.cgcaCBA = new System.Windows.Forms.ToolStripMenuItem();
-            this.cgConceptosCC = new System.Windows.Forms.ToolStripMenuItem();
             this.menuCSistema = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator22 = new System.Windows.Forms.ToolStripSeparator();
             this.csUsuarios = new System.Windows.Forms.ToolStripMenuItem();
@@ -246,7 +247,7 @@
             // 
             // tsExit
             // 
-            this.tsExit.Image = global::WFPGranjas.Properties.Resources.logout;
+            this.tsExit.Image = ((System.Drawing.Image)(resources.GetObject("tsExit.Image")));
             this.tsExit.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.tsExit.Name = "tsExit";
             this.tsExit.Size = new System.Drawing.Size(49, 22);
@@ -310,7 +311,7 @@
             // 
             // menuStripAdmon
             // 
-            this.menuStripAdmon.BackgroundImage = global::WFPGranjas.Properties.Resources.b1_uno;
+            this.menuStripAdmon.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("menuStripAdmon.BackgroundImage")));
             this.menuStripAdmon.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.menuStripAdmon.Dock = System.Windows.Forms.DockStyle.Fill;
             this.menuStripAdmon.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -318,7 +319,8 @@
             this.menuAManto,
             this.menuAAgua,
             this.menuAReportes,
-            this.toolsMenu,
+            this.menuAAvisos,
+            this.menuACierreM,
             this.menuAAyuda,
             this.windowsMenu});
             this.menuStripAdmon.LayoutStyle = System.Windows.Forms.ToolStripLayoutStyle.HorizontalStackWithOverflow;
@@ -335,9 +337,8 @@
             this.menuAManto.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.amConvenios,
             this.amGeneracionCM,
-            this.toolStripSeparator5,
-            this.amImprimirAC});
-            this.menuAManto.Image = global::WFPGranjas.Properties.Resources.brote;
+            this.toolStripSeparator5});
+            this.menuAManto.Image = ((System.Drawing.Image)(resources.GetObject("menuAManto.Image")));
             this.menuAManto.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.menuAManto.ImageTransparentColor = System.Drawing.SystemColors.ActiveBorder;
             this.menuAManto.Name = "menuAManto";
@@ -348,7 +349,7 @@
             // 
             // amConvenios
             // 
-            this.amConvenios.Image = global::WFPGranjas.Properties.Resources.acuerdo2_16;
+            this.amConvenios.Image = ((System.Drawing.Image)(resources.GetObject("amConvenios.Image")));
             this.amConvenios.ImageTransparentColor = System.Drawing.Color.Black;
             this.amConvenios.Name = "amConvenios";
             this.amConvenios.Size = new System.Drawing.Size(255, 22);
@@ -357,7 +358,7 @@
             // 
             // amGeneracionCM
             // 
-            this.amGeneracionCM.Image = global::WFPGranjas.Properties.Resources.transferir;
+            this.amGeneracionCM.Image = ((System.Drawing.Image)(resources.GetObject("amGeneracionCM.Image")));
             this.amGeneracionCM.ImageTransparentColor = System.Drawing.Color.Black;
             this.amGeneracionCM.Name = "amGeneracionCM";
             this.amGeneracionCM.Size = new System.Drawing.Size(255, 22);
@@ -369,24 +370,14 @@
             this.toolStripSeparator5.Name = "toolStripSeparator5";
             this.toolStripSeparator5.Size = new System.Drawing.Size(252, 6);
             // 
-            // amImprimirAC
-            // 
-            this.amImprimirAC.Image = global::WFPGranjas.Properties.Resources.impresora;
-            this.amImprimirAC.ImageTransparentColor = System.Drawing.Color.Black;
-            this.amImprimirAC.Name = "amImprimirAC";
-            this.amImprimirAC.Size = new System.Drawing.Size(255, 22);
-            this.amImprimirAC.Text = "Imprimir Avisos de Cobranza";
-            this.amImprimirAC.Click += new System.EventHandler(this.amImprimirAC_Click);
-            // 
             // menuAAgua
             // 
             this.menuAAgua.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.acLecturas,
             this.acGeneracionCA,
             this.toolStripSeparator6,
-            this.acImprimirAC,
             this.acCBA});
-            this.menuAAgua.Image = global::WFPGranjas.Properties.Resources.riego;
+            this.menuAAgua.Image = ((System.Drawing.Image)(resources.GetObject("menuAAgua.Image")));
             this.menuAAgua.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.menuAAgua.Name = "menuAAgua";
             this.menuAAgua.Size = new System.Drawing.Size(112, 60);
@@ -396,7 +387,7 @@
             // 
             // acLecturas
             // 
-            this.acLecturas.Image = global::WFPGranjas.Properties.Resources.velocimetro;
+            this.acLecturas.Image = ((System.Drawing.Image)(resources.GetObject("acLecturas.Image")));
             this.acLecturas.ImageTransparentColor = System.Drawing.Color.Black;
             this.acLecturas.Name = "acLecturas";
             this.acLecturas.Size = new System.Drawing.Size(255, 22);
@@ -405,7 +396,7 @@
             // 
             // acGeneracionCA
             // 
-            this.acGeneracionCA.Image = global::WFPGranjas.Properties.Resources.transferir;
+            this.acGeneracionCA.Image = ((System.Drawing.Image)(resources.GetObject("acGeneracionCA.Image")));
             this.acGeneracionCA.ImageTransparentColor = System.Drawing.Color.Black;
             this.acGeneracionCA.Name = "acGeneracionCA";
             this.acGeneracionCA.Size = new System.Drawing.Size(255, 22);
@@ -416,15 +407,6 @@
             // 
             this.toolStripSeparator6.Name = "toolStripSeparator6";
             this.toolStripSeparator6.Size = new System.Drawing.Size(252, 6);
-            // 
-            // acImprimirAC
-            // 
-            this.acImprimirAC.Image = global::WFPGranjas.Properties.Resources.impresora;
-            this.acImprimirAC.ImageTransparentColor = System.Drawing.Color.Black;
-            this.acImprimirAC.Name = "acImprimirAC";
-            this.acImprimirAC.Size = new System.Drawing.Size(255, 22);
-            this.acImprimirAC.Text = "Imprimir Avisos de Cobranza";
-            this.acImprimirAC.Click += new System.EventHandler(this.acImprimirAC_Click);
             // 
             // acCBA
             // 
@@ -442,7 +424,7 @@
             this.arRegLecturas,
             this.arRManto,
             this.cierreDeMesToolStripMenuItem});
-            this.menuAReportes.Image = global::WFPGranjas.Properties.Resources.reportar;
+            this.menuAReportes.Image = ((System.Drawing.Image)(resources.GetObject("menuAReportes.Image")));
             this.menuAReportes.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.menuAReportes.Name = "menuAReportes";
             this.menuAReportes.Size = new System.Drawing.Size(72, 60);
@@ -501,22 +483,52 @@
             this.cierreDeMesToolStripMenuItem.Visible = false;
             this.cierreDeMesToolStripMenuItem.Click += new System.EventHandler(this.cierreDeMesToolStripMenuItem_Click);
             // 
-            // toolsMenu
+            // menuAAvisos
             // 
-            this.toolsMenu.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuAAvisos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aaAvisos,
+            this.aaImprimirAv});
+            this.menuAAvisos.Image = ((System.Drawing.Image)(resources.GetObject("menuAAvisos.Image")));
+            this.menuAAvisos.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.menuAAvisos.Name = "menuAAvisos";
+            this.menuAAvisos.Size = new System.Drawing.Size(58, 60);
+            this.menuAAvisos.Text = "Avisos";
+            this.menuAAvisos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.menuAAvisos.Visible = false;
+            // 
+            // aaAvisos
+            // 
+            this.aaAvisos.Image = ((System.Drawing.Image)(resources.GetObject("aaAvisos.Image")));
+            this.aaAvisos.Name = "aaAvisos";
+            this.aaAvisos.Size = new System.Drawing.Size(240, 22);
+            this.aaAvisos.Text = "Gereracion de Avisos";
+            this.aaAvisos.Click += new System.EventHandler(this.aaAvisos_Click);
+            // 
+            // aaImprimirAv
+            // 
+            this.aaImprimirAv.Image = ((System.Drawing.Image)(resources.GetObject("aaImprimirAv.Image")));
+            this.aaImprimirAv.Name = "aaImprimirAv";
+            this.aaImprimirAv.Size = new System.Drawing.Size(240, 22);
+            this.aaImprimirAv.Text = "Imprimir Avisos de Cobranza";
+            this.aaImprimirAv.Click += new System.EventHandler(this.aaImprimirAv_Click);
+            // 
+            // menuACierreM
+            // 
+            this.menuACierreM.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.optionsToolStripMenuItem});
-            this.toolsMenu.Image = global::WFPGranjas.Properties.Resources.calendario_semanal;
-            this.toolsMenu.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
-            this.toolsMenu.Name = "toolsMenu";
-            this.toolsMenu.Size = new System.Drawing.Size(107, 60);
-            this.toolsMenu.Text = "Cierre Mensual";
-            this.toolsMenu.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.toolsMenu.Click += new System.EventHandler(this.toolsMenu_Click);
+            this.menuACierreM.Image = ((System.Drawing.Image)(resources.GetObject("menuACierreM.Image")));
+            this.menuACierreM.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.menuACierreM.Name = "menuACierreM";
+            this.menuACierreM.Size = new System.Drawing.Size(107, 60);
+            this.menuACierreM.Text = "Cierre Mensual";
+            this.menuACierreM.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.menuACierreM.Visible = false;
+            this.menuACierreM.Click += new System.EventHandler(this.toolsMenu_Click);
             // 
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.optionsToolStripMenuItem.Text = "&Options";
             this.optionsToolStripMenuItem.Visible = false;
             // 
@@ -528,7 +540,7 @@
             this.searchToolStripMenuItem,
             this.toolStripSeparator8,
             this.aboutToolStripMenuItem});
-            this.menuAAyuda.Image = global::WFPGranjas.Properties.Resources.info;
+            this.menuAAyuda.Image = ((System.Drawing.Image)(resources.GetObject("menuAAyuda.Image")));
             this.menuAAyuda.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.menuAAyuda.Name = "menuAAyuda";
             this.menuAAyuda.Size = new System.Drawing.Size(57, 60);
@@ -641,7 +653,7 @@
             // 
             // menuStripFinanzas
             // 
-            this.menuStripFinanzas.BackgroundImage = global::WFPGranjas.Properties.Resources.b2_dos;
+            this.menuStripFinanzas.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("menuStripFinanzas.BackgroundImage")));
             this.menuStripFinanzas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.menuStripFinanzas.Dock = System.Windows.Forms.DockStyle.Fill;
             this.menuStripFinanzas.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -663,17 +675,17 @@
             this.menuFCaja.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.fcCuotasM,
             this.fcCuotasA,
-            this.fcCuotasEC,
-            this.cuotasExtraordinariasToolStripMenuItem,
+            this.fcCuotasC,
+            this.fcCuotasEx,
             this.toolStripSeparator10,
             this.fcCasaC,
             this.fcAnticipios,
-            this.toolStripMenuItem9,
+            this.fcDesgloseCon,
             this.toolStripSeparator20,
             this.fcCancelacionR});
             this.menuFCaja.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuFCaja.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.menuFCaja.Image = global::WFPGranjas.Properties.Resources.caja_registradora;
+            this.menuFCaja.Image = ((System.Drawing.Image)(resources.GetObject("menuFCaja.Image")));
             this.menuFCaja.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.menuFCaja.ImageTransparentColor = System.Drawing.SystemColors.ActiveBorder;
             this.menuFCaja.Name = "menuFCaja";
@@ -684,7 +696,7 @@
             // 
             // fcCuotasM
             // 
-            this.fcCuotasM.Image = global::WFPGranjas.Properties.Resources.hoja;
+            this.fcCuotasM.Image = ((System.Drawing.Image)(resources.GetObject("fcCuotasM.Image")));
             this.fcCuotasM.ImageTransparentColor = System.Drawing.Color.Black;
             this.fcCuotasM.Name = "fcCuotasM";
             this.fcCuotasM.Size = new System.Drawing.Size(224, 22);
@@ -693,28 +705,28 @@
             // 
             // fcCuotasA
             // 
-            this.fcCuotasA.Image = global::WFPGranjas.Properties.Resources.gota_de_agua;
+            this.fcCuotasA.Image = ((System.Drawing.Image)(resources.GetObject("fcCuotasA.Image")));
             this.fcCuotasA.ImageTransparentColor = System.Drawing.Color.Black;
             this.fcCuotasA.Name = "fcCuotasA";
             this.fcCuotasA.Size = new System.Drawing.Size(224, 22);
             this.fcCuotasA.Text = "Cuotas de Agua";
             this.fcCuotasA.Click += new System.EventHandler(this.fcCuotasA_Click);
             // 
-            // fcCuotasEC
+            // fcCuotasC
             // 
-            this.fcCuotasEC.Image = global::WFPGranjas.Properties.Resources.acuerdo2_16;
-            this.fcCuotasEC.ImageTransparentColor = System.Drawing.Color.Black;
-            this.fcCuotasEC.Name = "fcCuotasEC";
-            this.fcCuotasEC.Size = new System.Drawing.Size(224, 22);
-            this.fcCuotasEC.Text = "Cuotas de Convenios";
-            this.fcCuotasEC.Click += new System.EventHandler(this.fcCuotasEC_Click);
+            this.fcCuotasC.Image = ((System.Drawing.Image)(resources.GetObject("fcCuotasC.Image")));
+            this.fcCuotasC.ImageTransparentColor = System.Drawing.Color.Black;
+            this.fcCuotasC.Name = "fcCuotasC";
+            this.fcCuotasC.Size = new System.Drawing.Size(224, 22);
+            this.fcCuotasC.Text = "Convenios";
+            this.fcCuotasC.Click += new System.EventHandler(this.fcCuotasEC_Click);
             // 
-            // cuotasExtraordinariasToolStripMenuItem
+            // fcCuotasEx
             // 
-            this.cuotasExtraordinariasToolStripMenuItem.Name = "cuotasExtraordinariasToolStripMenuItem";
-            this.cuotasExtraordinariasToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
-            this.cuotasExtraordinariasToolStripMenuItem.Text = "Cuotas Extraordinarias";
-            this.cuotasExtraordinariasToolStripMenuItem.Click += new System.EventHandler(this.cuotasExtraordinariasToolStripMenuItem_Click);
+            this.fcCuotasEx.Name = "fcCuotasEx";
+            this.fcCuotasEx.Size = new System.Drawing.Size(224, 22);
+            this.fcCuotasEx.Text = "Cuotas Extraordinarias";
+            this.fcCuotasEx.Click += new System.EventHandler(this.cuotasExtraordinariasToolStripMenuItem_Click);
             // 
             // toolStripSeparator10
             // 
@@ -726,7 +738,7 @@
             this.fcCasaC.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.ingresosCasaClubToolStripMenuItem,
             this.cuotasCasaClubToolStripMenuItem});
-            this.fcCasaC.Image = global::WFPGranjas.Properties.Resources.casa;
+            this.fcCasaC.Image = ((System.Drawing.Image)(resources.GetObject("fcCasaC.Image")));
             this.fcCasaC.ImageTransparentColor = System.Drawing.Color.Black;
             this.fcCasaC.Name = "fcCasaC";
             this.fcCasaC.Size = new System.Drawing.Size(224, 22);
@@ -753,7 +765,7 @@
             this.fcAManto,
             this.fcAAgua,
             this.fcAAnualidades});
-            this.fcAnticipios.Image = global::WFPGranjas.Properties.Resources.monedas;
+            this.fcAnticipios.Image = ((System.Drawing.Image)(resources.GetObject("fcAnticipios.Image")));
             this.fcAnticipios.ImageTransparentColor = System.Drawing.Color.Black;
             this.fcAnticipios.Name = "fcAnticipios";
             this.fcAnticipios.Size = new System.Drawing.Size(224, 22);
@@ -780,11 +792,11 @@
             this.fcAAnualidades.Text = "Anualidades";
             this.fcAAnualidades.Click += new System.EventHandler(this.fcAAnualidades_Click);
             // 
-            // toolStripMenuItem9
+            // fcDesgloseCon
             // 
-            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            this.toolStripMenuItem9.Size = new System.Drawing.Size(224, 22);
-            this.toolStripMenuItem9.Text = "Desglose de Consumos";
+            this.fcDesgloseCon.Name = "fcDesgloseCon";
+            this.fcDesgloseCon.Size = new System.Drawing.Size(224, 22);
+            this.fcDesgloseCon.Text = "Desglose de Consumos";
             // 
             // toolStripSeparator20
             // 
@@ -793,7 +805,7 @@
             // 
             // fcCancelacionR
             // 
-            this.fcCancelacionR.Image = global::WFPGranjas.Properties.Resources.documento;
+            this.fcCancelacionR.Image = ((System.Drawing.Image)(resources.GetObject("fcCancelacionR.Image")));
             this.fcCancelacionR.Name = "fcCancelacionR";
             this.fcCancelacionR.Size = new System.Drawing.Size(224, 22);
             this.fcCancelacionR.Text = "Cancelacion de Recibo";
@@ -810,7 +822,7 @@
             this.toolStripMenuItem15,
             this.toolStripSeparator13,
             this.toolStripMenuItem16});
-            this.menuFCobranza.Image = global::WFPGranjas.Properties.Resources.conseguir_dinero;
+            this.menuFCobranza.Image = ((System.Drawing.Image)(resources.GetObject("menuFCobranza.Image")));
             this.menuFCobranza.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.menuFCobranza.Name = "menuFCobranza";
             this.menuFCobranza.Size = new System.Drawing.Size(131, 60);
@@ -883,7 +895,7 @@
             // 
             // menuFReportes
             // 
-            this.menuFReportes.Image = global::WFPGranjas.Properties.Resources.reportar;
+            this.menuFReportes.Image = ((System.Drawing.Image)(resources.GetObject("menuFReportes.Image")));
             this.menuFReportes.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.menuFReportes.Name = "menuFReportes";
             this.menuFReportes.Size = new System.Drawing.Size(72, 60);
@@ -899,7 +911,7 @@
             this.toolStripMenuItem32,
             this.toolStripSeparator14,
             this.toolStripMenuItem33});
-            this.menuFAyuda.Image = global::WFPGranjas.Properties.Resources.info;
+            this.menuFAyuda.Image = ((System.Drawing.Image)(resources.GetObject("menuFAyuda.Image")));
             this.menuFAyuda.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.menuFAyuda.Name = "menuFAyuda";
             this.menuFAyuda.Size = new System.Drawing.Size(57, 60);
@@ -954,7 +966,7 @@
             // 
             // menuStripCat
             // 
-            this.menuStripCat.BackgroundImage = global::WFPGranjas.Properties.Resources.b4_cuatro;
+            this.menuStripCat.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("menuStripCat.BackgroundImage")));
             this.menuStripCat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.menuStripCat.Dock = System.Windows.Forms.DockStyle.Fill;
             this.menuStripCat.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -985,7 +997,7 @@
             this.cgCuotas});
             this.menuCGeneral.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuCGeneral.ForeColor = System.Drawing.SystemColors.ControlText;
-            this.menuCGeneral.Image = global::WFPGranjas.Properties.Resources.catalogo1;
+            this.menuCGeneral.Image = ((System.Drawing.Image)(resources.GetObject("menuCGeneral.Image")));
             this.menuCGeneral.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.menuCGeneral.ImageTransparentColor = System.Drawing.SystemColors.ActiveBorder;
             this.menuCGeneral.Name = "menuCGeneral";
@@ -1001,7 +1013,7 @@
             // 
             // cgColonos
             // 
-            this.cgColonos.Image = global::WFPGranjas.Properties.Resources.usuario;
+            this.cgColonos.Image = ((System.Drawing.Image)(resources.GetObject("cgColonos.Image")));
             this.cgColonos.ImageTransparentColor = System.Drawing.Color.Black;
             this.cgColonos.Name = "cgColonos";
             this.cgColonos.Size = new System.Drawing.Size(277, 22);
@@ -1022,27 +1034,35 @@
             this.cgLotes.Text = "Lotes";
             this.cgLotes.Click += new System.EventHandler(this.cgLotes_Click);
             // 
-            // toolStripSeparator3
-            // 
-            this.toolStripSeparator3.Name = "toolStripSeparator3";
-            this.toolStripSeparator3.Size = new System.Drawing.Size(274, 6);
-            // 
             // cgMedidores
             // 
-            this.cgMedidores.Image = global::WFPGranjas.Properties.Resources.velocimetro;
+            this.cgMedidores.Image = ((System.Drawing.Image)(resources.GetObject("cgMedidores.Image")));
             this.cgMedidores.Name = "cgMedidores";
             this.cgMedidores.Size = new System.Drawing.Size(277, 22);
             this.cgMedidores.Text = "Medidores";
             this.cgMedidores.Click += new System.EventHandler(this.cgMedidores_Click);
             // 
+            // toolStripSeparator3
+            // 
+            this.toolStripSeparator3.Name = "toolStripSeparator3";
+            this.toolStripSeparator3.Size = new System.Drawing.Size(274, 6);
+            // 
             // cgBancos
             // 
-            this.cgBancos.Image = global::WFPGranjas.Properties.Resources.comprobar24;
+            this.cgBancos.Image = ((System.Drawing.Image)(resources.GetObject("cgBancos.Image")));
             this.cgBancos.ImageTransparentColor = System.Drawing.Color.Black;
             this.cgBancos.Name = "cgBancos";
             this.cgBancos.Size = new System.Drawing.Size(277, 22);
             this.cgBancos.Text = "Bancos";
             this.cgBancos.Click += new System.EventHandler(this.cgBancos_Click);
+            // 
+            // cgConceptosCC
+            // 
+            this.cgConceptosCC.Image = ((System.Drawing.Image)(resources.GetObject("cgConceptosCC.Image")));
+            this.cgConceptosCC.Name = "cgConceptosCC";
+            this.cgConceptosCC.Size = new System.Drawing.Size(277, 22);
+            this.cgConceptosCC.Text = "Conceptos por Ingresos Casa Club";
+            this.cgConceptosCC.Click += new System.EventHandler(this.cgConceptosCC_Click);
             // 
             // cgCuentasContables
             // 
@@ -1057,7 +1077,7 @@
             this.cgCuotas.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cgcMantenimiento,
             this.cgcAgua});
-            this.cgCuotas.Image = global::WFPGranjas.Properties.Resources.monedas;
+            this.cgCuotas.Image = ((System.Drawing.Image)(resources.GetObject("cgCuotas.Image")));
             this.cgCuotas.Name = "cgCuotas";
             this.cgCuotas.Size = new System.Drawing.Size(277, 22);
             this.cgCuotas.Text = "Cuotas";
@@ -1067,7 +1087,7 @@
             this.cgcMantenimiento.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cgcmTarifas,
             this.cgcmDescuentos});
-            this.cgcMantenimiento.Image = global::WFPGranjas.Properties.Resources.brote;
+            this.cgcMantenimiento.Image = ((System.Drawing.Image)(resources.GetObject("cgcMantenimiento.Image")));
             this.cgcMantenimiento.Name = "cgcMantenimiento";
             this.cgcMantenimiento.Size = new System.Drawing.Size(235, 22);
             this.cgcMantenimiento.Text = "Servicios de Mantenimiento";
@@ -1092,7 +1112,7 @@
             this.cgcAgua.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.cgcaTarifas,
             this.cgcaCBA});
-            this.cgcAgua.Image = global::WFPGranjas.Properties.Resources.riego;
+            this.cgcAgua.Image = ((System.Drawing.Image)(resources.GetObject("cgcAgua.Image")));
             this.cgcAgua.Name = "cgcAgua";
             this.cgcAgua.Size = new System.Drawing.Size(235, 22);
             this.cgcAgua.Text = "Servicios de Agua";
@@ -1112,14 +1132,6 @@
             this.cgcaCBA.Text = "Calculo de CBA";
             this.cgcaCBA.Click += new System.EventHandler(this.calculoDeCBAToolStripMenuItem_Click);
             // 
-            // cgConceptosCC
-            // 
-            this.cgConceptosCC.Image = global::WFPGranjas.Properties.Resources.metodo_de_pago24;
-            this.cgConceptosCC.Name = "cgConceptosCC";
-            this.cgConceptosCC.Size = new System.Drawing.Size(277, 22);
-            this.cgConceptosCC.Text = "Conceptos por Ingresos Casa Club";
-            this.cgConceptosCC.Click += new System.EventHandler(this.cgConceptosCC_Click);
-            // 
             // menuCSistema
             // 
             this.menuCSistema.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -1129,7 +1141,7 @@
             this.csPerfiles,
             this.serviciosToolStripMenuItem,
             this.conceptosToolStripMenuItem});
-            this.menuCSistema.Image = global::WFPGranjas.Properties.Resources.ajustes_2;
+            this.menuCSistema.Image = ((System.Drawing.Image)(resources.GetObject("menuCSistema.Image")));
             this.menuCSistema.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.menuCSistema.Name = "menuCSistema";
             this.menuCSistema.Size = new System.Drawing.Size(68, 60);
@@ -1140,43 +1152,43 @@
             // toolStripSeparator22
             // 
             this.toolStripSeparator22.Name = "toolStripSeparator22";
-            this.toolStripSeparator22.Size = new System.Drawing.Size(135, 6);
+            this.toolStripSeparator22.Size = new System.Drawing.Size(149, 6);
             // 
             // csUsuarios
             // 
-            this.csUsuarios.Image = global::WFPGranjas.Properties.Resources.buscando_usuario;
+            this.csUsuarios.Image = ((System.Drawing.Image)(resources.GetObject("csUsuarios.Image")));
             this.csUsuarios.Name = "csUsuarios";
-            this.csUsuarios.Size = new System.Drawing.Size(138, 22);
+            this.csUsuarios.Size = new System.Drawing.Size(152, 22);
             this.csUsuarios.Text = "Usuarios";
             this.csUsuarios.Click += new System.EventHandler(this.csUsuarios_Click);
             // 
             // csPuestos
             // 
-            this.csPuestos.Image = global::WFPGranjas.Properties.Resources.organizacion;
+            this.csPuestos.Image = ((System.Drawing.Image)(resources.GetObject("csPuestos.Image")));
             this.csPuestos.Name = "csPuestos";
-            this.csPuestos.Size = new System.Drawing.Size(138, 22);
+            this.csPuestos.Size = new System.Drawing.Size(152, 22);
             this.csPuestos.Text = "Puestos";
             this.csPuestos.Click += new System.EventHandler(this.csPuestos_Click);
             // 
             // csPerfiles
             // 
-            this.csPerfiles.Image = global::WFPGranjas.Properties.Resources.red;
+            this.csPerfiles.Image = ((System.Drawing.Image)(resources.GetObject("csPerfiles.Image")));
             this.csPerfiles.Name = "csPerfiles";
-            this.csPerfiles.Size = new System.Drawing.Size(138, 22);
+            this.csPerfiles.Size = new System.Drawing.Size(152, 22);
             this.csPerfiles.Text = "Perfiles";
             this.csPerfiles.Click += new System.EventHandler(this.csPerfiles_Click);
             // 
             // serviciosToolStripMenuItem
             // 
             this.serviciosToolStripMenuItem.Name = "serviciosToolStripMenuItem";
-            this.serviciosToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.serviciosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.serviciosToolStripMenuItem.Text = "Servicios";
             this.serviciosToolStripMenuItem.Visible = false;
             // 
             // conceptosToolStripMenuItem
             // 
             this.conceptosToolStripMenuItem.Name = "conceptosToolStripMenuItem";
-            this.conceptosToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.conceptosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.conceptosToolStripMenuItem.Text = "Conceptos";
             this.conceptosToolStripMenuItem.Visible = false;
             // 
@@ -1188,7 +1200,7 @@
             this.toolStripMenuItem64,
             this.toolStripSeparator23,
             this.toolStripMenuItem65});
-            this.menuCAyuda.Image = global::WFPGranjas.Properties.Resources.info;
+            this.menuCAyuda.Image = ((System.Drawing.Image)(resources.GetObject("menuCAyuda.Image")));
             this.menuCAyuda.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.menuCAyuda.Name = "menuCAyuda";
             this.menuCAyuda.Size = new System.Drawing.Size(57, 60);
@@ -1243,7 +1255,7 @@
             // 
             // menuStripConfig
             // 
-            this.menuStripConfig.BackgroundImage = global::WFPGranjas.Properties.Resources.b7_siete;
+            this.menuStripConfig.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("menuStripConfig.BackgroundImage")));
             this.menuStripConfig.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.menuStripConfig.Dock = System.Windows.Forms.DockStyle.Fill;
             this.menuStripConfig.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -1262,13 +1274,14 @@
             this.CSSistema.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.CSSistema.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.CSSistema.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.CSSistema.Image = global::WFPGranjas.Properties.Resources.sistema;
+            this.CSSistema.Image = ((System.Drawing.Image)(resources.GetObject("CSSistema.Image")));
             this.CSSistema.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.CSSistema.ImageTransparentColor = System.Drawing.SystemColors.ActiveBorder;
             this.CSSistema.Name = "CSSistema";
             this.CSSistema.Size = new System.Drawing.Size(68, 60);
             this.CSSistema.Text = "Sistema";
             this.CSSistema.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.CSSistema.Visible = false;
             this.CSSistema.Click += new System.EventHandler(this.CSSistema_Click);
             // 
             // menuConfAyuda
@@ -1280,7 +1293,7 @@
             this.toolStripSeparator18,
             this.toolStripMenuItem42});
             this.menuConfAyuda.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.menuConfAyuda.Image = global::WFPGranjas.Properties.Resources.info;
+            this.menuConfAyuda.Image = ((System.Drawing.Image)(resources.GetObject("menuConfAyuda.Image")));
             this.menuConfAyuda.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.menuConfAyuda.Name = "menuConfAyuda";
             this.menuConfAyuda.Size = new System.Drawing.Size(57, 60);
@@ -1326,7 +1339,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Info;
-            this.BackgroundImage = global::WFPGranjas.Properties.Resources.LOGO;
+            this.BackgroundImage = ((System.Drawing.Image)(resources.GetObject("$this.BackgroundImage")));
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.ClientSize = new System.Drawing.Size(843, 453);
             this.Controls.Add(this.pnlMenuPrincipal);
@@ -1382,15 +1395,13 @@
         private System.Windows.Forms.ToolStripMenuItem menuAManto;
         private System.Windows.Forms.ToolStripMenuItem amGeneracionCM;
         private System.Windows.Forms.ToolStripMenuItem amConvenios;
-        private System.Windows.Forms.ToolStripMenuItem amImprimirAC;
         private System.Windows.Forms.ToolStripMenuItem menuAAgua;
         private System.Windows.Forms.ToolStripMenuItem acLecturas;
         private System.Windows.Forms.ToolStripMenuItem acGeneracionCA;
-        private System.Windows.Forms.ToolStripMenuItem acImprimirAC;
         private System.Windows.Forms.ToolStripMenuItem menuAReportes;
         private System.Windows.Forms.ToolStripMenuItem toolBarToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem statusBarToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolsMenu;
+        private System.Windows.Forms.ToolStripMenuItem menuACierreM;
         private System.Windows.Forms.ToolStripMenuItem optionsToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem windowsMenu;
         private System.Windows.Forms.ToolStripMenuItem newWindowToolStripMenuItem;
@@ -1446,14 +1457,14 @@
         private System.Windows.Forms.ToolStripMenuItem menuFCaja;
         private System.Windows.Forms.ToolStripMenuItem fcCuotasM;
         private System.Windows.Forms.ToolStripMenuItem fcCuotasA;
-        private System.Windows.Forms.ToolStripMenuItem fcCuotasEC;
+        private System.Windows.Forms.ToolStripMenuItem fcCuotasC;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator10;
         private System.Windows.Forms.ToolStripMenuItem fcCasaC;
         private System.Windows.Forms.ToolStripMenuItem fcAnticipios;
         private System.Windows.Forms.ToolStripMenuItem fcAManto;
         private System.Windows.Forms.ToolStripMenuItem fcAAgua;
         private System.Windows.Forms.ToolStripMenuItem fcAAnualidades;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
+        private System.Windows.Forms.ToolStripMenuItem fcDesgloseCon;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator20;
         private System.Windows.Forms.ToolStripMenuItem fcCancelacionR;
         private System.Windows.Forms.ToolStripMenuItem menuFCobranza;
@@ -1482,7 +1493,7 @@
         private System.Windows.Forms.ToolStripMenuItem arMedidores;
         private System.Windows.Forms.ToolStripMenuItem arRegLecturas;
         private System.Windows.Forms.ToolStripMenuItem arRManto;
-        private System.Windows.Forms.ToolStripMenuItem cuotasExtraordinariasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fcCuotasEx;
         private System.Windows.Forms.ToolStripMenuItem acCBA;
         private System.Windows.Forms.ToolStripMenuItem cierreDeMesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ingresosCasaClubToolStripMenuItem;
@@ -1493,6 +1504,9 @@
         private System.Windows.Forms.ToolStripMenuItem cgcaTarifas;
         private System.Windows.Forms.ToolStripMenuItem cgcaCBA;
         private System.Windows.Forms.ToolStripMenuItem cgConceptosCC;
+        private System.Windows.Forms.ToolStripMenuItem menuAAvisos;
+        private System.Windows.Forms.ToolStripMenuItem aaAvisos;
+        private System.Windows.Forms.ToolStripMenuItem aaImprimirAv;
     }
 }
 

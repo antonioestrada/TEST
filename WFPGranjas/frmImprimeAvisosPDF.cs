@@ -10,12 +10,12 @@ using System.Windows.Forms;
 
 namespace WFPGranjas
 {
-    public partial class frmGeneraAvisosPDF : Form
+    public partial class frmImprimeAvisosPDF : Form
     {
         string inPeriodoP = null;
         string inAnioP = null;
 
-        public frmGeneraAvisosPDF(string inPeriodo, string inAnio)
+        public frmImprimeAvisosPDF(string inPeriodo, string inAnio)
         {
             InitializeComponent();
             inPeriodoP = inPeriodo;
