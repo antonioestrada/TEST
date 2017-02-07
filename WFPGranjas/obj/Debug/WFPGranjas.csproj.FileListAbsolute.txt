@@ -313,3 +313,8 @@ C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\WFPGranjas.rptConsumo
 C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\WFPGranjas.frmCConceptosCC.resources
 C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\WFPGranjas.frmImprimeAvisos.resources
 C:\Users\joane\Documents\GRANJASTXGIT\WFPGranjas\obj\Debug\WFPGranjas.frmImprimeAvisosPDF.resources
+C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.frmCalculaCBAMensual.resources
+C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.frmCConceptosCC.resources
+C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.frmImprimeAvisos.resources
+C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.frmImprimeAvisosPDF.resources
+C:\Users\cbestred\Documents\test\WFPGranjas\obj\Debug\WFPGranjas.rptConsumos.resources

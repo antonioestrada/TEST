@@ -55,7 +55,7 @@ namespace WFPGranjas
                                               {
                                                   ValueType = typeof (string),
                                                   HeaderText = "Periodo",
-                                                  Width = 100
+                                                  Width = 150
                                               },
                                               new DataGridViewTextBoxColumn
                                               {
@@ -114,7 +114,7 @@ namespace WFPGranjas
         }
 
         public void buscaFolioPago() {
-
+            panelEstatus.Visible = false;
             if (txtColono.Text == null)
             {
                 MessageBox.Show("Ingrese el numero de folio");
@@ -123,11 +123,11 @@ namespace WFPGranjas
             {
                 var BeanCProp = new Backend.Catalogos.CColonos();
 
-                colono = BeanCProp.buscaColonoFolio(int.Parse(txtColono.Text));
+                colono = BeanCProp.buscaColonoFolio(txtColono.Text);
 
                 if (colono.nombre != null)
                 {
-                    txtColono.Text = "";
+                 
                     groupDColono.Visible = true;
                     gbDRecibo.Visible = true;
                     groupCuota.Visible = true;
@@ -142,20 +142,27 @@ namespace WFPGranjas
                     //MessageBox.Show("id_manzana" + id_manzana);
                     lblFechaSys.Text = colono.fechaPago;
                     string txtFolio = colono.folio.ToString("0000000");
-                    lblFolio.Text = txtFolio;
+                    lblFolio.Text = txtColono.Text;
                     PrcCancelacion prcCancelacion = new PrcCancelacion();
-                    double importeTotal = prcCancelacion.consultaPago(dgPartidasR, colono.folio, lblMoratorio, lblImporte, lblTotalImporte);
+                    double importeTotal = prcCancelacion.consultaPago(dgPartidasR, colono.folio, txtColono.Text, lblMoratorio, lblImporte, lblTotalImporte);
                     dgPartidasR.Visible = true;
-                    Object[] parames = { colono .folio};
+                    Object[] parames = { colono .folio, txtColono.Text, };
                     Boolean validacion = prcCancelacion.validaEstatusPago(parames);
-                    if (validacion)
+                    Boolean validacionFecha = prcCancelacion.validaFechaPago(parames);
+                    if (validacion || validacionFecha)
                         btnCapturaPago.Visible = false;
                     else
                         btnCapturaPago.Visible = true;
 
-                    if (validacion)
+                    if (validacion || validacionFecha)
                         panelEstatus.Visible = true;
 
+                    if (validacionFecha)
+                        lblMensaje.Text = "No se puede cancelar el pago, debido a la aplicacion de cuotas historicas ";
+                    if (validacion)
+                        lblMensaje.Text = "El recibo se encuentra cancelado"; 
+
+                    txtColono.Text = "";
                 }
                 else
                 {
@@ -219,10 +226,14 @@ namespace WFPGranjas
         {
             //
             PrcCancelacion prcCancelacion = new PrcCancelacion();
-            Object[] parames = { colono.folio };
+            Object[] parames = { colono.folio , lblFolio.Text };
             int resultado = prcCancelacion.registroCancelacion(parames);
             if(resultado>0)
                 MessageBox.Show("¡Se realizo la cancelacion del pago!");
+
+            groupCuota.Visible = false;
+            groupDColono.Visible = false;
+            gbDRecibo.Visible = false;
         }
         
     
@@ -256,7 +267,7 @@ namespace WFPGranjas
         
         private void txtColono_KeyPress(object sender, KeyPressEventArgs e)
         {
-            validaNumeros(txtColono, sender, e);
+           // validaNumeros(txtColono, sender, e);
         }
         
 
