@@ -20,7 +20,7 @@ namespace WFPGranjas
         int id_colono = 0,idManzana=0,idLote=0;
         String listaIDKardex;
         int servicio =0;
-        double pagoTotal = 0,moraTotal=0, importeTotal=0;
+        double pagoTotal = 0,moraTotal=0, importeTotal=0, mlt=0;
         double saldoAnticipo = 0;
         Dictionary<int, Cuota> cuotas;
         Dictionary<int, String> cmbCuotas;
@@ -665,13 +665,13 @@ namespace WFPGranjas
                     importeTotal += cuota;
                     moratorio = String.Format(CultureInfo.InvariantCulture,
                                   "{0:0,0.00}", moraTotal);
-                    double mlt = multa;
+                     mlt += multa;
                     txtMultas.Text = "" + String.Format(CultureInfo.InvariantCulture,
                                   "{0:0,0.00}", mlt);
                     
-                    if (mlt >= 1)
+                    if (multa >= 1)
                     {
-                        pagoTotal = pagoTotal - mlt;
+                        pagoTotal = pagoTotal - multa;
                         //   saldoNetoAnticipo=saldoAnticipo - pagoTotal;
                     }
 
