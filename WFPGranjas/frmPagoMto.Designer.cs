@@ -36,6 +36,8 @@
             this.panelCapturaCenter = new System.Windows.Forms.Panel();
             this.dgPartidasR = new System.Windows.Forms.DataGridView();
             this.panelCapturaButtom = new System.Windows.Forms.Panel();
+            this.lblMora = new System.Windows.Forms.Label();
+            this.txtMora = new System.Windows.Forms.TextBox();
             this.pnlMetodoPago = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -76,8 +78,6 @@
             this.lblFechaSys = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.btnCapturaR = new System.Windows.Forms.Button();
-            this.lblMora = new System.Windows.Forms.Label();
-            this.txtMora = new System.Windows.Forms.TextBox();
             this.groupDColono.SuspendLayout();
             this.groupCuota.SuspendLayout();
             this.panelCapturaCenter.SuspendLayout();
@@ -187,6 +187,25 @@
             this.panelCapturaButtom.Name = "panelCapturaButtom";
             this.panelCapturaButtom.Size = new System.Drawing.Size(820, 161);
             this.panelCapturaButtom.TabIndex = 14;
+            // 
+            // lblMora
+            // 
+            this.lblMora.AutoSize = true;
+            this.lblMora.Location = new System.Drawing.Point(641, 37);
+            this.lblMora.Name = "lblMora";
+            this.lblMora.Size = new System.Drawing.Size(71, 16);
+            this.lblMora.TabIndex = 26;
+            this.lblMora.Text = "Moratorio :";
+            // 
+            // txtMora
+            // 
+            this.txtMora.Enabled = false;
+            this.txtMora.Location = new System.Drawing.Point(719, 33);
+            this.txtMora.Name = "txtMora";
+            this.txtMora.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.txtMora.Size = new System.Drawing.Size(100, 22);
+            this.txtMora.TabIndex = 27;
+            this.txtMora.Text = "0.00";
             // 
             // pnlMetodoPago
             // 
@@ -388,6 +407,7 @@
             this.lblMultas.Size = new System.Drawing.Size(148, 16);
             this.lblMultas.TabIndex = 4;
             this.lblMultas.Text = "Actualizacion y Multas : ";
+            this.lblMultas.Visible = false;
             // 
             // label4
             // 
@@ -417,6 +437,7 @@
             this.txtMultas.Size = new System.Drawing.Size(100, 22);
             this.txtMultas.TabIndex = 25;
             this.txtMultas.Text = "0.00";
+            this.txtMultas.Visible = false;
             this.txtMultas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtDescuento_MouseClick);
             this.txtMultas.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtDescuento_KeyPress);
             this.txtMultas.KeyUp += new System.Windows.Forms.KeyEventHandler(this.txtDescuento_KeyUp);
@@ -631,25 +652,6 @@
             this.btnCapturaR.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCapturaR.UseVisualStyleBackColor = true;
             this.btnCapturaR.Click += new System.EventHandler(this.btnCapturaR_Click);
-            // 
-            // lblMora
-            // 
-            this.lblMora.AutoSize = true;
-            this.lblMora.Location = new System.Drawing.Point(641, 37);
-            this.lblMora.Name = "lblMora";
-            this.lblMora.Size = new System.Drawing.Size(71, 16);
-            this.lblMora.TabIndex = 26;
-            this.lblMora.Text = "Moratorio :";
-            // 
-            // txtMora
-            // 
-            this.txtMora.Enabled = false;
-            this.txtMora.Location = new System.Drawing.Point(719, 33);
-            this.txtMora.Name = "txtMora";
-            this.txtMora.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.txtMora.Size = new System.Drawing.Size(100, 22);
-            this.txtMora.TabIndex = 27;
-            this.txtMora.Text = "0.00";
             // 
             // frmPagoMto
             // 
