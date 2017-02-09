@@ -288,6 +288,12 @@ namespace WFPGranjas
              DateTime dt = new DateTime(2014, 3, 14, 2, 30, 00, DateTimeKind.Unspecified);
              long fileCreationFileTime = dt.ToFileTime();
              MessageBox.Show(fileCreationFileTime+" - " +dt.ToLocalTime().ToString());*/
+            txtImpEf.Text = "0.00";
+            txtImpChq.Text = "0.00";
+            txtImpFicha.Text = "0.00";
+            txtImporte.Text = "0.00";
+            txtTotal.Text = "0.00";
+            txtMultas.Text = "0.00";
             pagoTotal = 0;
             moraTotal=0;
             importeTotal = 0;
