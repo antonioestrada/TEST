@@ -22,5 +22,11 @@ namespace WFPGranjas
             var BeanRPTMedidor = new Backend.Reportes.rptMedidores();
                 BeanRPTMedidor.rptConsumos(crvConsumos, 1,"I");
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var BeanRPTMedidor = new Backend.Reportes.rptRecibos();
+            BeanRPTMedidor.rptReciboManto(crvConsumos, 1, "1", "1", "2015");
+        }
     }
 }

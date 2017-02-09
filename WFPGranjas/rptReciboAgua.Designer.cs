@@ -41,7 +41,7 @@
             this.crvLRecibos.Cursor = System.Windows.Forms.Cursors.Default;
             this.crvLRecibos.Location = new System.Drawing.Point(2, 1);
             this.crvLRecibos.Name = "crvLRecibos";
-            this.crvLRecibos.Size = new System.Drawing.Size(732, 258);
+            this.crvLRecibos.Size = new System.Drawing.Size(732, 259);
             this.crvLRecibos.TabIndex = 1;
             this.crvLRecibos.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
@@ -49,7 +49,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(746, 261);
+            this.ClientSize = new System.Drawing.Size(746, 262);
             this.Controls.Add(this.crvLRecibos);
             this.Name = "rptReciboAgua";
             this.Text = "rptReciboAgua";

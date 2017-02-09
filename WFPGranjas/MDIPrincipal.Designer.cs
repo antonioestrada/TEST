@@ -55,6 +55,7 @@
             this.acGeneracionCA = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator6 = new System.Windows.Forms.ToolStripSeparator();
             this.acCBA = new System.Windows.Forms.ToolStripMenuItem();
+            this.acCambioMedidor = new System.Windows.Forms.ToolStripMenuItem();
             this.menuAReportes = new System.Windows.Forms.ToolStripMenuItem();
             this.toolBarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusBarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -376,7 +377,8 @@
             this.acLecturas,
             this.acGeneracionCA,
             this.toolStripSeparator6,
-            this.acCBA});
+            this.acCBA,
+            this.acCambioMedidor});
             this.menuAAgua.Image = ((System.Drawing.Image)(resources.GetObject("menuAAgua.Image")));
             this.menuAAgua.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.menuAAgua.Name = "menuAAgua";
@@ -414,6 +416,13 @@
             this.acCBA.Size = new System.Drawing.Size(255, 22);
             this.acCBA.Text = "Registro de CBA mensual";
             this.acCBA.Click += new System.EventHandler(this.acCBA_Click);
+            // 
+            // acCambioMedidor
+            // 
+            this.acCambioMedidor.Name = "acCambioMedidor";
+            this.acCambioMedidor.Size = new System.Drawing.Size(255, 22);
+            this.acCambioMedidor.Text = "Cambio de Medidor";
+            this.acCambioMedidor.Click += new System.EventHandler(this.acCambioMedidor_Click);
             // 
             // menuAReportes
             // 
@@ -528,7 +537,7 @@
             // optionsToolStripMenuItem
             // 
             this.optionsToolStripMenuItem.Name = "optionsToolStripMenuItem";
-            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.optionsToolStripMenuItem.Size = new System.Drawing.Size(121, 22);
             this.optionsToolStripMenuItem.Text = "&Options";
             this.optionsToolStripMenuItem.Visible = false;
             // 
@@ -1152,13 +1161,13 @@
             // toolStripSeparator22
             // 
             this.toolStripSeparator22.Name = "toolStripSeparator22";
-            this.toolStripSeparator22.Size = new System.Drawing.Size(149, 6);
+            this.toolStripSeparator22.Size = new System.Drawing.Size(135, 6);
             // 
             // csUsuarios
             // 
             this.csUsuarios.Image = ((System.Drawing.Image)(resources.GetObject("csUsuarios.Image")));
             this.csUsuarios.Name = "csUsuarios";
-            this.csUsuarios.Size = new System.Drawing.Size(152, 22);
+            this.csUsuarios.Size = new System.Drawing.Size(138, 22);
             this.csUsuarios.Text = "Usuarios";
             this.csUsuarios.Click += new System.EventHandler(this.csUsuarios_Click);
             // 
@@ -1166,7 +1175,7 @@
             // 
             this.csPuestos.Image = ((System.Drawing.Image)(resources.GetObject("csPuestos.Image")));
             this.csPuestos.Name = "csPuestos";
-            this.csPuestos.Size = new System.Drawing.Size(152, 22);
+            this.csPuestos.Size = new System.Drawing.Size(138, 22);
             this.csPuestos.Text = "Puestos";
             this.csPuestos.Click += new System.EventHandler(this.csPuestos_Click);
             // 
@@ -1174,21 +1183,21 @@
             // 
             this.csPerfiles.Image = ((System.Drawing.Image)(resources.GetObject("csPerfiles.Image")));
             this.csPerfiles.Name = "csPerfiles";
-            this.csPerfiles.Size = new System.Drawing.Size(152, 22);
+            this.csPerfiles.Size = new System.Drawing.Size(138, 22);
             this.csPerfiles.Text = "Perfiles";
             this.csPerfiles.Click += new System.EventHandler(this.csPerfiles_Click);
             // 
             // serviciosToolStripMenuItem
             // 
             this.serviciosToolStripMenuItem.Name = "serviciosToolStripMenuItem";
-            this.serviciosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.serviciosToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.serviciosToolStripMenuItem.Text = "Servicios";
             this.serviciosToolStripMenuItem.Visible = false;
             // 
             // conceptosToolStripMenuItem
             // 
             this.conceptosToolStripMenuItem.Name = "conceptosToolStripMenuItem";
-            this.conceptosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.conceptosToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
             this.conceptosToolStripMenuItem.Text = "Conceptos";
             this.conceptosToolStripMenuItem.Visible = false;
             // 
@@ -1281,7 +1290,6 @@
             this.CSSistema.Size = new System.Drawing.Size(68, 60);
             this.CSSistema.Text = "Sistema";
             this.CSSistema.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.CSSistema.Visible = false;
             this.CSSistema.Click += new System.EventHandler(this.CSSistema_Click);
             // 
             // menuConfAyuda
@@ -1507,6 +1515,7 @@
         private System.Windows.Forms.ToolStripMenuItem menuAAvisos;
         private System.Windows.Forms.ToolStripMenuItem aaAvisos;
         private System.Windows.Forms.ToolStripMenuItem aaImprimirAv;
+        private System.Windows.Forms.ToolStripMenuItem acCambioMedidor;
     }
 }
 

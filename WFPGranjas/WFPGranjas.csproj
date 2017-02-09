@@ -114,6 +114,12 @@
       <DependentUpon>crReciboManto.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="crReciboMtto.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crReciboMtto.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="crRegLecturas.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -147,6 +153,14 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsEdoCuenta.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsEncabezadoRecibo.cs">
+      <DependentUpon>dsEncabezadoRecibo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsEncabezadoRecibo.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsEncabezadoRecibo.xsd</DependentUpon>
     </Compile>
     <Compile Include="dsMedidores.cs">
       <DependentUpon>dsMedidores.xsd</DependentUpon>
@@ -394,6 +408,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crReciboManto.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="crReciboMtto.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crReciboMtto.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="crRegLecturas.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crRegLecturas.cs</LastGenOutput>
@@ -537,6 +555,17 @@
     </None>
     <None Include="dsEdoCuenta.xss">
       <DependentUpon>dsEdoCuenta.xsd</DependentUpon>
+    </None>
+    <None Include="dsEncabezadoRecibo.xsc">
+      <DependentUpon>dsEncabezadoRecibo.xsd</DependentUpon>
+    </None>
+    <None Include="dsEncabezadoRecibo.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsEncabezadoRecibo.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsEncabezadoRecibo.xss">
+      <DependentUpon>dsEncabezadoRecibo.xsd</DependentUpon>
     </None>
     <None Include="dsMedidores.xsc">
       <DependentUpon>dsMedidores.xsd</DependentUpon>

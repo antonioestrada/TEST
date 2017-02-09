@@ -33,7 +33,9 @@ namespace WFPGranjas
 
 
         }
-
+        
+        //opcion 1 reg lecturas 2 registro cba
+        #region determina componentes con que opcion entro
         public void iniciaOpcion()
         {
             //carga los periodos activos para cada servicio.
@@ -61,7 +63,9 @@ namespace WFPGranjas
                 pnlPrinBancos.BackColor = Color.Orange;
             }
         }
+        #endregion
 
+        //definicion de datagrid para la consulta
         #region Definicion de Estructura de Columnas DataGridView listado medidores
         //DEFINIMOS LA ESTRUCTURA DE NUESTRO GRID LISTADO
         public void definicionDGListado()
@@ -282,7 +286,6 @@ namespace WFPGranjas
         }
         private void frmRegLecturas_Load(object sender, EventArgs e)
         {
-            
             //carga combo del catalogo de  manzanas 
             var BeanCLotesMza = new Backend.Catalogos.CManzanaLotes();
             BeanCLotesMza.consultaMazaComboRPT(cmbFiltroMza);
@@ -426,13 +429,13 @@ namespace WFPGranjas
             var BeanCPeriodoActual = new Backend.Procesos.PrcAnticipos();
             //obtiene el periodo actual de la tabla cat_periodos
             int periodoActual = BeanCPeriodoActual.obtienePeriodoActual();
-            Object[] parames = {
-                4
-            };
+            //parames es para la opcion 4 q es meses cerrados de gestion de cuotas para CBA
+            Object[] parames = {4};
             int mesesCerrados = BeanCPeriodoActual.obtieneBitacoraCuotas(parames);
             
 
             periodo = cmbPeriodos.SelectedValue.ToString();
+            //opcion 1 es para registro de lecturas
             if (opcion == 1)
             {
                 if (periodoActual != int.Parse(periodo))
@@ -477,6 +480,7 @@ namespace WFPGranjas
                     }
                 }
             }
+            //opcion 2 es para editar de CBA 
             else if (opcion == 2)
             {
                 if (mesesCerrados == 12)

@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsEncabezadoRecibo" targetNamespace="http://tempuri.org/dsEncabezadoRecibo.xsd" xmlns:mstns="http://tempuri.org/dsEncabezadoRecibo.xsd" xmlns="http://tempuri.org/dsEncabezadoRecibo.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsEncabezadoRecibo" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsEncabezadoRecibo" msprop:Generator_UserDSName="dsEncabezadoRecibo">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="DTEncabezadoRecibos" msprop:Generator_TableClassName="DTEncabezadoRecibosDataTable" msprop:Generator_TableVarName="tableDTEncabezadoRecibos" msprop:Generator_TablePropName="DTEncabezadoRecibos" msprop:Generator_RowDeletingName="DTEncabezadoRecibosRowDeleting" msprop:Generator_RowChangingName="DTEncabezadoRecibosRowChanging" msprop:Generator_RowEvHandlerName="DTEncabezadoRecibosRowChangeEventHandler" msprop:Generator_RowDeletedName="DTEncabezadoRecibosRowDeleted" msprop:Generator_UserTableName="DTEncabezadoRecibos" msprop:Generator_RowChangedName="DTEncabezadoRecibosRowChanged" msprop:Generator_RowEvArgName="DTEncabezadoRecibosRowChangeEvent" msprop:Generator_RowClassName="DTEncabezadoRecibosRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id_lote" msprop:Generator_ColumnVarNameInTable="columnid_lote" msprop:Generator_ColumnPropNameInRow="id_lote" msprop:Generator_ColumnPropNameInTable="id_loteColumn" msprop:Generator_UserColumnName="id_lote" type="xs:int" minOccurs="0" />
+              <xs:element name="nombreEmpresa" msprop:Generator_ColumnVarNameInTable="columnnombreEmpresa" msprop:Generator_ColumnPropNameInRow="nombreEmpresa" msprop:Generator_ColumnPropNameInTable="nombreEmpresaColumn" msprop:Generator_UserColumnName="nombreEmpresa" type="xs:string" minOccurs="0" />
+              <xs:element name="rfcEmpresa" msdata:Caption="rfc" msprop:Generator_ColumnVarNameInTable="columnrfcEmpresa" msprop:Generator_ColumnPropNameInRow="rfcEmpresa" msprop:Generator_ColumnPropNameInTable="rfcEmpresaColumn" msprop:Generator_UserColumnName="rfcEmpresa" type="xs:string" minOccurs="0" />
+              <xs:element name="escrituraPublica" msprop:Generator_ColumnVarNameInTable="columnescrituraPublica" msprop:Generator_ColumnPropNameInRow="escrituraPublica" msprop:Generator_ColumnPropNameInTable="escrituraPublicaColumn" msprop:Generator_UserColumnName="escrituraPublica" type="xs:string" minOccurs="0" />
+              <xs:element name="registroPublico" msprop:Generator_ColumnVarNameInTable="columnregistroPublico" msprop:Generator_ColumnPropNameInRow="registroPublico" msprop:Generator_ColumnPropNameInTable="registroPublicoColumn" msprop:Generator_UserColumnName="registroPublico" type="xs:string" minOccurs="0" />
+              <xs:element name="direccionEmpresa" msprop:Generator_ColumnVarNameInTable="columndireccionEmpresa" msprop:Generator_ColumnPropNameInRow="direccionEmpresa" msprop:Generator_ColumnPropNameInTable="direccionEmpresaColumn" msprop:Generator_UserColumnName="direccionEmpresa" type="xs:string" minOccurs="0" />
+              <xs:element name="contactoEmpresa" msprop:Generator_ColumnVarNameInTable="columncontactoEmpresa" msprop:Generator_ColumnPropNameInRow="contactoEmpresa" msprop:Generator_ColumnPropNameInTable="contactoEmpresaColumn" msprop:Generator_UserColumnName="contactoEmpresa" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

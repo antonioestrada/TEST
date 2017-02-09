@@ -117,13 +117,22 @@ namespace WFPGranjas.Backend.Reportes
         {
             Globales vGlobal = new Globales();
             ReportDocument cryRpt = new ReportDocument();
+            ReportDocument crySubRpt = new ReportDocument();
 
             cryRpt = new ReportDocument();
-            cryRpt.Load(@"" + vGlobal.pathReportes + "crReciboManto.rpt");
+            cryRpt.Load(@"" + vGlobal.pathReportes + "crReciboMtto.rpt");
+            crySubRpt.Load(@"" + vGlobal.pathReportes + "crReciboManto.rpt");
+            dsReciboMAnto dsR = new dsReciboMAnto();
+            //***********ENCABEZADO DEL RECIBO*********************
+            IDataReader reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_report_ReciboMantoA(1,'" + inParam1 + "','" + inParam2 + "','" + inParam3 + "')");
+            while (reader.Read())
+            {
+                dsR.DTRMEncabezado.AddDTRMEncabezadoRow(Int32.Parse(reader.GetValue(0).ToString()), reader.GetValue(1).ToString(), reader.GetValue(2).ToString(), reader.GetValue(3).ToString(), reader.GetValue(4).ToString(), reader.GetValue(5).ToString(), reader.GetValue(6).ToString());
+            }
+            Conexion.FinalizarSesion();
 
             //***********DATOS DE COLONO*********************
-            IDataReader reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_report_ReciboManto(1,'" + inParam1 + "','" + inParam2 + "','" + inParam3 + "')");
-            dsReciboMAnto dsR = new dsReciboMAnto();
+            reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_report_ReciboMantoA(2,'" + inParam1 + "','" + inParam2 + "','" + inParam3 + "')");
             while (reader.Read())
             {
                 dsR.DTRMColono.AddDTRMColonoRow(Int32.Parse(reader.GetValue(0).ToString()), reader.GetValue(1).ToString(), reader.GetValue(2).ToString(), reader.GetValue(3).ToString(), decimal.Parse(reader.GetValue(4).ToString()));
@@ -131,31 +140,31 @@ namespace WFPGranjas.Backend.Reportes
             Conexion.FinalizarSesion();
 
             //***********DATOS DE PARTIDAS DE COBRO*********************
-            reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_report_ReciboManto(3,'" + inParam1 + "','" + inParam2 + "','0')");
+            reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_report_ReciboMantoA(3,'" + inParam1 + "','" + inParam2 + "','0')");
             while (reader.Read())
             {
-                dsR.DTRMPartidas.AddDTRMPartidasRow(Int32.Parse(reader.GetValue(0).ToString()), reader.GetValue(1).ToString(), reader.GetValue(2).ToString(), Decimal.Parse(reader.GetValue(3).ToString()), reader.GetValue(4).ToString());
+                dsR.DTRMPartidas.AddDTRMPartidasRow(Int32.Parse(reader.GetValue(0).ToString()), reader.GetValue(1).ToString(), reader.GetValue(2).ToString(), reader.GetValue(3).ToString(), Decimal.Parse(reader.GetValue(4).ToString()));
             }
             Conexion.FinalizarSesion();
 
             //***********DATOS FORMAS DE PAGO*********************
-            reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_report_ReciboManto(6,'" + inParam1 + "','" + inParam2 + "','" + inParam3 + "')");
+            reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_report_ReciboMantoA(4,'" + inParam1 + "','" + inParam2 + "','" + inParam3 + "')");
             while (reader.Read())
             {
-                dsR.DTRMPagos.AddDTRMPagosRow(Int32.Parse(reader.GetValue(0).ToString()), reader.GetValue(1).ToString().PadLeft(12, char.Parse("0")), Decimal.Parse(reader.GetValue(2).ToString()), reader.GetValue(3).ToString(), Decimal.Parse(reader.GetValue(4).ToString()), reader.GetValue(5).ToString(), Decimal.Parse(reader.GetValue(6).ToString()), DateTime.Parse(reader.GetValue(7).ToString()));
+                dsR.DTRMPagos.AddDTRMPagosRow(Int32.Parse(reader.GetValue(0).ToString()), reader.GetValue(1).ToString(), Decimal.Parse(reader.GetValue(2).ToString()), reader.GetValue(3).ToString(), Decimal.Parse(reader.GetValue(4).ToString()), reader.GetValue(5).ToString(), Decimal.Parse(reader.GetValue(6).ToString()), reader.GetValue(7).ToString());
             }
             Conexion.FinalizarSesion();
 
             //***********DATOS DE MORATORIO*********************
-            reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_report_ReciboManto(7,'" + inParam1 + "','" + inParam2 + "','0')");
+            reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_report_ReciboMantoA(5,'" + inParam1 + "','" + inParam2 + "','0')");
             while (reader.Read())
             {
                 dsR.DTRMMora.AddDTRMMoraRow(Int32.Parse(reader.GetValue(0).ToString()), Int32.Parse(reader.GetValue(1).ToString()), Decimal.Parse(reader.GetValue(2).ToString()), Int32.Parse(reader.GetValue(3).ToString()));
             }
             Conexion.FinalizarSesion();
-
+            crySubRpt.SetDataSource(dsR);
             cryRpt.SetDataSource(dsR);
-            cryRpt.SetParameterValue("empresa", vGlobal.empresa);
+           // cryRpt.SetParameterValue("empresa", vGlobal.empresa);
             rptViewer.ReportSource = cryRpt;
             rptViewer.Refresh();
 

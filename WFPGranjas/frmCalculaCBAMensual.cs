@@ -134,6 +134,7 @@ namespace WFPGranjas
 
         private void mPreview_Click_1(object sender, EventArgs e)
         {
+            dgHistorico.Columns.Clear();
             this.Cursor = Cursors.WaitCursor;
             definicionDGHistorico("Mes", "Consumo Promedio", "Consumo Anual Promedio", "Porcentaje", "CBA", "CBA Anualizado", "CBA Calculado");
             var BeanCargaV = new Backend.Catalogos.CTarifas();
@@ -144,6 +145,7 @@ namespace WFPGranjas
 
         private void mNuevo_Click(object sender, EventArgs e)
         {
+            dgHistorico.Columns.Clear();
             this.Cursor = Cursors.WaitCursor;
             
             definicionDGHistorico("Direccion", "Medidor", "Colono", "Superficie", "CBA", "Mes", "CBA Calculado");
@@ -175,9 +177,9 @@ namespace WFPGranjas
 
         private void mEditar_Click(object sender, EventArgs e)
         {
+            dgHistorico.Columns.Clear();
             this.Cursor = Cursors.WaitCursor;
-
-            definicionDGHistorico("Direccion", "medidor", "Colono", "superficio", "CBA", "periodo", "CBA Cálculado");
+            definicionDGHistorico("Direccion", "Medidor", "Colono", "Superficie", "CBA", "Mes", "CBA Calculado");
             var BeanCargaV = new Backend.Catalogos.CTarifas();
             //carga grid
             BeanCargaV.consultaCBAMensual(dgHistorico, 4, anio, 0);

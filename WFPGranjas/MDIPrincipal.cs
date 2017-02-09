@@ -406,10 +406,10 @@ namespace WFPGranjas
         private void cgMedidores_Click(object sender, EventArgs e)
         {
             cerrarVentanas();
-            frmCMedidores childFormMedidores = new frmCMedidores();
+            frmCMedidores childFormMedidores = new frmCMedidores(1);
             childFormMedidores.MdiParent = this;
             childFormMedidores.StartPosition = FormStartPosition.Manual;
-            childFormMedidores.Size = new Size(560, 220);
+            childFormMedidores.Size = new Size(642, 220);
             childFormMedidores.Show();
         }
 
@@ -551,7 +551,7 @@ namespace WFPGranjas
         private void arRegLecturas_Click(object sender, EventArgs e)
         {
             cerrarVentanas();
-            rptReciboAgua childFormReporteRL = new rptReciboAgua(null,null,0);
+            rptConsumos childFormReporteRL = new rptConsumos();
             childFormReporteRL.MdiParent = this;
             childFormReporteRL.Show();
         }
@@ -758,6 +758,16 @@ namespace WFPGranjas
             childGenAvisos.StartPosition = FormStartPosition.Manual;
             childGenAvisos.MdiParent = this;
             childGenAvisos.Show();
+        }
+
+        private void acCambioMedidor_Click(object sender, EventArgs e)
+        {
+            cerrarVentanas();
+            frmCMedidores childFormMedidores = new frmCMedidores(2);
+            childFormMedidores.MdiParent = this;
+            childFormMedidores.StartPosition = FormStartPosition.Manual;
+            childFormMedidores.Size = new Size(642, 220); 
+            childFormMedidores.Show();
         }
     }
     }

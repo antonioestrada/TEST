@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblValidaPeriodo = new System.Windows.Forms.Label();
             this.lblTitleCuota = new System.Windows.Forms.Label();
             this.pbAgua = new System.Windows.Forms.PictureBox();
             this.pbManto = new System.Windows.Forms.PictureBox();
@@ -42,7 +43,6 @@
             this.lblInd = new System.Windows.Forms.Label();
             this.gbEstatus = new System.Windows.Forms.GroupBox();
             this.bwProgress = new System.ComponentModel.BackgroundWorker();
-            this.lblValidaPeriodo = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbAgua)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbManto)).BeginInit();
@@ -70,6 +70,16 @@
             this.groupBox1.Size = new System.Drawing.Size(551, 225);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
+            // 
+            // lblValidaPeriodo
+            // 
+            this.lblValidaPeriodo.AutoSize = true;
+            this.lblValidaPeriodo.Location = new System.Drawing.Point(148, 162);
+            this.lblValidaPeriodo.Name = "lblValidaPeriodo";
+            this.lblValidaPeriodo.Size = new System.Drawing.Size(146, 16);
+            this.lblValidaPeriodo.TabIndex = 14;
+            this.lblValidaPeriodo.Text = "Mensaje de Validacion";
+            this.lblValidaPeriodo.Visible = false;
             // 
             // lblTitleCuota
             // 
@@ -204,16 +214,6 @@
             this.bwProgress.DoWork += new System.ComponentModel.DoWorkEventHandler(this.bwProgress_DoWork);
             this.bwProgress.ProgressChanged += new System.ComponentModel.ProgressChangedEventHandler(this.bwProgress_ProgressChanged);
             this.bwProgress.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.bwProgress_RunWorkerCompleted);
-            // 
-            // lblValidaPeriodo
-            // 
-            this.lblValidaPeriodo.AutoSize = true;
-            this.lblValidaPeriodo.Location = new System.Drawing.Point(148, 162);
-            this.lblValidaPeriodo.Name = "lblValidaPeriodo";
-            this.lblValidaPeriodo.Size = new System.Drawing.Size(146, 16);
-            this.lblValidaPeriodo.TabIndex = 14;
-            this.lblValidaPeriodo.Text = "Mensaje de Validacion";
-            this.lblValidaPeriodo.Visible = false;
             // 
             // frmPrcCuotas
             // 

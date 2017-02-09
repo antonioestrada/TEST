@@ -15,11 +15,13 @@ namespace WFPGranjas
 {
     public partial class frmCMedidores : Form
     {
+        int opcionM = 0;
         int tipo_mov = 0, id_medidor=0, id_lote = 0;
         double m2=0;
-        public frmCMedidores()
+        public frmCMedidores(int op)
         {
             InitializeComponent();
+            this.opcionM = op;
         }
 
         #region Busca por lote
@@ -47,9 +49,9 @@ namespace WFPGranjas
             //la ejecucion de este sp nos mostrara los contratos asignas a este lote
             //nos trae en el value del combo el id del medidor, en el display el numero del contrato
             BeanCBeanMedidor.consultaContratos(cmbContratos,2,id_lote);
+            btnVer.Visible = true;
             cmbContratos.Visible = true;
             lblContrato.Visible = true;
-            btnVer.Visible = true;
         }
         #endregion
 
@@ -68,7 +70,7 @@ namespace WFPGranjas
         #endregion
 
         #region medidores ABC
-        public void abcMedidores(int tipoMov, int idMedidor, int idLote, TextBox contrato, TextBox medidor, TextBox cna)
+        public void abcMedidores(int tipoMov, int idMedidor, int idLote, TextBox contrato, TextBox medidor, TextBox cna, int lecMedAnt, int lecMedNue)
         {
             var BeanMedidor = new Backend.Catalogos.CMedidores();
             var BeanCMedidor = new Backend.Catalogos.CMedidores();
@@ -80,7 +82,9 @@ namespace WFPGranjas
                 idLote,
                 contrato.Text,
                 medidor.Text,
-                cna.Text
+                cna.Text,
+                lecMedAnt,
+                lecMedNue
             };
             //cachamos el valor que retorna nuestro sp
             //result=0 Alta, Baja o Cambio exitoso
@@ -130,7 +134,7 @@ namespace WFPGranjas
         {
             Backend.Utilerias limpia = new Backend.Utilerias();
             limpia.limpiarTextboxGroupBox(gbGenerales);
-            this.Size = new Size(560, 220);
+            this.Size = new Size(624, 220);
             pnlPrinBancos.BackColor = Color.Green;
             pnlResult.Visible = false;
             mNuevo.Enabled = true;
@@ -148,9 +152,9 @@ namespace WFPGranjas
         #endregion
 
         #region opcion de formulario define colores y tamaño de formulario
-        public void opForm(string encabezadoMov, Color colorT, string opcion, int mov, ToolStripMenuItem bloqueaA, ToolStripMenuItem bloqueaB)
+        public void opForm(int op, string encabezadoMov, Color colorT, string opcion, int mov, ToolStripMenuItem bloqueaA, ToolStripMenuItem bloqueaB)
         {
-            this.Size = new Size(560, 460);
+            this.Size = new Size(642, 460);
             lblEncabezado.Text = encabezadoMov;
             pnlPrinBancos.BackColor = colorT;
             pnlEncabezado.BackColor = colorT;
@@ -160,8 +164,29 @@ namespace WFPGranjas
             txtLote.Enabled = false;
             cmbContratos.Enabled = false;
             tipo_mov = mov;
+            cargaInicial(op);
+
         }
         #endregion
+
+        public void cargaInicial(int op)
+        {
+            if (op == 1)
+            {
+                mNuevo.Visible = true;
+                mEditar.Visible = true;
+                mEliminar.Visible = true;
+                mCambiarMedidor.Visible = false;
+
+            }
+            else if (op == 2)
+            {
+                mNuevo.Visible = false;
+                mEditar.Visible = false;
+                mEliminar.Visible = false;
+                mCambiarMedidor.Visible = true;
+            }
+        }
 
         private void mNuevo_Click(object sender, EventArgs e)
         {
@@ -175,7 +200,7 @@ namespace WFPGranjas
                 double baseCNAF = 0;
                 baseCNAF = Math.Round(((Convert.ToDouble(txtM2.Text) * (vGlobal.cna_param1) * (vGlobal.cna_param2)) / 1000) + (vGlobal.cna_param3), 2);
                 txtBaseCNA.Text = Convert.ToString(baseCNAF);
-                opForm("Nuevo Medidor", Color.LightGreen, "Registrar", 1, mEditar, mEliminar);
+                opForm(opcionM, "Nuevo Medidor", Color.LightGreen, "Registrar", 1, mEditar, mEliminar);
             }
         }
 
@@ -186,7 +211,7 @@ namespace WFPGranjas
                 buscaMedidor();
                 txtContrato.ReadOnly = false;
                 txtMedidor.ReadOnly = false;
-                opForm("Modificar Datos del Medidor", Color.Peru, "Guardar", 3, mNuevo, mEliminar);
+                opForm(opcionM, "Modificar Datos del Medidor", Color.Peru, "Guardar", 3, mNuevo, mEliminar);
             }
         }
 
@@ -195,7 +220,7 @@ namespace WFPGranjas
             if (cmbContratos.Items.Count > 0)
             {
                 buscaMedidor();
-                opForm("Eliminar Medidor", Color.IndianRed, "Eliminar", 2, mNuevo, mEditar);
+                opForm(opcionM,"Eliminar Medidor", Color.IndianRed, "Eliminar", 2, mNuevo, mEditar);
                 txtContrato.ReadOnly = true;
                 txtMedidor.ReadOnly = true;
             }
@@ -203,7 +228,7 @@ namespace WFPGranjas
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (txtContrato.Text == "" || txtMedidor.Text=="")
+            if (txtContrato.Text == "" || txtMedidor.Text == "")
             {
                 pnlResult.Visible = true;
                 pnlResult.BackColor = Color.OrangeRed;
@@ -211,7 +236,22 @@ namespace WFPGranjas
                 lblMensaje.ForeColor = Color.White;
             }
             else
-                abcMedidores(tipo_mov, id_medidor,id_lote,txtContrato,txtMedidor,txtBaseCNA);
+            {
+                if (opcionM == 1)
+                    abcMedidores(tipo_mov, id_medidor, id_lote, txtContrato, txtMedidor, txtBaseCNA, 0, 0);
+                else if (opcionM == 2)
+                {
+                    if (txtNuevoMedidor.Text == "" || txtLecAnterior.Text == "" || txtLecActual.Text == "")
+                    {
+                        pnlResult.Visible = true;
+                        pnlResult.BackColor = Color.Orange;
+                        lblMensaje.ForeColor = Color.White;
+                        lblMensaje.Text = "Ingresa los campos obligatorios";
+                    }
+                    else
+                        abcMedidores(tipo_mov, id_medidor, id_lote, txtContrato, txtNuevoMedidor, txtBaseCNA, int.Parse(txtLecAnterior.Text), int.Parse(txtLecActual.Text));
+                }
+            }
         }
 
         private void btnVer_Click(object sender, EventArgs e)
@@ -219,10 +259,11 @@ namespace WFPGranjas
             if (cmbContratos.Items.Count > 0)
             {
                 buscaMedidor();
-                opForm("Consultar Contrato", Color.SteelBlue, "OK", 4, mNuevo, mNuevo);
+                opForm(opcionM, "Consultar Contrato", Color.SteelBlue, "OK", 4, mNuevo, mNuevo);
                 txtContrato.ReadOnly = true;
                 txtMedidor.ReadOnly = true;
-               // btnGuardar.Enabled = false;
+                // btnGuardar.Enabled = false;
+                opciones(1);
             }
         }
 
@@ -257,7 +298,65 @@ namespace WFPGranjas
         {
             var BeanCLotesMza = new Backend.Catalogos.CManzanaLotes();
             BeanCLotesMza.consultaMazaCombo(cmbManzana);
+            cargaInicial(opcionM);
         }
+
+        private void mCambiarMedidor_Click(object sender, EventArgs e)
+        {
+            if (cmbContratos.Items.Count > 0)
+            {
+                buscaMedidor();
+                opForm(opcionM, "Cambiar Medidor", Color.SandyBrown, "Cambiar", 5, mNuevo, mEditar);
+                txtContrato.ReadOnly = true;
+                txtMedidor.ReadOnly = true;
+                opciones(2);
+            }
+        }
+        Backend.Utilerias util = new Backend.Utilerias();
+        private void txtLecAnterior_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            util.validaEnteros(e, txtLecActual);
+        }
+
+        private void txtLecActual_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            util.validaEnteros(e, txtLecActual);
+        }
+
+        public void opciones(int op)
+        {
+            if(op==1)
+            {
+                txtM2.Visible = true;
+                lblM2.Visible = true;
+                txtBaseCNA.Visible = true;
+                lblBaseCNA.Visible = true;
+                txtNuevoMedidor.Visible = false;
+                lblNuevoMed.Visible = false;
+                txtLecAnterior.Visible = false;
+                lblLectAnterior.Visible = false;
+                txtLecActual.Visible = false;
+                lblLecActual.Visible = false;
+                pnlCambio.Visible = false;
+            }
+            else if(op==2)
+            {
+                txtM2.Visible = false;
+                lblM2.Visible = false;
+                txtBaseCNA.Visible = false;
+                lblBaseCNA.Visible = false;
+                lblNuevoMed.Visible = true;
+                txtNuevoMedidor.Visible = true;
+                lblNuevoMed.Visible = true;
+                txtLecAnterior.Visible = true;
+                lblLectAnterior.Visible = true;
+                txtLecActual.Visible = true;
+                lblLecActual.Visible = true;
+                pnlCambio.Visible = true;
+            }
+        }
+
+        
 
         private void txtLote_KeyPress(object sender, KeyPressEventArgs e)
         {

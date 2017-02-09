@@ -90,7 +90,7 @@ namespace WFPGranjas.Backend.Reportes
             reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_report_ReciboManto(3,'" + inParam1 + "','" + inParam2 + "','0')");
             while (reader.Read())
             {
-                dsR.DTRMPartidas.AddDTRMPartidasRow(Int32.Parse(reader.GetValue(0).ToString()), reader.GetValue(1).ToString(), reader.GetValue(2).ToString(), Decimal.Parse(reader.GetValue(3).ToString()), reader.GetValue(4).ToString());
+                dsR.DTRMPartidas.AddDTRMPartidasRow(Int32.Parse(reader.GetValue(0).ToString()), reader.GetValue(1).ToString(), reader.GetValue(2).ToString(), reader.GetValue(3).ToString(), Decimal.Parse(reader.GetValue(4).ToString()));
             }
             Conexion.FinalizarSesion();
 
@@ -98,7 +98,7 @@ namespace WFPGranjas.Backend.Reportes
             reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_report_ReciboManto(6,'" + inParam1 + "','" + inParam2 + "','" + inParam3 + "')");
             while (reader.Read())
             {
-                dsR.DTRMPagos.AddDTRMPagosRow(Int32.Parse(reader.GetValue(0).ToString()), reader.GetValue(1).ToString().PadLeft(12, char.Parse("0")), Decimal.Parse(reader.GetValue(2).ToString()), reader.GetValue(3).ToString(), Decimal.Parse(reader.GetValue(4).ToString()), reader.GetValue(5).ToString(), Decimal.Parse(reader.GetValue(6).ToString()), DateTime.Parse(reader.GetValue(7).ToString()));
+                dsR.DTRMPagos.AddDTRMPagosRow(Int32.Parse(reader.GetValue(0).ToString()), reader.GetValue(1).ToString().PadLeft(12, char.Parse("0")), Decimal.Parse(reader.GetValue(2).ToString()), reader.GetValue(3).ToString(), Decimal.Parse(reader.GetValue(4).ToString()), reader.GetValue(5).ToString(), Decimal.Parse(reader.GetValue(6).ToString()), reader.GetValue(7).ToString());
             }
             Conexion.FinalizarSesion();
 
