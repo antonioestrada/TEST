@@ -671,7 +671,7 @@ namespace WFPGranjas
                     
                     if (multa >= 1)
                     {
-                        pagoTotal = pagoTotal - multa;
+                        pagoTotal = pagoTotal + multa;
                         //   saldoNetoAnticipo=saldoAnticipo - pagoTotal;
                     }
 
