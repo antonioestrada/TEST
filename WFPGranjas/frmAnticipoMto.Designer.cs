@@ -103,6 +103,7 @@
             this.lblFechaSys = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.btnCapturaR = new System.Windows.Forms.Button();
+            this.cmbPeriodos = new System.Windows.Forms.ComboBox();
             this.groupDColono.SuspendLayout();
             this.groupCuota.SuspendLayout();
             this.panelCapturaCenter.SuspendLayout();
@@ -474,6 +475,7 @@
             // 
             // panelCapturaTop
             // 
+            this.panelCapturaTop.Controls.Add(this.cmbPeriodos);
             this.panelCapturaTop.Controls.Add(this.cmbCCPadre);
             this.panelCapturaTop.Controls.Add(this.cmbCCHijo);
             this.panelCapturaTop.Controls.Add(this.txtConcepto);
@@ -969,6 +971,17 @@
             this.btnCapturaR.UseVisualStyleBackColor = true;
             this.btnCapturaR.Click += new System.EventHandler(this.btnCapturaR_Click);
             // 
+            // cmbPeriodos
+            // 
+            this.cmbPeriodos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPeriodos.Location = new System.Drawing.Point(133, 5);
+            this.cmbPeriodos.Name = "cmbPeriodos";
+            this.cmbPeriodos.Size = new System.Drawing.Size(239, 24);
+            this.cmbPeriodos.TabIndex = 12;
+            this.cmbPeriodos.Visible = false;
+            this.cmbPeriodos.SelectionChangeCommitted += new System.EventHandler(this.cmbPeriodos_SelectionChangeCommitted);
+            this.cmbPeriodos.SelectedValueChanged += new System.EventHandler(this.cmbPeriodos_SelectedValueChanged);
+            // 
             // frmAnticipoMto
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1090,5 +1103,6 @@
         private System.Windows.Forms.Label lblPerFin;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label lblPerIni;
+        private System.Windows.Forms.ComboBox cmbPeriodos;
     }
 }

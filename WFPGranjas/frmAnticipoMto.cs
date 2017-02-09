@@ -19,6 +19,8 @@ namespace WFPGranjas
     {
         int id_colono = 0,idManzana=0,idLote=0;
         String listaMeses, anual=null, fechaActual=null;
+        Dictionary<int, Conceptos> cuotas;
+        Dictionary<int, String> cmbCuotas;
         List<string> listaCuotasPag;
         double pagoTotal = 0;
         int servicio = 0;
@@ -286,7 +288,7 @@ namespace WFPGranjas
                     prcAnticipos.consultaBancos(cmbBancoCheq);
                     prcAnticipos.consultaBancos(cmbBancoFicha);
                     groupCuota.Visible = true;
-                    lblAntAgua.Visible = true;
+                    lblAntAgua.Visible = false;
                     txtTotalAgua.Visible = true;
                     lblDescuento.Visible = false;
                     txtDescuento.Visible = false;
@@ -317,11 +319,11 @@ namespace WFPGranjas
             {
                 
                 groupCuota.Size = new Size(826, 390);
-                panelCapturaTop.Size = new Size(820, 74);
+                panelCapturaTop.Size = new Size(820, 54);
                 lblConcepto.Visible = true;
-                txtConcepto.Visible = true;
-                cmbCCPadre.Visible = true;
-                cmbCCHijo.Visible = true;
+                txtConcepto.Visible = false;
+                cmbCCPadre.Visible = false;
+                cmbCCHijo.Visible = false;
                 cmbCCHijo.Location = new System.Drawing.Point(102, 48);
                 cmbCCPadre.Location = new System.Drawing.Point(102, 28);
                 txtTotalAgua.Focus();
@@ -330,7 +332,7 @@ namespace WFPGranjas
                 groupCuota.Visible = true;
                 lblAntAgua.Visible = true;
                 lblAntAgua.Text = "Importe del Servicio :";
-                txtTotalAgua.Visible = true;
+                txtTotalAgua.Visible = false;
                 lblDescuento.Visible = false;
                 txtDescuento.Visible = false;
                 btnAddCuota.Visible = true;
@@ -356,6 +358,11 @@ namespace WFPGranjas
                 txtDescuento.Text = "0.00";
                 pnlMetodoPago.Visible = false;
                 dgPartidasR.Rows.Clear();
+                cmbPeriodos.Visible = true;
+                lblAntAgua.Visible = false;
+                cmbCuotas = new Dictionary<int, String>();
+               
+                cuotas = prcAnticipos.consultaConceptos(cmbPeriodos,  cmbCuotas);
 
             }
         }
@@ -814,7 +821,7 @@ namespace WFPGranjas
                 txtTotalAgua.Focus();
                 txtImpEf.SelectAll();
             }else
-            if (servicio == 5 && txtConcepto.Text == "")
+            if (servicio == 5 && int.Parse(cmbPeriodos.SelectedValue.ToString()) == 0)
             {
                 mensaje = "monto del servicio";
                 if (txtConcepto.Text == "")
@@ -824,6 +831,7 @@ namespace WFPGranjas
             else
             {
                 //lenamos nuestro grid con nuestro reader.
+                txtTotalAgua.Enabled = true;
                 if (Double.Parse(txtTotalAgua.Text) > 0)
                 {
                     int renglon = dgPartidasR.Rows.Add();
@@ -844,9 +852,9 @@ namespace WFPGranjas
                     }
                     if (servicio == 5)
                     {
-                        dgPartidasR.Rows[renglon].Cells[0].Value = "" +txtConcepto.Text;
+                        dgPartidasR.Rows[renglon].Cells[0].Value = "" +cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].descripcion;
                         dgPartidasR.Columns[1].Visible = true;
-                        dgPartidasR.Rows[renglon].Cells[1].Value =""+cmbCCPadre.Text+" - "+cmbCCHijo.Text;
+                        dgPartidasR.Rows[renglon].Cells[1].Value ="" + cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].cuenta_contable;
                         //stxtConcepto.Text = "";
                         pnlMetodoPago.Visible = false;
                         //tonka
@@ -870,6 +878,7 @@ namespace WFPGranjas
                     MessageBox.Show("El "+ mensaje + " debe ser mayor a cero.");
                     txtTotalAgua.Focus();
                 }
+                txtTotalAgua.Enabled = false;
             }
         }
 
@@ -961,7 +970,7 @@ namespace WFPGranjas
 
 
 
-                Object[] paramesCasaClub = { idLote, importeEfectivo, txtCheque.Text, bancoCheque, importeCheque, txtFicha.Text, bancoFicha, importFicha, servicio, cmbCCHijo.Text, txtConcepto.Text };
+                Object[] paramesCasaClub = { idLote, importeEfectivo, txtCheque.Text, bancoCheque, importeCheque, txtFicha.Text, bancoFicha, importFicha, servicio, cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].cuenta_contable, cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].id };
 
                 Object[] parames = { id_colono, idManzana, idLote, listaMeses, importeEfectivo, txtCheque.Text, bancoCheque, importeCheque, txtFicha.Text, bancoFicha, importFicha, descuento, servicio, anual };
 
@@ -992,7 +1001,7 @@ namespace WFPGranjas
                 pnlMetodoPago.Visible = false;
                 dgPartidasR.Rows.Clear();
                 groupCuota.Visible = false;
-                MessageBox.Show("¡Se registro Correctamente el Pago!");
+                MessageBox.Show("¡Se registro Correctamente la transaccion!");
             }
 
         }
@@ -1005,6 +1014,37 @@ namespace WFPGranjas
         private void dtIniAnt_ValueChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void cmbPeriodos_SelectedValueChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void cmbPeriodos_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (cmbPeriodos.Items.Count > 0)
+            {
+                if (int.Parse(cmbPeriodos.SelectedValue.ToString()) > 0)
+                {
+                    lblAntAgua.Visible = true;
+                    double monto = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].importe;
+                    String importe = String.Format(CultureInfo.InvariantCulture, "{0:0,0.0}", monto);
+                    txtTotalAgua.Text = ""+monto;
+                    txtTotalAgua.Visible = true;
+                    txtTotalAgua.Enabled = false;
+                    if (cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].id == 99)
+                    {
+                        txtTotalAgua.Enabled = true;
+                    }
+                }
+                else {
+
+                    txtTotalAgua.Text = "" ;
+                    txtTotalAgua.Visible = false;
+                    lblAntAgua.Visible = false;
+                }
+            }
         }
 
         private void dtIniAnt_Validating(object sender, CancelEventArgs e)

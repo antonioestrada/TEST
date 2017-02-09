@@ -284,6 +284,51 @@ namespace WFPGranjas.Backend.Procesos
         }
         #endregion
 
+        #region consulta cuotas con adeudo
+        public Dictionary<int, Conceptos> consultaConceptos(ComboBox cmb, Dictionary<int, String> cmbCuotas2)
+        {
+            Dictionary<int, Conceptos> conceptos = new Dictionary<int, Conceptos>();
 
+            //iniciamos la conexion con el servidor
+            // Backend.Conexion.IniciarSesion(vGlobal.Server, vGlobal.BD, vGlobal.Usr, vGlobal.Pwd, vGlobal.BD);
+            //llenamos nuestro reader con la consulta de nuestro SP
+            IDataReader reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_frm_Antp_CConceptos()");
+            //siclamos cada registro que contiene nuestro reader
+            //   Dictionary<int,String> arreglo = new Dictionary<int,String>();
+          
+            int i = 0;
+            cmbCuotas2.Add(i, "Seleccione");
+            i++;
+            while (reader.Read())
+            {
+                //lenamos nuestro grid con nuestro reader.
+                // ResultadoTrnx puesto = new ResultadoTrnx();
+                int id = int.Parse(reader.GetValue(0).ToString());
+                Conceptos concepto = new Conceptos();
+                concepto.id = id;
+                concepto.descripcion = (reader.GetValue(1).ToString());
+                concepto.cuenta_contable = (reader.GetValue(3).ToString());
+                double imp = Double.Parse(reader.GetValue(2).ToString());
+                concepto.importe = Double.Parse(reader.GetValue(2).ToString());
+           
+                    cmbCuotas2.Add(i, reader.GetValue(1).ToString());
+                
+
+                //  arreglo.Add(id, reader.GetValue(3).ToString());
+                conceptos.Add(i, concepto);
+                i++;
+
+            }
+            var ab = from a in cmbCuotas2
+                     orderby a.Key
+                     select a;
+            cmb.DataSource = ab.ToList();
+            cmb.DisplayMember = "value";
+            cmb.ValueMember = "Key";
+
+            Conexion.FinalizarSesion();
+            return conceptos;
+        }
+        #endregion
     }
 }
