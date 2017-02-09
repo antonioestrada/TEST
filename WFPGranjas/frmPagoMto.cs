@@ -330,7 +330,7 @@ namespace WFPGranjas
            
             listaIDKardex = obtieneIDKardex();
             PrcAnticipos prcAnticipos= new PrcAnticipos();
-            double importeTotal=prcAnticipos.generaCuotas(dgPartidasR, id_colono, idManzana, idLote, listaIDKardex,false);
+            double importeTotal=prcAnticipos.generaCuotas(dgPartidasR,null,null, id_colono, idManzana, idLote, listaIDKardex,false);
          
             groupCuota.Visible = true;
             txtImporte.Text = String.Format(CultureInfo.InvariantCulture,"{0:0,0.00}", importeTotal);

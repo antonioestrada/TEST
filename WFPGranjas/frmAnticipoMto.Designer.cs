@@ -36,6 +36,7 @@
             this.panelCapturaCenter = new System.Windows.Forms.Panel();
             this.dgPartidasR = new System.Windows.Forms.DataGridView();
             this.panelCapturaButtom = new System.Windows.Forms.Panel();
+            this.btnGuardaCuota = new System.Windows.Forms.Button();
             this.pnlMetodoPago = new System.Windows.Forms.Panel();
             this.label6 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -90,14 +91,18 @@
             this.chk02Feb = new System.Windows.Forms.CheckBox();
             this.chk01Ene = new System.Windows.Forms.CheckBox();
             this.pnlMeses = new System.Windows.Forms.Panel();
+            this.lblPerFin = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.lblPerIni = new System.Windows.Forms.Label();
+            this.dtFinAnt = new System.Windows.Forms.DateTimePicker();
             this.label3 = new System.Windows.Forms.Label();
+            this.dtIniAnt = new System.Windows.Forms.DateTimePicker();
             this.button3 = new System.Windows.Forms.Button();
             this.btnApliCalculoAnt = new System.Windows.Forms.Button();
             this.gbDRecibo = new System.Windows.Forms.GroupBox();
             this.lblFechaSys = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.btnCapturaR = new System.Windows.Forms.Button();
-            this.btnGuardaCuota = new System.Windows.Forms.Button();
             this.groupDColono.SuspendLayout();
             this.groupCuota.SuspendLayout();
             this.panelCapturaCenter.SuspendLayout();
@@ -208,6 +213,20 @@
             this.panelCapturaButtom.Name = "panelCapturaButtom";
             this.panelCapturaButtom.Size = new System.Drawing.Size(820, 167);
             this.panelCapturaButtom.TabIndex = 14;
+            // 
+            // btnGuardaCuota
+            // 
+            this.btnGuardaCuota.Image = global::WFPGranjas.Properties.Resources.conseguir_dinero24;
+            this.btnGuardaCuota.Location = new System.Drawing.Point(570, 96);
+            this.btnGuardaCuota.Name = "btnGuardaCuota";
+            this.btnGuardaCuota.Size = new System.Drawing.Size(240, 32);
+            this.btnGuardaCuota.TabIndex = 21;
+            this.btnGuardaCuota.Text = "Generar Cuota";
+            this.btnGuardaCuota.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGuardaCuota.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnGuardaCuota.UseVisualStyleBackColor = true;
+            this.btnGuardaCuota.Visible = false;
+            this.btnGuardaCuota.Click += new System.EventHandler(this.button1_Click);
             // 
             // pnlMetodoPago
             // 
@@ -432,6 +451,7 @@
             // 
             // txtDescuento
             // 
+            this.txtDescuento.Enabled = false;
             this.txtDescuento.Location = new System.Drawing.Point(709, 34);
             this.txtDescuento.Name = "txtDescuento";
             this.txtDescuento.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
@@ -801,15 +821,60 @@
             // 
             this.pnlMeses.BackColor = System.Drawing.SystemColors.Info;
             this.pnlMeses.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pnlMeses.Controls.Add(this.lblPerFin);
+            this.pnlMeses.Controls.Add(this.label16);
+            this.pnlMeses.Controls.Add(this.lblPerIni);
+            this.pnlMeses.Controls.Add(this.dtFinAnt);
             this.pnlMeses.Controls.Add(this.label3);
+            this.pnlMeses.Controls.Add(this.dtIniAnt);
             this.pnlMeses.Controls.Add(this.button3);
             this.pnlMeses.Controls.Add(this.groupBoxMeses);
             this.pnlMeses.Controls.Add(this.btnApliCalculoAnt);
-            this.pnlMeses.Location = new System.Drawing.Point(283, 165);
+            this.pnlMeses.Location = new System.Drawing.Point(166, 165);
             this.pnlMeses.Name = "pnlMeses";
-            this.pnlMeses.Size = new System.Drawing.Size(268, 233);
+            this.pnlMeses.Size = new System.Drawing.Size(495, 233);
             this.pnlMeses.TabIndex = 11;
             this.pnlMeses.Visible = false;
+            // 
+            // lblPerFin
+            // 
+            this.lblPerFin.AutoSize = true;
+            this.lblPerFin.Location = new System.Drawing.Point(240, 109);
+            this.lblPerFin.Name = "lblPerFin";
+            this.lblPerFin.Size = new System.Drawing.Size(82, 16);
+            this.lblPerFin.TabIndex = 19;
+            this.lblPerFin.Text = "periodo final";
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.BackColor = System.Drawing.SystemColors.Info;
+            this.label16.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.Location = new System.Drawing.Point(298, 8);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(142, 18);
+            this.label16.TabIndex = 18;
+            this.label16.Text = "Meses a Anticipar";
+            // 
+            // lblPerIni
+            // 
+            this.lblPerIni.AutoSize = true;
+            this.lblPerIni.Location = new System.Drawing.Point(240, 52);
+            this.lblPerIni.Name = "lblPerIni";
+            this.lblPerIni.Size = new System.Drawing.Size(92, 16);
+            this.lblPerIni.TabIndex = 17;
+            this.lblPerIni.Text = "periodo inicial";
+            // 
+            // dtFinAnt
+            // 
+            this.dtFinAnt.CustomFormat = "MMMM yyyy";
+            this.dtFinAnt.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtFinAnt.Location = new System.Drawing.Point(338, 104);
+            this.dtFinAnt.Name = "dtFinAnt";
+            this.dtFinAnt.ShowUpDown = true;
+            this.dtFinAnt.Size = new System.Drawing.Size(131, 22);
+            this.dtFinAnt.TabIndex = 16;
+            this.dtFinAnt.Validating += new System.ComponentModel.CancelEventHandler(this.dtFinAnt_Validating);
             // 
             // label3
             // 
@@ -821,6 +886,18 @@
             this.label3.Size = new System.Drawing.Size(142, 18);
             this.label3.TabIndex = 14;
             this.label3.Text = "Meses a Anticipar";
+            // 
+            // dtIniAnt
+            // 
+            this.dtIniAnt.CustomFormat = "MMMM yyyy";
+            this.dtIniAnt.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtIniAnt.Location = new System.Drawing.Point(338, 46);
+            this.dtIniAnt.Name = "dtIniAnt";
+            this.dtIniAnt.ShowUpDown = true;
+            this.dtIniAnt.Size = new System.Drawing.Size(131, 22);
+            this.dtIniAnt.TabIndex = 15;
+            this.dtIniAnt.ValueChanged += new System.EventHandler(this.dtIniAnt_ValueChanged);
+            this.dtIniAnt.Validating += new System.ComponentModel.CancelEventHandler(this.dtIniAnt_Validating);
             // 
             // button3
             // 
@@ -891,20 +968,6 @@
             this.btnCapturaR.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCapturaR.UseVisualStyleBackColor = true;
             this.btnCapturaR.Click += new System.EventHandler(this.btnCapturaR_Click);
-            // 
-            // btnGuardaCuota
-            // 
-            this.btnGuardaCuota.Image = global::WFPGranjas.Properties.Resources.conseguir_dinero24;
-            this.btnGuardaCuota.Location = new System.Drawing.Point(570, 96);
-            this.btnGuardaCuota.Name = "btnGuardaCuota";
-            this.btnGuardaCuota.Size = new System.Drawing.Size(240, 32);
-            this.btnGuardaCuota.TabIndex = 21;
-            this.btnGuardaCuota.Text = "Generar Cuota";
-            this.btnGuardaCuota.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnGuardaCuota.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnGuardaCuota.UseVisualStyleBackColor = true;
-            this.btnGuardaCuota.Visible = false;
-            this.btnGuardaCuota.Click += new System.EventHandler(this.button1_Click);
             // 
             // frmAnticipoMto
             // 
@@ -1022,5 +1085,10 @@
         private System.Windows.Forms.ComboBox cmbCCPadre;
         private System.Windows.Forms.ComboBox cmbCCHijo;
         private System.Windows.Forms.Button btnGuardaCuota;
+        private System.Windows.Forms.DateTimePicker dtIniAnt;
+        private System.Windows.Forms.DateTimePicker dtFinAnt;
+        private System.Windows.Forms.Label lblPerFin;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.Label lblPerIni;
     }
 }
