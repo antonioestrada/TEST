@@ -18,8 +18,10 @@ namespace WFPGranjas
     public partial class frmAnticipoMto : Form
     {
         int id_colono = 0,idManzana=0,idLote=0;
-        String listaMeses, anual=null;
-        List<int> listaCuotasPag;
+        String listaMeses, anual=null, fechaActual=null;
+        Dictionary<int, Conceptos> cuotas;
+        Dictionary<int, String> cmbCuotas;
+        List<string> listaCuotasPag;
         double pagoTotal = 0;
         int servicio = 0;
         Boolean esAnual=false;
@@ -238,12 +240,20 @@ namespace WFPGranjas
                 {
                     pnlMeses.Visible = true;
                     incializaMeses();
-                    listaCuotasPag = new List<int>();
+                    listaCuotasPag = new List<string>();
                     // Extrae meses con anticipo
                     prcAnticipos.consultaCuotasPagadas(listaCuotasPag, idLote);
                     int periodoActualBD = prcAnticipos.obtienePeriodoActual();
+                    fechaActual = prcAnticipos.obtieneFechaActual();
                     if (esAnual) {
-                        if(periodoActualBD==12 || periodoActualBD==1)
+                        pnlMeses.Width = 260;
+                        groupBoxMeses.Visible = true;
+                        lblPerIni.Visible = false;
+                        lblPerFin.Visible = false;
+
+                        pnlMeses.Location = new Point(245, 165);
+                      
+                        if (periodoActualBD==12 || periodoActualBD==1)
                             validaAnualidad(periodoActualBD);
                         else
                         {
@@ -254,7 +264,23 @@ namespace WFPGranjas
 
                     }
                     else
+                    {
+                        groupBoxMeses.Visible = false;
+                        lblPerIni.Location = new Point(5, 52);
+                        lblPerFin.Location = new Point(5, 102);
+                        dtIniAnt.Location = new Point(110, 52);
+                        dtFinAnt.Location = new Point(110, 102);
+                        pnlMeses.Width = 260;
+                        pnlMeses.Location = new Point(245, 165);
+                        // dtIniAnt.MinDate = fechaPeriodo;
+
+                        DateTime fechaPeriodo = DateTime.Parse(fechaActual);
+                        dtIniAnt.MinDate =  fechaPeriodo.AddMonths(1);
+                        dtFinAnt.MinDate = fechaPeriodo. AddMonths(1);
+                        dtIniAnt.Value = fechaPeriodo.AddMonths(1);
                         validaMeses(periodoActualBD);
+                      
+                    }
                 }
                 if (servicio == 3)
                 {
@@ -262,7 +288,7 @@ namespace WFPGranjas
                     prcAnticipos.consultaBancos(cmbBancoCheq);
                     prcAnticipos.consultaBancos(cmbBancoFicha);
                     groupCuota.Visible = true;
-                    lblAntAgua.Visible = true;
+                    lblAntAgua.Visible = false;
                     txtTotalAgua.Visible = true;
                     lblDescuento.Visible = false;
                     txtDescuento.Visible = false;
@@ -293,11 +319,11 @@ namespace WFPGranjas
             {
                 
                 groupCuota.Size = new Size(826, 390);
-                panelCapturaTop.Size = new Size(820, 74);
+                panelCapturaTop.Size = new Size(820, 54);
                 lblConcepto.Visible = true;
-                txtConcepto.Visible = true;
-                cmbCCPadre.Visible = true;
-                cmbCCHijo.Visible = true;
+                txtConcepto.Visible = false;
+                cmbCCPadre.Visible = false;
+                cmbCCHijo.Visible = false;
                 cmbCCHijo.Location = new System.Drawing.Point(102, 48);
                 cmbCCPadre.Location = new System.Drawing.Point(102, 28);
                 txtTotalAgua.Focus();
@@ -306,7 +332,7 @@ namespace WFPGranjas
                 groupCuota.Visible = true;
                 lblAntAgua.Visible = true;
                 lblAntAgua.Text = "Importe del Servicio :";
-                txtTotalAgua.Visible = true;
+                txtTotalAgua.Visible = false;
                 lblDescuento.Visible = false;
                 txtDescuento.Visible = false;
                 btnAddCuota.Visible = true;
@@ -332,39 +358,109 @@ namespace WFPGranjas
                 txtDescuento.Text = "0.00";
                 pnlMetodoPago.Visible = false;
                 dgPartidasR.Rows.Clear();
+                cmbPeriodos.Visible = true;
+                lblAntAgua.Visible = false;
+                cmbCuotas = new Dictionary<int, String>();
+               
+                cuotas = prcAnticipos.consultaConceptos(cmbPeriodos,  cmbCuotas);
 
             }
         }
 
         private void btnApliCalculoAnt_Click(object sender, EventArgs e)
         {
-           
-            listaMeses = obtieneMeses();
-            if (listaMeses == "" || listaMeses == null)
+
+            if (!esAnual)
             {
-                MessageBox.Show("¡Selecciona al menos un mes de mantenimiento a anticipar!");
+                int ts = DateTime.Compare(dtIniAnt.Value, dtFinAnt.Value);
+                //MessageBox.Show("¡"+ts);
+
+                if (ts <= 0)
+                {
+                    //if (ts == 1)
+                    //    listaMeses = dtIniAnt.Value.ToString("MM", CultureInfo.CreateSpecificCulture("en-US"));
+                    //else
+                        listaMeses = obtieneMesesNuevo();
+                    PrcAnticipos prcAnticipos = new PrcAnticipos();
+                    double importeTotal = prcAnticipos.generaCuotas(dgPartidasR, listaCuotasPag, listaMeses, id_colono, idManzana, idLote, listaMeses, esAnual);
+                    pnlMeses.Visible = false;
+                    groupCuota.Visible = true;
+                    txtImporte.Text = String.Format(CultureInfo.InvariantCulture, "{0:0,0.00}", importeTotal);
+                    txtDescuento.Text = "0.00";
+                    txtTotal.Text = String.Format(CultureInfo.InvariantCulture, "{0:0,0.00}", importeTotal);
+                    pagoTotal = importeTotal;
+                    prcAnticipos.consultaBancos(cmbBancoCheq);
+                    prcAnticipos.consultaBancos(cmbBancoFicha);
+                    txtImpEf.Text = "0.00";
+                    txtImpChq.Text = "0.00";
+                    txtImpFicha.Text = "0.00";
+                    txtDescuento.Text = "0.00";
+                    //tom modificacion
+                    pnlMetodoPago.Visible = true;
+                    dgPartidasR.ClearSelection();
+                    txtImpEf.Focus();
+                }
+                else
+                {
+                    MessageBox.Show("¡El periodo inicial debe de ser mayor o igual que el periodo final!");
+                }
             }
-            else
+            if (esAnual)
             {
+
+                listaMeses = obtieneMeses();
+
                 PrcAnticipos prcAnticipos = new PrcAnticipos();
-                double importeTotal = prcAnticipos.generaCuotas(dgPartidasR, id_colono, idManzana, idLote, listaMeses,esAnual);
+                double importeTotal = prcAnticipos.generaCuotas(dgPartidasR, listaCuotasPag, listaMeses,  id_colono, idManzana, idLote, listaMeses, esAnual);
                 pnlMeses.Visible = false;
                 groupCuota.Visible = true;
                 txtImporte.Text = String.Format(CultureInfo.InvariantCulture, "{0:0,0.00}", importeTotal);
                 txtDescuento.Text = "0.00";
-                txtTotal.Text = String.Format(CultureInfo.InvariantCulture, "{0:0,0.00}", importeTotal);
+                
                 pagoTotal = importeTotal;
                 prcAnticipos.consultaBancos(cmbBancoCheq);
                 prcAnticipos.consultaBancos(cmbBancoFicha);
                 txtImpEf.Text = "0.00";
                 txtImpChq.Text = "0.00";
                 txtImpFicha.Text = "0.00";
-                txtDescuento.Text = "0.00";
+                Object[] parames = { pagoTotal };
+                double descuento = prcAnticipos.calculaDescuento(parames);
+                txtDescuento.Text = ""+descuento;
+                pagoTotal = importeTotal - descuento;
+                txtTotal.Text = String.Format(CultureInfo.InvariantCulture, "{0:0,0.00}", pagoTotal);
                 //tom modificacion
                 pnlMetodoPago.Visible = true;
                 dgPartidasR.ClearSelection();
                 txtImpEf.Focus();
             }
+            /*
+
+         listaMeses = obtieneMeses();
+         if (listaMeses == "" || listaMeses == null)
+         {
+             MessageBox.Show("¡Selecciona al menos un mes de mantenimiento a anticipar!");
+         }
+         else
+         {
+             PrcAnticipos prcAnticipos = new PrcAnticipos();
+             double importeTotal = prcAnticipos.generaCuotas(dgPartidasR, id_colono, idManzana, idLote, listaMeses,esAnual);
+             pnlMeses.Visible = false;
+             groupCuota.Visible = true;
+             txtImporte.Text = String.Format(CultureInfo.InvariantCulture, "{0:0,0.00}", importeTotal);
+             txtDescuento.Text = "0.00";
+             txtTotal.Text = String.Format(CultureInfo.InvariantCulture, "{0:0,0.00}", importeTotal);
+             pagoTotal = importeTotal;
+             prcAnticipos.consultaBancos(cmbBancoCheq);
+             prcAnticipos.consultaBancos(cmbBancoFicha);
+             txtImpEf.Text = "0.00";
+             txtImpChq.Text = "0.00";
+             txtImpFicha.Text = "0.00";
+             txtDescuento.Text = "0.00";
+             //tom modificacion
+             pnlMetodoPago.Visible = true;
+             dgPartidasR.ClearSelection();
+             txtImpEf.Focus();
+         }*/
         }
 
         private void txtColono_KeyDown(object sender, KeyEventArgs e)
@@ -428,7 +524,7 @@ namespace WFPGranjas
                     else
                         chk.Enabled = true;
 
-                    if (validaPeriodoAnticipo(mesNum))
+                    if (validaPeriodoAnticipo(null))
                     {
                         chk.Enabled = false;
                         chk.BackColor = Color.LightBlue;
@@ -461,11 +557,11 @@ namespace WFPGranjas
             }
             
         }
-        public Boolean validaPeriodoAnticipo(int periodo) {
+        public Boolean validaPeriodoAnticipo(string fechaAnticipo) {
             Boolean resultado = false;
             for (int i = 0; i < listaCuotasPag.Count(); i++)
             {
-                if (periodo == listaCuotasPag[i])
+                if (fechaAnticipo == listaCuotasPag[i])
                 {
                     resultado = true;
                     break;
@@ -476,6 +572,11 @@ namespace WFPGranjas
 
         private void btnCapturaPago_Click_1(object sender, EventArgs e)
         {
+            if (pagoTotal == 0)
+            {
+                MessageBox.Show("¡No hay cuota por anticipar!");
+                return;
+            }
             Boolean resultado=false;
             PrcAnticipos prcAnticipos = new PrcAnticipos();
 
@@ -577,6 +678,61 @@ namespace WFPGranjas
 
         }
 
+        public static decimal MonthDifference(DateTime FechaFin, DateTime FechaInicio)
+        {
+            return Math.Abs((FechaFin.Month - FechaInicio.Month) + 12 * (FechaFin.Year - FechaInicio.Year));
+
+        }
+
+
+        public String obtieneMesesNuevo()
+        {
+            String meses = "";
+            DateTime fechaActual = DateTime.Now;
+            int mes = fechaActual.Month;
+
+            List<String> listaMeses = new List<string>();
+            TimeSpan ts = dtIniAnt.Value - dtFinAnt.Value;
+            TimeSpan difference = dtFinAnt.Value.Subtract(dtIniAnt.Value);
+            DateTime totalDate = DateTime.MinValue + difference;
+            int differenceInMonths = 0;
+            if (dtIniAnt.Value == dtFinAnt.Value)
+                differenceInMonths = totalDate.Month;
+            else
+                differenceInMonths = totalDate.Month + 1;
+            decimal diferenciaMeses = MonthDifference(dtIniAnt.Value, dtFinAnt.Value);
+
+            for (int i = 0; i <= diferenciaMeses; i++)
+            {
+                DateTime miDato = Convert.ToDateTime(dtIniAnt.Value.ToString("MM-yyyy",
+                        CultureInfo.CreateSpecificCulture("en-US"))+
+                        "-01");
+                DateTime fechaMes = miDato.AddMonths(i);
+                int mesNum = int.Parse(fechaMes.ToString("MM",
+                        CultureInfo.CreateSpecificCulture("en-US")));
+                string fecha =(fechaMes.ToString("yyyy-MM-dd",
+                         CultureInfo.CreateSpecificCulture("en-US")));
+                    listaMeses.Add("" + fecha);
+             
+               
+            }
+
+         
+            listaMeses = listaMeses.OrderBy(p => (p.ToString())).ToList();
+
+            for (int i = 0; i < listaMeses.Count; i++)
+            {
+                meses += listaMeses[i].ToString();
+                if (i + 1 < listaMeses.Count)
+                {
+                    meses += ",";
+                }
+            }
+            return meses;
+
+
+        }
+
         private void txtImpChq_KeyPress(object sender, KeyPressEventArgs e)
         {
             validaNumeros(txtImpChq, sender, e);
@@ -665,7 +821,7 @@ namespace WFPGranjas
                 txtTotalAgua.Focus();
                 txtImpEf.SelectAll();
             }else
-            if (servicio == 5 && txtConcepto.Text == "")
+            if (servicio == 5 && int.Parse(cmbPeriodos.SelectedValue.ToString()) == 0)
             {
                 mensaje = "monto del servicio";
                 if (txtConcepto.Text == "")
@@ -675,6 +831,7 @@ namespace WFPGranjas
             else
             {
                 //lenamos nuestro grid con nuestro reader.
+                txtTotalAgua.Enabled = true;
                 if (Double.Parse(txtTotalAgua.Text) > 0)
                 {
                     int renglon = dgPartidasR.Rows.Add();
@@ -695,9 +852,9 @@ namespace WFPGranjas
                     }
                     if (servicio == 5)
                     {
-                        dgPartidasR.Rows[renglon].Cells[0].Value = "" +txtConcepto.Text;
+                        dgPartidasR.Rows[renglon].Cells[0].Value = "" +cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].descripcion;
                         dgPartidasR.Columns[1].Visible = true;
-                        dgPartidasR.Rows[renglon].Cells[1].Value =""+cmbCCPadre.Text+" - "+cmbCCHijo.Text;
+                        dgPartidasR.Rows[renglon].Cells[1].Value ="" + cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].cuenta_contable;
                         //stxtConcepto.Text = "";
                         pnlMetodoPago.Visible = false;
                         //tonka
@@ -721,6 +878,7 @@ namespace WFPGranjas
                     MessageBox.Show("El "+ mensaje + " debe ser mayor a cero.");
                     txtTotalAgua.Focus();
                 }
+                txtTotalAgua.Enabled = false;
             }
         }
 
@@ -812,7 +970,7 @@ namespace WFPGranjas
 
 
 
-                Object[] paramesCasaClub = { idLote, importeEfectivo, txtCheque.Text, bancoCheque, importeCheque, txtFicha.Text, bancoFicha, importFicha, servicio, cmbCCHijo.Text, txtConcepto.Text };
+                Object[] paramesCasaClub = { idLote, importeEfectivo, txtCheque.Text, bancoCheque, importeCheque, txtFicha.Text, bancoFicha, importFicha, servicio, cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].cuenta_contable, cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].id };
 
                 Object[] parames = { id_colono, idManzana, idLote, listaMeses, importeEfectivo, txtCheque.Text, bancoCheque, importeCheque, txtFicha.Text, bancoFicha, importFicha, descuento, servicio, anual };
 
@@ -843,9 +1001,55 @@ namespace WFPGranjas
                 pnlMetodoPago.Visible = false;
                 dgPartidasR.Rows.Clear();
                 groupCuota.Visible = false;
-                MessageBox.Show("¡Se registro Correctamente el Pago!");
+                MessageBox.Show("¡Se registro Correctamente la transaccion!");
             }
 
+        }
+
+        private void dtFinAnt_Validating(object sender, CancelEventArgs e)
+        {
+           
+        }
+
+        private void dtIniAnt_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void cmbPeriodos_SelectedValueChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void cmbPeriodos_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            if (cmbPeriodos.Items.Count > 0)
+            {
+                if (int.Parse(cmbPeriodos.SelectedValue.ToString()) > 0)
+                {
+                    lblAntAgua.Visible = true;
+                    double monto = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].importe;
+                    String importe = String.Format(CultureInfo.InvariantCulture, "{0:0,0.0}", monto);
+                    txtTotalAgua.Text = ""+monto;
+                    txtTotalAgua.Visible = true;
+                    txtTotalAgua.Enabled = false;
+                    if (cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].id == 99)
+                    {
+                        txtTotalAgua.Enabled = true;
+                    }
+                }
+                else {
+
+                    txtTotalAgua.Text = "" ;
+                    txtTotalAgua.Visible = false;
+                    lblAntAgua.Visible = false;
+                }
+            }
+        }
+
+        private void dtIniAnt_Validating(object sender, CancelEventArgs e)
+        {
+           
         }
 
         private void txtImpEf_KeyPress_1(object sender, KeyPressEventArgs e)

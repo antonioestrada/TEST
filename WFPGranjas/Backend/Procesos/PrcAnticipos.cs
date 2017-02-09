@@ -3,6 +3,7 @@ using AccesoDatos;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Text;
@@ -14,12 +15,15 @@ namespace WFPGranjas.Backend.Procesos
 {
     class PrcAnticipos
     {
-       
+        List<string> listaCuotasPag;
+
         #region genera  cuotas
-        public double generaCuotas(DataGridView dgConsulta, int idColono, int idManzana, int idLote, string listadoMeses,Boolean esAnual)
+        public double generaCuotas(DataGridView dgConsulta, List<string> listaCuotasPag,string meses, int idColono, int idManzana, int idLote, string listadoMeses,Boolean esAnual)
         {
+            meses = "";
             //limpiamos el datagridview
             //Conexion.conectar();
+            this.listaCuotasPag = listaCuotasPag;
             dgConsulta.Rows.Clear();
             double importeTotal = 0;
             //llenamos nuestro reader con la consulta de nuestro SP
@@ -27,24 +31,52 @@ namespace WFPGranjas.Backend.Procesos
             //siclamos cada registro que contiene nuestro reader
             while (reader.Read())
             {
-                //lenamos nuestro grid con nuestro reader.
-                int renglon = dgConsulta.Rows.Add();
-                //Servicio
-                dgConsulta.Rows[renglon].Cells[0].Value = reader.GetValue(0).ToString();
-                //Fecha
-                dgConsulta.Rows[renglon].Cells[1].Value = reader.GetValue(1).ToString();
-                //Cuota
-                String importe = String.Format(CultureInfo.InvariantCulture,
-                                 "{0:0,0.0}", reader.GetValue(2).ToString());
-                dgConsulta.Rows[renglon].Cells[2].Value = "$ " + importe;
+               
+                    //lenamos nuestro grid con nuestro reader.
+                    int renglon = dgConsulta.Rows.Add();
+                    //Servicio
+                    dgConsulta.Rows[renglon].Cells[0].Value = reader.GetValue(0).ToString();
+                    //Fecha
+                    dgConsulta.Rows[renglon].Cells[1].Value = reader.GetValue(1).ToString();
+                    //Cuota
+                    String importe = String.Format(CultureInfo.InvariantCulture,
+                                     "{0:0,0.0}", reader.GetValue(2).ToString());
+                    dgConsulta.Rows[renglon].Cells[2].Value = "$ " + importe;
+                if (!validaPeriodoAnticipo(reader.GetValue(3).ToString()))
+                {
+                    dgConsulta.Rows[renglon].DefaultCellStyle.BackColor = Color.White;
 
-                importeTotal += Double.Parse(reader.GetValue(2).ToString());
+                    importeTotal += Double.Parse(reader.GetValue(2).ToString());
+
+                    meses += reader.GetValue(4).ToString();
+                    meses += ",";
+                }
+                else {
+                    dgConsulta.Rows[renglon].DefaultCellStyle.BackColor = Color.LightBlue;
+                    dgConsulta.Rows[renglon].Cells[2].Value = " PAGADO ";
+
+
+                }
             }
+            meses = meses.TrimEnd(',');
             Conexion.FinalizarSesion();
             return importeTotal;
         }
         #endregion
 
+        public Boolean validaPeriodoAnticipo(string periodo)
+        {
+            Boolean resultado = false;
+            for (int i = 0; i < listaCuotasPag.Count(); i++)
+            {
+                if (periodo == listaCuotasPag[i])
+                {
+                    resultado = true;
+                    break;
+                }
+            }
+            return resultado;
+        }
         #region consulta catalogo bancos
         public void consultaBancos(ComboBox cmb)
         {
@@ -79,7 +111,7 @@ namespace WFPGranjas.Backend.Procesos
         #endregion
 
         #region consulta cuotas pagadas Mantenimiento
-        public void consultaCuotasPagadas(List<int> cmb,int idLote)
+        public void consultaCuotasPagadas(List<string> cmb,int idLote)
         {
 
 
@@ -91,7 +123,7 @@ namespace WFPGranjas.Backend.Procesos
            
             while (reader.Read())
             {
-                 cmb.Add(int.Parse(reader.GetValue(0).ToString()));
+                 cmb.Add((reader.GetValue(2).ToString()));
 
             }
           
@@ -106,6 +138,42 @@ namespace WFPGranjas.Backend.Procesos
             int resultado = 0;
             System.Data.IDataReader resul = Conexion.GDatos.TraerDataReader("gestion_granjas.sp_frm_Antp_CPeriodo");
             resultado = Convert.ToInt16(resul.GetValue(0));
+            /*
+            while (resul.Read())
+            {
+                //seteo 
+                 resultado = Convert.ToBoolean(resul.GetValue(0));
+            }*/
+            Conexion.FinalizarSesion();
+
+            return resultado;
+        }
+        #endregion
+
+        #region obitene  fecha actual
+        public string obtieneFechaActual()
+        {
+            string resultado = null;
+            System.Data.IDataReader resul = Conexion.GDatos.TraerDataReader("gestion_granjas.sp_frm_Antp_CFecha");
+            resultado = (resul.GetValue(0).ToString());
+            /*
+            while (resul.Read())
+            {
+                //seteo 
+                 resultado = Convert.ToBoolean(resul.GetValue(0));
+            }*/
+            Conexion.FinalizarSesion();
+
+            return resultado;
+        }
+        #endregion
+
+        #region obitene  periodo actual
+        public double calculaDescuento(Object[] parames)
+        {
+            double resultado = 0;
+            System.Data.IDataReader resul = Conexion.GDatos.TraerDataReader("gestion_granjas.sp_frm_Antp_CalculaDescuento",parames);
+            resultado = Convert.ToDouble(resul.GetValue(0));
             /*
             while (resul.Read())
             {
@@ -216,6 +284,51 @@ namespace WFPGranjas.Backend.Procesos
         }
         #endregion
 
+        #region consulta cuotas con adeudo
+        public Dictionary<int, Conceptos> consultaConceptos(ComboBox cmb, Dictionary<int, String> cmbCuotas2)
+        {
+            Dictionary<int, Conceptos> conceptos = new Dictionary<int, Conceptos>();
 
+            //iniciamos la conexion con el servidor
+            // Backend.Conexion.IniciarSesion(vGlobal.Server, vGlobal.BD, vGlobal.Usr, vGlobal.Pwd, vGlobal.BD);
+            //llenamos nuestro reader con la consulta de nuestro SP
+            IDataReader reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_frm_Antp_CConceptos()");
+            //siclamos cada registro que contiene nuestro reader
+            //   Dictionary<int,String> arreglo = new Dictionary<int,String>();
+          
+            int i = 0;
+            cmbCuotas2.Add(i, "Seleccione");
+            i++;
+            while (reader.Read())
+            {
+                //lenamos nuestro grid con nuestro reader.
+                // ResultadoTrnx puesto = new ResultadoTrnx();
+                int id = int.Parse(reader.GetValue(0).ToString());
+                Conceptos concepto = new Conceptos();
+                concepto.id = id;
+                concepto.descripcion = (reader.GetValue(1).ToString());
+                concepto.cuenta_contable = (reader.GetValue(3).ToString());
+                double imp = Double.Parse(reader.GetValue(2).ToString());
+                concepto.importe = Double.Parse(reader.GetValue(2).ToString());
+           
+                    cmbCuotas2.Add(i, reader.GetValue(1).ToString());
+                
+
+                //  arreglo.Add(id, reader.GetValue(3).ToString());
+                conceptos.Add(i, concepto);
+                i++;
+
+            }
+            var ab = from a in cmbCuotas2
+                     orderby a.Key
+                     select a;
+            cmb.DataSource = ab.ToList();
+            cmb.DisplayMember = "value";
+            cmb.ValueMember = "Key";
+
+            Conexion.FinalizarSesion();
+            return conceptos;
+        }
+        #endregion
     }
 }

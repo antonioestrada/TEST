@@ -14,14 +14,14 @@ namespace WFPGranjas.Backend.Procesos
     {
 
         #region consulta pagos
-        public double consultaPago(DataGridView dgConsulta,int folio,Label txtMora,Label txtImporte, Label txtTotal)
+        public double consultaPago(DataGridView dgConsulta,int folio,string cve_folio, Label txtMora,Label txtImporte, Label txtTotal)
         {
             //limpiamos el datagridview
             //Conexion.conectar();
             dgConsulta.Rows.Clear();
             double importeTotal = 0, moratorio=0, importeFolio=0;
             //llenamos nuestro reader con la consulta de nuestro SP
-            IDataReader reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_frm_Cancelacion_CFolio(" + folio + ")");
+            IDataReader reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_frm_Cancelacion_CFolio(" + folio + ",'"+cve_folio+"')");
             //siclamos cada registro que contiene nuestro reader
             while (reader.Read())
             {
@@ -86,6 +86,20 @@ namespace WFPGranjas.Backend.Procesos
         {
 
             System.Data.IDataReader resul = Conexion.GDatos.TraerDataReader("gestion_granjas.sp_frm_Cancelacion_CEstatus", parames);
+
+            //seteo 
+            Boolean resultado = Convert.ToBoolean(resul.GetValue(0));
+            Conexion.FinalizarSesion();
+
+            return resultado;
+        }
+        #endregion
+
+        #region valida pago
+        public Boolean validaFechaPago(Object[] parames)
+        {
+
+            System.Data.IDataReader resul = Conexion.GDatos.TraerDataReader("gestion_granjas.sp_frm_Cancelacion_Validacion", parames);
 
             //seteo 
             Boolean resultado = Convert.ToBoolean(resul.GetValue(0));

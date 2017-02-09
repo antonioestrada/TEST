@@ -297,6 +297,8 @@ namespace WFPGranjas
                     MessageBox.Show("El lote no tiene convenio");
                 if (servicio == 5)
                     MessageBox.Show("El lote no tiene cuota de casa club");
+                if (servicio == 6)
+                    MessageBox.Show("El lote no tiene cuota extraordinarias");
 
                 txtColono.Focus();
             }
@@ -330,7 +332,7 @@ namespace WFPGranjas
            
             listaIDKardex = obtieneIDKardex();
             PrcAnticipos prcAnticipos= new PrcAnticipos();
-            double importeTotal=prcAnticipos.generaCuotas(dgPartidasR, id_colono, idManzana, idLote, listaIDKardex,false);
+            double importeTotal=prcAnticipos.generaCuotas(dgPartidasR,null,null, id_colono, idManzana, idLote, listaIDKardex,false);
          
             groupCuota.Visible = true;
             txtImporte.Text = String.Format(CultureInfo.InvariantCulture,"{0:0,0.00}", importeTotal);
@@ -483,7 +485,7 @@ namespace WFPGranjas
                 string anio     = row.Cells[9].Value.ToString();
                 if(servicio==3)
                 prcPago.consultaCuotasAgua(listaID, idLote,periodo, anio);
-                if(servicio==2 || servicio==5)
+                if(servicio==2 || servicio==5 || servicio == 6)
                     listaID.Add(idLote);
                 if (servicio == 4)
                     listaID.Add(idLote);

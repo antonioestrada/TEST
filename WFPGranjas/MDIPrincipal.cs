@@ -648,7 +648,12 @@ namespace WFPGranjas
 
         private void cuotasExtraordinariasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+            cerrarVentanas();
+            frmPagoMto childFormCuotasConvenio = new frmPagoMto(6);
+            childFormCuotasConvenio.MdiParent = this;
+            childFormCuotasConvenio.StartPosition = FormStartPosition.CenterScreen;
+            childFormCuotasConvenio.Text = "Cuotas extraordinarias";
+            childFormCuotasConvenio.Show();
         }
 
         private void ingresosCasaClubToolStripMenuItem_Click(object sender, EventArgs e)

@@ -143,13 +143,13 @@ namespace WFPGranjas.Backend.Catalogos
 
 
         #region Busca Colono Dir
-        public DatosColono buscaColonoFolio( int folio)
+        public DatosColono buscaColonoFolio( string folio)
         {
             DatosColono datosColono = new DatosColono();
         
 
             //llenamos nuestro reader con la consulta de nuestro SP
-            IDataReader reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_catalogo_CColonoFolio(" + folio + ")");
+            IDataReader reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_catalogo_CColonoFolio('" + folio + "')");
             //siclamos cada registro que contiene nuestro reader
             while (reader.Read())
             {

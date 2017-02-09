@@ -59,6 +59,7 @@
     <Compile Include="Backend\Catalogos\CColonos.cs" />
     <Compile Include="Backend\Catalogos\CManzanaLotes.cs" />
     <Compile Include="Backend\Catalogos\CMedidores.cs" />
+    <Compile Include="Backend\Catalogos\Conceptos.cs" />
     <Compile Include="Backend\Catalogos\CParametros.cs" />
     <Compile Include="Backend\Catalogos\CPerfiles.cs" />
     <Compile Include="Backend\Catalogos\CPuestos.cs" />

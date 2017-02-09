@@ -36,6 +36,8 @@
             this.panelCapturaCenter = new System.Windows.Forms.Panel();
             this.dgPartidasR = new System.Windows.Forms.DataGridView();
             this.panelCapturaButtom = new System.Windows.Forms.Panel();
+            this.panelEstatus = new System.Windows.Forms.Panel();
+            this.lblMensaje = new System.Windows.Forms.Label();
             this.lblTotalImporte = new System.Windows.Forms.Label();
             this.lblMoratorio = new System.Windows.Forms.Label();
             this.lblImporte = new System.Windows.Forms.Label();
@@ -54,17 +56,15 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblFechaSys = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
-            this.panelEstatus = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
             this.groupDColono.SuspendLayout();
             this.groupCuota.SuspendLayout();
             this.panelCapturaCenter.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgPartidasR)).BeginInit();
             this.panelCapturaButtom.SuspendLayout();
+            this.panelEstatus.SuspendLayout();
             this.panelCapturaTop.SuspendLayout();
             this.panelTop.SuspendLayout();
             this.gbDRecibo.SuspendLayout();
-            this.panelEstatus.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupDColono
@@ -162,6 +162,26 @@
             this.panelCapturaButtom.Name = "panelCapturaButtom";
             this.panelCapturaButtom.Size = new System.Drawing.Size(820, 161);
             this.panelCapturaButtom.TabIndex = 14;
+            // 
+            // panelEstatus
+            // 
+            this.panelEstatus.BackColor = System.Drawing.Color.Bisque;
+            this.panelEstatus.Controls.Add(this.lblMensaje);
+            this.panelEstatus.Location = new System.Drawing.Point(221, 8);
+            this.panelEstatus.Name = "panelEstatus";
+            this.panelEstatus.Size = new System.Drawing.Size(333, 67);
+            this.panelEstatus.TabIndex = 28;
+            this.panelEstatus.Visible = false;
+            // 
+            // lblMensaje
+            // 
+            this.lblMensaje.AutoSize = true;
+            this.lblMensaje.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblMensaje.Location = new System.Drawing.Point(28, 21);
+            this.lblMensaje.Name = "lblMensaje";
+            this.lblMensaje.Size = new System.Drawing.Size(276, 20);
+            this.lblMensaje.TabIndex = 0;
+            this.lblMensaje.Text = "El recibo se encuentra cancelado";
             // 
             // lblTotalImporte
             // 
@@ -348,26 +368,6 @@
             this.label13.TabIndex = 0;
             this.label13.Text = "Fecha del Recibo:";
             // 
-            // panelEstatus
-            // 
-            this.panelEstatus.BackColor = System.Drawing.Color.Bisque;
-            this.panelEstatus.Controls.Add(this.label3);
-            this.panelEstatus.Location = new System.Drawing.Point(221, 8);
-            this.panelEstatus.Name = "panelEstatus";
-            this.panelEstatus.Size = new System.Drawing.Size(333, 67);
-            this.panelEstatus.TabIndex = 28;
-            this.panelEstatus.Visible = false;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(28, 21);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(276, 20);
-            this.label3.TabIndex = 0;
-            this.label3.Text = "El recibo se encuentra cancelado";
-            // 
             // frmCancelacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -392,14 +392,14 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgPartidasR)).EndInit();
             this.panelCapturaButtom.ResumeLayout(false);
             this.panelCapturaButtom.PerformLayout();
+            this.panelEstatus.ResumeLayout(false);
+            this.panelEstatus.PerformLayout();
             this.panelCapturaTop.ResumeLayout(false);
             this.panelCapturaTop.PerformLayout();
             this.panelTop.ResumeLayout(false);
             this.panelTop.PerformLayout();
             this.gbDRecibo.ResumeLayout(false);
             this.gbDRecibo.PerformLayout();
-            this.panelEstatus.ResumeLayout(false);
-            this.panelEstatus.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -432,6 +432,6 @@
         private System.Windows.Forms.Label lblTotalImporte;
         private System.Windows.Forms.Label lblMoratorio;
         private System.Windows.Forms.Panel panelEstatus;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblMensaje;
     }
 }
