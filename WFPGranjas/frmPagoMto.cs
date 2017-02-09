@@ -294,6 +294,7 @@ namespace WFPGranjas
             txtImporte.Text = "0.00";
             txtTotal.Text = "0.00";
             txtMultas.Text = "0.00";
+            mlt = 0;
             pagoTotal = 0;
             moraTotal=0;
             importeTotal = 0;
