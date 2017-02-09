@@ -74,6 +74,8 @@ namespace WFPGranjas.Backend.Procesos
                 cuota.tarifa    = reader.GetValue(8).ToString();
                 cuota.anio      = reader.GetValue(9).ToString();
                 cuota.moratorio = Double.Parse(reader.GetValue(10).ToString());
+                if (servicio == 2)
+                 cuota.cargoActualizacion = Double.Parse(reader.GetValue(11).ToString());
                 //  arreglo.Cve_resultado = id;
                 // puesto.Mensaje = reader.GetValue(3).ToString();
                 if (servicio == 2  || servicio==5 || servicio==6)

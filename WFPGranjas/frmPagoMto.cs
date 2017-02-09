@@ -150,7 +150,7 @@ namespace WFPGranjas
                                               {
                                                   ValueType = typeof (string),
                                                   HeaderText = "Servicio",
-                                                  Width = 230
+                                                  Width = 210
                                               },
                                               new DataGridViewTextBoxColumn
                                               {
@@ -169,14 +169,14 @@ namespace WFPGranjas
                                               {
                                                   ValueType = typeof (String),
                                                   HeaderText = "Moratorio",
-                                                  Width = 160
+                                                  Width = 150
 
                                               },
                                                new DataGridViewTextBoxColumn
                                               {
                                                   ValueType = typeof (String),
                                                   HeaderText = "Estatus",
-                                                  Width = 110
+                                                  Width = 100
 
                                               },
                                                new DataGridViewTextBoxColumn
@@ -193,6 +193,13 @@ namespace WFPGranjas
                                                   Width = 190
 
                                               }
+                                               , new DataGridViewTextBoxColumn
+                                              {
+                                                  ValueType = typeof (String),
+                                                  HeaderText = "Multa",
+                                                  Width = 150
+
+                                              },
 
                                       });
 
@@ -205,6 +212,7 @@ namespace WFPGranjas
             dgPartidasR.Columns[3].Visible = false;
             dgPartidasR.Columns[9].Visible = false;
             dgPartidasR.Columns[10].Visible = false;
+            dgPartidasR.Columns[11].Visible = false;
             //dgLotes.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             //dgLotes.Columns[4].DefaultCellStyle.Format = "##,##0.0000";
 
@@ -316,6 +324,12 @@ namespace WFPGranjas
                 prcAnticipos.consultaBancos(cmbBancoCheq);
                 prcAnticipos.consultaBancos(cmbBancoFicha);
                 btnAddCuota.Focus();
+                if (servicio == 2) {
+                    dgPartidasR.Columns[11].Visible = true;
+                    txtMultas.Visible = true;
+                    lblMultas.Visible = true;
+
+                }
                 /*if (servicio == 3) {
                     PrcPagoMto prcPago = new PrcPagoMto();
                     saldoAnticipo = prcPago.consultaSaldoAnticipo(id_colono);
@@ -626,6 +640,7 @@ namespace WFPGranjas
                     //Cuota
                     double cuota = double.Parse(cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].importe.ToString());
                     double mora = double.Parse(cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].moratorio.ToString());
+                    double multa = double.Parse(cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].cargoActualizacion.ToString());
                     String importe = String.Format(CultureInfo.InvariantCulture,
                                      "{0:0,0.00}", cuota-mora);
                     dgPartidasR.Rows[renglon].Cells[2].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].importe;
@@ -640,15 +655,20 @@ namespace WFPGranjas
                     dgPartidasR.Rows[renglon].Cells[8].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].estatus;
                     dgPartidasR.Rows[renglon].Cells[9].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].anio;
                     dgPartidasR.Rows[renglon].Cells[10].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].id;
+                    string cuotaActualizacion = String.Format(CultureInfo.InvariantCulture,
+                                   "{0:0,0.00}", multa);
+                    if(servicio==2)
+                    dgPartidasR.Rows[renglon].Cells[11].Value = "$ "+cuotaActualizacion;
 
                     pagoTotal +=double.Parse(cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].importe.ToString());
                     moraTotal += mora;
                     importeTotal += cuota;
                     moratorio = String.Format(CultureInfo.InvariantCulture,
                                   "{0:0,0.00}", moraTotal);
-                    double mlt = 0;
-                    if (txtMultas.Text != null && !txtMultas.Text.Equals(""))
-                        mlt = double.Parse(txtMultas.Text);
+                    double mlt = multa;
+                    txtMultas.Text = "" + String.Format(CultureInfo.InvariantCulture,
+                                  "{0:0,0.00}", mlt);
+                    
                     if (mlt >= 1)
                     {
                         pagoTotal = pagoTotal - mlt;
