@@ -61,6 +61,7 @@
             this.txtDescuento = new System.Windows.Forms.TextBox();
             this.txtImporte = new System.Windows.Forms.TextBox();
             this.panelCapturaTop = new System.Windows.Forms.Panel();
+            this.lblDescripcion = new System.Windows.Forms.Label();
             this.cmbPeriodos = new System.Windows.Forms.ComboBox();
             this.cmbCCPadre = new System.Windows.Forms.ComboBox();
             this.cmbCCHijo = new System.Windows.Forms.ComboBox();
@@ -104,7 +105,6 @@
             this.lblFechaSys = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.btnCapturaR = new System.Windows.Forms.Button();
-            this.lblDescripcion = new System.Windows.Forms.Label();
             this.groupDColono.SuspendLayout();
             this.groupCuota.SuspendLayout();
             this.panelCapturaCenter.SuspendLayout();
@@ -180,9 +180,9 @@
             // 
             this.panelCapturaCenter.Controls.Add(this.dgPartidasR);
             this.panelCapturaCenter.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelCapturaCenter.Location = new System.Drawing.Point(3, 52);
+            this.panelCapturaCenter.Location = new System.Drawing.Point(3, 56);
             this.panelCapturaCenter.Name = "panelCapturaCenter";
-            this.panelCapturaCenter.Size = new System.Drawing.Size(820, 128);
+            this.panelCapturaCenter.Size = new System.Drawing.Size(820, 130);
             this.panelCapturaCenter.TabIndex = 15;
             // 
             // dgPartidasR
@@ -196,7 +196,7 @@
             this.dgPartidasR.Location = new System.Drawing.Point(0, 0);
             this.dgPartidasR.Name = "dgPartidasR";
             this.dgPartidasR.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgPartidasR.Size = new System.Drawing.Size(820, 128);
+            this.dgPartidasR.Size = new System.Drawing.Size(820, 130);
             this.dgPartidasR.TabIndex = 0;
             this.dgPartidasR.TabStop = false;
             // 
@@ -211,9 +211,9 @@
             this.panelCapturaButtom.Controls.Add(this.txtDescuento);
             this.panelCapturaButtom.Controls.Add(this.txtImporte);
             this.panelCapturaButtom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelCapturaButtom.Location = new System.Drawing.Point(3, 180);
+            this.panelCapturaButtom.Location = new System.Drawing.Point(3, 186);
             this.panelCapturaButtom.Name = "panelCapturaButtom";
-            this.panelCapturaButtom.Size = new System.Drawing.Size(820, 167);
+            this.panelCapturaButtom.Size = new System.Drawing.Size(820, 161);
             this.panelCapturaButtom.TabIndex = 14;
             // 
             // btnGuardaCuota
@@ -488,8 +488,18 @@
             this.panelCapturaTop.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelCapturaTop.Location = new System.Drawing.Point(3, 18);
             this.panelCapturaTop.Name = "panelCapturaTop";
-            this.panelCapturaTop.Size = new System.Drawing.Size(820, 34);
+            this.panelCapturaTop.Size = new System.Drawing.Size(820, 38);
             this.panelCapturaTop.TabIndex = 13;
+            // 
+            // lblDescripcion
+            // 
+            this.lblDescripcion.AutoSize = true;
+            this.lblDescripcion.Location = new System.Drawing.Point(18, 9);
+            this.lblDescripcion.Name = "lblDescripcion";
+            this.lblDescripcion.Size = new System.Drawing.Size(86, 16);
+            this.lblDescripcion.TabIndex = 13;
+            this.lblDescripcion.Text = "Descripcion :";
+            this.lblDescripcion.Visible = false;
             // 
             // cmbPeriodos
             // 
@@ -983,16 +993,6 @@
             this.btnCapturaR.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnCapturaR.UseVisualStyleBackColor = true;
             this.btnCapturaR.Click += new System.EventHandler(this.btnCapturaR_Click);
-            // 
-            // lblDescripcion
-            // 
-            this.lblDescripcion.AutoSize = true;
-            this.lblDescripcion.Location = new System.Drawing.Point(18, 9);
-            this.lblDescripcion.Name = "lblDescripcion";
-            this.lblDescripcion.Size = new System.Drawing.Size(86, 16);
-            this.lblDescripcion.TabIndex = 13;
-            this.lblDescripcion.Text = "Descripcion :";
-            this.lblDescripcion.Visible = false;
             // 
             // frmAnticipoMto
             // 

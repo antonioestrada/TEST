@@ -296,6 +296,9 @@ namespace WFPGranjas.Backend.Procesos
           
             int i = 0;
             cmbCuotas2.Add(i, "Seleccione");
+            Conceptos conceptoIni = new Conceptos();
+            conceptoIni.id = 0;
+            conceptos.Add(i, conceptoIni);
             i++;
             while (reader.Read())
             {

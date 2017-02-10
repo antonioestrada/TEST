@@ -91,6 +91,13 @@
             this.btnCapturaR = new System.Windows.Forms.Button();
             this.gbCapturaCon = new System.Windows.Forms.GroupBox();
             this.lblFechaSys = new System.Windows.Forms.Label();
+            this.groupCasaClub = new System.Windows.Forms.GroupBox();
+            this.dgAdeClub = new System.Windows.Forms.DataGridView();
+            this.panel7 = new System.Windows.Forms.Panel();
+            this.lblCasaClub = new System.Windows.Forms.Label();
+            this.panel8 = new System.Windows.Forms.Panel();
+            this.lblTotalAdeClub = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.groupDColono.SuspendLayout();
             this.groupMto.SuspendLayout();
             this.panelCapturaCenter.SuspendLayout();
@@ -115,6 +122,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgConvenio)).BeginInit();
             this.panel6.SuspendLayout();
             this.gbCapturaCon.SuspendLayout();
+            this.groupCasaClub.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgAdeClub)).BeginInit();
+            this.panel7.SuspendLayout();
+            this.panel8.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupDColono
@@ -126,7 +137,7 @@
             this.groupDColono.ForeColor = System.Drawing.Color.Black;
             this.groupDColono.Location = new System.Drawing.Point(5, 60);
             this.groupDColono.Name = "groupDColono";
-            this.groupDColono.Size = new System.Drawing.Size(644, 85);
+            this.groupDColono.Size = new System.Drawing.Size(866, 85);
             this.groupDColono.TabIndex = 6;
             this.groupDColono.TabStop = false;
             this.groupDColono.Text = "Datos del Colono";
@@ -264,6 +275,8 @@
             // 
             // panelTop
             // 
+            this.panelTop.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.panelTop.BackColor = System.Drawing.Color.Brown;
             this.panelTop.Controls.Add(this.btnBuscar);
             this.panelTop.Controls.Add(this.txtLote);
@@ -274,13 +287,13 @@
             this.panelTop.Controls.Add(this.label5);
             this.panelTop.Location = new System.Drawing.Point(4, 4);
             this.panelTop.Name = "panelTop";
-            this.panelTop.Size = new System.Drawing.Size(926, 50);
+            this.panelTop.Size = new System.Drawing.Size(1150, 50);
             this.panelTop.TabIndex = 8;
             // 
             // btnBuscar
             // 
             this.btnBuscar.Image = global::WFPGranjas.Properties.Resources.busca_mini;
-            this.btnBuscar.Location = new System.Drawing.Point(894, 15);
+            this.btnBuscar.Location = new System.Drawing.Point(947, 15);
             this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(25, 23);
@@ -291,7 +304,7 @@
             // 
             // txtLote
             // 
-            this.txtLote.Location = new System.Drawing.Point(821, 16);
+            this.txtLote.Location = new System.Drawing.Point(860, 16);
             this.txtLote.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
             this.txtLote.MaxLength = 10;
             this.txtLote.Name = "txtLote";
@@ -304,7 +317,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.White;
-            this.label1.Location = new System.Drawing.Point(630, 17);
+            this.label1.Location = new System.Drawing.Point(640, 17);
             this.label1.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(70, 15);
@@ -315,7 +328,7 @@
             // 
             this.cmbManzana.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbManzana.FormattingEnabled = true;
-            this.cmbManzana.Location = new System.Drawing.Point(699, 14);
+            this.cmbManzana.Location = new System.Drawing.Point(729, 14);
             this.cmbManzana.Margin = new System.Windows.Forms.Padding(4);
             this.cmbManzana.Name = "cmbManzana";
             this.cmbManzana.Size = new System.Drawing.Size(72, 24);
@@ -326,7 +339,7 @@
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label2.ForeColor = System.Drawing.Color.White;
-            this.label2.Location = new System.Drawing.Point(782, 17);
+            this.label2.Location = new System.Drawing.Point(814, 17);
             this.label2.Margin = new System.Windows.Forms.Padding(8, 0, 8, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(39, 15);
@@ -339,7 +352,7 @@
             this.txtColono.Location = new System.Drawing.Point(136, 13);
             this.txtColono.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.txtColono.Name = "txtColono";
-            this.txtColono.Size = new System.Drawing.Size(322, 22);
+            this.txtColono.Size = new System.Drawing.Size(387, 22);
             this.txtColono.TabIndex = 1;
             this.txtColono.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtColono_KeyDown);
             // 
@@ -495,9 +508,9 @@
             this.lblExtAde.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblExtAde.Location = new System.Drawing.Point(3, 9);
             this.lblExtAde.Name = "lblExtAde";
-            this.lblExtAde.Size = new System.Drawing.Size(157, 15);
+            this.lblExtAde.Size = new System.Drawing.Size(156, 15);
             this.lblExtAde.TabIndex = 13;
-            this.lblExtAde.Text = "Cuotas Extraordinarias:";
+            this.lblExtAde.Text = "Cuotas extraordinarias:";
             this.lblExtAde.Visible = false;
             // 
             // panel4
@@ -531,6 +544,7 @@
             // 
             // gBDefConvenio
             // 
+            this.gBDefConvenio.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.gBDefConvenio.BackColor = System.Drawing.Color.Snow;
             this.gBDefConvenio.Controls.Add(this.pnlResult);
             this.gBDefConvenio.Controls.Add(this.button1);
@@ -543,7 +557,7 @@
             this.gBDefConvenio.Controls.Add(this.lblImporteTotal);
             this.gBDefConvenio.Controls.Add(this.label11);
             this.gBDefConvenio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gBDefConvenio.Location = new System.Drawing.Point(653, 152);
+            this.gBDefConvenio.Location = new System.Drawing.Point(877, 152);
             this.gBDefConvenio.Name = "gBDefConvenio";
             this.gBDefConvenio.Size = new System.Drawing.Size(277, 324);
             this.gBDefConvenio.TabIndex = 16;
@@ -658,9 +672,9 @@
             this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label14.Location = new System.Drawing.Point(6, 90);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(182, 16);
+            this.label14.Size = new System.Drawing.Size(174, 16);
             this.label14.TabIndex = 2;
-            this.label14.Text = "* Imp. Total del Convenio";
+            this.label14.Text = "* Imp. total del convenio";
             // 
             // lblImporteTotal
             // 
@@ -677,9 +691,9 @@
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.Location = new System.Drawing.Point(6, 38);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(104, 16);
+            this.label11.Size = new System.Drawing.Size(98, 16);
             this.label11.TabIndex = 0;
-            this.label11.Text = "Importe Total:";
+            this.label11.Text = "Importe total:";
             // 
             // pnlConvenio
             // 
@@ -690,7 +704,7 @@
             this.pnlConvenio.Controls.Add(this.groupConvenio);
             this.pnlConvenio.Controls.Add(this.button3);
             this.pnlConvenio.Controls.Add(this.btnApliCalculoAnt);
-            this.pnlConvenio.Location = new System.Drawing.Point(241, 45);
+            this.pnlConvenio.Location = new System.Drawing.Point(292, 45);
             this.pnlConvenio.Name = "pnlConvenio";
             this.pnlConvenio.Size = new System.Drawing.Size(406, 424);
             this.pnlConvenio.TabIndex = 53;
@@ -819,9 +833,10 @@
             // 
             // gbCapturaCon
             // 
+            this.gbCapturaCon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.gbCapturaCon.Controls.Add(this.lblFechaSys);
             this.gbCapturaCon.Controls.Add(this.btnCapturaR);
-            this.gbCapturaCon.Location = new System.Drawing.Point(652, 60);
+            this.gbCapturaCon.Location = new System.Drawing.Point(876, 60);
             this.gbCapturaCon.Name = "gbCapturaCon";
             this.gbCapturaCon.Size = new System.Drawing.Size(277, 86);
             this.gbCapturaCon.TabIndex = 54;
@@ -841,13 +856,90 @@
             this.lblFechaSys.TabIndex = 11;
             this.lblFechaSys.Text = "Fecha";
             // 
+            // groupCasaClub
+            // 
+            this.groupCasaClub.Controls.Add(this.dgAdeClub);
+            this.groupCasaClub.Controls.Add(this.panel7);
+            this.groupCasaClub.Controls.Add(this.panel8);
+            this.groupCasaClub.Location = new System.Drawing.Point(661, 146);
+            this.groupCasaClub.Name = "groupCasaClub";
+            this.groupCasaClub.Size = new System.Drawing.Size(210, 330);
+            this.groupCasaClub.TabIndex = 16;
+            this.groupCasaClub.TabStop = false;
+            this.groupCasaClub.Visible = false;
+            // 
+            // dgAdeClub
+            // 
+            this.dgAdeClub.AllowUserToAddRows = false;
+            this.dgAdeClub.AllowUserToDeleteRows = false;
+            this.dgAdeClub.AllowUserToResizeColumns = false;
+            this.dgAdeClub.AllowUserToResizeRows = false;
+            this.dgAdeClub.BackgroundColor = System.Drawing.SystemColors.Control;
+            this.dgAdeClub.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgAdeClub.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.dgAdeClub.Location = new System.Drawing.Point(3, 52);
+            this.dgAdeClub.Name = "dgAdeClub";
+            this.dgAdeClub.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgAdeClub.Size = new System.Drawing.Size(204, 213);
+            this.dgAdeClub.TabIndex = 19;
+            // 
+            // panel7
+            // 
+            this.panel7.Controls.Add(this.lblCasaClub);
+            this.panel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel7.Location = new System.Drawing.Point(3, 18);
+            this.panel7.Name = "panel7";
+            this.panel7.Size = new System.Drawing.Size(204, 34);
+            this.panel7.TabIndex = 16;
+            // 
+            // lblCasaClub
+            // 
+            this.lblCasaClub.AutoSize = true;
+            this.lblCasaClub.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCasaClub.Location = new System.Drawing.Point(3, 9);
+            this.lblCasaClub.Name = "lblCasaClub";
+            this.lblCasaClub.Size = new System.Drawing.Size(124, 15);
+            this.lblCasaClub.TabIndex = 13;
+            this.lblCasaClub.Text = "Cuotas casa club :";
+            this.lblCasaClub.Visible = false;
+            // 
+            // panel8
+            // 
+            this.panel8.Controls.Add(this.lblTotalAdeClub);
+            this.panel8.Controls.Add(this.label9);
+            this.panel8.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panel8.Location = new System.Drawing.Point(3, 265);
+            this.panel8.Name = "panel8";
+            this.panel8.Size = new System.Drawing.Size(204, 62);
+            this.panel8.TabIndex = 17;
+            // 
+            // lblTotalAdeClub
+            // 
+            this.lblTotalAdeClub.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotalAdeClub.Location = new System.Drawing.Point(117, 34);
+            this.lblTotalAdeClub.Name = "lblTotalAdeClub";
+            this.lblTotalAdeClub.Size = new System.Drawing.Size(84, 16);
+            this.lblTotalAdeClub.TabIndex = 5;
+            this.lblTotalAdeClub.Text = "0.00";
+            this.lblTotalAdeClub.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(20, 34);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(91, 16);
+            this.label9.TabIndex = 4;
+            this.label9.Text = "Adeuto Total :";
+            // 
             // frmConvenios
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(934, 477);
-            this.Controls.Add(this.gbCapturaCon);
+            this.ClientSize = new System.Drawing.Size(1158, 477);
             this.Controls.Add(this.pnlConvenio);
+            this.Controls.Add(this.groupCasaClub);
+            this.Controls.Add(this.gbCapturaCon);
             this.Controls.Add(this.gBDefConvenio);
             this.Controls.Add(this.groupExt);
             this.Controls.Add(this.groupAgua);
@@ -899,6 +991,12 @@
             this.panel6.PerformLayout();
             this.gbCapturaCon.ResumeLayout(false);
             this.gbCapturaCon.PerformLayout();
+            this.groupCasaClub.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgAdeClub)).EndInit();
+            this.panel7.ResumeLayout(false);
+            this.panel7.PerformLayout();
+            this.panel8.ResumeLayout(false);
+            this.panel8.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -967,5 +1065,12 @@
         private System.Windows.Forms.Button btnCancelConvenio;
         private System.Windows.Forms.GroupBox gbCapturaCon;
         private System.Windows.Forms.Label lblFechaSys;
+        private System.Windows.Forms.GroupBox groupCasaClub;
+        private System.Windows.Forms.DataGridView dgAdeClub;
+        private System.Windows.Forms.Panel panel7;
+        private System.Windows.Forms.Label lblCasaClub;
+        private System.Windows.Forms.Panel panel8;
+        private System.Windows.Forms.Label lblTotalAdeClub;
+        private System.Windows.Forms.Label label9;
     }
 }

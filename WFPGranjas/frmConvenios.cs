@@ -21,6 +21,7 @@ namespace WFPGranjas
         double adeudoAgua = 0;
         double adeudoMto = 0;
         double adeudoExt = 0;
+        double adeudoClub = 0;
         double totalAdeudo = 0;
         int servicio = 0;
         Utilerias utilities = new Utilerias();
@@ -242,6 +243,50 @@ namespace WFPGranjas
 
         #region Definicion de Estructura de Columnas DataGridView  Extra
         //DEFINIMOS LA ESTRUCTURA DE NUESTRO GRID LISTADO
+        public void definicionDGCasaClub()
+        {
+
+            dgAdeClub.GetType().GetProperty("DoubleBuffered", BindingFlags.Instance | BindingFlags.NonPublic).SetValue(dgAdeClub, true, null);
+
+            // grid.RowHeadersWidth = 20;
+            // int colWidth = ((grid.ClientSize.Width - grid.RowHeadersWidth) >> 1) - 1;
+            dgAdeClub.Columns.AddRange(new DataGridViewColumn[]
+                                      {
+                                              new DataGridViewTextBoxColumn
+                                              {
+                                                  ValueType = typeof (Int32),
+                                                  HeaderText = "Servicio",
+                                                  Width = 80
+                                              },
+                                              new DataGridViewTextBoxColumn
+                                              {
+                                                  ValueType = typeof (Int32),
+                                                  HeaderText = "Periodo",
+                                                  Width = 60
+
+                                              },
+                                               new DataGridViewTextBoxColumn
+                                              {
+                                                  ValueType = typeof (Int32),
+                                                  HeaderText = "Importe",
+                                                  Width = 80
+
+                                              }
+
+                                      });
+
+
+            dgAdeClub.DefaultCellStyle.Font = new Font("Arial", 14F, GraphicsUnit.Pixel);
+            dgAdeClub.RowHeadersVisible = false;
+            //dgLotes.Columns[1].Visible = false;
+            //dgLotes.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
+            //dgLotes.Columns[4].DefaultCellStyle.Format = "##,##0.0000";
+
+        }
+        #endregion
+
+        #region Definicion de Estructura de Columnas DataGridView  Extra
+        //DEFINIMOS LA ESTRUCTURA DE NUESTRO GRID LISTADO
         public void definicionDGConvenio()
         {
 
@@ -334,6 +379,7 @@ namespace WFPGranjas
             definicionDGCuotasAgua();
             definicionDGCuotasExtra();
             definicionDGConvenio();
+            definicionDGCasaClub();
             this.servicio = servicio;
         }
 
@@ -378,7 +424,8 @@ namespace WFPGranjas
             PrcConvenios prcAnticipos = new PrcConvenios();
             adeudoMto = prcAnticipos.consultaAdeudosConcepto(dgAdeMto, idLote, 2);
             adeudoAgua = prcAnticipos.consultaAdeudosConcepto(dgAdeAgua, idLote, 3);
-            adeudoExt = prcAnticipos.consultaAdeudosConcepto(dgAdeExt, idLote, 4);
+            adeudoExt = prcAnticipos.consultaAdeudosConcepto(dgAdeExt, idLote, 6);
+            adeudoClub = prcAnticipos.consultaAdeudosConcepto(dgAdeClub, idLote, 5);
 
             lblTotalAdeAgua.Text = "" + String.Format(CultureInfo.InvariantCulture,
                            "{0:0,0.00}", adeudoAgua);
@@ -386,7 +433,9 @@ namespace WFPGranjas
                            "{0:0,0.00}", adeudoMto);
             lblTotalAdeExt.Text = "" + String.Format(CultureInfo.InvariantCulture,
                            "{0:0,0.00}", adeudoExt);
-            totalAdeudo = adeudoMto + adeudoAgua + adeudoExt;
+            lblTotalAdeClub.Text = "" + String.Format(CultureInfo.InvariantCulture,
+                         "{0:0,0.00}", adeudoClub);
+            totalAdeudo = adeudoMto + adeudoAgua + adeudoExt+ adeudoClub;
             lblImporteTotal.Text = "" + String.Format(CultureInfo.InvariantCulture,
                            "{0:0,0.00}", totalAdeudo);
         }
@@ -583,9 +632,13 @@ namespace WFPGranjas
             groupAgua.Visible = true;
             groupMto.Visible = true;
             groupExt.Visible = true;
+            groupCasaClub.Visible = true;
             lblAguaAde.Visible = true;
             lblMtoAde.Visible = true;
             lblExtAde.Visible = true;
+            lblCasaClub.Visible = true;
+
+
 
 
 
