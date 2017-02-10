@@ -15,7 +15,7 @@ namespace WFPGranjas.Backend.Reportes
     class rptRecibos
     {
         #region recibo de agua
-        public void rptReciboAgua(CrystalReportViewer rptViewer, int op, string inParam1, string inParam2, string inParam3)
+        public void rptReciboAguaNO(CrystalReportViewer rptViewer, int op, string inParam1, string inParam2, string inParam3)
         {
             Globales vGlobal = new Globales();
             ReportDocument cryRpt = new ReportDocument();
@@ -112,6 +112,160 @@ namespace WFPGranjas.Backend.Reportes
         }
         #endregion
 
+        #region recibo de AGUA
+        public void rptReciboAgua(CrystalReportViewer rptViewer, int op, string inParam1, string inParam2, string inParam3)
+        {
+            Globales vGlobal = new Globales();
+            ReportDocument cryRpt = new ReportDocument();
+            ReportDocument crySubRpt = new ReportDocument();
+
+            cryRpt = new ReportDocument();
+            cryRpt.Load(@"" + vGlobal.pathReportes + "crReciboAg.rpt");
+            crySubRpt.Load(@"" + vGlobal.pathReportes + "crReciboAgua2.rpt");
+            dsReciboMAnto dsR = new dsReciboMAnto();
+            //***********ENCABEZADO DEL RECIBO*********************
+            IDataReader reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_report_ReciboAguaA(1,'" + inParam1 + "','" + inParam2 + "','" + inParam3 + "')");
+            while (reader.Read())
+            {
+                dsR.DTRMEncabezado.AddDTRMEncabezadoRow(Int32.Parse(reader.GetValue(0).ToString()), reader.GetValue(1).ToString(), reader.GetValue(2).ToString(), reader.GetValue(3).ToString(), reader.GetValue(4).ToString(), reader.GetValue(5).ToString(), reader.GetValue(6).ToString());
+            }
+            Conexion.FinalizarSesion();
+
+            //***********DATOS DE COLONO*********************
+            reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_report_ReciboAguaA(2,'" + inParam1 + "','" + inParam2 + "','" + inParam3 + "')");
+            while (reader.Read())
+            {
+                dsR.DTRMColono.AddDTRMColonoRow(Int32.Parse(reader.GetValue(0).ToString()), reader.GetValue(1).ToString(), reader.GetValue(2).ToString(), reader.GetValue(3).ToString(), decimal.Parse(reader.GetValue(4).ToString()));
+            }
+            Conexion.FinalizarSesion();
+
+            //***********DATOS DE PARTIDAS DE COBRO*********************
+            reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_report_ReciboAguaA(3,'" + inParam1 + "','" + inParam2 + "','0')");
+            while (reader.Read())
+            {
+                dsR.DTRMPartidas.AddDTRMPartidasRow(Int32.Parse(reader.GetValue(0).ToString()), reader.GetValue(1).ToString(), reader.GetValue(2).ToString(), reader.GetValue(3).ToString(), Decimal.Parse(reader.GetValue(4).ToString()));
+            }
+            Conexion.FinalizarSesion();
+
+            //***********DATOS FORMAS DE PAGO*********************
+            reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_report_ReciboAguaA(4,'" + inParam1 + "','" + inParam2 + "','" + inParam3 + "')");
+            while (reader.Read())
+            {
+                dsR.DTRMPagos.AddDTRMPagosRow(Int32.Parse(reader.GetValue(0).ToString()), reader.GetValue(1).ToString(), Decimal.Parse(reader.GetValue(2).ToString()), reader.GetValue(3).ToString(), Decimal.Parse(reader.GetValue(4).ToString()), reader.GetValue(5).ToString(), Decimal.Parse(reader.GetValue(6).ToString()), reader.GetValue(7).ToString());
+            }
+            Conexion.FinalizarSesion();
+
+            //***********DATOS DE MORATORIO*********************
+            reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_report_ReciboAguaA(5,'" + inParam1 + "','" + inParam2 + "','0')");
+            while (reader.Read())
+            {
+                dsR.DTRMMora.AddDTRMMoraRow(Int32.Parse(reader.GetValue(0).ToString()), Int32.Parse(reader.GetValue(1).ToString()), Decimal.Parse(reader.GetValue(2).ToString()), Int32.Parse(reader.GetValue(3).ToString()));
+            }
+            Conexion.FinalizarSesion();
+            string Folio = "";
+            DataRow r = dsR.DTRMPagos.Rows[0];
+            Folio = r["folio"].ToString();
+
+            crySubRpt.SetDataSource(dsR);
+            cryRpt.SetDataSource(dsR);
+            // cryRpt.SetParameterValue("empresa", vGlobal.empresa);
+            rptViewer.ReportSource = cryRpt;
+            rptViewer.Refresh();
+
+            //GENERAR PDF
+            ExportOptions CrExportOptions;
+            DiskFileDestinationOptions CrDiskFileDestinationOptions = new DiskFileDestinationOptions();
+            PdfRtfWordFormatOptions CrFormatTypeOptions = new PdfRtfWordFormatOptions();
+            CrDiskFileDestinationOptions.DiskFileName = @"" + vGlobal.pathReportesPDF + "reciboCAgua" + Folio + ".pdf";
+            // CrDiskFileDestinationOptions.DiskFileName = "c:\\firebird\\reporteMail.pdf";
+            CrExportOptions = cryRpt.ExportOptions;
+            {
+                CrExportOptions.ExportDestinationType = ExportDestinationType.DiskFile;
+                CrExportOptions.ExportFormatType = ExportFormatType.PortableDocFormat;
+                CrExportOptions.DestinationOptions = CrDiskFileDestinationOptions;
+                CrExportOptions.FormatOptions = CrFormatTypeOptions;
+            }
+            cryRpt.Export();
+        }
+        #endregion
+
+        #region recibo de AGUA
+        public void rptReciboAntAgua(CrystalReportViewer rptViewer, int op, string inParam1, string inParam2, string inParam3)
+        {
+            Globales vGlobal = new Globales();
+            ReportDocument cryRpt = new ReportDocument();
+            ReportDocument crySubRpt = new ReportDocument();
+
+            cryRpt = new ReportDocument();
+            cryRpt.Load(@"" + vGlobal.pathReportes + "crReciboAg.rpt");
+            crySubRpt.Load(@"" + vGlobal.pathReportes + "crReciboAgua2.rpt");
+            dsReciboMAnto dsR = new dsReciboMAnto();
+            //***********ENCABEZADO DEL RECIBO*********************
+            IDataReader reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_report_ReciboAguaA(1,'" + inParam1 + "','" + inParam2 + "','" + inParam3 + "')");
+            while (reader.Read())
+            {
+                dsR.DTRMEncabezado.AddDTRMEncabezadoRow(Int32.Parse(reader.GetValue(0).ToString()), reader.GetValue(1).ToString(), reader.GetValue(2).ToString(), reader.GetValue(3).ToString(), reader.GetValue(4).ToString(), reader.GetValue(5).ToString(), reader.GetValue(6).ToString());
+            }
+            Conexion.FinalizarSesion();
+
+            //***********DATOS DE COLONO*********************
+            reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_report_ReciboAguaA(2,'" + inParam1 + "','" + inParam2 + "','" + inParam3 + "')");
+            while (reader.Read())
+            {
+                dsR.DTRMColono.AddDTRMColonoRow(Int32.Parse(reader.GetValue(0).ToString()), reader.GetValue(1).ToString(), reader.GetValue(2).ToString(), reader.GetValue(3).ToString(), decimal.Parse(reader.GetValue(4).ToString()));
+            }
+            Conexion.FinalizarSesion();
+
+            //***********DATOS DE PARTIDAS DE COBRO*********************
+            reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_report_ReciboAguaA(6,'" + inParam1 + "','" + inParam2 + "','0')");
+            while (reader.Read())
+            {
+                dsR.DTRMPartidas.AddDTRMPartidasRow(Int32.Parse(reader.GetValue(0).ToString()), reader.GetValue(1).ToString(), reader.GetValue(2).ToString(), reader.GetValue(3).ToString(), Decimal.Parse(reader.GetValue(4).ToString()));
+            }
+            Conexion.FinalizarSesion();
+
+            //***********DATOS FORMAS DE PAGO*********************
+            reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_report_ReciboAguaA(7,'" + inParam1 + "','" + inParam2 + "','" + inParam3 + "')");
+            while (reader.Read())
+            {
+                dsR.DTRMPagos.AddDTRMPagosRow(Int32.Parse(reader.GetValue(0).ToString()), reader.GetValue(1).ToString(), Decimal.Parse(reader.GetValue(2).ToString()), reader.GetValue(3).ToString(), Decimal.Parse(reader.GetValue(4).ToString()), reader.GetValue(5).ToString(), Decimal.Parse(reader.GetValue(6).ToString()), reader.GetValue(7).ToString());
+            }
+            Conexion.FinalizarSesion();
+
+            //***********DATOS DE MORATORIO*********************
+            reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_report_ReciboAguaA(5,'" + inParam1 + "','" + inParam2 + "','0')");
+            while (reader.Read())
+            {
+                dsR.DTRMMora.AddDTRMMoraRow(Int32.Parse(reader.GetValue(0).ToString()), Int32.Parse(reader.GetValue(1).ToString()), Decimal.Parse(reader.GetValue(2).ToString()), Int32.Parse(reader.GetValue(3).ToString()));
+            }
+            Conexion.FinalizarSesion();
+            string Folio = "";
+            DataRow r = dsR.DTRMPagos.Rows[0];
+            Folio = r["folio"].ToString();
+
+            crySubRpt.SetDataSource(dsR);
+            cryRpt.SetDataSource(dsR);
+            // cryRpt.SetParameterValue("empresa", vGlobal.empresa);
+            rptViewer.ReportSource = cryRpt;
+            rptViewer.Refresh();
+
+            //GENERAR PDF
+            ExportOptions CrExportOptions;
+            DiskFileDestinationOptions CrDiskFileDestinationOptions = new DiskFileDestinationOptions();
+            PdfRtfWordFormatOptions CrFormatTypeOptions = new PdfRtfWordFormatOptions();
+            CrDiskFileDestinationOptions.DiskFileName = @"" + vGlobal.pathReportesPDF + "reciboCAgua" + Folio + ".pdf";
+            // CrDiskFileDestinationOptions.DiskFileName = "c:\\firebird\\reporteMail.pdf";
+            CrExportOptions = cryRpt.ExportOptions;
+            {
+                CrExportOptions.ExportDestinationType = ExportDestinationType.DiskFile;
+                CrExportOptions.ExportFormatType = ExportFormatType.PortableDocFormat;
+                CrExportOptions.DestinationOptions = CrDiskFileDestinationOptions;
+                CrExportOptions.FormatOptions = CrFormatTypeOptions;
+            }
+            cryRpt.Export();
+        }
+        #endregion
+
         #region recibo de mantenimiento
         public void rptReciboManto(CrystalReportViewer rptViewer, int op, string inParam1, string inParam2, string inParam3)
         {
@@ -162,6 +316,10 @@ namespace WFPGranjas.Backend.Reportes
                 dsR.DTRMMora.AddDTRMMoraRow(Int32.Parse(reader.GetValue(0).ToString()), Int32.Parse(reader.GetValue(1).ToString()), Decimal.Parse(reader.GetValue(2).ToString()), Int32.Parse(reader.GetValue(3).ToString()));
             }
             Conexion.FinalizarSesion();
+
+            string Folio = "";
+            DataRow r = dsR.DTRMPagos.Rows[0];
+            Folio = r["folio"].ToString();
             crySubRpt.SetDataSource(dsR);
             cryRpt.SetDataSource(dsR);
            // cryRpt.SetParameterValue("empresa", vGlobal.empresa);
@@ -172,7 +330,83 @@ namespace WFPGranjas.Backend.Reportes
             ExportOptions CrExportOptions;
             DiskFileDestinationOptions CrDiskFileDestinationOptions = new DiskFileDestinationOptions();
             PdfRtfWordFormatOptions CrFormatTypeOptions = new PdfRtfWordFormatOptions();
-            CrDiskFileDestinationOptions.DiskFileName = @"" + vGlobal.pathReportesPDF + "reciboManto"+ inParam2+".pdf";
+            CrDiskFileDestinationOptions.DiskFileName = @"" + vGlobal.pathReportesPDF + "recibo_"+ Folio +".pdf";
+            // CrDiskFileDestinationOptions.DiskFileName = "c:\\firebird\\reporteMail.pdf";
+            CrExportOptions = cryRpt.ExportOptions;
+            {
+                CrExportOptions.ExportDestinationType = ExportDestinationType.DiskFile;
+                CrExportOptions.ExportFormatType = ExportFormatType.PortableDocFormat;
+                CrExportOptions.DestinationOptions = CrDiskFileDestinationOptions;
+                CrExportOptions.FormatOptions = CrFormatTypeOptions;
+            }
+            cryRpt.Export();
+        }
+        #endregion
+
+        #region recibo de mantenimiento
+        public void rptReciboAntManto(CrystalReportViewer rptViewer, int op, string inParam1, string inParam2, string inParam3)
+        {
+            Globales vGlobal = new Globales();
+            ReportDocument cryRpt = new ReportDocument();
+            ReportDocument crySubRpt = new ReportDocument();
+
+            cryRpt = new ReportDocument();
+            cryRpt.Load(@"" + vGlobal.pathReportes + "crReciboMtto.rpt");
+            crySubRpt.Load(@"" + vGlobal.pathReportes + "crReciboManto.rpt");
+            dsReciboMAnto dsR = new dsReciboMAnto();
+            //***********ENCABEZADO DEL RECIBO*********************
+            IDataReader reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_report_ReciboMantoA(1,'" + inParam1 + "','" + inParam2 + "','" + inParam3 + "')");
+            while (reader.Read())
+            {
+                dsR.DTRMEncabezado.AddDTRMEncabezadoRow(Int32.Parse(reader.GetValue(0).ToString()), reader.GetValue(1).ToString(), reader.GetValue(2).ToString(), reader.GetValue(3).ToString(), reader.GetValue(4).ToString(), reader.GetValue(5).ToString(), reader.GetValue(6).ToString());
+            }
+            Conexion.FinalizarSesion();
+
+            //***********DATOS DE COLONO*********************
+            reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_report_ReciboMantoA(2,'" + inParam1 + "','" + inParam2 + "','" + inParam3 + "')");
+            while (reader.Read())
+            {
+                dsR.DTRMColono.AddDTRMColonoRow(Int32.Parse(reader.GetValue(0).ToString()), reader.GetValue(1).ToString(), reader.GetValue(2).ToString(), reader.GetValue(3).ToString(), decimal.Parse(reader.GetValue(4).ToString()));
+            }
+            Conexion.FinalizarSesion();
+
+            //***********DATOS DE PARTIDAS DE COBRO*********************
+            reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_report_ReciboMantoA(6,'" + inParam1 + "','" + inParam2 + "','0')");
+            while (reader.Read())
+            {
+                dsR.DTRMPartidas.AddDTRMPartidasRow(Int32.Parse(reader.GetValue(0).ToString()), reader.GetValue(1).ToString(), reader.GetValue(2).ToString(), reader.GetValue(3).ToString(), Decimal.Parse(reader.GetValue(4).ToString()));
+            }
+            Conexion.FinalizarSesion();
+
+            //***********DATOS FORMAS DE PAGO*********************
+            reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_report_ReciboMantoA(4,'" + inParam1 + "','" + inParam2 + "','" + inParam3 + "')");
+            while (reader.Read())
+            {
+                dsR.DTRMPagos.AddDTRMPagosRow(Int32.Parse(reader.GetValue(0).ToString()), reader.GetValue(1).ToString(), Decimal.Parse(reader.GetValue(2).ToString()), reader.GetValue(3).ToString(), Decimal.Parse(reader.GetValue(4).ToString()), reader.GetValue(5).ToString(), Decimal.Parse(reader.GetValue(6).ToString()), reader.GetValue(7).ToString());
+            }
+            Conexion.FinalizarSesion();
+
+            //***********DATOS DE MORATORIO*********************
+            reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_report_ReciboMantoA(5,'" + inParam1 + "','" + inParam2 + "','0')");
+            while (reader.Read())
+            {
+                dsR.DTRMMora.AddDTRMMoraRow(Int32.Parse(reader.GetValue(0).ToString()), Int32.Parse(reader.GetValue(1).ToString()), Decimal.Parse(reader.GetValue(2).ToString()), Int32.Parse(reader.GetValue(3).ToString()));
+            }
+            string Folio = "";
+            DataRow r = dsR.DTRMPagos.Rows[0];
+            Folio = r["folio"].ToString();
+            Conexion.FinalizarSesion();
+            crySubRpt.SetDataSource(dsR);
+            cryRpt.SetDataSource(dsR);
+            // cryRpt.SetParameterValue("empresa", vGlobal.empresa);
+            rptViewer.ReportSource = cryRpt;
+            rptViewer.Refresh();
+
+            //GENERAR PDF
+            ExportOptions CrExportOptions;
+            DiskFileDestinationOptions CrDiskFileDestinationOptions = new DiskFileDestinationOptions();
+            PdfRtfWordFormatOptions CrFormatTypeOptions = new PdfRtfWordFormatOptions();
+            CrDiskFileDestinationOptions.DiskFileName = @"" + vGlobal.pathReportesPDF + "recibo_" + Folio + ".pdf";
             // CrDiskFileDestinationOptions.DiskFileName = "c:\\firebird\\reporteMail.pdf";
             CrExportOptions = cryRpt.ExportOptions;
             {

@@ -577,9 +577,9 @@ namespace WFPGranjas
                 MessageBox.Show("¡No hay cuota por anticipar!");
                 return;
             }
-            Boolean resultado=false;
+            Int32 resultado=0;
             PrcAnticipos prcAnticipos = new PrcAnticipos();
-
+            int opReporte = 0;
             double importeEfectivo = double.Parse(txtImpEf.Text);
             int bancoCheque = int.Parse(cmbBancoCheq.SelectedValue.ToString());
             double importeCheque = 0;
@@ -605,25 +605,33 @@ namespace WFPGranjas
             if (pagoTotal == totalImporte)
             {
 
-                
-               
-                   Object[] paramesCasaClub  =  { idLote, importeEfectivo, txtCheque.Text, bancoCheque, importeCheque, txtFicha.Text, bancoFicha, importFicha, servicio, cmbCCHijo.Text, txtConcepto.Text };
-                  
-                    Object[] parames =  { id_colono, idManzana, idLote, listaMeses, importeEfectivo, txtCheque.Text, bancoCheque, importeCheque, txtFicha.Text, bancoFicha, importFicha, descuento, servicio,anual };
 
-                if(servicio==5)
-                     resultado = prcAnticipos.registroCuotas(paramesCasaClub, servicio);
+
+                Object[] paramesCasaClub = { idLote, importeEfectivo, txtCheque.Text, bancoCheque, importeCheque, txtFicha.Text, bancoFicha, importFicha, servicio, cmbCCHijo.Text, txtConcepto.Text };
+
+                Object[] parames = { id_colono, idManzana, idLote, listaMeses, importeEfectivo, txtCheque.Text, bancoCheque, importeCheque, txtFicha.Text, bancoFicha, importFicha, descuento, servicio, anual };
+
+                if (servicio == 5)
+                {
+                    resultado = prcAnticipos.registroCuotas(paramesCasaClub, servicio);
+                }
                 else
+                {
                     resultado = prcAnticipos.registroCuotas(parames, servicio);
-
+                    if (servicio == 2)
+                        opReporte = 1;//anticipo mantenimiento
+                    if (servicio == 3)
+                        opReporte = 7;//anticipo agua
+                }
             }
-            else {
-                if(totalImporte  > pagoTotal)
+            else
+            {
+                if (totalImporte > pagoTotal)
                     MessageBox.Show("¡El importe es mayor que el total a pagar!");
                 else
                     MessageBox.Show("¡El importe es  menor que el total a pagar!");
             }
-            if (resultado)
+            if (resultado>0)
             {
                 txtImpEf.Text    = "0.00";
                 txtImpChq.Text   = "0.00";
@@ -638,6 +646,8 @@ namespace WFPGranjas
                 dgPartidasR.Rows.Clear();
                 groupCuota.Visible = false;
                 MessageBox.Show("¡Se registro Correctamente el Pago!");
+                rptReciboAgua BeanRPTMedidor = new rptReciboAgua("" + idLote, "" + resultado, opReporte);
+                BeanRPTMedidor.Show();
             }
 
         }
@@ -940,7 +950,7 @@ namespace WFPGranjas
         //AQUI ES PARA GUARDAR CUOTA DE SERVICIOS CASA CLUB
         private void button1_Click(object sender, EventArgs e)
         {
-            Boolean resultado = false;
+            int  resultado = 0;
             PrcAnticipos prcAnticipos = new PrcAnticipos();
 
             double importeEfectivo = double.Parse(txtImporte.Text);
@@ -987,7 +997,7 @@ namespace WFPGranjas
                 else
                     MessageBox.Show("¡El importe es  menor que el total a pagar!");
             }
-            if (resultado)
+            if (resultado>0)
             {
                 txtImpEf.Text = "0.00";
                 txtImpChq.Text = "0.00";

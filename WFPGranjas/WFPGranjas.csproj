@@ -109,11 +109,23 @@
       <DependentUpon>crReciboConvenio.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="crReciboAgua2.cs">
+      <DependentUpon>crReciboAgua2.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="crReciboManto.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crReciboManto.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="crReciboAg.cs">
+      <DependentUpon>crReciboAg.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="crReciboMtto.cs">
       <AutoGen>True</AutoGen>
@@ -405,9 +417,17 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crReciboConvenio.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="crReciboAgua2.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crReciboAgua2.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="crReciboManto.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crReciboManto.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crReciboAg.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crReciboAg.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="crReciboMtto.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
