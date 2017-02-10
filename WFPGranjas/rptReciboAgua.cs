@@ -28,6 +28,8 @@ namespace WFPGranjas
                 BeanRPTMedidor.rptReciboAntAgua(crvLRecibos, 1, lote, idPago, "2015");
             else if (servicio == 8)
                 BeanRPTMedidor.rptReciboAnualidad(crvLRecibos, 1, lote, idPago, "2015");
+            else if (servicio == 5)
+                BeanRPTMedidor.rptReciboICC(crvLRecibos, 1, lote, idPago, "2015");
 
         }
         /*public void rptAgua( string lote,string idPago ) {

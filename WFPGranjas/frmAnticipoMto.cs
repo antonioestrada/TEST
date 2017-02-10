@@ -625,6 +625,7 @@ namespace WFPGranjas
                 if (servicio == 5 || servicio==7)
                 {
                     resultado = prcAnticipos.registroCuotas(paramesCasaClub, servicio);
+                    opReporte = 9;
                 }
                 else
                 {
