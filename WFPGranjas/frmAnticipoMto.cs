@@ -619,7 +619,10 @@ namespace WFPGranjas
                 {
                     resultado = prcAnticipos.registroCuotas(parames, servicio);
                     if (servicio == 2)
-                        opReporte = 1;//anticipo mantenimiento
+                        if (anual == "Anual")
+                            opReporte =8;
+                        else
+                            opReporte = 1;//anticipo mantenimiento
                     if (servicio == 3)
                         opReporte = 7;//anticipo agua
                 }

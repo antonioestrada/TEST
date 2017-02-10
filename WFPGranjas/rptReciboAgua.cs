@@ -26,6 +26,9 @@ namespace WFPGranjas
                 BeanRPTMedidor.rptReciboConvenio(crvLRecibos, 1, lote, idPago, "2015");
             else if (servicio == 7)
                 BeanRPTMedidor.rptReciboAntAgua(crvLRecibos, 1, lote, idPago, "2015");
+            else if (servicio == 8)
+                BeanRPTMedidor.rptReciboAnualidad(crvLRecibos, 1, lote, idPago, "2015");
+
         }
         /*public void rptAgua( string lote,string idPago ) {
             var BeanRPTMedidor = new Backend.Reportes.rptRecibos();
