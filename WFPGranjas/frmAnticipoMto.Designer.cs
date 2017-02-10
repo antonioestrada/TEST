@@ -61,6 +61,7 @@
             this.txtDescuento = new System.Windows.Forms.TextBox();
             this.txtImporte = new System.Windows.Forms.TextBox();
             this.panelCapturaTop = new System.Windows.Forms.Panel();
+            this.cmbPeriodos = new System.Windows.Forms.ComboBox();
             this.cmbCCPadre = new System.Windows.Forms.ComboBox();
             this.cmbCCHijo = new System.Windows.Forms.ComboBox();
             this.txtConcepto = new System.Windows.Forms.TextBox();
@@ -103,7 +104,7 @@
             this.lblFechaSys = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.btnCapturaR = new System.Windows.Forms.Button();
-            this.cmbPeriodos = new System.Windows.Forms.ComboBox();
+            this.lblDescripcion = new System.Windows.Forms.Label();
             this.groupDColono.SuspendLayout();
             this.groupCuota.SuspendLayout();
             this.panelCapturaCenter.SuspendLayout();
@@ -475,6 +476,7 @@
             // 
             // panelCapturaTop
             // 
+            this.panelCapturaTop.Controls.Add(this.lblDescripcion);
             this.panelCapturaTop.Controls.Add(this.cmbPeriodos);
             this.panelCapturaTop.Controls.Add(this.cmbCCPadre);
             this.panelCapturaTop.Controls.Add(this.cmbCCHijo);
@@ -488,6 +490,17 @@
             this.panelCapturaTop.Name = "panelCapturaTop";
             this.panelCapturaTop.Size = new System.Drawing.Size(820, 34);
             this.panelCapturaTop.TabIndex = 13;
+            // 
+            // cmbPeriodos
+            // 
+            this.cmbPeriodos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbPeriodos.Location = new System.Drawing.Point(133, 5);
+            this.cmbPeriodos.Name = "cmbPeriodos";
+            this.cmbPeriodos.Size = new System.Drawing.Size(239, 24);
+            this.cmbPeriodos.TabIndex = 12;
+            this.cmbPeriodos.Visible = false;
+            this.cmbPeriodos.SelectionChangeCommitted += new System.EventHandler(this.cmbPeriodos_SelectionChangeCommitted);
+            this.cmbPeriodos.SelectedValueChanged += new System.EventHandler(this.cmbPeriodos_SelectedValueChanged);
             // 
             // cmbCCPadre
             // 
@@ -506,7 +519,7 @@
             this.cmbCCHijo.Items.AddRange(new object[] {
             "420102 Telefono Fax",
             "420101 Servicios Prestados"});
-            this.cmbCCHijo.Location = new System.Drawing.Point(15, 6);
+            this.cmbCCHijo.Location = new System.Drawing.Point(65, 6);
             this.cmbCCHijo.Name = "cmbCCHijo";
             this.cmbCCHijo.Size = new System.Drawing.Size(220, 24);
             this.cmbCCHijo.TabIndex = 10;
@@ -971,16 +984,15 @@
             this.btnCapturaR.UseVisualStyleBackColor = true;
             this.btnCapturaR.Click += new System.EventHandler(this.btnCapturaR_Click);
             // 
-            // cmbPeriodos
+            // lblDescripcion
             // 
-            this.cmbPeriodos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbPeriodos.Location = new System.Drawing.Point(133, 5);
-            this.cmbPeriodos.Name = "cmbPeriodos";
-            this.cmbPeriodos.Size = new System.Drawing.Size(239, 24);
-            this.cmbPeriodos.TabIndex = 12;
-            this.cmbPeriodos.Visible = false;
-            this.cmbPeriodos.SelectionChangeCommitted += new System.EventHandler(this.cmbPeriodos_SelectionChangeCommitted);
-            this.cmbPeriodos.SelectedValueChanged += new System.EventHandler(this.cmbPeriodos_SelectedValueChanged);
+            this.lblDescripcion.AutoSize = true;
+            this.lblDescripcion.Location = new System.Drawing.Point(18, 9);
+            this.lblDescripcion.Name = "lblDescripcion";
+            this.lblDescripcion.Size = new System.Drawing.Size(86, 16);
+            this.lblDescripcion.TabIndex = 13;
+            this.lblDescripcion.Text = "Descripcion :";
+            this.lblDescripcion.Visible = false;
             // 
             // frmAnticipoMto
             // 
@@ -1104,5 +1116,6 @@
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label lblPerIni;
         private System.Windows.Forms.ComboBox cmbPeriodos;
+        private System.Windows.Forms.Label lblDescripcion;
     }
 }

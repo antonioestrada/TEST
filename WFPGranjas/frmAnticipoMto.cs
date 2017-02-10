@@ -224,7 +224,9 @@ namespace WFPGranjas
 
         private void btnCapturaR_Click(object sender, EventArgs e)
         {
+
             Boolean resultado = false;
+            txtTotalAgua.Enabled = true;
             pagoTotal = 0;
             PrcAnticipos prcAnticipos = new PrcAnticipos();
             Object[] parames = { idLote, servicio };
@@ -321,9 +323,10 @@ namespace WFPGranjas
                 groupCuota.Size = new Size(826, 390);
                 panelCapturaTop.Size = new Size(820, 54);
                 lblConcepto.Visible = true;
-                txtConcepto.Visible = false;
+               
                 cmbCCPadre.Visible = false;
                 cmbCCHijo.Visible = false;
+                txtConcepto.Visible = false;
                 cmbCCHijo.Location = new System.Drawing.Point(102, 48);
                 cmbCCPadre.Location = new System.Drawing.Point(102, 28);
                 txtTotalAgua.Focus();
@@ -888,7 +891,8 @@ namespace WFPGranjas
                     MessageBox.Show("El "+ mensaje + " debe ser mayor a cero.");
                     txtTotalAgua.Focus();
                 }
-                txtTotalAgua.Enabled = false;
+                if(servicio==5 && int.Parse(cmbPeriodos.SelectedValue.ToString()) != 0)
+                    txtTotalAgua.Enabled = false;
             }
         }
 
@@ -1043,9 +1047,15 @@ namespace WFPGranjas
                     txtTotalAgua.Text = ""+monto;
                     txtTotalAgua.Visible = true;
                     txtTotalAgua.Enabled = false;
+                    txtConcepto.Visible = false;
+                    lblDescripcion.Visible = false;
                     if (cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].id == 99)
                     {
                         txtTotalAgua.Enabled = true;
+                        txtConcepto.Visible = true;
+                        lblDescripcion.Visible = true;
+                        txtConcepto.Location = new System.Drawing.Point(103, 30);
+                        lblDescripcion.Location = new System.Drawing.Point(39, 30);
                     }
                 }
                 else {
@@ -1053,6 +1063,8 @@ namespace WFPGranjas
                     txtTotalAgua.Text = "" ;
                     txtTotalAgua.Visible = false;
                     lblAntAgua.Visible = false;
+                    txtConcepto.Visible = false;
+                    lblDescripcion.Visible = false;
                 }
             }
         }
