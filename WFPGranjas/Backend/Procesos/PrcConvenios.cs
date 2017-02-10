@@ -50,7 +50,13 @@ namespace WFPGranjas.Backend.Procesos
                 String importeS = String.Format(CultureInfo.InvariantCulture,
                                "{0:0,0.0}", reader.GetValue(2).ToString());
                 double importe = double.Parse(reader.GetValue(2).ToString());
-                total += importe;
+                double mora = double.Parse(reader.GetValue(10).ToString());
+                double multa = 0;
+                if (pServicio == 2) {
+                     multa = double.Parse(reader.GetValue(11).ToString());
+                }
+                
+                total += importe + mora + multa;
                 dgConsulta.Rows[renglon].Cells[2].Value = "$ "+ importeS;
 
             }
