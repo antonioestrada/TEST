@@ -611,14 +611,18 @@ namespace WFPGranjas
 
             if (pagoTotal == totalImporte)
             {
-                string cuenta_contable = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].cuenta_contable;
-                if (cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].id == 99)
-                {
-                    cuenta_contable = txtConcepto.Text;
+                string cuenta_contable = null, concepto=null;
+                if (servicio == 5 || servicio == 7)
+                {;
+                    concepto =""+ cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].id;
+                    cuenta_contable = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].cuenta_contable;
+                    if (cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].id == 99)
+                    {
+                        cuenta_contable = txtConcepto.Text;
+                    }
                 }
-                
 
-                Object[] paramesCasaClub = { idLote, importeEfectivo, txtCheque.Text, bancoCheque, importeCheque, txtFicha.Text, bancoFicha, importFicha, servicio, cuenta_contable, cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].id };
+                Object[] paramesCasaClub = { idLote, importeEfectivo, txtCheque.Text, bancoCheque, importeCheque, txtFicha.Text, bancoFicha, importFicha, servicio, cuenta_contable, concepto };
 
                 Object[] parames = { id_colono, idManzana, idLote, listaMeses, importeEfectivo, txtCheque.Text, bancoCheque, importeCheque, txtFicha.Text, bancoFicha, importFicha, descuento, servicio, anual };
 
