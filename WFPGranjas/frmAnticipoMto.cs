@@ -1081,7 +1081,7 @@ namespace WFPGranjas
                         txtConcepto.Visible = true;
                         lblDescripcion.Visible = true;
                         txtConcepto.Location = new System.Drawing.Point(115, 40);
-                        lblDescripcion.Location = new System.Drawing.Point(35, 40);
+                        lblDescripcion.Location = new System.Drawing.Point(20, 40);
                     }
                 }
                 else {
