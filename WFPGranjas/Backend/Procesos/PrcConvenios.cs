@@ -46,17 +46,20 @@ namespace WFPGranjas.Backend.Procesos
                 dgConsulta.Rows[renglon].Cells[0].Value = reader.GetValue(5).ToString();
                 //periodo
                 dgConsulta.Rows[renglon].Cells[1].Value = reader.GetValue(6).ToString();
-                //importe
-                String importeS = String.Format(CultureInfo.InvariantCulture,
-                               "{0:0,0.0}", reader.GetValue(2).ToString());
+               
                 double importe = double.Parse(reader.GetValue(2).ToString());
+
+               
                 double mora = double.Parse(reader.GetValue(10).ToString());
                 double multa = 0;
                 if (pServicio == 2) {
                      multa = double.Parse(reader.GetValue(11).ToString());
                 }
-                
-                total += importe + mora + multa;
+                //importe
+                String importeS = String.Format(CultureInfo.InvariantCulture,
+                               "{0:0,0.0}", importe+ multa);
+
+                total += importe  + multa;
                 dgConsulta.Rows[renglon].Cells[2].Value = "$ "+ importeS;
 
             }

@@ -669,7 +669,7 @@ namespace WFPGranjas
 
                     pagoTotal +=double.Parse(cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].importe.ToString());
                     moraTotal += mora;
-                    importeTotal += cuota;
+                    importeTotal += cuota-mora;
                     moratorio = String.Format(CultureInfo.InvariantCulture,
                                   "{0:0,0.00}", moraTotal);
                      mlt += multa;
