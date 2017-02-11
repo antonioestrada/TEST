@@ -403,13 +403,18 @@ namespace WFPGranjas
 
         private void btnCapturaR_Click(object sender, EventArgs e)
         {
-            Boolean resultado = false;
+            Boolean resultado = false,validaLote=false;
             PrcConvenios prcAnticipos = new PrcConvenios();
             Object[] parames = {  idLote , servicio };
             resultado = prcAnticipos.validacionAdeudos(parames);
-            if (!resultado)
+            validaLote = prcAnticipos.validacionConvenios(parames);
+            if (!resultado || validaLote)
             {
-                MessageBox.Show("El usuario no cuenta con cuotas atrasadas");
+                if (validaLote)
+                    MessageBox.Show("Ya cuenta con un convenio activo");
+
+                if(!resultado)
+                  MessageBox.Show("El usuario no cuenta con cuotas atrasadas");
             }
             else
             {
@@ -588,8 +593,8 @@ namespace WFPGranjas
                 {
                     pnlResult.Visible = false;
                     int diaLimite = int.Parse(txtDiaPago.Text);
-                    if (diaLimite <= validaDiaMes())
-                    {
+             //       if (diaLimite <= validaDiaMes())
+              //      {
                         lblAguaAde.SendToBack();
                         groupAgua.SendToBack();
                         lblExtAde.SendToBack();
@@ -614,7 +619,7 @@ namespace WFPGranjas
                         lblVTotalConvenio.Text = "" + String.Format(CultureInfo.InvariantCulture,
                                        "{0:0,0.00}", total);
                         // lblMensaje.Text = "¡Ingresa los campos obligatorios!";
-                    }
+                /*    }
                     else
                     {
                         pnlResult.Visible = true;
@@ -622,7 +627,7 @@ namespace WFPGranjas
                         lblMensaje.Text = "¡Ingresa los campos obligatorios!";
                         lblMensaje.ForeColor = Color.White;
 
-                    }
+                    }*/
                 }
             }
          }

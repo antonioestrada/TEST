@@ -130,5 +130,19 @@ namespace WFPGranjas.Backend.Procesos
         }
         #endregion
 
+        #region valida cuota agua
+        public Boolean validaCuotaAgua()
+        {
+
+            System.Data.IDataReader resul = Conexion.GDatos.TraerDataReader("gestion_granjas.sp_frm_PrcCuotas_ValidaCuotAgua");
+
+            //seteo 
+            Boolean resultado = Convert.ToBoolean(resul.GetValue(0));
+            Conexion.FinalizarSesion();
+
+            return resultado;
+        }
+        #endregion
+
     }
 }
