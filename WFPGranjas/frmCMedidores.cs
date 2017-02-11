@@ -15,6 +15,7 @@ namespace WFPGranjas
 {
     public partial class frmCMedidores : Form
     {
+        int resulCambio = 1;
         int opcionM = 0;
         int tipo_mov = 0, id_medidor=0, id_lote = 0;
         double m2=0;
@@ -94,7 +95,7 @@ namespace WFPGranjas
             resultado = BeanMedidor.abcMedidor(parames);
             pnlResult.Visible = true;
             lblMensaje.Text = resultado.Mensaje;
-
+            resulCambio = resultado.Cve_resultado;
             if (resultado.Cve_resultado == 0)
             {
                 Conexion.FinalizarSesion();
@@ -249,7 +250,14 @@ namespace WFPGranjas
                         lblMensaje.Text = "Ingresa los campos obligatorios";
                     }
                     else
+                    {
                         abcMedidores(tipo_mov, id_medidor, id_lote, txtContrato, txtNuevoMedidor, txtBaseCNA, int.Parse(txtLecAnterior.Text), int.Parse(txtLecActual.Text));
+                        if(resulCambio==0)
+                        {
+                            rptReciboAgua BeanRPTMedidor = new rptReciboAgua("" + id_lote, "" + txtContrato, 20);
+                            BeanRPTMedidor.Show();
+                        }
+                    }
                 }
             }
         }

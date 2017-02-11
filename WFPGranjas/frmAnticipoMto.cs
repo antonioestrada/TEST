@@ -986,6 +986,7 @@ namespace WFPGranjas
         //AQUI ES PARA GUARDAR CUOTA DE SERVICIOS CASA CLUB
         private void button1_Click(object sender, EventArgs e)
         {
+            int opReporte = 0;
             int  resultado = 0;
             PrcAnticipos prcAnticipos = new PrcAnticipos();
 
@@ -1023,7 +1024,10 @@ namespace WFPGranjas
                 Object[] parames = { id_colono, idManzana, idLote, listaMeses, importeEfectivo, txtCheque.Text, bancoCheque, importeCheque, txtFicha.Text, bancoFicha, importFicha, descuento, servicio, anual };
 
                 if (servicio == 5)
+                {
                     resultado = prcAnticipos.registroCuotas(paramesCasaClub, servicio);
+                    opReporte = 10;
+                }
                 else
                     resultado = prcAnticipos.registroCuotas(parames, servicio);
 
@@ -1050,6 +1054,8 @@ namespace WFPGranjas
                 dgPartidasR.Rows.Clear();
                 groupCuota.Visible = false;
                 MessageBox.Show("¡Se registro Correctamente la transaccion!");
+                rptReciboAgua BeanRPTMedidor = new rptReciboAgua("" + idLote, "" + resultado, opReporte);
+                BeanRPTMedidor.Show();
             }
 
         }

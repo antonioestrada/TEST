@@ -97,6 +97,12 @@
       <DependentUpon>crMedidorSQL.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="crNotificacionCambio.cs">
+      <DependentUpon>crNotificacionCambio.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="crReciboICC.cs">
       <DependentUpon>crReciboICC.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -123,6 +129,12 @@
     </Compile>
     <Compile Include="crReciboIngresos.cs">
       <DependentUpon>crReciboIngresos.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="crNotificacionCuota.cs">
+      <DependentUpon>crNotificacionCuota.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
@@ -198,6 +210,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsEncabezadoRecibo.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsGestionesVarias.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsGestionesVarias.xsd</DependentUpon>
     </Compile>
     <Compile Include="dsMedidores.cs">
       <DependentUpon>dsMedidores.xsd</DependentUpon>
@@ -433,6 +450,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crMedidorSQL.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="crNotificacionCambio.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crNotificacionCambio.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="crReciboICC.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crReciboICC.cs</LastGenOutput>
@@ -452,6 +473,10 @@
     <EmbeddedResource Include="crReciboIngresos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crReciboIngresos.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crNotificacionCuota.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crNotificacionCuota.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="crReciboMAnualidad.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -627,6 +652,17 @@
     </None>
     <None Include="dsEncabezadoRecibo.xss">
       <DependentUpon>dsEncabezadoRecibo.xsd</DependentUpon>
+    </None>
+    <None Include="dsGestionesVarias.xsc">
+      <DependentUpon>dsGestionesVarias.xsd</DependentUpon>
+    </None>
+    <None Include="dsGestionesVarias.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsGestionesVarias.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsGestionesVarias.xss">
+      <DependentUpon>dsGestionesVarias.xsd</DependentUpon>
     </None>
     <None Include="dsMedidores.xsc">
       <DependentUpon>dsMedidores.xsd</DependentUpon>
