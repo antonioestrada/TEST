@@ -651,9 +651,11 @@ namespace WFPGranjas
             groupAgua.Visible = false;
             groupMto.Visible = false;
             groupExt.Visible = false;
+            groupCasaClub.Visible = false;
             lblAguaAde.Visible = false;
             lblMtoAde.Visible = false;
             lblExtAde.Visible = false;
+            lblCasaClub.Visible = false;
 
 
 
