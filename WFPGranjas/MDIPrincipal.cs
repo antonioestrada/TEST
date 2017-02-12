@@ -215,8 +215,8 @@ namespace WFPGranjas
             //if (childFormCatUsuarios ==null)
             frmPrcCuotas childFormGenCuotas = new frmPrcCuotas(2, usuario);
             childFormGenCuotas.StartPosition = FormStartPosition.CenterScreen;
-            childFormGenCuotas.MdiParent = this;
-            childFormGenCuotas.Show();
+            //childFormGenCuotas.MdiParent = this;
+            childFormGenCuotas.ShowDialog();
         }
 
         private void OpenFile(object sender, EventArgs e)
@@ -493,8 +493,8 @@ namespace WFPGranjas
             frmPrcCuotas childFormGenCuotas = new frmPrcCuotas(3, usuario);
             childFormGenCuotas.StartPosition = FormStartPosition.CenterScreen;
             //  childFormGenCuotas.Text=""
-            childFormGenCuotas.MdiParent = this;
-            childFormGenCuotas.Show();
+           // childFormGenCuotas.MdiParent = this;
+            childFormGenCuotas.ShowDialog();
         }
 
         private void fcAAgua_Click(object sender, EventArgs e)
@@ -512,7 +512,7 @@ namespace WFPGranjas
         private void arMedidores_Click(object sender, EventArgs e)
         {
             cerrarVentanas();
-            rptMedidores childFormReporteLM = new rptMedidores();
+            rptMedidoresL childFormReporteLM = new rptMedidoresL();
             childFormReporteLM.MdiParent = this;
             childFormReporteLM.Show();
         }
@@ -691,8 +691,8 @@ namespace WFPGranjas
             frmPrcCuotas childFormGenCuotas = new frmPrcCuotas(0, usuario);
             childFormGenCuotas.StartPosition = FormStartPosition.CenterScreen;
             childFormGenCuotas.Text = "Cierre Mensual";
-            childFormGenCuotas.MdiParent = this;
-            childFormGenCuotas.Show();
+            //childFormGenCuotas.MdiParent = this;
+            childFormGenCuotas.ShowDialog();
         }
 
         private void calculoDeCBAToolStripMenuItem_Click(object sender, EventArgs e)
@@ -773,6 +773,20 @@ namespace WFPGranjas
             childFormMedidores.StartPosition = FormStartPosition.Manual;
             childFormMedidores.Size = new Size(642, 220); 
             childFormMedidores.Show();
+        }
+
+        private void menuFReportes_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void frIngresosDiarios_Click(object sender, EventArgs e)
+        {
+            cerrarVentanas();
+            rptIngresosD childGenAvisos = new rptIngresosD();
+            childGenAvisos.StartPosition = FormStartPosition.Manual;
+            childGenAvisos.MdiParent = this;
+            childGenAvisos.Show();
         }
     }
     }

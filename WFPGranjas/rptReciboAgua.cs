@@ -17,25 +17,27 @@ namespace WFPGranjas
             InitializeComponent();
             var BeanRPTMedidor = new Backend.Reportes.rptRecibos();
             if (servicio == 1)
-                BeanRPTMedidor.rptReciboAntManto(crvLRecibos, 1, lote, idPago, "2015");
+                BeanRPTMedidor.rptReciboAntManto(crvLRecibos, 1, lote, idPago, "");
             if (servicio == 2)
-                BeanRPTMedidor.rptReciboManto(crvLRecibos, 1, lote, idPago, "2015");
+                BeanRPTMedidor.rptReciboManto(crvLRecibos, 1, lote, idPago, "");
             else if (servicio==3)
-                BeanRPTMedidor.rptReciboAgua(crvLRecibos, 1, lote, idPago, "2015");
+                BeanRPTMedidor.rptReciboAgua(crvLRecibos, 1, lote, idPago, "");
             else if (servicio == 4)
-                BeanRPTMedidor.rptReciboConvenio(crvLRecibos, 1, lote, idPago, "2015");
+                BeanRPTMedidor.rptReciboConvenio(crvLRecibos, 1, lote, idPago, "");
+            if (servicio == 6)
+                BeanRPTMedidor.rptReciboExtra(crvLRecibos, 1, lote, idPago, "");
             else if (servicio == 7)
-                BeanRPTMedidor.rptReciboAntAgua(crvLRecibos, 1, lote, idPago, "2015");
+                BeanRPTMedidor.rptReciboAntAgua(crvLRecibos, 1, lote, idPago, "");
             else if (servicio == 8)
-                BeanRPTMedidor.rptReciboAnualidad(crvLRecibos, 1, lote, idPago, "2015");
+                BeanRPTMedidor.rptReciboAnualidad(crvLRecibos, 1, lote, idPago, "");
             else if (servicio == 5)
-                BeanRPTMedidor.rptReciboICC(crvLRecibos, 1, lote, idPago, "2015");
+                BeanRPTMedidor.rptReciboICC(crvLRecibos, 1, lote, idPago, "");
             else if (servicio == 9)
-                BeanRPTMedidor.rptReciboICCGral(crvLRecibos, 1, lote, idPago, "2015");
+                BeanRPTMedidor.rptReciboICCGral(crvLRecibos, 1, lote, idPago, "");
             else if (servicio == 10)
-                BeanRPTMedidor.rptGestionICC(crvLRecibos, 1, lote, idPago, "2015");
+                BeanRPTMedidor.rptGestionICC(crvLRecibos, 1, lote, idPago, "");
             else if (servicio == 20)
-                BeanRPTMedidor.rptGestionCMedidor(crvLRecibos, 1, lote, idPago, "2015");
+                BeanRPTMedidor.rptGestionCMedidor(crvLRecibos, 1, lote, idPago, "");
 
 
         }

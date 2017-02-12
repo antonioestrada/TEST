@@ -1,6 +1,6 @@
 ﻿namespace WFPGranjas
 {
-    partial class rptMedidores
+    partial class rptMedidoresL
     {
         /// <summary>
         /// Required designer variable.

@@ -12,9 +12,9 @@ using WFPGranjas.Backend.Catalogos;
 
 namespace WFPGranjas
 {
-    public partial class rptMedidores : Form
+    public partial class rptMedidoresL : Form
     {
-        public rptMedidores()
+        public rptMedidoresL()
         {
             InitializeComponent();
         }

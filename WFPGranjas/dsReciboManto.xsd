@@ -71,6 +71,16 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="DTRMGestion" msprop:Generator_TableClassName="DTRMGestionDataTable" msprop:Generator_TableVarName="tableDTRMGestion" msprop:Generator_RowChangedName="DTRMGestionRowChanged" msprop:Generator_TablePropName="DTRMGestion" msprop:Generator_RowDeletingName="DTRMGestionRowDeleting" msprop:Generator_RowChangingName="DTRMGestionRowChanging" msprop:Generator_RowEvHandlerName="DTRMGestionRowChangeEventHandler" msprop:Generator_RowDeletedName="DTRMGestionRowDeleted" msprop:Generator_RowClassName="DTRMGestionRow" msprop:Generator_UserTableName="DTRMGestion" msprop:Generator_RowEvArgName="DTRMGestionRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id_lote" msprop:Generator_ColumnVarNameInTable="columnid_lote" msprop:Generator_ColumnPropNameInRow="id_lote" msprop:Generator_ColumnPropNameInTable="id_loteColumn" msprop:Generator_UserColumnName="id_lote" type="xs:int" minOccurs="0" />
+              <xs:element name="saldoAC" msdata:Caption="servicio" msprop:Generator_ColumnVarNameInTable="columnsaldoAC" msprop:Generator_ColumnPropNameInRow="saldoAC" msprop:Generator_ColumnPropNameInTable="saldoACColumn" msprop:Generator_UserColumnName="saldoAC" type="xs:decimal" minOccurs="0" />
+              <xs:element name="pagadoAC" msdata:Caption="periodo" msprop:Generator_ColumnVarNameInTable="columnpagadoAC" msprop:Generator_ColumnPropNameInRow="pagadoAC" msprop:Generator_ColumnPropNameInTable="pagadoACColumn" msprop:Generator_UserColumnName="pagadoAC" type="xs:decimal" minOccurs="0" />
+              <xs:element name="fecha_proximo" msdata:Caption="importe" msprop:Generator_ColumnVarNameInTable="columnfecha_proximo" msprop:Generator_ColumnPropNameInRow="fecha_proximo" msprop:Generator_ColumnPropNameInTable="fecha_proximoColumn" msprop:Generator_UserColumnName="fecha_proximo" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>

@@ -16,6 +16,8 @@ namespace WFPGranjas.Backend.Procesos
         #region consulta pagos
         public double consultaPago(DataGridView dgConsulta,int folio,string cve_folio, Label txtMora,Label txtImporte, Label txtTotal)
         {
+            Catalogos.ResultadoTrnx cs= new Catalogos.ResultadoTrnx();
+            cs.Cve_resultado = 120;
             //limpiamos el datagridview
             //Conexion.conectar();
             dgConsulta.Rows.Clear();
@@ -45,7 +47,11 @@ namespace WFPGranjas.Backend.Procesos
                 dgConsulta.Rows[renglon].Cells[4].Value = "$ " + mora;
 
                 dgConsulta.Rows[renglon].Cells[5].Value = reader.GetValue(5).ToString();
-
+               //--tonka --
+                dgConsulta.Rows[renglon].Cells[6].Value = reader.GetValue(6).ToString();
+                dgConsulta.Rows[renglon].Cells[7].Value = reader.GetValue(7).ToString();
+                dgConsulta.Rows[renglon].Cells[8].Value = reader.GetValue(8).ToString();
+                //--fin tonka --
                 moratorio += Double.Parse(reader.GetValue(4).ToString());
                 importeFolio += Double.Parse(reader.GetValue(3).ToString());
                 importeTotal += Double.Parse(reader.GetValue(3).ToString()) + Double.Parse(reader.GetValue(4).ToString());

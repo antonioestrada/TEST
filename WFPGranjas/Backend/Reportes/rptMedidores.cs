@@ -122,5 +122,43 @@ namespace WFPGranjas.Backend.Reportes
             }
             cryRpt.Export();
         }
+
+
+        public void rptIngresosDia(CrystalReportViewer rptViewer, int op, string manzana)
+        {
+            Globales vGlobal = new Globales();
+            ReportDocument cryRpt = new ReportDocument();
+            cryRpt = new CrystalDecisions.CrystalReports.Engine.ReportDocument();
+            cryRpt.Load(@"" + vGlobal.pathReportes + "crReporteIngresos.rpt");
+            dsIngresosDiarios dsM = new dsIngresosDiarios();
+
+            IDataReader reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_report_ingresosDiarios(1, '', '')");
+            
+            while (reader.Read())
+            {
+                dsM.DTIngresosDiarios.AddDTIngresosDiariosRow(1,reader.GetValue(0).ToString(), reader.GetValue(1).ToString(), decimal.Parse(reader.GetValue(2).ToString()), decimal.Parse(reader.GetValue(3).ToString()), decimal.Parse(reader.GetValue(4).ToString()), reader.GetValue(5).ToString());
+            }
+            Conexion.FinalizarSesion();
+
+            cryRpt.SetDataSource(dsM);
+           // cryRpt.SetParameterValue("empresa", vGlobal.empresa);
+            rptViewer.ReportSource = cryRpt;
+            rptViewer.Refresh();
+
+            //GENERAR PDF
+            ExportOptions CrExportOptions;
+            DiskFileDestinationOptions CrDiskFileDestinationOptions = new DiskFileDestinationOptions();
+            PdfRtfWordFormatOptions CrFormatTypeOptions = new PdfRtfWordFormatOptions();
+            CrDiskFileDestinationOptions.DiskFileName = @"" + vGlobal.pathReportesPDF + "ingresos.pdf";
+            // CrDiskFileDestinationOptions.DiskFileName = "c:\\firebird\\reporteMail.pdf";
+            CrExportOptions = cryRpt.ExportOptions;
+            {
+                CrExportOptions.ExportDestinationType = ExportDestinationType.DiskFile;
+                CrExportOptions.ExportFormatType = ExportFormatType.PortableDocFormat;
+                CrExportOptions.DestinationOptions = CrDiskFileDestinationOptions;
+                CrExportOptions.FormatOptions = CrFormatTypeOptions;
+            }
+            cryRpt.Export();
+        }
     }
 }

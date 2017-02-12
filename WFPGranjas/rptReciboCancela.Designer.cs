@@ -1,6 +1,6 @@
 ﻿namespace WFPGranjas
 {
-    partial class rptReciboAgua
+    partial class rptReciboCancela
     {
         /// <summary>
         /// Required designer variable.
@@ -39,21 +39,22 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.crvLRecibos.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.crvLRecibos.Cursor = System.Windows.Forms.Cursors.Default;
-            this.crvLRecibos.Location = new System.Drawing.Point(2, 1);
+            this.crvLRecibos.Location = new System.Drawing.Point(1, 0);
             this.crvLRecibos.Name = "crvLRecibos";
-            this.crvLRecibos.Size = new System.Drawing.Size(717, 259);
-            this.crvLRecibos.TabIndex = 1;
+            this.crvLRecibos.ReuseParameterValuesOnRefresh = true;
+            this.crvLRecibos.Size = new System.Drawing.Size(712, 259);
+            this.crvLRecibos.TabIndex = 2;
             this.crvLRecibos.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
             // 
-            // rptReciboAgua
+            // rptReciboCancela
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(720, 262);
+            this.ClientSize = new System.Drawing.Size(715, 261);
             this.Controls.Add(this.crvLRecibos);
-            this.Name = "rptReciboAgua";
-            this.Text = "rptReciboAgua";
-            this.Load += new System.EventHandler(this.rptReciboAgua_Load);
+            this.Name = "rptReciboCancela";
+            this.Text = "rptReciboCancela";
+            this.Load += new System.EventHandler(this.rptReciboCancela_Load);
             this.ResumeLayout(false);
 
         }

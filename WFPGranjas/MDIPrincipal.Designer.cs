@@ -109,6 +109,7 @@
             this.toolStripSeparator13 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem16 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuFReportes = new System.Windows.Forms.ToolStripMenuItem();
+            this.frIngresosDiarios = new System.Windows.Forms.ToolStripMenuItem();
             this.menuFAyuda = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem30 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem31 = new System.Windows.Forms.ToolStripMenuItem();
@@ -904,6 +905,8 @@
             // 
             // menuFReportes
             // 
+            this.menuFReportes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.frIngresosDiarios});
             this.menuFReportes.Image = ((System.Drawing.Image)(resources.GetObject("menuFReportes.Image")));
             this.menuFReportes.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
             this.menuFReportes.Name = "menuFReportes";
@@ -911,6 +914,15 @@
             this.menuFReportes.Text = "Reportes";
             this.menuFReportes.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.menuFReportes.Visible = false;
+            this.menuFReportes.Click += new System.EventHandler(this.menuFReportes_Click);
+            // 
+            // frIngresosDiarios
+            // 
+            this.frIngresosDiarios.Image = global::WFPGranjas.Properties.Resources.caja_registradora;
+            this.frIngresosDiarios.Name = "frIngresosDiarios";
+            this.frIngresosDiarios.Size = new System.Drawing.Size(169, 22);
+            this.frIngresosDiarios.Text = "Ingresos del Dia";
+            this.frIngresosDiarios.Click += new System.EventHandler(this.frIngresosDiarios_Click);
             // 
             // menuFAyuda
             // 
@@ -1516,6 +1528,7 @@
         private System.Windows.Forms.ToolStripMenuItem aaAvisos;
         private System.Windows.Forms.ToolStripMenuItem aaImprimirAv;
         private System.Windows.Forms.ToolStripMenuItem acCambioMedidor;
+        private System.Windows.Forms.ToolStripMenuItem frIngresosDiarios;
     }
 }
 

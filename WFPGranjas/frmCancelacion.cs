@@ -18,6 +18,7 @@ namespace WFPGranjas
     public partial class frmCancelacion : Form
     {
         int id_colono = 0,idManzana=0,idLote=0;
+        int paramCan1 = 0, paramCan2 = 0, paramCan3=0, paramCan4 = 0;
         String listaIDKardex;
         int servicio =0;
         double pagoTotal = 0;
@@ -75,6 +76,27 @@ namespace WFPGranjas
                                                   HeaderText = "Estatus pago",
                                                   Width = 140
 
+                                              },
+                                              new DataGridViewTextBoxColumn
+                                              {
+                                                  ValueType = typeof (string),
+                                                  HeaderText = "id_servicio",
+                                                  Width = 140
+
+                                              },
+                                              new DataGridViewTextBoxColumn
+                                              {
+                                                  ValueType = typeof (string),
+                                                  HeaderText = "id_pago",
+                                                  Width = 140
+
+                                              },
+                                              new DataGridViewTextBoxColumn
+                                              {
+                                                  ValueType = typeof (string),
+                                                  HeaderText = "concepto",
+                                                  Width = 140
+
                                               }
 
                                       });
@@ -115,6 +137,7 @@ namespace WFPGranjas
 
         public void buscaFolioPago() {
             panelEstatus.Visible = false;
+            
             if (txtColono.Text == null)
             {
                 MessageBox.Show("Ingrese el numero de folio");
@@ -137,15 +160,23 @@ namespace WFPGranjas
                     lblDireccion.Text = "" + colono.direccion;
                     idManzana = colono.idManzana;
                     idLote = colono.idLote;
+                    
                     // String numeroRomano = utilities.numeroRomano(int.Parse(row.Cells[3].Value.ToString()));
                     lblMzaLote.Text = "Manzana: " + colono.manzana + " Lote: " + colono.lote;
                     //MessageBox.Show("id_manzana" + id_manzana);
                     lblFechaSys.Text = colono.fechaPago;
                     string txtFolio = colono.folio.ToString("0000000");
+                   
                     lblFolio.Text = txtColono.Text;
                     PrcCancelacion prcCancelacion = new PrcCancelacion();
                     double importeTotal = prcCancelacion.consultaPago(dgPartidasR, colono.folio, txtColono.Text, lblMoratorio, lblImporte, lblTotalImporte);
                     dgPartidasR.Visible = true;
+                    //tonka recibo cancela
+                    paramCan1 = idLote;
+                    paramCan2 = colono.folio;
+                    paramCan3 =int.Parse( dgPartidasR.CurrentRow.Cells[6].Value.ToString());
+                    paramCan4 = int.Parse(dgPartidasR.CurrentRow.Cells[7].Value.ToString());
+                    //fin tonka cancela
                     Object[] parames = { colono .folio, txtColono.Text, };
                     Boolean validacion = prcCancelacion.validaEstatusPago(parames);
                     Boolean validacionFecha = prcCancelacion.validaFechaPago(parames);
@@ -228,9 +259,32 @@ namespace WFPGranjas
             PrcCancelacion prcCancelacion = new PrcCancelacion();
             Object[] parames = { colono.folio , lblFolio.Text };
             int resultado = prcCancelacion.registroCancelacion(parames);
-            if(resultado>0)
+            if (resultado > 0)
+            {
                 MessageBox.Show("¡Se realizo la cancelacion del pago!");
+                //tonka recibo cancela
+                //manto con anticipo
+                if (paramCan3 == 2 && paramCan4 == 3)
+                {
+                    paramCan3 = 1;
+                    //manto con anualidad
+                    if (dgPartidasR.CurrentRow.Cells[8].Value.ToString() == "Anual")
+                        paramCan3 = 8;
+                }
+                
+                //agua con anticipo
+                if (paramCan3 == 3 && paramCan4 == 3)
+                    paramCan3 = 7;
 
+                //INGRESO CASA CLUB GENERAL
+                if (paramCan3 == 7)
+                    paramCan3 = 9;
+
+
+                rptReciboCancela BeanRPTMedidor = new rptReciboCancela("" + paramCan1, "" + paramCan2, paramCan3,"_CANCELADO");
+                BeanRPTMedidor.Show();
+                //tonka recibo cancela
+            }
             groupCuota.Visible = false;
             groupDColono.Visible = false;
             gbDRecibo.Visible = false;
