@@ -159,5 +159,72 @@ namespace WFPGranjas.Backend.Catalogos
             Conexion.FinalizarSesion();
         }
         #endregion
+
+        #region consulta produccion CBA DG
+        public void consultaProduccionMensual(DataGridView dgConsulta, string p_anio)
+        {
+            //limpiamos el datagridview
+            dgConsulta.Rows.Clear();
+            //llenamos nuestro reader con la consulta de nuestro SP
+            IDataReader reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_frm_CalculaCBA_Produccion(" + p_anio+")");
+            //siclamos cada registro que contiene nuestro reader
+            while (reader.Read())
+            {
+                //lenamos nuestro grid con nuestro reader.
+                int renglon = dgConsulta.Rows.Add();
+                //id_tarifa
+                dgConsulta.Rows[renglon].Cells[0].Value = reader.GetValue(0).ToString();
+                //descripcion
+                dgConsulta.Rows[renglon].Cells[1].Value = reader.GetValue(1).ToString();
+                //valor
+                dgConsulta.Rows[renglon].Cells[2].Value = reader.GetValue(2).ToString();
+                //fecha_apl
+                dgConsulta.Rows[renglon].Cells[3].Value = reader.GetValue(3).ToString();
+
+                dgConsulta.Rows[renglon].Cells[4].Value = reader.GetValue(4).ToString();
+
+
+            }
+
+            Conexion.FinalizarSesion();
+        }
+        #endregion
+
+        #region consulta produccion CBA DG
+        public void validadProduccionMensual(DataGridView dgConsulta, string p_anio)
+        {
+            //limpiamos el datagridview
+            dgConsulta.Rows.Clear();
+            //llenamos nuestro reader con la consulta de nuestro SP
+            IDataReader reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_frm_CalculaCBA_CalculaProduccion(" + p_anio + ")");
+            //siclamos cada registro que contiene nuestro reader
+            while (reader.Read())
+            {
+                //lenamos nuestro grid con nuestro reader.
+                int renglon = dgConsulta.Rows.Add();
+                //id_tarifa
+                dgConsulta.Rows[renglon].Cells[0].Value = reader.GetValue(0).ToString();
+                //descripcion
+                dgConsulta.Rows[renglon].Cells[1].Value = reader.GetValue(1).ToString();
+                //valor
+                dgConsulta.Rows[renglon].Cells[2].Value = reader.GetValue(2).ToString();
+                //fecha_apl
+                dgConsulta.Rows[renglon].Cells[3].Value = reader.GetValue(3).ToString();
+
+                dgConsulta.Rows[renglon].Cells[4].Value = reader.GetValue(4).ToString();
+                double exedente = double.Parse(reader.GetValue(4).ToString());
+                if(exedente>0)
+                     dgConsulta.Rows[renglon].DefaultCellStyle.BackColor = Color.LightSalmon;
+                else
+                    dgConsulta.Rows[renglon].DefaultCellStyle.BackColor = Color.White;
+
+
+            }
+
+            Conexion.FinalizarSesion();
+        }
+        #endregion
+
+
     }
 }

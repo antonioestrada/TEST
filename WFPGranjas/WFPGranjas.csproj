@@ -62,6 +62,7 @@
     <Compile Include="Backend\Catalogos\Conceptos.cs" />
     <Compile Include="Backend\Catalogos\CParametros.cs" />
     <Compile Include="Backend\Catalogos\CPerfiles.cs" />
+    <Compile Include="Backend\Catalogos\CProduccion.cs" />
     <Compile Include="Backend\Catalogos\CPuestos.cs" />
     <Compile Include="Backend\Catalogos\CTarifas.cs" />
     <Compile Include="Backend\Catalogos\CTarifasAgua.cs" />
