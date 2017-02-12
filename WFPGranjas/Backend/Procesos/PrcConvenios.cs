@@ -29,6 +29,22 @@ namespace WFPGranjas.Backend.Procesos
         #endregion
 
 
+        #region valida convenios por lote
+        public Boolean validacionConvenios(Object[] parames)
+        {
+
+            System.Data.IDataReader resul = Conexion.GDatos.TraerDataReader("gestion_granjas.sp_frm_Convenios_ValidaConvenio", parames);
+
+            //seteo 
+            Boolean resultado = Convert.ToBoolean(resul.GetValue(0));
+            Conexion.FinalizarSesion();
+
+            return resultado;
+        }
+        #endregion
+
+
+
         #region consulta adeudos por concepto
         public double consultaAdeudosConcepto(DataGridView dgConsulta,int idLote, int pServicio)
         {

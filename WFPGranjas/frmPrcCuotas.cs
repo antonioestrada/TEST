@@ -62,8 +62,8 @@ namespace WFPGranjas
         {
             periodo = cmbPeriodos.SelectedValue.ToString();
             anio = cmbAnios.SelectedValue.ToString();
+            var BeanCPeriodo = new Backend.Procesos.PrcCuotaMto();
 
-           
             //Iniciamos el trabajo
             string message = null;
             if (servicio==2)
@@ -103,7 +103,7 @@ namespace WFPGranjas
                     }
                     if (servicio == 3)
                     {
-                        var BeanCPeriodo = new Backend.Procesos.PrcCuotaMto();
+                        
                         Object[] parames = { periodo, anio };
                         Boolean validacion = BeanCPeriodo.validaLecturasAgua(parames);
                         Boolean pendienteCBA  = BeanCPeriodo.validaCBA();
@@ -132,19 +132,34 @@ namespace WFPGranjas
                     }
                     if (servicio == 0)
                     {
-                        lblInfo.Visible = true;
-                        progressBar1.Visible = true;
-                        lblInfoMsj.Visible = true;
+                        Boolean pendienteCuotaMA = BeanCPeriodo.validaCuotaMA();
+                        Boolean pendienteCuotaAgua = BeanCPeriodo.validaCuotaAgua();
+                        if (!pendienteCuotaMA && !pendienteCuotaAgua)
+                        {
+                            lblInfo.Visible = true;
+                            progressBar1.Visible = true;
+                            lblInfoMsj.Visible = true;
 
-                        bwProgress.RunWorkerAsync();
-                        //   btnCancelar.Enabled = true;
-                        btnGenCuotas.Enabled = false;
+                            bwProgress.RunWorkerAsync();
+                            //   btnCancelar.Enabled = true;
+                            btnGenCuotas.Enabled = false;
 
+                        }
+                        else
+                        {
+                            if (pendienteCuotaAgua)
+                                MessageBox.Show("No ha generado las cuotas de agua");
+
+
+                            if (pendienteCuotaMA)
+                                MessageBox.Show("No ha generado las cuotas de mantenimiento ");
+
+                        }
                     }
 
 
                 }
-            }           
+            }         
 
         }
         public void actualizaDatos() {

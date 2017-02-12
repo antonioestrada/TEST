@@ -45,6 +45,38 @@ namespace WFPGranjas.Backend.Procesos
             Conexion.FinalizarSesion();
         }
         #endregion
+
+        #region consulta catalogo bombas agua
+        public void consultaBombas(ComboBox cmb)
+        {
+
+
+            //iniciamos la conexion con el servidor
+            // Backend.Conexion.IniciarSesion(vGlobal.Server, vGlobal.BD, vGlobal.Usr, vGlobal.Pwd, vGlobal.BD);
+            //llenamos nuestro reader con la consulta de nuestro SP
+            IDataReader reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_catalogo_CBombas()");
+            //siclamos cada registro que contiene nuestro reader
+            Dictionary<String, String> bombas = new Dictionary<String, String>();
+            while (reader.Read())
+            {
+                //lenamos nuestro grid con nuestro reader.
+                String id = (reader.GetValue(0).ToString());
+                String descripcion = reader.GetValue(1).ToString();
+
+
+                bombas.Add(id, descripcion);
+
+            }
+            var ab = from a in bombas
+                     orderby a.Key
+                     select a;
+            cmb.DataSource = ab.ToList();
+            cmb.DisplayMember = "value";
+            cmb.ValueMember = "Key";
+
+            Conexion.FinalizarSesion();
+        }
+        #endregion
         #region registra  cuotas
         public Boolean registroCuotasMA(Object[] parames)
         {
@@ -121,6 +153,20 @@ namespace WFPGranjas.Backend.Procesos
         {
 
             System.Data.IDataReader resul = Conexion.GDatos.TraerDataReader("gestion_granjas.sp_frm_PrcCuotas_ValidaCuotaMA");
+
+            //seteo 
+            Boolean resultado = Convert.ToBoolean(resul.GetValue(0));
+            Conexion.FinalizarSesion();
+
+            return resultado;
+        }
+        #endregion
+
+        #region valida cuota agua
+        public Boolean validaCuotaAgua()
+        {
+
+            System.Data.IDataReader resul = Conexion.GDatos.TraerDataReader("gestion_granjas.sp_frm_PrcCuotas_ValidaCuotAgua");
 
             //seteo 
             Boolean resultado = Convert.ToBoolean(resul.GetValue(0));

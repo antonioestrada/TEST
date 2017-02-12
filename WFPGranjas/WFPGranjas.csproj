@@ -62,6 +62,7 @@
     <Compile Include="Backend\Catalogos\Conceptos.cs" />
     <Compile Include="Backend\Catalogos\CParametros.cs" />
     <Compile Include="Backend\Catalogos\CPerfiles.cs" />
+    <Compile Include="Backend\Catalogos\CProduccion.cs" />
     <Compile Include="Backend\Catalogos\CPuestos.cs" />
     <Compile Include="Backend\Catalogos\CTarifas.cs" />
     <Compile Include="Backend\Catalogos\CTarifasAgua.cs" />
@@ -221,6 +222,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crSubTarifasRA.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalReport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport1.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="dsAvisosCobranza.Designer.cs">
@@ -580,6 +587,10 @@
     <EmbeddedResource Include="crSubTarifasRA.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crSubTarifasRA.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CrystalReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCalculaCBAMensual.resx">
       <DependentUpon>frmCalculaCBAMensual.cs</DependentUpon>
