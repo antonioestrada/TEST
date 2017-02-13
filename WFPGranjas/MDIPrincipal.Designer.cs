@@ -416,6 +416,7 @@
             this.acCBA.Name = "acCBA";
             this.acCBA.Size = new System.Drawing.Size(255, 22);
             this.acCBA.Text = "Registro de CBA mensual";
+            this.acCBA.Visible = false;
             this.acCBA.Click += new System.EventHandler(this.acCBA_Click);
             // 
             // acCambioMedidor
@@ -807,6 +808,7 @@
             this.fcDesgloseCon.Name = "fcDesgloseCon";
             this.fcDesgloseCon.Size = new System.Drawing.Size(224, 22);
             this.fcDesgloseCon.Text = "Desglose de Consumos";
+            this.fcDesgloseCon.Visible = false;
             // 
             // toolStripSeparator20
             // 
@@ -848,6 +850,7 @@
             this.toolStripMenuItem11.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Z)));
             this.toolStripMenuItem11.Size = new System.Drawing.Size(200, 22);
             this.toolStripMenuItem11.Text = "Cierre de Mes";
+            this.toolStripMenuItem11.Visible = false;
             this.toolStripMenuItem11.Click += new System.EventHandler(this.toolStripMenuItem11_Click);
             // 
             // toolStripMenuItem12
@@ -858,11 +861,13 @@
             this.toolStripMenuItem12.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.Y)));
             this.toolStripMenuItem12.Size = new System.Drawing.Size(200, 22);
             this.toolStripMenuItem12.Text = "&Redo";
+            this.toolStripMenuItem12.Visible = false;
             // 
             // toolStripSeparator12
             // 
             this.toolStripSeparator12.Name = "toolStripSeparator12";
             this.toolStripSeparator12.Size = new System.Drawing.Size(197, 6);
+            this.toolStripSeparator12.Visible = false;
             // 
             // toolStripMenuItem13
             // 
@@ -872,6 +877,7 @@
             this.toolStripMenuItem13.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
             this.toolStripMenuItem13.Size = new System.Drawing.Size(200, 22);
             this.toolStripMenuItem13.Text = "Cu&t";
+            this.toolStripMenuItem13.Visible = false;
             // 
             // toolStripMenuItem14
             // 
@@ -881,6 +887,7 @@
             this.toolStripMenuItem14.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
             this.toolStripMenuItem14.Size = new System.Drawing.Size(200, 22);
             this.toolStripMenuItem14.Text = "&Copy";
+            this.toolStripMenuItem14.Visible = false;
             // 
             // toolStripMenuItem15
             // 
@@ -890,11 +897,13 @@
             this.toolStripMenuItem15.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
             this.toolStripMenuItem15.Size = new System.Drawing.Size(200, 22);
             this.toolStripMenuItem15.Text = "&Paste";
+            this.toolStripMenuItem15.Visible = false;
             // 
             // toolStripSeparator13
             // 
             this.toolStripSeparator13.Name = "toolStripSeparator13";
             this.toolStripSeparator13.Size = new System.Drawing.Size(197, 6);
+            this.toolStripSeparator13.Visible = false;
             // 
             // toolStripMenuItem16
             // 
@@ -902,6 +911,7 @@
             this.toolStripMenuItem16.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.A)));
             this.toolStripMenuItem16.Size = new System.Drawing.Size(200, 22);
             this.toolStripMenuItem16.Text = "Select &All";
+            this.toolStripMenuItem16.Visible = false;
             // 
             // menuFReportes
             // 
@@ -1173,13 +1183,13 @@
             // toolStripSeparator22
             // 
             this.toolStripSeparator22.Name = "toolStripSeparator22";
-            this.toolStripSeparator22.Size = new System.Drawing.Size(135, 6);
+            this.toolStripSeparator22.Size = new System.Drawing.Size(149, 6);
             // 
             // csUsuarios
             // 
             this.csUsuarios.Image = ((System.Drawing.Image)(resources.GetObject("csUsuarios.Image")));
             this.csUsuarios.Name = "csUsuarios";
-            this.csUsuarios.Size = new System.Drawing.Size(138, 22);
+            this.csUsuarios.Size = new System.Drawing.Size(152, 22);
             this.csUsuarios.Text = "Usuarios";
             this.csUsuarios.Click += new System.EventHandler(this.csUsuarios_Click);
             // 
@@ -1187,7 +1197,7 @@
             // 
             this.csPuestos.Image = ((System.Drawing.Image)(resources.GetObject("csPuestos.Image")));
             this.csPuestos.Name = "csPuestos";
-            this.csPuestos.Size = new System.Drawing.Size(138, 22);
+            this.csPuestos.Size = new System.Drawing.Size(152, 22);
             this.csPuestos.Text = "Puestos";
             this.csPuestos.Click += new System.EventHandler(this.csPuestos_Click);
             // 
@@ -1195,21 +1205,21 @@
             // 
             this.csPerfiles.Image = ((System.Drawing.Image)(resources.GetObject("csPerfiles.Image")));
             this.csPerfiles.Name = "csPerfiles";
-            this.csPerfiles.Size = new System.Drawing.Size(138, 22);
+            this.csPerfiles.Size = new System.Drawing.Size(152, 22);
             this.csPerfiles.Text = "Perfiles";
             this.csPerfiles.Click += new System.EventHandler(this.csPerfiles_Click);
             // 
             // serviciosToolStripMenuItem
             // 
             this.serviciosToolStripMenuItem.Name = "serviciosToolStripMenuItem";
-            this.serviciosToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.serviciosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.serviciosToolStripMenuItem.Text = "Servicios";
             this.serviciosToolStripMenuItem.Visible = false;
             // 
             // conceptosToolStripMenuItem
             // 
             this.conceptosToolStripMenuItem.Name = "conceptosToolStripMenuItem";
-            this.conceptosToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.conceptosToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
             this.conceptosToolStripMenuItem.Text = "Conceptos";
             this.conceptosToolStripMenuItem.Visible = false;
             // 
@@ -1235,6 +1245,7 @@
             this.toolStripMenuItem62.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F1)));
             this.toolStripMenuItem62.Size = new System.Drawing.Size(179, 22);
             this.toolStripMenuItem62.Text = "&Contents";
+            this.toolStripMenuItem62.Visible = false;
             // 
             // toolStripMenuItem63
             // 
@@ -1243,6 +1254,7 @@
             this.toolStripMenuItem63.Name = "toolStripMenuItem63";
             this.toolStripMenuItem63.Size = new System.Drawing.Size(179, 22);
             this.toolStripMenuItem63.Text = "&Index";
+            this.toolStripMenuItem63.Visible = false;
             // 
             // toolStripMenuItem64
             // 
@@ -1251,17 +1263,20 @@
             this.toolStripMenuItem64.Name = "toolStripMenuItem64";
             this.toolStripMenuItem64.Size = new System.Drawing.Size(179, 22);
             this.toolStripMenuItem64.Text = "&Search";
+            this.toolStripMenuItem64.Visible = false;
             // 
             // toolStripSeparator23
             // 
             this.toolStripSeparator23.Name = "toolStripSeparator23";
             this.toolStripSeparator23.Size = new System.Drawing.Size(176, 6);
+            this.toolStripSeparator23.Visible = false;
             // 
             // toolStripMenuItem65
             // 
             this.toolStripMenuItem65.Name = "toolStripMenuItem65";
             this.toolStripMenuItem65.Size = new System.Drawing.Size(179, 22);
             this.toolStripMenuItem65.Text = "&About ... ...";
+            this.toolStripMenuItem65.Visible = false;
             // 
             // tpConfig
             // 
@@ -1326,6 +1341,7 @@
             this.toolStripMenuItem39.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.F1)));
             this.toolStripMenuItem39.Size = new System.Drawing.Size(179, 22);
             this.toolStripMenuItem39.Text = "&Contents";
+            this.toolStripMenuItem39.Visible = false;
             // 
             // toolStripMenuItem40
             // 
@@ -1334,6 +1350,7 @@
             this.toolStripMenuItem40.Name = "toolStripMenuItem40";
             this.toolStripMenuItem40.Size = new System.Drawing.Size(179, 22);
             this.toolStripMenuItem40.Text = "&Index";
+            this.toolStripMenuItem40.Visible = false;
             // 
             // toolStripMenuItem41
             // 
@@ -1342,17 +1359,20 @@
             this.toolStripMenuItem41.Name = "toolStripMenuItem41";
             this.toolStripMenuItem41.Size = new System.Drawing.Size(179, 22);
             this.toolStripMenuItem41.Text = "&Search";
+            this.toolStripMenuItem41.Visible = false;
             // 
             // toolStripSeparator18
             // 
             this.toolStripSeparator18.Name = "toolStripSeparator18";
             this.toolStripSeparator18.Size = new System.Drawing.Size(176, 6);
+            this.toolStripSeparator18.Visible = false;
             // 
             // toolStripMenuItem42
             // 
             this.toolStripMenuItem42.Name = "toolStripMenuItem42";
             this.toolStripMenuItem42.Size = new System.Drawing.Size(179, 22);
             this.toolStripMenuItem42.Text = "&About ... ...";
+            this.toolStripMenuItem42.Visible = false;
             // 
             // MDIPrincipal
             // 

@@ -15,7 +15,7 @@ namespace WFPGranjas
     {
         String periodo = null;
         int mesG = 0, anioG = 0;
-        int tipo_mov = 0, id_medidor = 0, id_lote = 0;
+        int  id_lote = 0;
 
         public frmImprimeAvisos()
         {

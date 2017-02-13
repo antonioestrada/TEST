@@ -18,8 +18,8 @@ namespace WFPGranjas
         int mesG = 0, anioG = 0;
         //|||||||||||||||inicio tonka-1216|||||||||||||||||
         String periodo = null;
-        String anio = null;
-        int servicio = 0;
+      
+    
         string usuario = null;
         int opcion = 0;
         //|||||||||||||||fin tonka-1216071216|||||||||||||||||

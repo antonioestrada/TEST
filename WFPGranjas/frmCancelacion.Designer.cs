@@ -56,6 +56,8 @@
             this.label1 = new System.Windows.Forms.Label();
             this.lblFechaSys = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.lblMulta = new System.Windows.Forms.Label();
             this.groupDColono.SuspendLayout();
             this.groupCuota.SuspendLayout();
             this.panelCapturaCenter.SuspendLayout();
@@ -149,6 +151,8 @@
             // 
             // panelCapturaButtom
             // 
+            this.panelCapturaButtom.Controls.Add(this.lblMulta);
+            this.panelCapturaButtom.Controls.Add(this.label3);
             this.panelCapturaButtom.Controls.Add(this.panelEstatus);
             this.panelCapturaButtom.Controls.Add(this.lblTotalImporte);
             this.panelCapturaButtom.Controls.Add(this.lblMoratorio);
@@ -186,7 +190,7 @@
             // lblTotalImporte
             // 
             this.lblTotalImporte.AutoSize = true;
-            this.lblTotalImporte.Location = new System.Drawing.Point(708, 66);
+            this.lblTotalImporte.Location = new System.Drawing.Point(708, 82);
             this.lblTotalImporte.Name = "lblTotalImporte";
             this.lblTotalImporte.Size = new System.Drawing.Size(45, 16);
             this.lblTotalImporte.TabIndex = 27;
@@ -213,7 +217,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(628, 66);
+            this.label7.Location = new System.Drawing.Point(628, 82);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(80, 16);
             this.label7.TabIndex = 5;
@@ -368,6 +372,24 @@
             this.label13.TabIndex = 0;
             this.label13.Text = "Fecha del Recibo:";
             // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(662, 58);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(49, 16);
+            this.label3.TabIndex = 29;
+            this.label3.Text = "Multa : ";
+            // 
+            // lblMulta
+            // 
+            this.lblMulta.AutoSize = true;
+            this.lblMulta.Location = new System.Drawing.Point(708, 58);
+            this.lblMulta.Name = "lblMulta";
+            this.lblMulta.Size = new System.Drawing.Size(45, 16);
+            this.lblMulta.TabIndex = 30;
+            this.lblMulta.Text = "label3";
+            // 
             // frmCancelacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -433,5 +455,7 @@
         private System.Windows.Forms.Label lblMoratorio;
         private System.Windows.Forms.Panel panelEstatus;
         private System.Windows.Forms.Label lblMensaje;
+        private System.Windows.Forms.Label lblMulta;
+        private System.Windows.Forms.Label label3;
     }
 }

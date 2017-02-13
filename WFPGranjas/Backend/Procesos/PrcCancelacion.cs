@@ -14,7 +14,7 @@ namespace WFPGranjas.Backend.Procesos
     {
 
         #region consulta pagos
-        public double consultaPago(DataGridView dgConsulta,int folio,string cve_folio, Label txtMora,Label txtImporte, Label txtTotal)
+        public double consultaPago(DataGridView dgConsulta,int folio,string cve_folio, Label txtMora,Label txtImporte, Label txtTotal,double multa)
         {
             Catalogos.ResultadoTrnx cs= new Catalogos.ResultadoTrnx();
             cs.Cve_resultado = 120;
@@ -57,6 +57,7 @@ namespace WFPGranjas.Backend.Procesos
                 importeTotal += Double.Parse(reader.GetValue(3).ToString()) + Double.Parse(reader.GetValue(4).ToString());
             }
             Conexion.FinalizarSesion();
+            importeTotal += multa;
             txtMora.Text = String.Format(CultureInfo.InvariantCulture,
                                  "{0:0,0.00}", moratorio);
             txtImporte.Text = String.Format(CultureInfo.InvariantCulture,
@@ -109,6 +110,20 @@ namespace WFPGranjas.Backend.Procesos
 
             //seteo 
             Boolean resultado = Convert.ToBoolean(resul.GetValue(0));
+            Conexion.FinalizarSesion();
+
+            return resultado;
+        }
+        #endregion
+
+        #region valida pago
+        public double obtieneMulta(Object[] parames)
+        {
+
+            System.Data.IDataReader resul = Conexion.GDatos.TraerDataReader("gestion_granjas.sp_frm_Cancelacion_CMulta", parames);
+
+            //seteo 
+            double resultado = Convert.ToDouble(resul.GetValue(0));
             Conexion.FinalizarSesion();
 
             return resultado;

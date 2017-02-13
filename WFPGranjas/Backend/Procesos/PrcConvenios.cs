@@ -127,7 +127,7 @@ namespace WFPGranjas.Backend.Procesos
         {
             //limpiamos el datagridview
             Boolean resultado = false;
-            double total = 0;
+           
             //llenamos nuestro reader con la consulta de nuestro SP
             IDataReader reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_frm_Convenios_GeneraPagos(" + idLote + "," + impTotal + "," + impConvenio + "," + pagoMenual + "," + diaLimite + "," + bandera + ")");
             //siclamos cada registro que contiene nuestro reader

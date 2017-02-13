@@ -21,7 +21,7 @@ namespace WFPGranjas
         String listaIDKardex;
         int servicio =0;
         double pagoTotal = 0,moraTotal=0, importeTotal=0, mlt=0;
-        double saldoAnticipo = 0;
+        //double saldoAnticipo = 0;
         Dictionary<int, Cuota> cuotas;
         Dictionary<int, String> cmbCuotas;
         Utilerias utilities = new Utilerias();
@@ -597,7 +597,7 @@ namespace WFPGranjas
 
         private void btnAddCuota_Click(object sender, EventArgs e)
         {
-            double saldoNetoAnticipo = 0;
+            //double saldoNetoAnticipo = 0;
             //lenamos nuestro grid con nuestro reader.
             if (cmbPeriodos.Items.Count > 0)
             {

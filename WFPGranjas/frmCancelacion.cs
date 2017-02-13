@@ -19,12 +19,8 @@ namespace WFPGranjas
     {
         int id_colono = 0,idManzana=0,idLote=0;
         int paramCan1 = 0, paramCan2 = 0, paramCan3=0, paramCan4 = 0;
-        String listaIDKardex;
+        String listaIDKardex=null;
         int servicio =0;
-        double pagoTotal = 0;
-        double saldoAnticipo = 0;
-        Dictionary<int, Cuota> cuotas;
-        Dictionary<int, String> cmbCuotas;
         Utilerias utilities = new Utilerias();
         PrcPagoMto prcPago = new PrcPagoMto();
         DatosColono colono;
@@ -103,7 +99,10 @@ namespace WFPGranjas
 
 
             dgPartidasR.DefaultCellStyle.Font = new Font("Arial", 14F, GraphicsUnit.Pixel);
-    
+            dgPartidasR.Columns[0].Visible = false;
+            dgPartidasR.Columns[6].Visible = false;
+            dgPartidasR.Columns[7].Visible = false;
+            dgPartidasR.Columns[8].Visible = false;
             //dgLotes.Columns[4].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleRight;
             //dgLotes.Columns[4].DefaultCellStyle.Format = "##,##0.0000";
 
@@ -169,7 +168,12 @@ namespace WFPGranjas
                    
                     lblFolio.Text = txtColono.Text;
                     PrcCancelacion prcCancelacion = new PrcCancelacion();
-                    double importeTotal = prcCancelacion.consultaPago(dgPartidasR, colono.folio, txtColono.Text, lblMoratorio, lblImporte, lblTotalImporte);
+                    Object[] parames3 = { colono.folio };
+                    double multa = prcCancelacion.obtieneMulta(parames3);
+                    string multaTxt = String.Format(CultureInfo.InvariantCulture,
+                                 "{0:0,0.0}", multa);
+                    lblMulta.Text = "" + multaTxt;
+                    double importeTotal = prcCancelacion.consultaPago(dgPartidasR, colono.folio, txtColono.Text, lblMoratorio, lblImporte, lblTotalImporte, multa);
                     dgPartidasR.Visible = true;
                     //tonka recibo cancela
                     paramCan1 = idLote;
@@ -177,9 +181,13 @@ namespace WFPGranjas
                     paramCan3 =int.Parse( dgPartidasR.CurrentRow.Cells[6].Value.ToString());
                     paramCan4 = int.Parse(dgPartidasR.CurrentRow.Cells[7].Value.ToString());
                     //fin tonka cancela
-                    Object[] parames = { colono .folio, txtColono.Text, };
+                    Object[] parames = { colono .folio, txtColono.Text };
                     Boolean validacion = prcCancelacion.validaEstatusPago(parames);
-                    Boolean validacionFecha = prcCancelacion.validaFechaPago(parames);
+                    
+                    Object[] parames2 = { colono.folio, paramCan3,paramCan4 };
+                    Boolean validacionFecha = prcCancelacion.validaFechaPago(parames2);
+                   
+                   
                     if (validacion || validacionFecha)
                         btnCapturaPago.Visible = false;
                     else
@@ -189,10 +197,10 @@ namespace WFPGranjas
                         panelEstatus.Visible = true;
 
                     if (validacionFecha)
-                        lblMensaje.Text = "No se puede cancelar el pago, debido a la aplicacion de cuotas historicas ";
+                        lblMensaje.Text = "Fuera de periodo de cancelacion ";
                     if (validacion)
-                        lblMensaje.Text = "El recibo se encuentra cancelado"; 
-
+                        lblMensaje.Text = "El recibo se encuentra cancelado";
+                   
                     txtColono.Text = "";
                 }
                 else

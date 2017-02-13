@@ -51,8 +51,9 @@ namespace WFPGranjas
                 pbAgua.Visible = true;
                 pbManto.Visible = false;
                 btnGenCuotas.Text = "Generar cierre";
-
-                actualizaDatosCierre();
+                var BeanCEstatus = new Backend.Catalogos.CManzanaLotes();
+             
+                 actualizaDatosCierre();
             }
            
 
@@ -197,9 +198,9 @@ namespace WFPGranjas
             //almacenamos el id del lote en la variable global local
             MDIPrincipal status = new MDIPrincipal();
             //status.tsPeriodo.Text = resultado.periodoEstatus;
-            foreach (ToolStripItem item in ((StatusStrip)((Form)this.MdiParent).Controls["statusStrip"]).Items)
+            foreach (ToolStripItem item in ((StatusStrip)((Form)status).Controls["statusStrip"]).Items)
             {
-                MessageBox.Show(item.Name);
+                MessageBox.Show(item.Name + "- "+resultado.periodoEstatus);
                 item.Text = resultado.periodoEstatus;
             }
         }
@@ -327,24 +328,6 @@ namespace WFPGranjas
             btnGenCuotas.Visible = false;
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
-        {
-            MDIPrincipal mdi = new MDIPrincipal();
-            //  mdi.Controls["statusStrip"].Controls["tsPeriodo"].Text = "saasd";
-            //  this.MdiParent.Controls["tsPeriodo"].Text = "wwcd";
-
-            //((StatusStrip)mdi.Controls["statusStrip"]).Controls["ToolStripStatusLabel"].Text = string.Empty;
-
-
-            foreach (Control c in this.MdiParent.Controls["statusStrip"].Controls)
-            {
-                MessageBox.Show(c.Name);
-            }
-            foreach (ToolStripItem item in ((StatusStrip)((Form)this.MdiParent).Controls["statusStrip"]).Items)
-            {
-                MessageBox.Show(item.Name);
-                item.Text = "kugjvj";
-            }
-        }
+    
     }
 }
