@@ -612,7 +612,8 @@ namespace WFPGranjas
             {
                 descuento = double.Parse(txtDescuento.Text);
             }
-
+            decimal calcular = TruncateToDecimalPlace((decimal) pagoTotal,2);
+            pagoTotal = (double)calcular;
             if (pagoTotal == totalImporte)
             {
                 string cuenta_contable = null, concepto=null;
@@ -673,6 +674,12 @@ namespace WFPGranjas
                 BeanRPTMedidor.Show();
             }
 
+        }
+        public  decimal TruncateToDecimalPlace( decimal numberToTruncate, int decimalPlaces)
+        {
+            decimal power = (decimal)(Math.Pow(10.0, (double)decimalPlaces));
+
+            return Math.Truncate((power * numberToTruncate)) / power;
         }
 
         private void txtImpEf_KeyPress(object sender, KeyPressEventArgs e)
