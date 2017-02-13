@@ -645,6 +645,8 @@ namespace WFPGranjas {
             
             private global::System.Data.DataColumn columnid_medidor;
             
+            private global::System.Data.DataColumn columnlec_actual;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public DTRegLecturasDataTable() {
@@ -736,6 +738,14 @@ namespace WFPGranjas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn lec_actualColumn {
+                get {
+                    return this.columnlec_actual;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -771,7 +781,7 @@ namespace WFPGranjas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DTRegLecturasRow AddDTRegLecturasRow(string medidor, string nombre, string manzana, string lote, string lectura, int id_manzana, int id_medidor) {
+            public DTRegLecturasRow AddDTRegLecturasRow(string medidor, string nombre, string manzana, string lote, string lectura, int id_manzana, int id_medidor, int lec_actual) {
                 DTRegLecturasRow rowDTRegLecturasRow = ((DTRegLecturasRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         medidor,
@@ -780,7 +790,8 @@ namespace WFPGranjas {
                         lote,
                         lectura,
                         id_manzana,
-                        id_medidor};
+                        id_medidor,
+                        lec_actual};
                 rowDTRegLecturasRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowDTRegLecturasRow);
                 return rowDTRegLecturasRow;
@@ -810,6 +821,7 @@ namespace WFPGranjas {
                 this.columnlectura = base.Columns["lectura"];
                 this.columnid_manzana = base.Columns["id_manzana"];
                 this.columnid_medidor = base.Columns["id_medidor"];
+                this.columnlec_actual = base.Columns["lec_actual"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -829,6 +841,8 @@ namespace WFPGranjas {
                 base.Columns.Add(this.columnid_manzana);
                 this.columnid_medidor = new global::System.Data.DataColumn("id_medidor", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnid_medidor);
+                this.columnlec_actual = new global::System.Data.DataColumn("lec_actual", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlec_actual);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1266,6 +1280,22 @@ namespace WFPGranjas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int lec_actual {
+                get {
+                    try {
+                        return ((int)(this[this.tableDTRegLecturas.lec_actualColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'lec_actual\' in table \'DTRegLecturas\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTRegLecturas.lec_actualColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsmedidorNull() {
                 return this.IsNull(this.tableDTRegLecturas.medidorColumn);
             }
@@ -1346,6 +1376,18 @@ namespace WFPGranjas {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void Setid_medidorNull() {
                 this[this.tableDTRegLecturas.id_medidorColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Islec_actualNull() {
+                return this.IsNull(this.tableDTRegLecturas.lec_actualColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setlec_actualNull() {
+                this[this.tableDTRegLecturas.lec_actualColumn] = global::System.Convert.DBNull;
             }
         }
         
