@@ -264,7 +264,7 @@
             this.statusStrip.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.statusStrip.Size = new System.Drawing.Size(843, 22);
             this.statusStrip.TabIndex = 2;
-            this.statusStrip.Text = "StatusStrip";
+            this.statusStrip.Text = "Status";
             // 
             // tsPeriodo
             // 

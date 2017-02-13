@@ -328,7 +328,7 @@ namespace WFPGranjas
             childFormCuotasManto.Text = "INGRESOS POR CUOTAS DE AGUA";
             childFormCuotasManto.Show();
         }
-
+ 
         #region Muestra estatus
         public void muestraEstatus()
         {

@@ -143,6 +143,7 @@ namespace WFPGranjas
                             bwProgress.RunWorkerAsync();
                             //   btnCancelar.Enabled = true;
                             btnGenCuotas.Enabled = false;
+                          
 
                         }
                         else
@@ -195,7 +196,12 @@ namespace WFPGranjas
             resultado = BeanCEstatus.consultaPeriodos();
             //almacenamos el id del lote en la variable global local
             MDIPrincipal status = new MDIPrincipal();
-            status.tsPeriodo.Text = resultado.periodoEstatus;
+            //status.tsPeriodo.Text = resultado.periodoEstatus;
+            foreach (ToolStripItem item in ((StatusStrip)((Form)this.MdiParent).Controls["statusStrip"]).Items)
+            {
+                MessageBox.Show(item.Name);
+                item.Text = resultado.periodoEstatus;
+            }
         }
         #endregion
 
@@ -312,10 +318,33 @@ namespace WFPGranjas
                 modulo = "Cierre.Generacion de cierre de mes";
                 lblInfoMsj.Text = "Finalizo la generacion del cierre";
                 muestraEstatus();
+
+
+
             }
             Object[] parames2 = { usuario, "Administracion." + modulo, "Generacion de cuotas del mes :" + cmbPeriodos.Text, "OK", "Satisfactorio" };
             bitacora.registroBitacora(parames2);
             btnGenCuotas.Visible = false;
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            MDIPrincipal mdi = new MDIPrincipal();
+            //  mdi.Controls["statusStrip"].Controls["tsPeriodo"].Text = "saasd";
+            //  this.MdiParent.Controls["tsPeriodo"].Text = "wwcd";
+
+            //((StatusStrip)mdi.Controls["statusStrip"]).Controls["ToolStripStatusLabel"].Text = string.Empty;
+
+
+            foreach (Control c in this.MdiParent.Controls["statusStrip"].Controls)
+            {
+                MessageBox.Show(c.Name);
+            }
+            foreach (ToolStripItem item in ((StatusStrip)((Form)this.MdiParent).Controls["statusStrip"]).Items)
+            {
+                MessageBox.Show(item.Name);
+                item.Text = "kugjvj";
+            }
         }
     }
 }
