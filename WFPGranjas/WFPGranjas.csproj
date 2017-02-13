@@ -92,6 +92,12 @@
       <DependentUpon>crAvisosCobranza.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="crGrafica.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crGrafica.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="crMedidorSQL.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -224,21 +230,15 @@
       <DependentUpon>crSubTarifasRA.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="CrystalReport1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CrystalReport1.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="dsAvisosCobranza.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsAvisosCobranza.xsd</DependentUpon>
     </Compile>
-    <Compile Include="dsEdoCuenta.Designer.cs">
+    <Compile Include="dsGrafica.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>dsEdoCuenta.xsd</DependentUpon>
+      <DependentUpon>dsGrafica.xsd</DependentUpon>
     </Compile>
     <Compile Include="dsEncabezadoRecibo.cs">
       <DependentUpon>dsEncabezadoRecibo.xsd</DependentUpon>
@@ -500,6 +500,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crAvisosCobranza.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="crGrafica.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crGrafica.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="crMedidorSQL.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crMedidorSQL.cs</LastGenOutput>
@@ -587,10 +591,6 @@
     <EmbeddedResource Include="crSubTarifasRA.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crSubTarifasRA.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CrystalReport1.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCalculaCBAMensual.resx">
       <DependentUpon>frmCalculaCBAMensual.cs</DependentUpon>
@@ -715,16 +715,16 @@
     <None Include="dsAvisosCobranza.xss">
       <DependentUpon>dsAvisosCobranza.xsd</DependentUpon>
     </None>
-    <None Include="dsEdoCuenta.xsc">
-      <DependentUpon>dsEdoCuenta.xsd</DependentUpon>
+    <None Include="dsGrafica.xsc">
+      <DependentUpon>dsGrafica.xsd</DependentUpon>
     </None>
-    <None Include="dsEdoCuenta.xsd">
+    <None Include="dsGrafica.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dsEdoCuenta.Designer.cs</LastGenOutput>
+      <LastGenOutput>dsGrafica.Designer.cs</LastGenOutput>
     </None>
-    <None Include="dsEdoCuenta.xss">
-      <DependentUpon>dsEdoCuenta.xsd</DependentUpon>
+    <None Include="dsGrafica.xss">
+      <DependentUpon>dsGrafica.xsd</DependentUpon>
     </None>
     <None Include="dsEncabezadoRecibo.xsc">
       <DependentUpon>dsEncabezadoRecibo.xsd</DependentUpon>

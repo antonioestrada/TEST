@@ -112,5 +112,12 @@ namespace WFPGranjas
             }
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            var BeanRPTMedidor = new Backend.Reportes.rptMedidores();
+            //if(cmbFiltroMza.Text=="Todos")
+            BeanRPTMedidor.rptGrafica(crvListadoMedidor, 1, "");
+        }
     }
 }
