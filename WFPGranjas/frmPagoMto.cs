@@ -436,7 +436,10 @@ namespace WFPGranjas
                 }
                 decimal totalImporte = (importeEfectivo + importeCheque + importFicha);
                 decimal totalRecibo = 0;
-                totalRecibo = decimal.Parse(pagoTotal.ToString());
+
+                totalRecibo = decimal.Parse(txtTotal.Text.ToString());
+                decimal calcular = TruncateToDecimalPlace((decimal)totalRecibo, 2);
+                totalRecibo = calcular;
                 if (totalRecibo == totalImporte)
                 {
                     Object[] parames = { listaIDKardex, idLote, servicio, importeEfectivo, txtCheque.Text, bancoCheque, importeCheque, txtFicha.Text, bancoFicha, importFicha, multas, id_colono };
@@ -468,6 +471,12 @@ namespace WFPGranjas
             }
         }
 
+        public decimal TruncateToDecimalPlace(decimal numberToTruncate, int decimalPlaces)
+        {
+            decimal power = (decimal)(Math.Pow(10.0, (double)decimalPlaces));
+
+            return Math.Truncate((power * numberToTruncate)) / power;
+        }
         private void txtImpEf_KeyPress(object sender, KeyPressEventArgs e)
         {
             validaNumeros(txtImpEf, sender,e);
