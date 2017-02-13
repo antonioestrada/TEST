@@ -389,7 +389,9 @@ namespace WFPGranjas
                     //else
                         listaMeses = obtieneMesesNuevo();
                     PrcAnticipos prcAnticipos = new PrcAnticipos();
-                    double importeTotal = prcAnticipos.generaCuotas(dgPartidasR, listaCuotasPag, listaMeses, id_colono, idManzana, idLote, listaMeses, esAnual);
+                    ResultadoTrnx respuesta = prcAnticipos.generaCuotas(dgPartidasR, listaCuotasPag, listaMeses, id_colono, idManzana, idLote, listaMeses, esAnual);
+                    double importeTotal = respuesta.importe;
+                    listaMeses = respuesta.fecha;
                     pnlMeses.Visible = false;
                     groupCuota.Visible = true;
                     txtImporte.Text = String.Format(CultureInfo.InvariantCulture, "{0:0,0.00}", importeTotal);
@@ -418,7 +420,9 @@ namespace WFPGranjas
                 listaMeses = obtieneMeses();
 
                 PrcAnticipos prcAnticipos = new PrcAnticipos();
-                double importeTotal = prcAnticipos.generaCuotas(dgPartidasR, listaCuotasPag, listaMeses,  id_colono, idManzana, idLote, listaMeses, esAnual);
+                ResultadoTrnx respuesta  = prcAnticipos.generaCuotas(dgPartidasR, listaCuotasPag, listaMeses,  id_colono, idManzana, idLote, listaMeses, esAnual);
+                double importeTotal = respuesta.importe;
+                listaMeses = respuesta.fecha;
                 pnlMeses.Visible = false;
                 groupCuota.Visible = true;
                 txtImporte.Text = String.Format(CultureInfo.InvariantCulture, "{0:0,0.00}", importeTotal);
