@@ -63,5 +63,7 @@ namespace WFPGranjas.Backend.Catalogos
         //para periodos y año
         public int result { get; set; }
         public int servicio { get; set; }
+        public string fecha { get; set; }
+        public double importe { get; set; }
     }
 }

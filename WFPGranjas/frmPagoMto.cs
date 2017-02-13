@@ -348,26 +348,7 @@ namespace WFPGranjas
             }
         }
 
-        private void btnApliCalculoAn9t_Click(object sender, EventArgs e)
-        {
-           
-            listaIDKardex = obtieneIDKardex();
-            PrcAnticipos prcAnticipos= new PrcAnticipos();
-            double importeTotal=prcAnticipos.generaCuotas(dgPartidasR,null,null, id_colono, idManzana, idLote, listaIDKardex,false);
-         
-            groupCuota.Visible = true;
-            txtImporte.Text = String.Format(CultureInfo.InvariantCulture,"{0:0,0.00}", importeTotal);
-            txtMultas.Text = "0.00";
-            txtTotal.Text = String.Format(CultureInfo.InvariantCulture, "{0:0,0.00}", importeTotal);
-            pagoTotal = importeTotal ;
-            prcAnticipos.consultaBancos(cmbBancoCheq);
-            prcAnticipos.consultaBancos(cmbBancoFicha);
-            txtImpEf.Text = "0.00";
-            txtImpChq.Text = "0.00";
-            txtImpFicha.Text = "0.00";
-            txtMultas.Text = "0.00";
-
-        }
+      
 
         private void txtColono_KeyDown(object sender, KeyEventArgs e)
         {

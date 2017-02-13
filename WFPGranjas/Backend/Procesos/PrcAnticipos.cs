@@ -18,8 +18,9 @@ namespace WFPGranjas.Backend.Procesos
         List<string> listaCuotasPag;
 
         #region genera  cuotas
-        public double generaCuotas(DataGridView dgConsulta, List<string> listaCuotasPag,string meses, int idColono, int idManzana, int idLote, string listadoMeses,Boolean esAnual)
+        public ResultadoTrnx generaCuotas(DataGridView dgConsulta, List<string> listaCuotasPag,string meses, int idColono, int idManzana, int idLote, string listadoMeses,Boolean esAnual)
         {
+            ResultadoTrnx respuesta = new ResultadoTrnx();
             meses = "";
             //limpiamos el datagridview
             //Conexion.conectar();
@@ -48,7 +49,7 @@ namespace WFPGranjas.Backend.Procesos
 
                     importeTotal += Double.Parse(reader.GetValue(2).ToString());
 
-                    meses += reader.GetValue(4).ToString();
+                    meses += reader.GetValue(3).ToString();
                     meses += ",";
                 }
                 else {
@@ -58,9 +59,11 @@ namespace WFPGranjas.Backend.Procesos
 
                 }
             }
+            respuesta.importe = importeTotal;
             meses = meses.TrimEnd(',');
+            respuesta.fecha = meses;
             Conexion.FinalizarSesion();
-            return importeTotal;
+            return respuesta;
         }
         #endregion
 
