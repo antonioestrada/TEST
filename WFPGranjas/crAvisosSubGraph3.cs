@@ -16,14 +16,14 @@ namespace WFPGranjas {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class crAvisosCobranza : ReportClass {
+    public class crAvisosSubGraph3 : ReportClass {
         
-        public crAvisosCobranza() {
+        public crAvisosSubGraph3() {
         }
         
         public override string ResourceName {
             get {
-                return "crAvisosCobranza.rpt";
+                return "crAvisosSubGraph3.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace WFPGranjas {
         
         public override string FullResourceName {
             get {
-                return "WFPGranjas.crAvisosCobranza.rpt";
+                return "WFPGranjas.crAvisosSubGraph3.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace WFPGranjas {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedcrAvisosCobranza : Component, ICachedReport {
+    public class CachedcrAvisosSubGraph3 : Component, ICachedReport {
         
-        public CachedcrAvisosCobranza() {
+        public CachedcrAvisosSubGraph3() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace WFPGranjas {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            crAvisosCobranza rpt = new crAvisosCobranza();
+            crAvisosSubGraph3 rpt = new crAvisosSubGraph3();
             rpt.Site = this.Site;
             return rpt;
         }

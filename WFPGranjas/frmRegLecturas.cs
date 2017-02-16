@@ -112,6 +112,12 @@ namespace WFPGranjas
                                                   ValueType = typeof (string),
                                                   HeaderText = "Medidor",
                                                   Width = 90
+                                              },
+                                              new DataGridViewTextBoxColumn
+                                              {
+                                                  ValueType = typeof (string),
+                                                  HeaderText = "CBA",
+                                                  Width = 90
                                               }
                                       });
             dgListado.Columns[0].Visible = false;

@@ -18,7 +18,8 @@ namespace WFPGranjas
         int resulCambio = 1;
         int opcionM = 0;
         int tipo_mov = 0, id_medidor=0, id_lote = 0;
-        double m2=0;
+        double m2=0, m2Lote=0, cantMed = 0;
+
         public frmCMedidores(int op)
         {
             InitializeComponent();
@@ -45,6 +46,8 @@ namespace WFPGranjas
             txtColono.Text = resultado.conoloDTO;
             txtDireccion.Text = resultado.direccionDTO;
             m2 = resultado.m2DTO;
+            cantMed = resultado.resultCanMed;
+            m2Lote = resultado.resultM2Lote;
 
             var BeanCBeanMedidor = new Backend.Catalogos.CMedidores();
             //la ejecucion de este sp nos mostrara los contratos asignas a este lote
@@ -196,7 +199,9 @@ namespace WFPGranjas
             {
                 txtContrato.ReadOnly = false;
                 txtMedidor.ReadOnly = false;
-                txtM2.Text = Convert.ToString(m2);
+                double superficieEquiv = 0;
+                superficieEquiv = (m2Lote) / (cantMed+1);
+                txtM2.Text = Convert.ToString(superficieEquiv);
                 Globales vGlobal = new Globales();
                 double baseCNAF = 0;
                 baseCNAF = Math.Round(((Convert.ToDouble(txtM2.Text) * (vGlobal.cna_param1) * (vGlobal.cna_param2)) / 1000) + (vGlobal.cna_param3), 2);
@@ -229,6 +234,8 @@ namespace WFPGranjas
 
         private void btnGuardar_Click(object sender, EventArgs e)
         {
+            
+
             if (txtContrato.Text == "" || txtMedidor.Text == "")
             {
                 pnlResult.Visible = true;
@@ -251,12 +258,19 @@ namespace WFPGranjas
                     }
                     else
                     {
-                        abcMedidores(tipo_mov, id_medidor, id_lote, txtContrato, txtNuevoMedidor, txtBaseCNA, int.Parse(txtLecAnterior.Text), int.Parse(txtLecActual.Text));
-                        if(resulCambio==0)
+                        int i = 0;
+                        bool esEntero = Int32.TryParse(txtLecActual.Text, out i), esEntero2 = Int32.TryParse(txtLecAnterior.Text, out i); ;
+                        if (esEntero && esEntero2)
                         {
-                            rptReciboAgua BeanRPTMedidor = new rptReciboAgua("" + id_lote, "" + txtContrato, 20);
-                            BeanRPTMedidor.Show();
+                            abcMedidores(tipo_mov, id_medidor, id_lote, txtContrato, txtNuevoMedidor, txtBaseCNA, int.Parse(txtLecAnterior.Text), int.Parse(txtLecActual.Text));
+                            if (resulCambio == 0)
+                            {
+                                rptReciboAgua BeanRPTMedidor = new rptReciboAgua("" + id_lote, "" + txtContrato, 20);
+                                BeanRPTMedidor.Show();
+                            }
                         }
+                        else
+                            MessageBox.Show("Formato incorrecto en lecturas");
                     }
                 }
             }

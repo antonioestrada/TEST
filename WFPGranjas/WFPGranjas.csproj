@@ -82,14 +82,33 @@
     <Compile Include="Backend\Procesos\PrcAnticipos.cs" />
     <Compile Include="Backend\Procesos\Cuota.cs" />
     <Compile Include="Backend\Properties.cs" />
+    <Compile Include="Backend\Reportes\rptAvisosCobranza.cs" />
     <Compile Include="Backend\Reportes\rptMedidores.cs" />
     <Compile Include="Backend\Reportes\rptCobranza.cs" />
     <Compile Include="Backend\Reportes\rptRecibos.cs" />
     <Compile Include="Backend\Utilerias.cs" />
-    <Compile Include="crAvisosCobranza.cs">
+    <Compile Include="crAvisosSubGraph2.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>crAvisosCobranza.rpt</DependentUpon>
+      <DependentUpon>crAvisosSubGraph2.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="crAvisosSubGraph1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crAvisosSubGraph1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="crAvisoCobranza1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crAvisoCobranza.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="crAvisosSubGraph3.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crAvisosSubGraph3.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="crGrafica.cs">
@@ -200,6 +219,12 @@
       <DependentUpon>crReciboMtto.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="crRegLecturasCons.cs">
+      <DependentUpon>crRegLecturasCons.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="crRegLecturas.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -230,6 +255,9 @@
       <DependentUpon>crSubTarifasRA.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="dsAvisosCobranza.cs">
+      <DependentUpon>dsAvisosCobranza.xsd</DependentUpon>
+    </Compile>
     <Compile Include="dsAvisosCobranza.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -252,6 +280,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsGestionesVarias.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsGraph1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsGraph1.xsd</DependentUpon>
     </Compile>
     <Compile Include="dsIngresosDiarios.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -283,6 +316,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsReciboManto.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="frmAsignaCBA.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAsignaCBA.Designer.cs">
+      <DependentUpon>frmAsignaCBA.cs</DependentUpon>
     </Compile>
     <Compile Include="frmCalculaCBAMensual.cs">
       <SubType>Form</SubType>
@@ -496,9 +535,27 @@
       <DependentUpon>rptSubMedidor.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <EmbeddedResource Include="crAvisosCobranza.rpt">
+    <Compile Include="rptVarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="rptVarios.Designer.cs">
+      <DependentUpon>rptVarios.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="crAvisosSubGraph2.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>crAvisosCobranza.cs</LastGenOutput>
+      <LastGenOutput>crAvisosSubGraph2.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crAvisosSubGraph1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crAvisosSubGraph1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crAvisoCobranza.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crAvisoCobranza1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crAvisosSubGraph3.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crAvisosSubGraph3.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="crGrafica.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -572,6 +629,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crReciboMtto.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="crRegLecturasCons.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crRegLecturasCons.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="crRegLecturas.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crRegLecturas.cs</LastGenOutput>
@@ -591,6 +652,9 @@
     <EmbeddedResource Include="crSubTarifasRA.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crSubTarifasRA.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmAsignaCBA.resx">
+      <DependentUpon>frmAsignaCBA.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCalculaCBAMensual.resx">
       <DependentUpon>frmCalculaCBAMensual.cs</DependentUpon>
@@ -704,6 +768,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>rptSubMedidor.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="rptVarios.resx">
+      <DependentUpon>rptVarios.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="dsAvisosCobranza.xsc">
       <DependentUpon>dsAvisosCobranza.xsd</DependentUpon>
     </None>
@@ -747,6 +814,17 @@
     </None>
     <None Include="dsGestionesVarias.xss">
       <DependentUpon>dsGestionesVarias.xsd</DependentUpon>
+    </None>
+    <None Include="dsGraph1.xsc">
+      <DependentUpon>dsGraph1.xsd</DependentUpon>
+    </None>
+    <None Include="dsGraph1.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsGraph1.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsGraph1.xss">
+      <DependentUpon>dsGraph1.xsd</DependentUpon>
     </None>
     <None Include="dsIngresosDiarios.xsc">
       <DependentUpon>dsIngresosDiarios.xsd</DependentUpon>

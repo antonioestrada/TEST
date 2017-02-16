@@ -162,7 +162,7 @@
             this.gbMail.Text = "Enviar Reporte";
             this.gbMail.Visible = false;
             // 
-            // rptMedidores
+            // rptMedidoresL
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -177,7 +177,7 @@
             this.Controls.Add(this.crvListadoMedidor);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
             this.MinimizeBox = false;
-            this.Name = "rptMedidores";
+            this.Name = "rptMedidoresL";
             this.Text = "Listado de Medidores";
             this.Load += new System.EventHandler(this.rptMedidores_Load);
             this.gbMail.ResumeLayout(false);

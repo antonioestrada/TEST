@@ -65,5 +65,23 @@ namespace WFPGranjas.Backend.Catalogos
         public int servicio { get; set; }
         public string fecha { get; set; }
         public double importe { get; set; }
+
+        //
+        public double resultCanMed { get; set; }
+        public double resultM2Lote { get; set; }
+
+        //12 meses de cba retorna/setea
+        public double mes1 { get; set; }
+        public double mes2 { get; set; }
+        public double mes3 { get; set; }
+        public double mes4 { get; set; }
+        public double mes5 { get; set; }
+        public double mes6 { get; set; }
+        public double mes7 { get; set; }
+        public double mes8 { get; set; }
+        public double mes9 { get; set; }
+        public double mes10 { get; set; }
+        public double mes11 { get; set; }
+        public double mes12 { get; set; }
     }
 }

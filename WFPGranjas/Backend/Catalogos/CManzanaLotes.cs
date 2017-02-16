@@ -157,6 +157,10 @@ namespace WFPGranjas.Backend.Catalogos
                 resultado.direccionDTO = "Manzana: " + reader.GetValue(2).ToString() + " Lote: " + reader.GetValue(3).ToString();
                 //m2
                 resultado.m2DTO = Convert.ToDouble(reader.GetValue(4).ToString());
+                //m2 totales
+                resultado.resultM2Lote =double.Parse( reader.GetValue(8).ToString());
+                //medidores en el lote
+                resultado.resultCanMed = int.Parse(reader.GetValue(9).ToString());
 
             }
             else

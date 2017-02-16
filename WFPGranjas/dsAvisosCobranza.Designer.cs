@@ -24,9 +24,21 @@ namespace WFPGranjas {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class dsAvisosCobranza : global::System.Data.DataSet {
         
-        private DTCBADataTable tableDTCBA;
+        private DTAC_HeadFooterDataTable tableDTAC_HeadFooter;
         
-        private DTLecturaDataTable tableDTLectura;
+        private DTAC_DatosColonoDataTable tableDTAC_DatosColono;
+        
+        private DTAC_Grafica3DataTable tableDTAC_Grafica3;
+        
+        private DTAC_Grafica2DataTable tableDTAC_Grafica2;
+        
+        private DTAC_LecturasDataTable tableDTAC_Lecturas;
+        
+        private DTAC_CBADataTable tableDTAC_CBA;
+        
+        private DTAC_PConsumosDataTable tableDTAC_PConsumos;
+        
+        private DTAC_ConsumoDataTable tableDTAC_Consumo;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -56,11 +68,29 @@ namespace WFPGranjas {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["DTCBA"] != null)) {
-                    base.Tables.Add(new DTCBADataTable(ds.Tables["DTCBA"]));
+                if ((ds.Tables["DTAC_HeadFooter"] != null)) {
+                    base.Tables.Add(new DTAC_HeadFooterDataTable(ds.Tables["DTAC_HeadFooter"]));
                 }
-                if ((ds.Tables["DTLectura"] != null)) {
-                    base.Tables.Add(new DTLecturaDataTable(ds.Tables["DTLectura"]));
+                if ((ds.Tables["DTAC_DatosColono"] != null)) {
+                    base.Tables.Add(new DTAC_DatosColonoDataTable(ds.Tables["DTAC_DatosColono"]));
+                }
+                if ((ds.Tables["DTAC_Grafica3"] != null)) {
+                    base.Tables.Add(new DTAC_Grafica3DataTable(ds.Tables["DTAC_Grafica3"]));
+                }
+                if ((ds.Tables["DTAC_Grafica2"] != null)) {
+                    base.Tables.Add(new DTAC_Grafica2DataTable(ds.Tables["DTAC_Grafica2"]));
+                }
+                if ((ds.Tables["DTAC_Lecturas"] != null)) {
+                    base.Tables.Add(new DTAC_LecturasDataTable(ds.Tables["DTAC_Lecturas"]));
+                }
+                if ((ds.Tables["DTAC_CBA"] != null)) {
+                    base.Tables.Add(new DTAC_CBADataTable(ds.Tables["DTAC_CBA"]));
+                }
+                if ((ds.Tables["DTAC_PConsumos"] != null)) {
+                    base.Tables.Add(new DTAC_PConsumosDataTable(ds.Tables["DTAC_PConsumos"]));
+                }
+                if ((ds.Tables["DTAC_Consumo"] != null)) {
+                    base.Tables.Add(new DTAC_ConsumoDataTable(ds.Tables["DTAC_Consumo"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -84,9 +114,9 @@ namespace WFPGranjas {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public DTCBADataTable DTCBA {
+        public DTAC_HeadFooterDataTable DTAC_HeadFooter {
             get {
-                return this.tableDTCBA;
+                return this.tableDTAC_HeadFooter;
             }
         }
         
@@ -94,9 +124,69 @@ namespace WFPGranjas {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public DTLecturaDataTable DTLectura {
+        public DTAC_DatosColonoDataTable DTAC_DatosColono {
             get {
-                return this.tableDTLectura;
+                return this.tableDTAC_DatosColono;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public DTAC_Grafica3DataTable DTAC_Grafica3 {
+            get {
+                return this.tableDTAC_Grafica3;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public DTAC_Grafica2DataTable DTAC_Grafica2 {
+            get {
+                return this.tableDTAC_Grafica2;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public DTAC_LecturasDataTable DTAC_Lecturas {
+            get {
+                return this.tableDTAC_Lecturas;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public DTAC_CBADataTable DTAC_CBA {
+            get {
+                return this.tableDTAC_CBA;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public DTAC_PConsumosDataTable DTAC_PConsumos {
+            get {
+                return this.tableDTAC_PConsumos;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public DTAC_ConsumoDataTable DTAC_Consumo {
+            get {
+                return this.tableDTAC_Consumo;
             }
         }
         
@@ -167,11 +257,29 @@ namespace WFPGranjas {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["DTCBA"] != null)) {
-                    base.Tables.Add(new DTCBADataTable(ds.Tables["DTCBA"]));
+                if ((ds.Tables["DTAC_HeadFooter"] != null)) {
+                    base.Tables.Add(new DTAC_HeadFooterDataTable(ds.Tables["DTAC_HeadFooter"]));
                 }
-                if ((ds.Tables["DTLectura"] != null)) {
-                    base.Tables.Add(new DTLecturaDataTable(ds.Tables["DTLectura"]));
+                if ((ds.Tables["DTAC_DatosColono"] != null)) {
+                    base.Tables.Add(new DTAC_DatosColonoDataTable(ds.Tables["DTAC_DatosColono"]));
+                }
+                if ((ds.Tables["DTAC_Grafica3"] != null)) {
+                    base.Tables.Add(new DTAC_Grafica3DataTable(ds.Tables["DTAC_Grafica3"]));
+                }
+                if ((ds.Tables["DTAC_Grafica2"] != null)) {
+                    base.Tables.Add(new DTAC_Grafica2DataTable(ds.Tables["DTAC_Grafica2"]));
+                }
+                if ((ds.Tables["DTAC_Lecturas"] != null)) {
+                    base.Tables.Add(new DTAC_LecturasDataTable(ds.Tables["DTAC_Lecturas"]));
+                }
+                if ((ds.Tables["DTAC_CBA"] != null)) {
+                    base.Tables.Add(new DTAC_CBADataTable(ds.Tables["DTAC_CBA"]));
+                }
+                if ((ds.Tables["DTAC_PConsumos"] != null)) {
+                    base.Tables.Add(new DTAC_PConsumosDataTable(ds.Tables["DTAC_PConsumos"]));
+                }
+                if ((ds.Tables["DTAC_Consumo"] != null)) {
+                    base.Tables.Add(new DTAC_ConsumoDataTable(ds.Tables["DTAC_Consumo"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -206,16 +314,52 @@ namespace WFPGranjas {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableDTCBA = ((DTCBADataTable)(base.Tables["DTCBA"]));
+            this.tableDTAC_HeadFooter = ((DTAC_HeadFooterDataTable)(base.Tables["DTAC_HeadFooter"]));
             if ((initTable == true)) {
-                if ((this.tableDTCBA != null)) {
-                    this.tableDTCBA.InitVars();
+                if ((this.tableDTAC_HeadFooter != null)) {
+                    this.tableDTAC_HeadFooter.InitVars();
                 }
             }
-            this.tableDTLectura = ((DTLecturaDataTable)(base.Tables["DTLectura"]));
+            this.tableDTAC_DatosColono = ((DTAC_DatosColonoDataTable)(base.Tables["DTAC_DatosColono"]));
             if ((initTable == true)) {
-                if ((this.tableDTLectura != null)) {
-                    this.tableDTLectura.InitVars();
+                if ((this.tableDTAC_DatosColono != null)) {
+                    this.tableDTAC_DatosColono.InitVars();
+                }
+            }
+            this.tableDTAC_Grafica3 = ((DTAC_Grafica3DataTable)(base.Tables["DTAC_Grafica3"]));
+            if ((initTable == true)) {
+                if ((this.tableDTAC_Grafica3 != null)) {
+                    this.tableDTAC_Grafica3.InitVars();
+                }
+            }
+            this.tableDTAC_Grafica2 = ((DTAC_Grafica2DataTable)(base.Tables["DTAC_Grafica2"]));
+            if ((initTable == true)) {
+                if ((this.tableDTAC_Grafica2 != null)) {
+                    this.tableDTAC_Grafica2.InitVars();
+                }
+            }
+            this.tableDTAC_Lecturas = ((DTAC_LecturasDataTable)(base.Tables["DTAC_Lecturas"]));
+            if ((initTable == true)) {
+                if ((this.tableDTAC_Lecturas != null)) {
+                    this.tableDTAC_Lecturas.InitVars();
+                }
+            }
+            this.tableDTAC_CBA = ((DTAC_CBADataTable)(base.Tables["DTAC_CBA"]));
+            if ((initTable == true)) {
+                if ((this.tableDTAC_CBA != null)) {
+                    this.tableDTAC_CBA.InitVars();
+                }
+            }
+            this.tableDTAC_PConsumos = ((DTAC_PConsumosDataTable)(base.Tables["DTAC_PConsumos"]));
+            if ((initTable == true)) {
+                if ((this.tableDTAC_PConsumos != null)) {
+                    this.tableDTAC_PConsumos.InitVars();
+                }
+            }
+            this.tableDTAC_Consumo = ((DTAC_ConsumoDataTable)(base.Tables["DTAC_Consumo"]));
+            if ((initTable == true)) {
+                if ((this.tableDTAC_Consumo != null)) {
+                    this.tableDTAC_Consumo.InitVars();
                 }
             }
         }
@@ -228,21 +372,69 @@ namespace WFPGranjas {
             this.Namespace = "http://tempuri.org/dsAvisosCobranza.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableDTCBA = new DTCBADataTable();
-            base.Tables.Add(this.tableDTCBA);
-            this.tableDTLectura = new DTLecturaDataTable();
-            base.Tables.Add(this.tableDTLectura);
+            this.tableDTAC_HeadFooter = new DTAC_HeadFooterDataTable();
+            base.Tables.Add(this.tableDTAC_HeadFooter);
+            this.tableDTAC_DatosColono = new DTAC_DatosColonoDataTable();
+            base.Tables.Add(this.tableDTAC_DatosColono);
+            this.tableDTAC_Grafica3 = new DTAC_Grafica3DataTable();
+            base.Tables.Add(this.tableDTAC_Grafica3);
+            this.tableDTAC_Grafica2 = new DTAC_Grafica2DataTable();
+            base.Tables.Add(this.tableDTAC_Grafica2);
+            this.tableDTAC_Lecturas = new DTAC_LecturasDataTable();
+            base.Tables.Add(this.tableDTAC_Lecturas);
+            this.tableDTAC_CBA = new DTAC_CBADataTable();
+            base.Tables.Add(this.tableDTAC_CBA);
+            this.tableDTAC_PConsumos = new DTAC_PConsumosDataTable();
+            base.Tables.Add(this.tableDTAC_PConsumos);
+            this.tableDTAC_Consumo = new DTAC_ConsumoDataTable();
+            base.Tables.Add(this.tableDTAC_Consumo);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeDTCBA() {
+        private bool ShouldSerializeDTAC_HeadFooter() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializeDTLectura() {
+        private bool ShouldSerializeDTAC_DatosColono() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeDTAC_Grafica3() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeDTAC_Grafica2() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeDTAC_Lecturas() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeDTAC_CBA() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeDTAC_PConsumos() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        private bool ShouldSerializeDTAC_Consumo() {
             return false;
         }
         
@@ -302,30 +494,54 @@ namespace WFPGranjas {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void DTCBARowChangeEventHandler(object sender, DTCBARowChangeEvent e);
+        public delegate void DTAC_HeadFooterRowChangeEventHandler(object sender, DTAC_HeadFooterRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void DTLecturaRowChangeEventHandler(object sender, DTLecturaRowChangeEvent e);
+        public delegate void DTAC_DatosColonoRowChangeEventHandler(object sender, DTAC_DatosColonoRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void DTAC_Grafica3RowChangeEventHandler(object sender, DTAC_Grafica3RowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void DTAC_Grafica2RowChangeEventHandler(object sender, DTAC_Grafica2RowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void DTAC_LecturasRowChangeEventHandler(object sender, DTAC_LecturasRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void DTAC_CBARowChangeEventHandler(object sender, DTAC_CBARowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void DTAC_PConsumosRowChangeEventHandler(object sender, DTAC_PConsumosRowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public delegate void DTAC_ConsumoRowChangeEventHandler(object sender, DTAC_ConsumoRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class DTCBADataTable : global::System.Data.TypedTableBase<DTCBARow> {
+        public partial class DTAC_HeadFooterDataTable : global::System.Data.TypedTableBase<DTAC_HeadFooterRow> {
             
-            private global::System.Data.DataColumn columnid_factor;
+            private global::System.Data.DataColumn columnid_comun;
             
-            private global::System.Data.DataColumn columnperiodo;
+            private global::System.Data.DataColumn columnempresa;
             
-            private global::System.Data.DataColumn columnanio;
+            private global::System.Data.DataColumn columnaviso;
             
-            private global::System.Data.DataColumn columncuota;
+            private global::System.Data.DataColumn columnfoot1;
+            
+            private global::System.Data.DataColumn columnfoot2;
+            
+            private global::System.Data.DataColumn columnfoot3;
+            
+            private global::System.Data.DataColumn columnfoot4;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DTCBADataTable() {
-                this.TableName = "DTCBA";
+            public DTAC_HeadFooterDataTable() {
+                this.TableName = "DTAC_HeadFooter";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -333,7 +549,7 @@ namespace WFPGranjas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal DTCBADataTable(global::System.Data.DataTable table) {
+            internal DTAC_HeadFooterDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -350,40 +566,64 @@ namespace WFPGranjas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected DTCBADataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected DTAC_HeadFooterDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn id_factorColumn {
+            public global::System.Data.DataColumn id_comunColumn {
                 get {
-                    return this.columnid_factor;
+                    return this.columnid_comun;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn periodoColumn {
+            public global::System.Data.DataColumn empresaColumn {
                 get {
-                    return this.columnperiodo;
+                    return this.columnempresa;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn anioColumn {
+            public global::System.Data.DataColumn avisoColumn {
                 get {
-                    return this.columnanio;
+                    return this.columnaviso;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn cuotaColumn {
+            public global::System.Data.DataColumn foot1Column {
                 get {
-                    return this.columncuota;
+                    return this.columnfoot1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn foot2Column {
+                get {
+                    return this.columnfoot2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn foot3Column {
+                get {
+                    return this.columnfoot3;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn foot4Column {
+                get {
+                    return this.columnfoot4;
                 }
             }
             
@@ -398,48 +638,51 @@ namespace WFPGranjas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DTCBARow this[int index] {
+            public DTAC_HeadFooterRow this[int index] {
                 get {
-                    return ((DTCBARow)(this.Rows[index]));
+                    return ((DTAC_HeadFooterRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event DTCBARowChangeEventHandler DTCBARowChanging;
+            public event DTAC_HeadFooterRowChangeEventHandler DTAC_HeadFooterRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event DTCBARowChangeEventHandler DTCBARowChanged;
+            public event DTAC_HeadFooterRowChangeEventHandler DTAC_HeadFooterRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event DTCBARowChangeEventHandler DTCBARowDeleting;
+            public event DTAC_HeadFooterRowChangeEventHandler DTAC_HeadFooterRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event DTCBARowChangeEventHandler DTCBARowDeleted;
+            public event DTAC_HeadFooterRowChangeEventHandler DTAC_HeadFooterRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddDTCBARow(DTCBARow row) {
+            public void AddDTAC_HeadFooterRow(DTAC_HeadFooterRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DTCBARow AddDTCBARow(int id_factor, string periodo, string anio, double cuota) {
-                DTCBARow rowDTCBARow = ((DTCBARow)(this.NewRow()));
+            public DTAC_HeadFooterRow AddDTAC_HeadFooterRow(int id_comun, string empresa, string aviso, string foot1, string foot2, string foot3, string foot4) {
+                DTAC_HeadFooterRow rowDTAC_HeadFooterRow = ((DTAC_HeadFooterRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        id_factor,
-                        periodo,
-                        anio,
-                        cuota};
-                rowDTCBARow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowDTCBARow);
-                return rowDTCBARow;
+                        id_comun,
+                        empresa,
+                        aviso,
+                        foot1,
+                        foot2,
+                        foot3,
+                        foot4};
+                rowDTAC_HeadFooterRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowDTAC_HeadFooterRow);
+                return rowDTAC_HeadFooterRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                DTCBADataTable cln = ((DTCBADataTable)(base.Clone()));
+                DTAC_HeadFooterDataTable cln = ((DTAC_HeadFooterDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -447,55 +690,64 @@ namespace WFPGranjas {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new DTCBADataTable();
+                return new DTAC_HeadFooterDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnid_factor = base.Columns["id_factor"];
-                this.columnperiodo = base.Columns["periodo"];
-                this.columnanio = base.Columns["anio"];
-                this.columncuota = base.Columns["cuota"];
+                this.columnid_comun = base.Columns["id_comun"];
+                this.columnempresa = base.Columns["empresa"];
+                this.columnaviso = base.Columns["aviso"];
+                this.columnfoot1 = base.Columns["foot1"];
+                this.columnfoot2 = base.Columns["foot2"];
+                this.columnfoot3 = base.Columns["foot3"];
+                this.columnfoot4 = base.Columns["foot4"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnid_factor = new global::System.Data.DataColumn("id_factor", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnid_factor);
-                this.columnperiodo = new global::System.Data.DataColumn("periodo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnperiodo);
-                this.columnanio = new global::System.Data.DataColumn("anio", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnanio);
-                this.columncuota = new global::System.Data.DataColumn("cuota", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncuota);
+                this.columnid_comun = new global::System.Data.DataColumn("id_comun", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_comun);
+                this.columnempresa = new global::System.Data.DataColumn("empresa", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnempresa);
+                this.columnaviso = new global::System.Data.DataColumn("aviso", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnaviso);
+                this.columnfoot1 = new global::System.Data.DataColumn("foot1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfoot1);
+                this.columnfoot2 = new global::System.Data.DataColumn("foot2", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfoot2);
+                this.columnfoot3 = new global::System.Data.DataColumn("foot3", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfoot3);
+                this.columnfoot4 = new global::System.Data.DataColumn("foot4", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfoot4);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DTCBARow NewDTCBARow() {
-                return ((DTCBARow)(this.NewRow()));
+            public DTAC_HeadFooterRow NewDTAC_HeadFooterRow() {
+                return ((DTAC_HeadFooterRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new DTCBARow(builder);
+                return new DTAC_HeadFooterRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(DTCBARow);
+                return typeof(DTAC_HeadFooterRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.DTCBARowChanged != null)) {
-                    this.DTCBARowChanged(this, new DTCBARowChangeEvent(((DTCBARow)(e.Row)), e.Action));
+                if ((this.DTAC_HeadFooterRowChanged != null)) {
+                    this.DTAC_HeadFooterRowChanged(this, new DTAC_HeadFooterRowChangeEvent(((DTAC_HeadFooterRow)(e.Row)), e.Action));
                 }
             }
             
@@ -503,8 +755,8 @@ namespace WFPGranjas {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.DTCBARowChanging != null)) {
-                    this.DTCBARowChanging(this, new DTCBARowChangeEvent(((DTCBARow)(e.Row)), e.Action));
+                if ((this.DTAC_HeadFooterRowChanging != null)) {
+                    this.DTAC_HeadFooterRowChanging(this, new DTAC_HeadFooterRowChangeEvent(((DTAC_HeadFooterRow)(e.Row)), e.Action));
                 }
             }
             
@@ -512,8 +764,8 @@ namespace WFPGranjas {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.DTCBARowDeleted != null)) {
-                    this.DTCBARowDeleted(this, new DTCBARowChangeEvent(((DTCBARow)(e.Row)), e.Action));
+                if ((this.DTAC_HeadFooterRowDeleted != null)) {
+                    this.DTAC_HeadFooterRowDeleted(this, new DTAC_HeadFooterRowChangeEvent(((DTAC_HeadFooterRow)(e.Row)), e.Action));
                 }
             }
             
@@ -521,14 +773,14 @@ namespace WFPGranjas {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.DTCBARowDeleting != null)) {
-                    this.DTCBARowDeleting(this, new DTCBARowChangeEvent(((DTCBARow)(e.Row)), e.Action));
+                if ((this.DTAC_HeadFooterRowDeleting != null)) {
+                    this.DTAC_HeadFooterRowDeleting(this, new DTAC_HeadFooterRowChangeEvent(((DTAC_HeadFooterRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveDTCBARow(DTCBARow row) {
+            public void RemoveDTAC_HeadFooterRow(DTAC_HeadFooterRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -555,7 +807,7 @@ namespace WFPGranjas {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "DTCBADataTable";
+                attribute2.FixedValue = "DTAC_HeadFooterDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -601,20 +853,26 @@ namespace WFPGranjas {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class DTLecturaDataTable : global::System.Data.TypedTableBase<DTLecturaRow> {
+        public partial class DTAC_DatosColonoDataTable : global::System.Data.TypedTableBase<DTAC_DatosColonoRow> {
             
-            private global::System.Data.DataColumn columnid_medidor;
+            private global::System.Data.DataColumn columnid_comun;
             
-            private global::System.Data.DataColumn columnperiodo;
+            private global::System.Data.DataColumn columnasociado;
             
-            private global::System.Data.DataColumn columnanio;
+            private global::System.Data.DataColumn columndireccion;
             
-            private global::System.Data.DataColumn columnconsumo;
+            private global::System.Data.DataColumn columnsuperficie;
+            
+            private global::System.Data.DataColumn columncbaMen;
+            
+            private global::System.Data.DataColumn columncontrato;
+            
+            private global::System.Data.DataColumn columnmedidor;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DTLecturaDataTable() {
-                this.TableName = "DTLectura";
+            public DTAC_DatosColonoDataTable() {
+                this.TableName = "DTAC_DatosColono";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -622,7 +880,7 @@ namespace WFPGranjas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal DTLecturaDataTable(global::System.Data.DataTable table) {
+            internal DTAC_DatosColonoDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -639,16 +897,956 @@ namespace WFPGranjas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected DTLecturaDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected DTAC_DatosColonoDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn id_medidorColumn {
+            public global::System.Data.DataColumn id_comunColumn {
                 get {
-                    return this.columnid_medidor;
+                    return this.columnid_comun;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn asociadoColumn {
+                get {
+                    return this.columnasociado;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn direccionColumn {
+                get {
+                    return this.columndireccion;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn superficieColumn {
+                get {
+                    return this.columnsuperficie;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn cbaMenColumn {
+                get {
+                    return this.columncbaMen;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn contratoColumn {
+                get {
+                    return this.columncontrato;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn medidorColumn {
+                get {
+                    return this.columnmedidor;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DTAC_DatosColonoRow this[int index] {
+                get {
+                    return ((DTAC_DatosColonoRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event DTAC_DatosColonoRowChangeEventHandler DTAC_DatosColonoRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event DTAC_DatosColonoRowChangeEventHandler DTAC_DatosColonoRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event DTAC_DatosColonoRowChangeEventHandler DTAC_DatosColonoRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event DTAC_DatosColonoRowChangeEventHandler DTAC_DatosColonoRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddDTAC_DatosColonoRow(DTAC_DatosColonoRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DTAC_DatosColonoRow AddDTAC_DatosColonoRow(int id_comun, string asociado, string direccion, decimal superficie, string cbaMen, string contrato, string medidor) {
+                DTAC_DatosColonoRow rowDTAC_DatosColonoRow = ((DTAC_DatosColonoRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        id_comun,
+                        asociado,
+                        direccion,
+                        superficie,
+                        cbaMen,
+                        contrato,
+                        medidor};
+                rowDTAC_DatosColonoRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowDTAC_DatosColonoRow);
+                return rowDTAC_DatosColonoRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                DTAC_DatosColonoDataTable cln = ((DTAC_DatosColonoDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new DTAC_DatosColonoDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnid_comun = base.Columns["id_comun"];
+                this.columnasociado = base.Columns["asociado"];
+                this.columndireccion = base.Columns["direccion"];
+                this.columnsuperficie = base.Columns["superficie"];
+                this.columncbaMen = base.Columns["cbaMen"];
+                this.columncontrato = base.Columns["contrato"];
+                this.columnmedidor = base.Columns["medidor"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnid_comun = new global::System.Data.DataColumn("id_comun", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_comun);
+                this.columnasociado = new global::System.Data.DataColumn("asociado", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnasociado);
+                this.columndireccion = new global::System.Data.DataColumn("direccion", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columndireccion);
+                this.columnsuperficie = new global::System.Data.DataColumn("superficie", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnsuperficie);
+                this.columncbaMen = new global::System.Data.DataColumn("cbaMen", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncbaMen);
+                this.columncontrato = new global::System.Data.DataColumn("contrato", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncontrato);
+                this.columnmedidor = new global::System.Data.DataColumn("medidor", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnmedidor);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DTAC_DatosColonoRow NewDTAC_DatosColonoRow() {
+                return ((DTAC_DatosColonoRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new DTAC_DatosColonoRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(DTAC_DatosColonoRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.DTAC_DatosColonoRowChanged != null)) {
+                    this.DTAC_DatosColonoRowChanged(this, new DTAC_DatosColonoRowChangeEvent(((DTAC_DatosColonoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.DTAC_DatosColonoRowChanging != null)) {
+                    this.DTAC_DatosColonoRowChanging(this, new DTAC_DatosColonoRowChangeEvent(((DTAC_DatosColonoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.DTAC_DatosColonoRowDeleted != null)) {
+                    this.DTAC_DatosColonoRowDeleted(this, new DTAC_DatosColonoRowChangeEvent(((DTAC_DatosColonoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.DTAC_DatosColonoRowDeleting != null)) {
+                    this.DTAC_DatosColonoRowDeleting(this, new DTAC_DatosColonoRowChangeEvent(((DTAC_DatosColonoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveDTAC_DatosColonoRow(DTAC_DatosColonoRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                dsAvisosCobranza ds = new dsAvisosCobranza();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "DTAC_DatosColonoDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class DTAC_Grafica3DataTable : global::System.Data.TypedTableBase<DTAC_Grafica3Row> {
+            
+            private global::System.Data.DataColumn columnid_comun;
+            
+            private global::System.Data.DataColumn columnmes;
+            
+            private global::System.Data.DataColumn columnanio;
+            
+            private global::System.Data.DataColumn columnconsumo;
+            
+            private global::System.Data.DataColumn columncba;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DTAC_Grafica3DataTable() {
+                this.TableName = "DTAC_Grafica3";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal DTAC_Grafica3DataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected DTAC_Grafica3DataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn id_comunColumn {
+                get {
+                    return this.columnid_comun;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn mesColumn {
+                get {
+                    return this.columnmes;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn anioColumn {
+                get {
+                    return this.columnanio;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn consumoColumn {
+                get {
+                    return this.columnconsumo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn cbaColumn {
+                get {
+                    return this.columncba;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DTAC_Grafica3Row this[int index] {
+                get {
+                    return ((DTAC_Grafica3Row)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event DTAC_Grafica3RowChangeEventHandler DTAC_Grafica3RowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event DTAC_Grafica3RowChangeEventHandler DTAC_Grafica3RowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event DTAC_Grafica3RowChangeEventHandler DTAC_Grafica3RowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event DTAC_Grafica3RowChangeEventHandler DTAC_Grafica3RowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddDTAC_Grafica3Row(DTAC_Grafica3Row row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DTAC_Grafica3Row AddDTAC_Grafica3Row(int id_comun, string mes, string anio, decimal consumo, decimal cba) {
+                DTAC_Grafica3Row rowDTAC_Grafica3Row = ((DTAC_Grafica3Row)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        id_comun,
+                        mes,
+                        anio,
+                        consumo,
+                        cba};
+                rowDTAC_Grafica3Row.ItemArray = columnValuesArray;
+                this.Rows.Add(rowDTAC_Grafica3Row);
+                return rowDTAC_Grafica3Row;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                DTAC_Grafica3DataTable cln = ((DTAC_Grafica3DataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new DTAC_Grafica3DataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnid_comun = base.Columns["id_comun"];
+                this.columnmes = base.Columns["mes"];
+                this.columnanio = base.Columns["anio"];
+                this.columnconsumo = base.Columns["consumo"];
+                this.columncba = base.Columns["cba"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnid_comun = new global::System.Data.DataColumn("id_comun", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_comun);
+                this.columnmes = new global::System.Data.DataColumn("mes", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnmes);
+                this.columnanio = new global::System.Data.DataColumn("anio", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnanio);
+                this.columnconsumo = new global::System.Data.DataColumn("consumo", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnconsumo);
+                this.columncba = new global::System.Data.DataColumn("cba", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncba);
+                this.columnmes.Caption = "asociado";
+                this.columnanio.Caption = "direccion";
+                this.columnconsumo.Caption = "superficie";
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DTAC_Grafica3Row NewDTAC_Grafica3Row() {
+                return ((DTAC_Grafica3Row)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new DTAC_Grafica3Row(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(DTAC_Grafica3Row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.DTAC_Grafica3RowChanged != null)) {
+                    this.DTAC_Grafica3RowChanged(this, new DTAC_Grafica3RowChangeEvent(((DTAC_Grafica3Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.DTAC_Grafica3RowChanging != null)) {
+                    this.DTAC_Grafica3RowChanging(this, new DTAC_Grafica3RowChangeEvent(((DTAC_Grafica3Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.DTAC_Grafica3RowDeleted != null)) {
+                    this.DTAC_Grafica3RowDeleted(this, new DTAC_Grafica3RowChangeEvent(((DTAC_Grafica3Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.DTAC_Grafica3RowDeleting != null)) {
+                    this.DTAC_Grafica3RowDeleting(this, new DTAC_Grafica3RowChangeEvent(((DTAC_Grafica3Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveDTAC_Grafica3Row(DTAC_Grafica3Row row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                dsAvisosCobranza ds = new dsAvisosCobranza();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "DTAC_Grafica3DataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class DTAC_Grafica2DataTable : global::System.Data.TypedTableBase<DTAC_Grafica2Row> {
+            
+            private global::System.Data.DataColumn columnid_comun;
+            
+            private global::System.Data.DataColumn columnmes_CBA;
+            
+            private global::System.Data.DataColumn columncba1;
+            
+            private global::System.Data.DataColumn columncba2;
+            
+            private global::System.Data.DataColumn columncba3;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DTAC_Grafica2DataTable() {
+                this.TableName = "DTAC_Grafica2";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal DTAC_Grafica2DataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected DTAC_Grafica2DataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn id_comunColumn {
+                get {
+                    return this.columnid_comun;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn mes_CBAColumn {
+                get {
+                    return this.columnmes_CBA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn cba1Column {
+                get {
+                    return this.columncba1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn cba2Column {
+                get {
+                    return this.columncba2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn cba3Column {
+                get {
+                    return this.columncba3;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DTAC_Grafica2Row this[int index] {
+                get {
+                    return ((DTAC_Grafica2Row)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event DTAC_Grafica2RowChangeEventHandler DTAC_Grafica2RowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event DTAC_Grafica2RowChangeEventHandler DTAC_Grafica2RowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event DTAC_Grafica2RowChangeEventHandler DTAC_Grafica2RowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event DTAC_Grafica2RowChangeEventHandler DTAC_Grafica2RowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddDTAC_Grafica2Row(DTAC_Grafica2Row row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DTAC_Grafica2Row AddDTAC_Grafica2Row(int id_comun, string mes_CBA, int cba1, int cba2, decimal cba3) {
+                DTAC_Grafica2Row rowDTAC_Grafica2Row = ((DTAC_Grafica2Row)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        id_comun,
+                        mes_CBA,
+                        cba1,
+                        cba2,
+                        cba3};
+                rowDTAC_Grafica2Row.ItemArray = columnValuesArray;
+                this.Rows.Add(rowDTAC_Grafica2Row);
+                return rowDTAC_Grafica2Row;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                DTAC_Grafica2DataTable cln = ((DTAC_Grafica2DataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new DTAC_Grafica2DataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnid_comun = base.Columns["id_comun"];
+                this.columnmes_CBA = base.Columns["mes_CBA"];
+                this.columncba1 = base.Columns["cba1"];
+                this.columncba2 = base.Columns["cba2"];
+                this.columncba3 = base.Columns["cba3"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnid_comun = new global::System.Data.DataColumn("id_comun", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_comun);
+                this.columnmes_CBA = new global::System.Data.DataColumn("mes_CBA", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnmes_CBA);
+                this.columncba1 = new global::System.Data.DataColumn("cba1", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncba1);
+                this.columncba2 = new global::System.Data.DataColumn("cba2", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncba2);
+                this.columncba3 = new global::System.Data.DataColumn("cba3", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columncba3);
+                this.columnmes_CBA.Caption = "asociado";
+                this.columncba1.Caption = "direccion";
+                this.columncba2.Caption = "superficie";
+                this.columncba3.Caption = "cba";
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DTAC_Grafica2Row NewDTAC_Grafica2Row() {
+                return ((DTAC_Grafica2Row)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new DTAC_Grafica2Row(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(DTAC_Grafica2Row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.DTAC_Grafica2RowChanged != null)) {
+                    this.DTAC_Grafica2RowChanged(this, new DTAC_Grafica2RowChangeEvent(((DTAC_Grafica2Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.DTAC_Grafica2RowChanging != null)) {
+                    this.DTAC_Grafica2RowChanging(this, new DTAC_Grafica2RowChangeEvent(((DTAC_Grafica2Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.DTAC_Grafica2RowDeleted != null)) {
+                    this.DTAC_Grafica2RowDeleted(this, new DTAC_Grafica2RowChangeEvent(((DTAC_Grafica2Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.DTAC_Grafica2RowDeleting != null)) {
+                    this.DTAC_Grafica2RowDeleting(this, new DTAC_Grafica2RowChangeEvent(((DTAC_Grafica2Row)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveDTAC_Grafica2Row(DTAC_Grafica2Row row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                dsAvisosCobranza ds = new dsAvisosCobranza();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "DTAC_Grafica2DataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class DTAC_LecturasDataTable : global::System.Data.TypedTableBase<DTAC_LecturasRow> {
+            
+            private global::System.Data.DataColumn columnid_comun;
+            
+            private global::System.Data.DataColumn columnperiodo;
+            
+            private global::System.Data.DataColumn columnlec_anterior;
+            
+            private global::System.Data.DataColumn columnlect_actual;
+            
+            private global::System.Data.DataColumn columnconsumo;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DTAC_LecturasDataTable() {
+                this.TableName = "DTAC_Lecturas";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal DTAC_LecturasDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected DTAC_LecturasDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn id_comunColumn {
+                get {
+                    return this.columnid_comun;
                 }
             }
             
@@ -662,9 +1860,17 @@ namespace WFPGranjas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn anioColumn {
+            public global::System.Data.DataColumn lec_anteriorColumn {
                 get {
-                    return this.columnanio;
+                    return this.columnlec_anterior;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn lect_actualColumn {
+                get {
+                    return this.columnlect_actual;
                 }
             }
             
@@ -687,48 +1893,49 @@ namespace WFPGranjas {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DTLecturaRow this[int index] {
+            public DTAC_LecturasRow this[int index] {
                 get {
-                    return ((DTLecturaRow)(this.Rows[index]));
+                    return ((DTAC_LecturasRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event DTLecturaRowChangeEventHandler DTLecturaRowChanging;
+            public event DTAC_LecturasRowChangeEventHandler DTAC_LecturasRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event DTLecturaRowChangeEventHandler DTLecturaRowChanged;
+            public event DTAC_LecturasRowChangeEventHandler DTAC_LecturasRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event DTLecturaRowChangeEventHandler DTLecturaRowDeleting;
+            public event DTAC_LecturasRowChangeEventHandler DTAC_LecturasRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event DTLecturaRowChangeEventHandler DTLecturaRowDeleted;
+            public event DTAC_LecturasRowChangeEventHandler DTAC_LecturasRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddDTLecturaRow(DTLecturaRow row) {
+            public void AddDTAC_LecturasRow(DTAC_LecturasRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DTLecturaRow AddDTLecturaRow(int id_medidor, string periodo, string anio, int consumo) {
-                DTLecturaRow rowDTLecturaRow = ((DTLecturaRow)(this.NewRow()));
+            public DTAC_LecturasRow AddDTAC_LecturasRow(int id_comun, string periodo, int lec_anterior, int lect_actual, decimal consumo) {
+                DTAC_LecturasRow rowDTAC_LecturasRow = ((DTAC_LecturasRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        id_medidor,
+                        id_comun,
                         periodo,
-                        anio,
+                        lec_anterior,
+                        lect_actual,
                         consumo};
-                rowDTLecturaRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowDTLecturaRow);
-                return rowDTLecturaRow;
+                rowDTAC_LecturasRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowDTAC_LecturasRow);
+                return rowDTAC_LecturasRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                DTLecturaDataTable cln = ((DTLecturaDataTable)(base.Clone()));
+                DTAC_LecturasDataTable cln = ((DTAC_LecturasDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -736,55 +1943,62 @@ namespace WFPGranjas {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new DTLecturaDataTable();
+                return new DTAC_LecturasDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnid_medidor = base.Columns["id_medidor"];
+                this.columnid_comun = base.Columns["id_comun"];
                 this.columnperiodo = base.Columns["periodo"];
-                this.columnanio = base.Columns["anio"];
+                this.columnlec_anterior = base.Columns["lec_anterior"];
+                this.columnlect_actual = base.Columns["lect_actual"];
                 this.columnconsumo = base.Columns["consumo"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnid_medidor = new global::System.Data.DataColumn("id_medidor", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnid_medidor);
+                this.columnid_comun = new global::System.Data.DataColumn("id_comun", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_comun);
                 this.columnperiodo = new global::System.Data.DataColumn("periodo", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnperiodo);
-                this.columnanio = new global::System.Data.DataColumn("anio", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnanio);
-                this.columnconsumo = new global::System.Data.DataColumn("consumo", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnlec_anterior = new global::System.Data.DataColumn("lec_anterior", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlec_anterior);
+                this.columnlect_actual = new global::System.Data.DataColumn("lect_actual", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnlect_actual);
+                this.columnconsumo = new global::System.Data.DataColumn("consumo", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnconsumo);
+                this.columnperiodo.Caption = "asociado";
+                this.columnlec_anterior.Caption = "direccion";
+                this.columnlect_actual.Caption = "superficie";
+                this.columnconsumo.Caption = "cba";
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DTLecturaRow NewDTLecturaRow() {
-                return ((DTLecturaRow)(this.NewRow()));
+            public DTAC_LecturasRow NewDTAC_LecturasRow() {
+                return ((DTAC_LecturasRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new DTLecturaRow(builder);
+                return new DTAC_LecturasRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(DTLecturaRow);
+                return typeof(DTAC_LecturasRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.DTLecturaRowChanged != null)) {
-                    this.DTLecturaRowChanged(this, new DTLecturaRowChangeEvent(((DTLecturaRow)(e.Row)), e.Action));
+                if ((this.DTAC_LecturasRowChanged != null)) {
+                    this.DTAC_LecturasRowChanged(this, new DTAC_LecturasRowChangeEvent(((DTAC_LecturasRow)(e.Row)), e.Action));
                 }
             }
             
@@ -792,8 +2006,8 @@ namespace WFPGranjas {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.DTLecturaRowChanging != null)) {
-                    this.DTLecturaRowChanging(this, new DTLecturaRowChangeEvent(((DTLecturaRow)(e.Row)), e.Action));
+                if ((this.DTAC_LecturasRowChanging != null)) {
+                    this.DTAC_LecturasRowChanging(this, new DTAC_LecturasRowChangeEvent(((DTAC_LecturasRow)(e.Row)), e.Action));
                 }
             }
             
@@ -801,8 +2015,8 @@ namespace WFPGranjas {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.DTLecturaRowDeleted != null)) {
-                    this.DTLecturaRowDeleted(this, new DTLecturaRowChangeEvent(((DTLecturaRow)(e.Row)), e.Action));
+                if ((this.DTAC_LecturasRowDeleted != null)) {
+                    this.DTAC_LecturasRowDeleted(this, new DTAC_LecturasRowChangeEvent(((DTAC_LecturasRow)(e.Row)), e.Action));
                 }
             }
             
@@ -810,14 +2024,14 @@ namespace WFPGranjas {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.DTLecturaRowDeleting != null)) {
-                    this.DTLecturaRowDeleting(this, new DTLecturaRowChangeEvent(((DTLecturaRow)(e.Row)), e.Action));
+                if ((this.DTAC_LecturasRowDeleting != null)) {
+                    this.DTAC_LecturasRowDeleting(this, new DTAC_LecturasRowChangeEvent(((DTAC_LecturasRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemoveDTLecturaRow(DTLecturaRow row) {
+            public void RemoveDTAC_LecturasRow(DTAC_LecturasRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -844,7 +2058,865 @@ namespace WFPGranjas {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "DTLecturaDataTable";
+                attribute2.FixedValue = "DTAC_LecturasDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class DTAC_CBADataTable : global::System.Data.TypedTableBase<DTAC_CBARow> {
+            
+            private global::System.Data.DataColumn columnid_comun;
+            
+            private global::System.Data.DataColumn columnanual_recomendado;
+            
+            private global::System.Data.DataColumn columnmomento_recom;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DTAC_CBADataTable() {
+                this.TableName = "DTAC_CBA";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal DTAC_CBADataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected DTAC_CBADataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn id_comunColumn {
+                get {
+                    return this.columnid_comun;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn anual_recomendadoColumn {
+                get {
+                    return this.columnanual_recomendado;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn momento_recomColumn {
+                get {
+                    return this.columnmomento_recom;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DTAC_CBARow this[int index] {
+                get {
+                    return ((DTAC_CBARow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event DTAC_CBARowChangeEventHandler DTAC_CBARowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event DTAC_CBARowChangeEventHandler DTAC_CBARowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event DTAC_CBARowChangeEventHandler DTAC_CBARowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event DTAC_CBARowChangeEventHandler DTAC_CBARowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddDTAC_CBARow(DTAC_CBARow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DTAC_CBARow AddDTAC_CBARow(int id_comun, int anual_recomendado, int momento_recom) {
+                DTAC_CBARow rowDTAC_CBARow = ((DTAC_CBARow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        id_comun,
+                        anual_recomendado,
+                        momento_recom};
+                rowDTAC_CBARow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowDTAC_CBARow);
+                return rowDTAC_CBARow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                DTAC_CBADataTable cln = ((DTAC_CBADataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new DTAC_CBADataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnid_comun = base.Columns["id_comun"];
+                this.columnanual_recomendado = base.Columns["anual_recomendado"];
+                this.columnmomento_recom = base.Columns["momento_recom"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnid_comun = new global::System.Data.DataColumn("id_comun", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_comun);
+                this.columnanual_recomendado = new global::System.Data.DataColumn("anual_recomendado", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnanual_recomendado);
+                this.columnmomento_recom = new global::System.Data.DataColumn("momento_recom", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnmomento_recom);
+                this.columnanual_recomendado.Caption = "asociado";
+                this.columnmomento_recom.Caption = "direccion";
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DTAC_CBARow NewDTAC_CBARow() {
+                return ((DTAC_CBARow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new DTAC_CBARow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(DTAC_CBARow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.DTAC_CBARowChanged != null)) {
+                    this.DTAC_CBARowChanged(this, new DTAC_CBARowChangeEvent(((DTAC_CBARow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.DTAC_CBARowChanging != null)) {
+                    this.DTAC_CBARowChanging(this, new DTAC_CBARowChangeEvent(((DTAC_CBARow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.DTAC_CBARowDeleted != null)) {
+                    this.DTAC_CBARowDeleted(this, new DTAC_CBARowChangeEvent(((DTAC_CBARow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.DTAC_CBARowDeleting != null)) {
+                    this.DTAC_CBARowDeleting(this, new DTAC_CBARowChangeEvent(((DTAC_CBARow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveDTAC_CBARow(DTAC_CBARow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                dsAvisosCobranza ds = new dsAvisosCobranza();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "DTAC_CBADataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class DTAC_PConsumosDataTable : global::System.Data.TypedTableBase<DTAC_PConsumosRow> {
+            
+            private global::System.Data.DataColumn columnid_comun;
+            
+            private global::System.Data.DataColumn columnpartida;
+            
+            private global::System.Data.DataColumn columnconsumo;
+            
+            private global::System.Data.DataColumn columntarifa;
+            
+            private global::System.Data.DataColumn columntarifa_importe;
+            
+            private global::System.Data.DataColumn columnimporte;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DTAC_PConsumosDataTable() {
+                this.TableName = "DTAC_PConsumos";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal DTAC_PConsumosDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected DTAC_PConsumosDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn id_comunColumn {
+                get {
+                    return this.columnid_comun;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn partidaColumn {
+                get {
+                    return this.columnpartida;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn consumoColumn {
+                get {
+                    return this.columnconsumo;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn tarifaColumn {
+                get {
+                    return this.columntarifa;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn tarifa_importeColumn {
+                get {
+                    return this.columntarifa_importe;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn importeColumn {
+                get {
+                    return this.columnimporte;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DTAC_PConsumosRow this[int index] {
+                get {
+                    return ((DTAC_PConsumosRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event DTAC_PConsumosRowChangeEventHandler DTAC_PConsumosRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event DTAC_PConsumosRowChangeEventHandler DTAC_PConsumosRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event DTAC_PConsumosRowChangeEventHandler DTAC_PConsumosRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event DTAC_PConsumosRowChangeEventHandler DTAC_PConsumosRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddDTAC_PConsumosRow(DTAC_PConsumosRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DTAC_PConsumosRow AddDTAC_PConsumosRow(int id_comun, string partida, decimal consumo, string tarifa, decimal tarifa_importe, decimal importe) {
+                DTAC_PConsumosRow rowDTAC_PConsumosRow = ((DTAC_PConsumosRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        id_comun,
+                        partida,
+                        consumo,
+                        tarifa,
+                        tarifa_importe,
+                        importe};
+                rowDTAC_PConsumosRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowDTAC_PConsumosRow);
+                return rowDTAC_PConsumosRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                DTAC_PConsumosDataTable cln = ((DTAC_PConsumosDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new DTAC_PConsumosDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnid_comun = base.Columns["id_comun"];
+                this.columnpartida = base.Columns["partida"];
+                this.columnconsumo = base.Columns["consumo"];
+                this.columntarifa = base.Columns["tarifa"];
+                this.columntarifa_importe = base.Columns["tarifa_importe"];
+                this.columnimporte = base.Columns["importe"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnid_comun = new global::System.Data.DataColumn("id_comun", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_comun);
+                this.columnpartida = new global::System.Data.DataColumn("partida", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnpartida);
+                this.columnconsumo = new global::System.Data.DataColumn("consumo", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnconsumo);
+                this.columntarifa = new global::System.Data.DataColumn("tarifa", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntarifa);
+                this.columntarifa_importe = new global::System.Data.DataColumn("tarifa_importe", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntarifa_importe);
+                this.columnimporte = new global::System.Data.DataColumn("importe", typeof(decimal), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnimporte);
+                this.columnconsumo.Caption = "asociado";
+                this.columntarifa.Caption = "direccion";
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DTAC_PConsumosRow NewDTAC_PConsumosRow() {
+                return ((DTAC_PConsumosRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new DTAC_PConsumosRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(DTAC_PConsumosRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.DTAC_PConsumosRowChanged != null)) {
+                    this.DTAC_PConsumosRowChanged(this, new DTAC_PConsumosRowChangeEvent(((DTAC_PConsumosRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.DTAC_PConsumosRowChanging != null)) {
+                    this.DTAC_PConsumosRowChanging(this, new DTAC_PConsumosRowChangeEvent(((DTAC_PConsumosRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.DTAC_PConsumosRowDeleted != null)) {
+                    this.DTAC_PConsumosRowDeleted(this, new DTAC_PConsumosRowChangeEvent(((DTAC_PConsumosRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.DTAC_PConsumosRowDeleting != null)) {
+                    this.DTAC_PConsumosRowDeleting(this, new DTAC_PConsumosRowChangeEvent(((DTAC_PConsumosRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveDTAC_PConsumosRow(DTAC_PConsumosRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                dsAvisosCobranza ds = new dsAvisosCobranza();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "DTAC_PConsumosDataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class DTAC_ConsumoDataTable : global::System.Data.TypedTableBase<DTAC_ConsumoRow> {
+            
+            private global::System.Data.DataColumn columnid_comun;
+            
+            private global::System.Data.DataColumn columnconsumoAcum;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DTAC_ConsumoDataTable() {
+                this.TableName = "DTAC_Consumo";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal DTAC_ConsumoDataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected DTAC_ConsumoDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn id_comunColumn {
+                get {
+                    return this.columnid_comun;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn consumoAcumColumn {
+                get {
+                    return this.columnconsumoAcum;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DTAC_ConsumoRow this[int index] {
+                get {
+                    return ((DTAC_ConsumoRow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event DTAC_ConsumoRowChangeEventHandler DTAC_ConsumoRowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event DTAC_ConsumoRowChangeEventHandler DTAC_ConsumoRowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event DTAC_ConsumoRowChangeEventHandler DTAC_ConsumoRowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public event DTAC_ConsumoRowChangeEventHandler DTAC_ConsumoRowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void AddDTAC_ConsumoRow(DTAC_ConsumoRow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DTAC_ConsumoRow AddDTAC_ConsumoRow(int id_comun, int consumoAcum) {
+                DTAC_ConsumoRow rowDTAC_ConsumoRow = ((DTAC_ConsumoRow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        id_comun,
+                        consumoAcum};
+                rowDTAC_ConsumoRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowDTAC_ConsumoRow);
+                return rowDTAC_ConsumoRow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                DTAC_ConsumoDataTable cln = ((DTAC_ConsumoDataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new DTAC_ConsumoDataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal void InitVars() {
+                this.columnid_comun = base.Columns["id_comun"];
+                this.columnconsumoAcum = base.Columns["consumoAcum"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            private void InitClass() {
+                this.columnid_comun = new global::System.Data.DataColumn("id_comun", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnid_comun);
+                this.columnconsumoAcum = new global::System.Data.DataColumn("consumoAcum", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnconsumoAcum);
+                this.columnconsumoAcum.Caption = "asociado";
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DTAC_ConsumoRow NewDTAC_ConsumoRow() {
+                return ((DTAC_ConsumoRow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new DTAC_ConsumoRow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(DTAC_ConsumoRow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.DTAC_ConsumoRowChanged != null)) {
+                    this.DTAC_ConsumoRowChanged(this, new DTAC_ConsumoRowChangeEvent(((DTAC_ConsumoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.DTAC_ConsumoRowChanging != null)) {
+                    this.DTAC_ConsumoRowChanging(this, new DTAC_ConsumoRowChangeEvent(((DTAC_ConsumoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.DTAC_ConsumoRowDeleted != null)) {
+                    this.DTAC_ConsumoRowDeleted(this, new DTAC_ConsumoRowChangeEvent(((DTAC_ConsumoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.DTAC_ConsumoRowDeleting != null)) {
+                    this.DTAC_ConsumoRowDeleting(this, new DTAC_ConsumoRowChangeEvent(((DTAC_ConsumoRow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void RemoveDTAC_ConsumoRow(DTAC_ConsumoRow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                dsAvisosCobranza ds = new dsAvisosCobranza();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "DTAC_ConsumoDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -888,173 +2960,468 @@ namespace WFPGranjas {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class DTCBARow : global::System.Data.DataRow {
+        public partial class DTAC_HeadFooterRow : global::System.Data.DataRow {
             
-            private DTCBADataTable tableDTCBA;
+            private DTAC_HeadFooterDataTable tableDTAC_HeadFooter;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal DTCBARow(global::System.Data.DataRowBuilder rb) : 
+            internal DTAC_HeadFooterRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableDTCBA = ((DTCBADataTable)(this.Table));
+                this.tableDTAC_HeadFooter = ((DTAC_HeadFooterDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int id_factor {
+            public int id_comun {
                 get {
                     try {
-                        return ((int)(this[this.tableDTCBA.id_factorColumn]));
+                        return ((int)(this[this.tableDTAC_HeadFooter.id_comunColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'id_factor\' in table \'DTCBA\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'id_comun\' in table \'DTAC_HeadFooter\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDTCBA.id_factorColumn] = value;
+                    this[this.tableDTAC_HeadFooter.id_comunColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string periodo {
+            public string empresa {
                 get {
                     try {
-                        return ((string)(this[this.tableDTCBA.periodoColumn]));
+                        return ((string)(this[this.tableDTAC_HeadFooter.empresaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'periodo\' in table \'DTCBA\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'empresa\' in table \'DTAC_HeadFooter\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDTCBA.periodoColumn] = value;
+                    this[this.tableDTAC_HeadFooter.empresaColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string anio {
+            public string aviso {
                 get {
                     try {
-                        return ((string)(this[this.tableDTCBA.anioColumn]));
+                        return ((string)(this[this.tableDTAC_HeadFooter.avisoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'anio\' in table \'DTCBA\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'aviso\' in table \'DTAC_HeadFooter\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDTCBA.anioColumn] = value;
+                    this[this.tableDTAC_HeadFooter.avisoColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public double cuota {
+            public string foot1 {
                 get {
                     try {
-                        return ((double)(this[this.tableDTCBA.cuotaColumn]));
+                        return ((string)(this[this.tableDTAC_HeadFooter.foot1Column]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'cuota\' in table \'DTCBA\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'foot1\' in table \'DTAC_HeadFooter\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDTCBA.cuotaColumn] = value;
+                    this[this.tableDTAC_HeadFooter.foot1Column] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isid_factorNull() {
-                return this.IsNull(this.tableDTCBA.id_factorColumn);
+            public string foot2 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDTAC_HeadFooter.foot2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'foot2\' in table \'DTAC_HeadFooter\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTAC_HeadFooter.foot2Column] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setid_factorNull() {
-                this[this.tableDTCBA.id_factorColumn] = global::System.Convert.DBNull;
+            public string foot3 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDTAC_HeadFooter.foot3Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'foot3\' in table \'DTAC_HeadFooter\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTAC_HeadFooter.foot3Column] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsperiodoNull() {
-                return this.IsNull(this.tableDTCBA.periodoColumn);
+            public string foot4 {
+                get {
+                    try {
+                        return ((string)(this[this.tableDTAC_HeadFooter.foot4Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'foot4\' in table \'DTAC_HeadFooter\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTAC_HeadFooter.foot4Column] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetperiodoNull() {
-                this[this.tableDTCBA.periodoColumn] = global::System.Convert.DBNull;
+            public bool Isid_comunNull() {
+                return this.IsNull(this.tableDTAC_HeadFooter.id_comunColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsanioNull() {
-                return this.IsNull(this.tableDTCBA.anioColumn);
+            public void Setid_comunNull() {
+                this[this.tableDTAC_HeadFooter.id_comunColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetanioNull() {
-                this[this.tableDTCBA.anioColumn] = global::System.Convert.DBNull;
+            public bool IsempresaNull() {
+                return this.IsNull(this.tableDTAC_HeadFooter.empresaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IscuotaNull() {
-                return this.IsNull(this.tableDTCBA.cuotaColumn);
+            public void SetempresaNull() {
+                this[this.tableDTAC_HeadFooter.empresaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetcuotaNull() {
-                this[this.tableDTCBA.cuotaColumn] = global::System.Convert.DBNull;
+            public bool IsavisoNull() {
+                return this.IsNull(this.tableDTAC_HeadFooter.avisoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetavisoNull() {
+                this[this.tableDTAC_HeadFooter.avisoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isfoot1Null() {
+                return this.IsNull(this.tableDTAC_HeadFooter.foot1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setfoot1Null() {
+                this[this.tableDTAC_HeadFooter.foot1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isfoot2Null() {
+                return this.IsNull(this.tableDTAC_HeadFooter.foot2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setfoot2Null() {
+                this[this.tableDTAC_HeadFooter.foot2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isfoot3Null() {
+                return this.IsNull(this.tableDTAC_HeadFooter.foot3Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setfoot3Null() {
+                this[this.tableDTAC_HeadFooter.foot3Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isfoot4Null() {
+                return this.IsNull(this.tableDTAC_HeadFooter.foot4Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setfoot4Null() {
+                this[this.tableDTAC_HeadFooter.foot4Column] = global::System.Convert.DBNull;
             }
         }
         
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class DTLecturaRow : global::System.Data.DataRow {
+        public partial class DTAC_DatosColonoRow : global::System.Data.DataRow {
             
-            private DTLecturaDataTable tableDTLectura;
+            private DTAC_DatosColonoDataTable tableDTAC_DatosColono;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal DTLecturaRow(global::System.Data.DataRowBuilder rb) : 
+            internal DTAC_DatosColonoRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableDTLectura = ((DTLecturaDataTable)(this.Table));
+                this.tableDTAC_DatosColono = ((DTAC_DatosColonoDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int id_medidor {
+            public int id_comun {
                 get {
                     try {
-                        return ((int)(this[this.tableDTLectura.id_medidorColumn]));
+                        return ((int)(this[this.tableDTAC_DatosColono.id_comunColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'id_medidor\' in table \'DTLectura\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'id_comun\' in table \'DTAC_DatosColono\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDTLectura.id_medidorColumn] = value;
+                    this[this.tableDTAC_DatosColono.id_comunColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string periodo {
+            public string asociado {
                 get {
                     try {
-                        return ((string)(this[this.tableDTLectura.periodoColumn]));
+                        return ((string)(this[this.tableDTAC_DatosColono.asociadoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'periodo\' in table \'DTLectura\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'asociado\' in table \'DTAC_DatosColono\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDTLectura.periodoColumn] = value;
+                    this[this.tableDTAC_DatosColono.asociadoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string direccion {
+                get {
+                    try {
+                        return ((string)(this[this.tableDTAC_DatosColono.direccionColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'direccion\' in table \'DTAC_DatosColono\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTAC_DatosColono.direccionColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal superficie {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableDTAC_DatosColono.superficieColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'superficie\' in table \'DTAC_DatosColono\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTAC_DatosColono.superficieColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string cbaMen {
+                get {
+                    try {
+                        return ((string)(this[this.tableDTAC_DatosColono.cbaMenColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'cbaMen\' in table \'DTAC_DatosColono\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTAC_DatosColono.cbaMenColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string contrato {
+                get {
+                    try {
+                        return ((string)(this[this.tableDTAC_DatosColono.contratoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'contrato\' in table \'DTAC_DatosColono\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTAC_DatosColono.contratoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string medidor {
+                get {
+                    try {
+                        return ((string)(this[this.tableDTAC_DatosColono.medidorColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'medidor\' in table \'DTAC_DatosColono\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTAC_DatosColono.medidorColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isid_comunNull() {
+                return this.IsNull(this.tableDTAC_DatosColono.id_comunColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setid_comunNull() {
+                this[this.tableDTAC_DatosColono.id_comunColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsasociadoNull() {
+                return this.IsNull(this.tableDTAC_DatosColono.asociadoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetasociadoNull() {
+                this[this.tableDTAC_DatosColono.asociadoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsdireccionNull() {
+                return this.IsNull(this.tableDTAC_DatosColono.direccionColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetdireccionNull() {
+                this[this.tableDTAC_DatosColono.direccionColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IssuperficieNull() {
+                return this.IsNull(this.tableDTAC_DatosColono.superficieColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetsuperficieNull() {
+                this[this.tableDTAC_DatosColono.superficieColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IscbaMenNull() {
+                return this.IsNull(this.tableDTAC_DatosColono.cbaMenColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetcbaMenNull() {
+                this[this.tableDTAC_DatosColono.cbaMenColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IscontratoNull() {
+                return this.IsNull(this.tableDTAC_DatosColono.contratoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetcontratoNull() {
+                this[this.tableDTAC_DatosColono.contratoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsmedidorNull() {
+                return this.IsNull(this.tableDTAC_DatosColono.medidorColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetmedidorNull() {
+                this[this.tableDTAC_DatosColono.medidorColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class DTAC_Grafica3Row : global::System.Data.DataRow {
+            
+            private DTAC_Grafica3DataTable tableDTAC_Grafica3;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal DTAC_Grafica3Row(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableDTAC_Grafica3 = ((DTAC_Grafica3DataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int id_comun {
+                get {
+                    try {
+                        return ((int)(this[this.tableDTAC_Grafica3.id_comunColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'id_comun\' in table \'DTAC_Grafica3\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTAC_Grafica3.id_comunColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string mes {
+                get {
+                    try {
+                        return ((string)(this[this.tableDTAC_Grafica3.mesColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'mes\' in table \'DTAC_Grafica3\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTAC_Grafica3.mesColumn] = value;
                 }
             }
             
@@ -1063,79 +3430,770 @@ namespace WFPGranjas {
             public string anio {
                 get {
                     try {
-                        return ((string)(this[this.tableDTLectura.anioColumn]));
+                        return ((string)(this[this.tableDTAC_Grafica3.anioColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'anio\' in table \'DTLectura\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'anio\' in table \'DTAC_Grafica3\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDTLectura.anioColumn] = value;
+                    this[this.tableDTAC_Grafica3.anioColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public int consumo {
+            public decimal consumo {
                 get {
                     try {
-                        return ((int)(this[this.tableDTLectura.consumoColumn]));
+                        return ((decimal)(this[this.tableDTAC_Grafica3.consumoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'consumo\' in table \'DTLectura\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'consumo\' in table \'DTAC_Grafica3\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableDTLectura.consumoColumn] = value;
+                    this[this.tableDTAC_Grafica3.consumoColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isid_medidorNull() {
-                return this.IsNull(this.tableDTLectura.id_medidorColumn);
+            public decimal cba {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableDTAC_Grafica3.cbaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'cba\' in table \'DTAC_Grafica3\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTAC_Grafica3.cbaColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setid_medidorNull() {
-                this[this.tableDTLectura.id_medidorColumn] = global::System.Convert.DBNull;
+            public bool Isid_comunNull() {
+                return this.IsNull(this.tableDTAC_Grafica3.id_comunColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsperiodoNull() {
-                return this.IsNull(this.tableDTLectura.periodoColumn);
+            public void Setid_comunNull() {
+                this[this.tableDTAC_Grafica3.id_comunColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetperiodoNull() {
-                this[this.tableDTLectura.periodoColumn] = global::System.Convert.DBNull;
+            public bool IsmesNull() {
+                return this.IsNull(this.tableDTAC_Grafica3.mesColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetmesNull() {
+                this[this.tableDTAC_Grafica3.mesColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsanioNull() {
-                return this.IsNull(this.tableDTLectura.anioColumn);
+                return this.IsNull(this.tableDTAC_Grafica3.anioColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetanioNull() {
-                this[this.tableDTLectura.anioColumn] = global::System.Convert.DBNull;
+                this[this.tableDTAC_Grafica3.anioColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsconsumoNull() {
-                return this.IsNull(this.tableDTLectura.consumoColumn);
+                return this.IsNull(this.tableDTAC_Grafica3.consumoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetconsumoNull() {
-                this[this.tableDTLectura.consumoColumn] = global::System.Convert.DBNull;
+                this[this.tableDTAC_Grafica3.consumoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IscbaNull() {
+                return this.IsNull(this.tableDTAC_Grafica3.cbaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetcbaNull() {
+                this[this.tableDTAC_Grafica3.cbaColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class DTAC_Grafica2Row : global::System.Data.DataRow {
+            
+            private DTAC_Grafica2DataTable tableDTAC_Grafica2;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal DTAC_Grafica2Row(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableDTAC_Grafica2 = ((DTAC_Grafica2DataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int id_comun {
+                get {
+                    try {
+                        return ((int)(this[this.tableDTAC_Grafica2.id_comunColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'id_comun\' in table \'DTAC_Grafica2\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTAC_Grafica2.id_comunColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string mes_CBA {
+                get {
+                    try {
+                        return ((string)(this[this.tableDTAC_Grafica2.mes_CBAColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'mes_CBA\' in table \'DTAC_Grafica2\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTAC_Grafica2.mes_CBAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int cba1 {
+                get {
+                    try {
+                        return ((int)(this[this.tableDTAC_Grafica2.cba1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'cba1\' in table \'DTAC_Grafica2\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTAC_Grafica2.cba1Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int cba2 {
+                get {
+                    try {
+                        return ((int)(this[this.tableDTAC_Grafica2.cba2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'cba2\' in table \'DTAC_Grafica2\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTAC_Grafica2.cba2Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal cba3 {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableDTAC_Grafica2.cba3Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'cba3\' in table \'DTAC_Grafica2\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTAC_Grafica2.cba3Column] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isid_comunNull() {
+                return this.IsNull(this.tableDTAC_Grafica2.id_comunColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setid_comunNull() {
+                this[this.tableDTAC_Grafica2.id_comunColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Ismes_CBANull() {
+                return this.IsNull(this.tableDTAC_Grafica2.mes_CBAColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setmes_CBANull() {
+                this[this.tableDTAC_Grafica2.mes_CBAColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Iscba1Null() {
+                return this.IsNull(this.tableDTAC_Grafica2.cba1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setcba1Null() {
+                this[this.tableDTAC_Grafica2.cba1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Iscba2Null() {
+                return this.IsNull(this.tableDTAC_Grafica2.cba2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setcba2Null() {
+                this[this.tableDTAC_Grafica2.cba2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Iscba3Null() {
+                return this.IsNull(this.tableDTAC_Grafica2.cba3Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setcba3Null() {
+                this[this.tableDTAC_Grafica2.cba3Column] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class DTAC_LecturasRow : global::System.Data.DataRow {
+            
+            private DTAC_LecturasDataTable tableDTAC_Lecturas;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal DTAC_LecturasRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableDTAC_Lecturas = ((DTAC_LecturasDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int id_comun {
+                get {
+                    try {
+                        return ((int)(this[this.tableDTAC_Lecturas.id_comunColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'id_comun\' in table \'DTAC_Lecturas\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTAC_Lecturas.id_comunColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string periodo {
+                get {
+                    try {
+                        return ((string)(this[this.tableDTAC_Lecturas.periodoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'periodo\' in table \'DTAC_Lecturas\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTAC_Lecturas.periodoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int lec_anterior {
+                get {
+                    try {
+                        return ((int)(this[this.tableDTAC_Lecturas.lec_anteriorColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'lec_anterior\' in table \'DTAC_Lecturas\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTAC_Lecturas.lec_anteriorColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int lect_actual {
+                get {
+                    try {
+                        return ((int)(this[this.tableDTAC_Lecturas.lect_actualColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'lect_actual\' in table \'DTAC_Lecturas\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTAC_Lecturas.lect_actualColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal consumo {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableDTAC_Lecturas.consumoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'consumo\' in table \'DTAC_Lecturas\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTAC_Lecturas.consumoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isid_comunNull() {
+                return this.IsNull(this.tableDTAC_Lecturas.id_comunColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setid_comunNull() {
+                this[this.tableDTAC_Lecturas.id_comunColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsperiodoNull() {
+                return this.IsNull(this.tableDTAC_Lecturas.periodoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetperiodoNull() {
+                this[this.tableDTAC_Lecturas.periodoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Islec_anteriorNull() {
+                return this.IsNull(this.tableDTAC_Lecturas.lec_anteriorColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setlec_anteriorNull() {
+                this[this.tableDTAC_Lecturas.lec_anteriorColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Islect_actualNull() {
+                return this.IsNull(this.tableDTAC_Lecturas.lect_actualColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setlect_actualNull() {
+                this[this.tableDTAC_Lecturas.lect_actualColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsconsumoNull() {
+                return this.IsNull(this.tableDTAC_Lecturas.consumoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetconsumoNull() {
+                this[this.tableDTAC_Lecturas.consumoColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class DTAC_CBARow : global::System.Data.DataRow {
+            
+            private DTAC_CBADataTable tableDTAC_CBA;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal DTAC_CBARow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableDTAC_CBA = ((DTAC_CBADataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int id_comun {
+                get {
+                    try {
+                        return ((int)(this[this.tableDTAC_CBA.id_comunColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'id_comun\' in table \'DTAC_CBA\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTAC_CBA.id_comunColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int anual_recomendado {
+                get {
+                    try {
+                        return ((int)(this[this.tableDTAC_CBA.anual_recomendadoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'anual_recomendado\' in table \'DTAC_CBA\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTAC_CBA.anual_recomendadoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int momento_recom {
+                get {
+                    try {
+                        return ((int)(this[this.tableDTAC_CBA.momento_recomColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'momento_recom\' in table \'DTAC_CBA\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTAC_CBA.momento_recomColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isid_comunNull() {
+                return this.IsNull(this.tableDTAC_CBA.id_comunColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setid_comunNull() {
+                this[this.tableDTAC_CBA.id_comunColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isanual_recomendadoNull() {
+                return this.IsNull(this.tableDTAC_CBA.anual_recomendadoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setanual_recomendadoNull() {
+                this[this.tableDTAC_CBA.anual_recomendadoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Ismomento_recomNull() {
+                return this.IsNull(this.tableDTAC_CBA.momento_recomColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setmomento_recomNull() {
+                this[this.tableDTAC_CBA.momento_recomColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class DTAC_PConsumosRow : global::System.Data.DataRow {
+            
+            private DTAC_PConsumosDataTable tableDTAC_PConsumos;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal DTAC_PConsumosRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableDTAC_PConsumos = ((DTAC_PConsumosDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int id_comun {
+                get {
+                    try {
+                        return ((int)(this[this.tableDTAC_PConsumos.id_comunColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'id_comun\' in table \'DTAC_PConsumos\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTAC_PConsumos.id_comunColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string partida {
+                get {
+                    try {
+                        return ((string)(this[this.tableDTAC_PConsumos.partidaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'partida\' in table \'DTAC_PConsumos\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTAC_PConsumos.partidaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal consumo {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableDTAC_PConsumos.consumoColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'consumo\' in table \'DTAC_PConsumos\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTAC_PConsumos.consumoColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string tarifa {
+                get {
+                    try {
+                        return ((string)(this[this.tableDTAC_PConsumos.tarifaColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'tarifa\' in table \'DTAC_PConsumos\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTAC_PConsumos.tarifaColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal tarifa_importe {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableDTAC_PConsumos.tarifa_importeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'tarifa_importe\' in table \'DTAC_PConsumos\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTAC_PConsumos.tarifa_importeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public decimal importe {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableDTAC_PConsumos.importeColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'importe\' in table \'DTAC_PConsumos\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTAC_PConsumos.importeColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isid_comunNull() {
+                return this.IsNull(this.tableDTAC_PConsumos.id_comunColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setid_comunNull() {
+                this[this.tableDTAC_PConsumos.id_comunColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IspartidaNull() {
+                return this.IsNull(this.tableDTAC_PConsumos.partidaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetpartidaNull() {
+                this[this.tableDTAC_PConsumos.partidaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsconsumoNull() {
+                return this.IsNull(this.tableDTAC_PConsumos.consumoColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetconsumoNull() {
+                this[this.tableDTAC_PConsumos.consumoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IstarifaNull() {
+                return this.IsNull(this.tableDTAC_PConsumos.tarifaColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SettarifaNull() {
+                this[this.tableDTAC_PConsumos.tarifaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Istarifa_importeNull() {
+                return this.IsNull(this.tableDTAC_PConsumos.tarifa_importeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Settarifa_importeNull() {
+                this[this.tableDTAC_PConsumos.tarifa_importeColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsimporteNull() {
+                return this.IsNull(this.tableDTAC_PConsumos.importeColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetimporteNull() {
+                this[this.tableDTAC_PConsumos.importeColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class DTAC_ConsumoRow : global::System.Data.DataRow {
+            
+            private DTAC_ConsumoDataTable tableDTAC_Consumo;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            internal DTAC_ConsumoRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableDTAC_Consumo = ((DTAC_ConsumoDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int id_comun {
+                get {
+                    try {
+                        return ((int)(this[this.tableDTAC_Consumo.id_comunColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'id_comun\' in table \'DTAC_Consumo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTAC_Consumo.id_comunColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public int consumoAcum {
+                get {
+                    try {
+                        return ((int)(this[this.tableDTAC_Consumo.consumoAcumColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'consumoAcum\' in table \'DTAC_Consumo\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableDTAC_Consumo.consumoAcumColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isid_comunNull() {
+                return this.IsNull(this.tableDTAC_Consumo.id_comunColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setid_comunNull() {
+                this[this.tableDTAC_Consumo.id_comunColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsconsumoAcumNull() {
+                return this.IsNull(this.tableDTAC_Consumo.consumoAcumColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetconsumoAcumNull() {
+                this[this.tableDTAC_Consumo.consumoAcumColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1143,22 +4201,22 @@ namespace WFPGranjas {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class DTCBARowChangeEvent : global::System.EventArgs {
+        public class DTAC_HeadFooterRowChangeEvent : global::System.EventArgs {
             
-            private DTCBARow eventRow;
+            private DTAC_HeadFooterRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DTCBARowChangeEvent(DTCBARow row, global::System.Data.DataRowAction action) {
+            public DTAC_HeadFooterRowChangeEvent(DTAC_HeadFooterRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DTCBARow Row {
+            public DTAC_HeadFooterRow Row {
                 get {
                     return this.eventRow;
                 }
@@ -1177,22 +4235,226 @@ namespace WFPGranjas {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class DTLecturaRowChangeEvent : global::System.EventArgs {
+        public class DTAC_DatosColonoRowChangeEvent : global::System.EventArgs {
             
-            private DTLecturaRow eventRow;
+            private DTAC_DatosColonoRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DTLecturaRowChangeEvent(DTLecturaRow row, global::System.Data.DataRowAction action) {
+            public DTAC_DatosColonoRowChangeEvent(DTAC_DatosColonoRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public DTLecturaRow Row {
+            public DTAC_DatosColonoRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class DTAC_Grafica3RowChangeEvent : global::System.EventArgs {
+            
+            private DTAC_Grafica3Row eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DTAC_Grafica3RowChangeEvent(DTAC_Grafica3Row row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DTAC_Grafica3Row Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class DTAC_Grafica2RowChangeEvent : global::System.EventArgs {
+            
+            private DTAC_Grafica2Row eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DTAC_Grafica2RowChangeEvent(DTAC_Grafica2Row row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DTAC_Grafica2Row Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class DTAC_LecturasRowChangeEvent : global::System.EventArgs {
+            
+            private DTAC_LecturasRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DTAC_LecturasRowChangeEvent(DTAC_LecturasRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DTAC_LecturasRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class DTAC_CBARowChangeEvent : global::System.EventArgs {
+            
+            private DTAC_CBARow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DTAC_CBARowChangeEvent(DTAC_CBARow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DTAC_CBARow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class DTAC_PConsumosRowChangeEvent : global::System.EventArgs {
+            
+            private DTAC_PConsumosRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DTAC_PConsumosRowChangeEvent(DTAC_PConsumosRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DTAC_PConsumosRow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+        public class DTAC_ConsumoRowChangeEvent : global::System.EventArgs {
+            
+            private DTAC_ConsumoRow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DTAC_ConsumoRowChangeEvent(DTAC_ConsumoRow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public DTAC_ConsumoRow Row {
                 get {
                     return this.eventRow;
                 }

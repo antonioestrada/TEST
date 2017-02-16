@@ -31,6 +31,7 @@
             this.crvRegMedidor = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.btnClose = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.cachedcrReporteIngresos1 = new WFPGranjas.CachedcrReporteIngresos();
             this.SuspendLayout();
             // 
             // crvRegMedidor
@@ -94,5 +95,6 @@
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crvRegMedidor;
         private System.Windows.Forms.Button btnClose;
         private System.Windows.Forms.Label label1;
+        private CachedcrReporteIngresos cachedcrReporteIngresos1;
     }
 }

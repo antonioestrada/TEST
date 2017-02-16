@@ -31,6 +31,12 @@ namespace WFPGranjas
         //FormBorderStyle = FormBorderStyle.None;
             var BeanCLotesMza = new Backend.Catalogos.CManzanaLotes();
             BeanCLotesMza.consultaMazaComboRPT(cmbFiltroMza);
+
+            var BeanRPTCobranza = new Backend.Reportes.rptAvisosCobranza();
+            BeanRPTCobranza.getMedidores(crvListadoMedidor);
+
+            
+         //   BeanRPTCobranza.rptAvisosCob(crvListadoMedidor, 1,"1","1","1");
         }
 
         private void btnClose_Click(object sender, EventArgs e)

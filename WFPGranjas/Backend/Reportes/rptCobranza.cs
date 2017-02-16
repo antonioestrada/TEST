@@ -32,7 +32,7 @@ namespace WFPGranjas.Backend.Reportes
             dsAvisosCobranza dsR = new dsAvisosCobranza();
             while (reader.Read())
             {
-                dsR.DTLectura.AddDTLecturaRow(Int32.Parse(reader.GetValue(0).ToString()), reader.GetValue(1).ToString(), reader.GetValue(2).ToString(), Int32.Parse(reader.GetValue(3).ToString()));
+                //dsR.DTLectura.AddDTLecturaRow(Int32.Parse(reader.GetValue(0).ToString()), reader.GetValue(1).ToString(), reader.GetValue(2).ToString(), Int32.Parse(reader.GetValue(3).ToString()));
             }
             Conexion.FinalizarSesion();
 
@@ -40,7 +40,7 @@ namespace WFPGranjas.Backend.Reportes
             reader = Conexion.GDatos.TraerDataReaderSql("SELECT id_factor,periodo,anio,cuota FROM gestion_granjas.cuotas_base_agua;");
             while (reader.Read())
             {
-                dsR.DTCBA.AddDTCBARow(Int32.Parse(reader.GetValue(0).ToString()), reader.GetValue(1).ToString(), reader.GetValue(2).ToString(), double.Parse(reader.GetValue(3).ToString()));
+              //  dsR.DTCBA.AddDTCBARow(Int32.Parse(reader.GetValue(0).ToString()), reader.GetValue(1).ToString(), reader.GetValue(2).ToString(), double.Parse(reader.GetValue(3).ToString()));
             }
             Conexion.FinalizarSesion();
 

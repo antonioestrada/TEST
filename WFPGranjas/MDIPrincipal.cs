@@ -551,7 +551,7 @@ namespace WFPGranjas
         private void arRegLecturas_Click(object sender, EventArgs e)
         {
             cerrarVentanas();
-            rptConsumos childFormReporteRL = new rptConsumos();
+            rptVarios childFormReporteRL = new rptVarios(1);
             childFormReporteRL.MdiParent = this;
             childFormReporteRL.Show();
         }
@@ -787,6 +787,20 @@ namespace WFPGranjas
             childGenAvisos.StartPosition = FormStartPosition.Manual;
             childGenAvisos.MdiParent = this;
             childGenAvisos.Show();
+        }
+
+        private void cgcaACBA_Click(object sender, EventArgs e)
+        {
+            cerrarVentanas();
+            frmAsignaCBA childGenAvisos = new frmAsignaCBA();
+            childGenAvisos.StartPosition = FormStartPosition.Manual;
+            childGenAvisos.MdiParent = this;
+            childGenAvisos.Show();
+        }
+
+        private void menuAReportes_Click(object sender, EventArgs e)
+        {
+
         }
     }
     }
