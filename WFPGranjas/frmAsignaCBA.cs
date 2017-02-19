@@ -256,21 +256,72 @@ namespace WFPGranjas
 
         private void btnFijo_Click(object sender, EventArgs e)
         {
-            textBox1.Text = cba.ToString();
-            textBox2.Text = cba.ToString();
-            textBox3.Text = cba.ToString();
-            textBox4.Text = cba.ToString();
-            textBox5.Text = cba.ToString();
-            textBox6.Text = cba.ToString();
-            textBox7.Text = cba.ToString();
-            textBox8.Text = cba.ToString();
-            textBox9.Text = cba.ToString();
-            textBox10.Text = cba.ToString();
-            textBox11.Text = cba.ToString();
-            textBox12.Text = cba.ToString();
+            if(textBox1.Enabled==true)
+            {
+                textBox1.Text = cba.ToString();
+            }
+            if (textBox2.Enabled == true)
+            {
+                textBox2.Text = cba.ToString();
+            }
+
+            if (textBox3.Enabled == true)
+            {
+                textBox3.Text = cba.ToString();
+                
+            }
+
+            if (textBox4.Enabled == true)
+            {
+                textBox4.Text = cba.ToString();
+                
+            }
+            if (textBox5.Enabled == true)
+            {
+                textBox5.Text = cba.ToString();
+                
+            }
+            if (textBox6.Enabled == true)
+            {
+                textBox6.Text = cba.ToString();
+                
+            }
+            if (textBox7.Enabled == true)
+            {
+                textBox7.Text = cba.ToString();
+               
+            }
+            if (textBox8.Enabled == true)
+            {
+                textBox8.Text = cba.ToString();
+                
+            }
+            if (textBox9.Enabled == true)
+            {
+                textBox9.Text = cba.ToString();
+                
+            }
+            if (textBox10.Enabled == true)
+            {
+                textBox10.Text = cba.ToString();
+                
+            }
+            if (textBox11.Enabled == true)
+            {
+                textBox11.Text = cba.ToString();
+                
+            }
+            if (textBox12.Enabled == true)
+            {
+                textBox12.Text = cba.ToString();
+            }
+            //readOnlyON(2);
             lblSuma.Text = cbaAnual.ToString();
-            readOnlyON(2);
+
+
+            readOnlyON(1);
             banderaEstatus = 3;
+            sumaVa();
 
         }
         Backend.Utilerias util = new Backend.Utilerias();
@@ -567,6 +618,7 @@ namespace WFPGranjas
                     double.Parse(textBox10.Text) +
                     double.Parse(textBox11.Text) +
                     double.Parse(textBox12.Text);
+                sumaT = Math.Round(sumaT, 2);
                 lblSuma.Text = sumaT.ToString();
                 if (sumaT == cbaAnual)
                 {

@@ -100,6 +100,29 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+        <xs:element name="DTAC_Proyeccion" msprop:Generator_TableClassName="DTAC_ProyeccionDataTable" msprop:Generator_TableVarName="tableDTAC_Proyeccion" msprop:Generator_RowChangedName="DTAC_ProyeccionRowChanged" msprop:Generator_TablePropName="DTAC_Proyeccion" msprop:Generator_RowDeletingName="DTAC_ProyeccionRowDeleting" msprop:Generator_RowChangingName="DTAC_ProyeccionRowChanging" msprop:Generator_RowEvHandlerName="DTAC_ProyeccionRowChangeEventHandler" msprop:Generator_RowDeletedName="DTAC_ProyeccionRowDeleted" msprop:Generator_RowClassName="DTAC_ProyeccionRow" msprop:Generator_UserTableName="DTAC_Proyeccion" msprop:Generator_RowEvArgName="DTAC_ProyeccionRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id_comun" msprop:Generator_ColumnVarNameInTable="columnid_comun" msprop:Generator_ColumnPropNameInRow="id_comun" msprop:Generator_ColumnPropNameInTable="id_comunColumn" msprop:Generator_UserColumnName="id_comun" type="xs:int" minOccurs="0" />
+              <xs:element name="proyeccion" msprop:Generator_ColumnVarNameInTable="columnproyeccion" msprop:Generator_ColumnPropNameInRow="proyeccion" msprop:Generator_ColumnPropNameInTable="proyeccionColumn" msprop:Generator_UserColumnName="proyeccion" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DTAC_PMatto" msprop:Generator_TableClassName="DTAC_PMattoDataTable" msprop:Generator_TableVarName="tableDTAC_PMatto" msprop:Generator_TablePropName="DTAC_PMatto" msprop:Generator_RowDeletingName="DTAC_PMattoRowDeleting" msprop:Generator_RowChangingName="DTAC_PMattoRowChanging" msprop:Generator_RowEvHandlerName="DTAC_PMattoRowChangeEventHandler" msprop:Generator_RowDeletedName="DTAC_PMattoRowDeleted" msprop:Generator_UserTableName="DTAC_PMatto" msprop:Generator_RowChangedName="DTAC_PMattoRowChanged" msprop:Generator_RowEvArgName="DTAC_PMattoRowChangeEvent" msprop:Generator_RowClassName="DTAC_PMattoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id_comun" msprop:Generator_ColumnVarNameInTable="columnid_comun" msprop:Generator_ColumnPropNameInRow="id_comun" msprop:Generator_ColumnPropNameInTable="id_comunColumn" msprop:Generator_UserColumnName="id_comun" type="xs:int" minOccurs="0" />
+              <xs:element name="no_adeudo" msprop:Generator_ColumnVarNameInTable="columnno_adeudo" msprop:Generator_ColumnPropNameInRow="no_adeudo" msprop:Generator_ColumnPropNameInTable="no_adeudoColumn" msprop:Generator_UserColumnName="no_adeudo" type="xs:decimal" minOccurs="0" />
+              <xs:element name="adudos" msprop:Generator_ColumnVarNameInTable="columnadudos" msprop:Generator_ColumnPropNameInRow="adudos" msprop:Generator_ColumnPropNameInTable="adudosColumn" msprop:Generator_UserColumnName="adudos" type="xs:decimal" minOccurs="0" />
+              <xs:element name="cargosAct" msprop:Generator_ColumnVarNameInTable="columncargosAct" msprop:Generator_ColumnPropNameInRow="cargosAct" msprop:Generator_ColumnPropNameInTable="cargosActColumn" msprop:Generator_UserColumnName="cargosAct" type="xs:decimal" minOccurs="0" />
+              <xs:element name="adeudoAct" msprop:Generator_ColumnVarNameInTable="columnadeudoAct" msprop:Generator_ColumnPropNameInRow="adeudoAct" msprop:Generator_ColumnPropNameInTable="adeudoActColumn" msprop:Generator_UserColumnName="adeudoAct" type="xs:decimal" minOccurs="0" />
+              <xs:element name="mora" msprop:Generator_ColumnVarNameInTable="columnmora" msprop:Generator_ColumnPropNameInRow="mora" msprop:Generator_ColumnPropNameInTable="moraColumn" msprop:Generator_UserColumnName="mora" type="xs:decimal" minOccurs="0" />
+              <xs:element name="cuotaMensual" msprop:Generator_ColumnVarNameInTable="columncuotaMensual" msprop:Generator_ColumnPropNameInRow="cuotaMensual" msprop:Generator_ColumnPropNameInTable="cuotaMensualColumn" msprop:Generator_UserColumnName="cuotaMensual" type="xs:decimal" minOccurs="0" />
+              <xs:element name="convenio" msprop:Generator_ColumnVarNameInTable="columnconvenio" msprop:Generator_ColumnPropNameInRow="convenio" msprop:Generator_ColumnPropNameInTable="convenioColumn" msprop:Generator_UserColumnName="convenio" type="xs:decimal" minOccurs="0" />
+              <xs:element name="otros" msprop:Generator_ColumnVarNameInTable="columnotros" msprop:Generator_ColumnPropNameInRow="otros" msprop:Generator_ColumnPropNameInTable="otrosColumn" msprop:Generator_UserColumnName="otros" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
       </xs:choice>
     </xs:complexType>
   </xs:element>

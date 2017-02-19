@@ -56,6 +56,7 @@
             this.pnlResultBancos = new System.Windows.Forms.Panel();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblMenBancos = new System.Windows.Forms.Label();
+            this.crvListadoMedidor = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.pnlPrinBancos.SuspendLayout();
             this.menuStrip2.SuspendLayout();
             this.menuStripBancos.SuspendLayout();
@@ -248,6 +249,7 @@
             this.pXLote.Name = "pXLote";
             this.pXLote.Size = new System.Drawing.Size(259, 36);
             this.pXLote.TabIndex = 54;
+            this.pXLote.Visible = false;
             // 
             // cmbManzana
             // 
@@ -332,6 +334,7 @@
             this.rbColono.TabIndex = 1;
             this.rbColono.Text = "MZ/LT";
             this.rbColono.UseVisualStyleBackColor = true;
+            this.rbColono.Visible = false;
             this.rbColono.CheckedChanged += new System.EventHandler(this.rbColono_CheckedChanged);
             // 
             // rbTodos
@@ -378,14 +381,29 @@
             this.lblMenBancos.TabIndex = 0;
             this.lblMenBancos.Text = "¡Se guardo correcatmente!";
             // 
-            // frmGeneraAvisos
+            // crvListadoMedidor
+            // 
+            this.crvListadoMedidor.ActiveViewIndex = -1;
+            this.crvListadoMedidor.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.crvListadoMedidor.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.crvListadoMedidor.Cursor = System.Windows.Forms.Cursors.Default;
+            this.crvListadoMedidor.Location = new System.Drawing.Point(473, 44);
+            this.crvListadoMedidor.Name = "crvListadoMedidor";
+            this.crvListadoMedidor.Size = new System.Drawing.Size(0, 173);
+            this.crvListadoMedidor.TabIndex = 10;
+            this.crvListadoMedidor.ToolPanelView = CrystalDecisions.Windows.Forms.ToolPanelViewType.None;
+            // 
+            // frmImprimeAvisos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(459, 261);
+            this.Controls.Add(this.crvListadoMedidor);
             this.Controls.Add(this.groupBoxForm);
             this.Controls.Add(this.pnlPrinBancos);
-            this.Name = "frmGeneraAvisos";
+            this.Name = "frmImprimeAvisos";
             this.Text = "AVISOS DE CONBRANZA";
             this.Load += new System.EventHandler(this.frmGeneraAvisos_Load);
             this.pnlPrinBancos.ResumeLayout(false);
@@ -438,5 +456,6 @@
         private System.Windows.Forms.Button btnEjecutar;
         private System.Windows.Forms.Panel pXLote;
         private System.Windows.Forms.Label lblDir;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer crvListadoMedidor;
     }
 }

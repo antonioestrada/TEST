@@ -106,9 +106,11 @@ namespace WFPGranjas
 
         private void btnEjecutar_Click(object sender, EventArgs e)
         {
-            frmImprimeAvisosPDF browser = new frmImprimeAvisosPDF(cmbPeriodos.SelectedValue.ToString(), cmbAnios.SelectedValue.ToString());
-            browser.Show();
+            //frmImprimeAvisosPDF browser = new frmImprimeAvisosPDF(cmbPeriodos.SelectedValue.ToString(), cmbAnios.SelectedValue.ToString());
+            //browser.Show();
             //MessageBox.Show("" + id_lote);
+            var BeanRPTCobranza = new Backend.Reportes.rptAvisosCobranza();
+            BeanRPTCobranza.getMedidores(crvListadoMedidor);
         }
 
         private void rbColono_CheckedChanged(object sender, EventArgs e)

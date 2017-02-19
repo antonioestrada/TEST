@@ -14,9 +14,11 @@ namespace WFPGranjas
 {
     public partial class rptMedidoresL : Form
     {
-        public rptMedidoresL()
+        int op = 0;
+        public rptMedidoresL(int op)
         {
             InitializeComponent();
+            this.op = op;
         }
 
         private void btnGeneraReporte_Click(object sender, EventArgs e)
@@ -31,13 +33,18 @@ namespace WFPGranjas
         //FormBorderStyle = FormBorderStyle.None;
             var BeanCLotesMza = new Backend.Catalogos.CManzanaLotes();
             BeanCLotesMza.consultaMazaComboRPT(cmbFiltroMza);
+            BeanCLotesMza.consultaStatusComboRPT(cmbFiltroStatus);
+            if (op == 4)
+            {
+                cmbFiltroMza.Enabled = false;
+                cmbFiltroStatus.Enabled = false;
+            }
 
-            var BeanRPTCobranza = new Backend.Reportes.rptAvisosCobranza();
-            BeanRPTCobranza.getMedidores(crvListadoMedidor);
 
-            
-         //   BeanRPTCobranza.rptAvisosCob(crvListadoMedidor, 1,"1","1","1");
-        }
+
+
+                //   BeanRPTCobranza.rptAvisosCob(crvListadoMedidor, 1,"1","1","1");
+            }
 
         private void btnClose_Click(object sender, EventArgs e)
         {
@@ -46,12 +53,49 @@ namespace WFPGranjas
 
         private void btnFiltrar_Click(object sender, EventArgs e)
         {
-            var BeanRPTMedidor = new Backend.Reportes.rptMedidores();
-            if(cmbFiltroMza.Text=="Todos")
-                BeanRPTMedidor.rptListaMedidores(crvListadoMedidor, 1, "");
-            else
-                BeanRPTMedidor.rptListaMedidores(crvListadoMedidor, 2, cmbFiltroMza.Text);
-            checkEnviar.Visible = true;
+            if (op == 1)
+            {
+                var BeanRPTMedidor = new Backend.Reportes.rptMedidores();
+                if (cmbFiltroMza.Text == "Todos")
+                    BeanRPTMedidor.rptListaMedidores(crvListadoMedidor, 1, "");
+                else
+                    BeanRPTMedidor.rptListaMedidores(crvListadoMedidor, 2, cmbFiltroMza.Text);
+                checkEnviar.Visible = true;
+            }
+            //MTTO ADEUDOS
+            if (op == 2)
+            {
+                var BeanReportes = new Backend.Reportes.rptReportesVarios();
+                BeanReportes.rptAdeudoMtto(crvListadoMedidor, 1, 2, cmbFiltroMza.SelectedValue.ToString(), cmbFiltroStatus.SelectedValue.ToString());
+            }
+            //AGUA ADEUDOS
+            if (op == 3)
+            {
+                var BeanReportes = new Backend.Reportes.rptReportesVarios();
+                BeanReportes.rptAdeudoAgua(crvListadoMedidor, 1, 3, cmbFiltroMza.SelectedValue.ToString(), cmbFiltroStatus.SelectedValue.ToString());
+            }
+
+            //CONVENIOS ADEUDOS
+            if (op == 4)
+            {
+                cmbFiltroMza.Enabled = false;
+                cmbFiltroStatus.Enabled = false;
+                var BeanReportes = new Backend.Reportes.rptReportesVarios();
+                BeanReportes.rptAdeudoMtto(crvListadoMedidor, 1, 4, cmbFiltroMza.SelectedValue.ToString(), cmbFiltroStatus.SelectedValue.ToString());
+            }
+
+            //CASA CLUB ADEUDOS
+            if (op == 5)
+            {
+                var BeanReportes = new Backend.Reportes.rptReportesVarios();
+                BeanReportes.rptAdeudoMtto(crvListadoMedidor, 1, 5, cmbFiltroMza.SelectedValue.ToString(), cmbFiltroStatus.SelectedValue.ToString());
+            }
+            //EXTRAORDINARIAS ADEUDOS
+            if (op == 6)
+            {
+                var BeanReportes = new Backend.Reportes.rptReportesVarios();
+                BeanReportes.rptAdeudoMtto(crvListadoMedidor, 1, 6, cmbFiltroMza.SelectedValue.ToString(), cmbFiltroStatus.SelectedValue.ToString());
+            }
         }
 
         private void btnEnviar_Click(object sender, EventArgs e)

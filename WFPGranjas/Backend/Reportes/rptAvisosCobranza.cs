@@ -130,6 +130,24 @@ namespace WFPGranjas.Backend.Reportes
             }
             Conexion.FinalizarSesion();
 
+            //***********PROYECCION*********************
+            reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_rpt_AvisosCobranza(9,'" + inParam1 + "','" + inParam2 + "','" + inParam3 + "')");
+
+            while (reader.Read())
+            {
+                dsR.DTAC_Proyeccion.AddDTAC_ProyeccionRow(Int32.Parse(inParam1), reader.GetValue(0).ToString());
+            }
+            Conexion.FinalizarSesion();
+
+            //***********PARTIDAS MANTENIMIENTO*********************
+            reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_rpt_AvisosCobranza(10,'" + inParam1 + "','" + inParam2 + "','" + inParam3 + "')");
+
+            while (reader.Read())
+            {
+                dsR.DTAC_PMatto.AddDTAC_PMattoRow(Int32.Parse(inParam1), decimal.Parse(reader.GetValue(0).ToString()), decimal.Parse(reader.GetValue(1).ToString()), decimal.Parse(reader.GetValue(2).ToString()), decimal.Parse(reader.GetValue(3).ToString()), decimal.Parse(reader.GetValue(4).ToString()), decimal.Parse(reader.GetValue(5).ToString()), decimal.Parse(reader.GetValue(6).ToString()), decimal.Parse(reader.GetValue(7).ToString()));
+            }
+            Conexion.FinalizarSesion();
+
 
             cryRpt.SetDataSource(dsR);
             crySubRpt.SetDataSource(dsR.Tables["DTAC_Grafica2"]);

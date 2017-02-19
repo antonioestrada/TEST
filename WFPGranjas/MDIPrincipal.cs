@@ -512,7 +512,7 @@ namespace WFPGranjas
         private void arMedidores_Click(object sender, EventArgs e)
         {
             cerrarVentanas();
-            rptMedidoresL childFormReporteLM = new rptMedidoresL();
+            rptMedidoresL childFormReporteLM = new rptMedidoresL(1);
             childFormReporteLM.MdiParent = this;
             childFormReporteLM.Show();
         }
@@ -801,6 +801,53 @@ namespace WFPGranjas
         private void menuAReportes_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void frAdeudos_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void mantenimientoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cerrarVentanas();
+            rptMedidoresL childFormReporteLM = new rptMedidoresL(2);
+            childFormReporteLM.MdiParent = this;
+            childFormReporteLM.Show();
+        }
+
+        private void consumoDeAguaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cerrarVentanas();
+            rptMedidoresL childFormReporteLM = new rptMedidoresL(3);
+            childFormReporteLM.MdiParent = this;
+            childFormReporteLM.Show();
+        }
+
+        private void cuotasExtraordinariasToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+           
+            cerrarVentanas();
+            rptMedidoresL childFormReporteLM = new rptMedidoresL(6);
+            childFormReporteLM.MdiParent = this;
+            childFormReporteLM.Show();
+        
+    }
+
+        private void cuotasCasaClubToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            cerrarVentanas();
+            rptMedidoresL childFormReporteLM = new rptMedidoresL(5);
+            childFormReporteLM.MdiParent = this;
+            childFormReporteLM.Show();
+        }
+
+        private void conveniosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cerrarVentanas();
+            rptMedidoresL childFormReporteLM = new rptMedidoresL(4);
+            childFormReporteLM.MdiParent = this;
+            childFormReporteLM.Show();
         }
     }
     }

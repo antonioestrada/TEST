@@ -392,8 +392,7 @@
             this.txtLecActual.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
             this.txtLecActual.Name = "txtLecActual";
             this.txtLecActual.Size = new System.Drawing.Size(126, 22);
-            this.txtLecActual.TabIndex = 34;
-            this.txtLecActual.TabStop = false;
+            this.txtLecActual.TabIndex = 32;
             this.txtLecActual.Visible = false;
             this.txtLecActual.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLecActual_KeyPress);
             // 
@@ -416,8 +415,7 @@
             this.txtLecAnterior.Margin = new System.Windows.Forms.Padding(8, 6, 8, 6);
             this.txtLecAnterior.Name = "txtLecAnterior";
             this.txtLecAnterior.Size = new System.Drawing.Size(126, 22);
-            this.txtLecAnterior.TabIndex = 32;
-            this.txtLecAnterior.TabStop = false;
+            this.txtLecAnterior.TabIndex = 31;
             this.txtLecAnterior.Visible = false;
             this.txtLecAnterior.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtLecAnterior_KeyPress);
             // 

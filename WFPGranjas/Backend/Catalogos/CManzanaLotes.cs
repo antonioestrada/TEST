@@ -76,9 +76,33 @@ namespace WFPGranjas.Backend.Catalogos
             DataTable obtieneMza = Conexion.GDatos.TraerDataTable("gestion_granjas.sp_catalogo_CManzana");
             //definimos el list en arreglo
             List<ResultadoTrnx> arreglo = new List<ResultadoTrnx>();
-            arreglo.Add(new ResultadoTrnx { id_mzaDTO = "0", mzaDTO = "Todos" });
+            arreglo.Add(new ResultadoTrnx { id_mzaDTO = "Todos", mzaDTO = "Todos" });
             //recorremos el resultado de nuestro SP
             foreach (DataRow row in obtieneMza.Rows)
+            {
+                //seteamos nnuestro arreglo que contendra el id y manzana
+                arreglo.Add(new ResultadoTrnx { id_mzaDTO = row[0].ToString(), mzaDTO = row[1].ToString() });
+            }
+            var ab = from a in arreglo
+                     select a;
+            //seteamos nuestro combro
+            combo.DataSource = ab.ToList();
+            combo.ValueMember = "id_mzaDTO";
+            combo.DisplayMember = "mzaDTO";
+            //cerramos conexion
+            Conexion.FinalizarSesion();
+        }
+        #endregion
+        #region Llena combo del estatus Reporte
+        public void consultaStatusComboRPT(ComboBox combo)
+        {
+            //llenamos nuestro DataTable con la consulta de nuestro SP
+            DataTable obtieneStatus = Conexion.GDatos.TraerDataTable("gestion_granjas.sp_catalogo_CStatus");
+            //definimos el list en arreglo
+            List<ResultadoTrnx> arreglo = new List<ResultadoTrnx>();
+            arreglo.Add(new ResultadoTrnx { id_mzaDTO = "Todos", mzaDTO = "Todos" });
+            //recorremos el resultado de nuestro SP
+            foreach (DataRow row in obtieneStatus.Rows)
             {
                 //seteamos nnuestro arreglo que contendra el id y manzana
                 arreglo.Add(new ResultadoTrnx { id_mzaDTO = row[0].ToString(), mzaDTO = row[1].ToString() });

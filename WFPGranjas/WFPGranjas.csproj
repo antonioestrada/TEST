@@ -86,170 +86,195 @@
     <Compile Include="Backend\Reportes\rptMedidores.cs" />
     <Compile Include="Backend\Reportes\rptCobranza.cs" />
     <Compile Include="Backend\Reportes\rptRecibos.cs" />
+    <Compile Include="Backend\Reportes\rptReportesVarios.cs" />
     <Compile Include="Backend\Utilerias.cs" />
-    <Compile Include="crAvisosSubGraph2.cs">
+    <Compile Include="crReportes\crAvisosSubGraph2.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crAvisosSubGraph2.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="crAvisosSubGraph1.cs">
+    <Compile Include="crReportes\crAvisosSubGraph1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crAvisosSubGraph1.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="crAvisoCobranza1.cs">
+    <Compile Include="crReportes\crAvisoCobranza1.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crAvisoCobranza.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="crAvisosSubGraph3.cs">
+    <Compile Include="crReportes\crAvisosSubGraph3.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crAvisosSubGraph3.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="crGrafica.cs">
+    <Compile Include="crReportes\crGrafica.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crGrafica.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="crMedidorSQL.cs">
+    <Compile Include="crReportes\crMedidorSQL.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crMedidorSQL.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="crNotificacionCambio.cs">
+    <Compile Include="crReportes\crNotificacionCambio.cs">
       <DependentUpon>crNotificacionCambio.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="crReciboAnAg.cs">
+    <Compile Include="crReportes\crReciboAnAg.cs">
       <DependentUpon>crReciboAnAg.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="crReciboAntAgua.cs">
+    <Compile Include="crReportes\crReciboAntAgua.cs">
       <DependentUpon>crReciboAntAgua.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="crReciboCon.cs">
+    <Compile Include="crReportes\crReciboCon.cs">
       <DependentUpon>crReciboCon.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="crReciboICC.cs">
+    <Compile Include="crReportes\crReciboICC.cs">
       <DependentUpon>crReciboICC.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="crReciboAgua.cs">
+    <Compile Include="crReportes\crReciboAgua.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crReciboAgua.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="crReciboConvenio.cs">
+    <Compile Include="crReportes\crReciboConvenio.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crReciboConvenio.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="crReciboAgua2.cs">
+    <Compile Include="crReportes\crReciboAgua2.cs">
       <DependentUpon>crReciboAgua2.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="crReciboIngresos.cs">
+    <Compile Include="crReportes\crReciboIngresos.cs">
       <DependentUpon>crReciboIngresos.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="crNotificacionCuota.cs">
+    <Compile Include="crReportes\crNotificacionCuota.cs">
       <DependentUpon>crNotificacionCuota.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="crReciboConvenio2.cs">
+    <Compile Include="crReportes\crReciboConvenio2.cs">
       <DependentUpon>crReciboConvenio2.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="crReciboMAnualidad.cs">
+    <Compile Include="crReportes\crReciboMAnualidad.cs">
       <DependentUpon>crReciboMAnualidad.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="crReciboManto.cs">
+    <Compile Include="crReportes\crReciboManto.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crReciboManto.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="crReciboAg.cs">
+    <Compile Include="crReportes\crReciboAg.cs">
       <DependentUpon>crReciboAg.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="crReciboAnual.cs">
+    <Compile Include="crReportes\crReciboAnual.cs">
       <DependentUpon>crReciboAnual.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="crReciboMtto.cs">
+    <Compile Include="crReportes\crReciboMtto.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crReciboMtto.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="crRegLecturasCons.cs">
+    <Compile Include="crReportes\crRegLecturasCons.cs">
       <DependentUpon>crRegLecturasCons.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
-    <Compile Include="crRegLecturas.cs">
+    <Compile Include="crReportes\crRegLecturas.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crRegLecturas.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="crReporteIngresos.cs">
+    <Compile Include="crReportes\crReporteIngresos.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crReporteIngresos.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="crSubGraficaRA.cs">
+    <Compile Include="crReportes\crReportesVAConvenio.cs">
+      <DependentUpon>crReportesVAConvenio.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="crReportes\crReportesVAExtra.cs">
+      <DependentUpon>crReportesVAExtra.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="crReportes\crReportesVAAgua.cs">
+      <DependentUpon>crReportesVAAgua.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="crReportes\crReportesVarios.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>crReportesVarios.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="crReportes\crSubGraficaRA.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crSubGraficaRA.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="crSubLecturasRA.cs">
+    <Compile Include="crReportes\crSubLecturasRA.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crSubLecturasRA.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="crSubTarifasRA.cs">
+    <Compile Include="crReportes\crSubTarifasRA.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>crSubTarifasRA.rpt</DependentUpon>
@@ -316,6 +341,14 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsReciboManto.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsReportesVarios.cs">
+      <DependentUpon>dsReportesVarios.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsReportesVarios.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsReportesVarios.xsd</DependentUpon>
     </Compile>
     <Compile Include="frmAsignaCBA.cs">
       <SubType>Form</SubType>
@@ -541,115 +574,131 @@
     <Compile Include="rptVarios.Designer.cs">
       <DependentUpon>rptVarios.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="crAvisosSubGraph2.rpt">
+    <EmbeddedResource Include="crReportes\crAvisosSubGraph2.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crAvisosSubGraph2.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="crAvisosSubGraph1.rpt">
+    <EmbeddedResource Include="crReportes\crAvisosSubGraph1.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crAvisosSubGraph1.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="crAvisoCobranza.rpt">
+    <EmbeddedResource Include="crReportes\crAvisoCobranza.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crAvisoCobranza1.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="crAvisosSubGraph3.rpt">
+    <EmbeddedResource Include="crReportes\crAvisosSubGraph3.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crAvisosSubGraph3.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="crGrafica.rpt">
+    <EmbeddedResource Include="crReportes\crGrafica.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crGrafica.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="crMedidorSQL.rpt">
+    <EmbeddedResource Include="crReportes\crMedidorSQL.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crMedidorSQL.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="crNotificacionCambio.rpt">
+    <EmbeddedResource Include="crReportes\crNotificacionCambio.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crNotificacionCambio.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="crReciboAnAg.rpt">
+    <EmbeddedResource Include="crReportes\crReciboAnAg.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crReciboAnAg.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="crReciboAntAgua.rpt">
+    <EmbeddedResource Include="crReportes\crReciboAntAgua.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crReciboAntAgua.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="crReciboCon.rpt">
+    <EmbeddedResource Include="crReportes\crReciboCon.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crReciboCon.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="crReciboICC.rpt">
+    <EmbeddedResource Include="crReportes\crReciboICC.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crReciboICC.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="crReciboAgua.rpt">
+    <EmbeddedResource Include="crReportes\crReciboAgua.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crReciboAgua.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="crReciboConvenio.rpt">
+    <EmbeddedResource Include="crReportes\crReciboConvenio.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crReciboConvenio.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="crReciboAgua2.rpt">
+    <EmbeddedResource Include="crReportes\crReciboAgua2.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crReciboAgua2.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="crReciboIngresos.rpt">
+    <EmbeddedResource Include="crReportes\crReciboIngresos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crReciboIngresos.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="crNotificacionCuota.rpt">
+    <EmbeddedResource Include="crReportes\crNotificacionCuota.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crNotificacionCuota.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="crReciboConvenio2.rpt">
+    <EmbeddedResource Include="crReportes\crReciboConvenio2.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crReciboConvenio2.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="crReciboMAnualidad.rpt">
+    <EmbeddedResource Include="crReportes\crReciboMAnualidad.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crReciboMAnualidad.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="crReciboManto.rpt">
+    <EmbeddedResource Include="crReportes\crReciboManto.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crReciboManto.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="crReciboAg.rpt">
+    <EmbeddedResource Include="crReportes\crReciboAg.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crReciboAg.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="crReciboAnual.rpt">
+    <EmbeddedResource Include="crReportes\crReciboAnual.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crReciboAnual.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="crReciboMtto.rpt">
+    <EmbeddedResource Include="crReportes\crReciboMtto.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crReciboMtto.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="crRegLecturasCons.rpt">
+    <EmbeddedResource Include="crReportes\crRegLecturasCons.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crRegLecturasCons.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="crRegLecturas.rpt">
+    <EmbeddedResource Include="crReportes\crRegLecturas.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crRegLecturas.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="crReporteIngresos.rpt">
+    <EmbeddedResource Include="crReportes\crReporteIngresos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crReporteIngresos.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="crSubGraficaRA.rpt">
+    <EmbeddedResource Include="crReportes\crReportesVAConvenio.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crReportesVAConvenio.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crReportes\crReportesVAExtra.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crReportesVAExtra.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crReportes\crReportesVAAgua.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crReportesVAAgua.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crReportes\crReportesVarios.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crReportesVarios.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crReportes\crSubGraficaRA.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crSubGraficaRA.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="crSubLecturasRA.rpt">
+    <EmbeddedResource Include="crReportes\crSubLecturasRA.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crSubLecturasRA.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="crSubTarifasRA.rpt">
+    <EmbeddedResource Include="crReportes\crSubTarifasRA.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crSubTarifasRA.cs</LastGenOutput>
     </EmbeddedResource>
@@ -880,6 +929,17 @@
     </None>
     <None Include="dsReciboManto.xss">
       <DependentUpon>dsReciboManto.xsd</DependentUpon>
+    </None>
+    <None Include="dsReportesVarios.xsc">
+      <DependentUpon>dsReportesVarios.xsd</DependentUpon>
+    </None>
+    <None Include="dsReportesVarios.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsReportesVarios.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsReportesVarios.xss">
+      <DependentUpon>dsReportesVarios.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

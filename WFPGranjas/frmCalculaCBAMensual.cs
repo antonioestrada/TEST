@@ -8,6 +8,7 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using WFPGranjas.Backend.Catalogos;
 
 namespace WFPGranjas
 {
@@ -288,12 +289,32 @@ namespace WFPGranjas
             panelProduccion.Visible = false;
             dgHistorico.Visible = true;
         }
+        #region listadoSP obtine CBA de cada mes
+        public void determinaEditables(int op, int inIdMedidor, string cuota, string periodo)
+        {
+            ResultadoTrnx resulDTO = new ResultadoTrnx();
+            var BeanListadoCBAMen = new Backend.Procesos.CRegLecturas();
+            Object[] parames = {
+                op,
+                inIdMedidor,
+                cuota,
+                periodo
+            };
+            resulDTO = BeanListadoCBAMen.registroCuotasMensuales(parames);
+            //  rtbResul.Text += resulDTO.Mensaje;
+            if (resulDTO.result == 0)
+                mNuevo.Enabled = false;
 
+
+
+        }
+        #endregion
         private void frmCalculaCBAMensual_Load_1(object sender, EventArgs e)
         {
             consultaPer();
-            anio= cmbAnios.SelectedValue.ToString();
-            lblEncabezado.Text = "Generación del Calculo Mensual CBA: " + anio;
+            determinaEditables(5, 0, "0","01");
+            anio = cmbAnios.SelectedValue.ToString();
+            lblEncabezado.Text = "Generación del Calculo Mensual CBA: ";// + anio;
 
         }
         //|||||||||||||||inicio tonka-210117|||||||||||||||||

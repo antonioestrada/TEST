@@ -463,9 +463,10 @@ namespace WFPGranjas
                     groupCuota.Visible = false;
                     pnlMetodoPago.Visible = false;
                     MessageBox.Show("¡Se registró correctamente el Pago!");
-
-                    rptReciboAgua BeanRPTMedidor = new rptReciboAgua("" + idLote, "" + resultado,servicio);
+                    rptReciboAgua BeanRPTMedidor = new rptReciboAgua("" + idLote, "" + resultado, servicio);
                     BeanRPTMedidor.Show();
+                    //rptReciboAgua BeanRPTMedidor = new rptReciboAgua("" + idLote, "" + resultado,servicio);
+                    //BeanRPTMedidor.Show();
                    // BeanRPTMedidor.rptAgua(""+ idLote, ""+ resultado);
                 }
             }
