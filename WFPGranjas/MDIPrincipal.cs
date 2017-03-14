@@ -849,5 +849,18 @@ namespace WFPGranjas
             childFormReporteLM.MdiParent = this;
             childFormReporteLM.Show();
         }
+
+        private void fcConsultaR_Click(object sender, EventArgs e)
+        {
+            cerrarVentanas();
+            //if (childFormCatUsuarios ==null)
+            frmConsultaRecibo childFormCatPerfiles = new frmConsultaRecibo(5);
+            childFormCatPerfiles.Text = "Consulta de Recibos";
+            childFormCatPerfiles.StartPosition = FormStartPosition.CenterScreen;
+            childFormCatPerfiles.MdiParent = this;
+
+            childFormCatPerfiles.Size = new Size(849, 580);
+            childFormCatPerfiles.Show();
+        }
     }
     }

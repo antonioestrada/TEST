@@ -628,8 +628,8 @@ namespace WFPGranjas
                     periodoMinimo = int.Parse(itemFirst.Value.ToString().Substring(0, 2));
                 }
 
-                if (periodoMinimo == periodoSeleccionado && anioMinimo == anioSelececcionado)
-                {
+             //   if (periodoMinimo == periodoSeleccionado && anioMinimo == anioSelececcionado)
+             //  {
                     int renglon = dgPartidasR.Rows.Add();
                     //id
                     dgPartidasR.Rows[renglon].Cells[0].Value = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].id;
@@ -699,11 +699,11 @@ namespace WFPGranjas
                     pnlMetodoPago.Visible = true;
                     dgPartidasR.ClearSelection();
                     txtImpEf.Focus();
-                }
+                /*}
                 else {
                     MessageBox.Show("Seleccione la primer cuota vencida");
 
-                }
+                }*/
             }
             else {
                 MessageBox.Show("No existen más cuotas por saldar");

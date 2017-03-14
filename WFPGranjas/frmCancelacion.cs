@@ -280,14 +280,15 @@ namespace WFPGranjas
                         paramCan3 = 8;
                 }
                 
-                //agua con anticipo
-                if (paramCan3 == 3 && paramCan4 == 3)
-                    paramCan3 = 7;
+               
 
                 //INGRESO CASA CLUB GENERAL
                 if (paramCan3 == 7)
                     paramCan3 = 9;
 
+                //agua con anticipo
+                if (paramCan3 == 3 && paramCan4 == 3)
+                    paramCan3 = 7;
 
                 rptReciboCancela BeanRPTMedidor = new rptReciboCancela("" + paramCan1, "" + paramCan2, paramCan3,"_CANCELADO");
                 BeanRPTMedidor.Show();

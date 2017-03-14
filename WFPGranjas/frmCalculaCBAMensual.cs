@@ -262,7 +262,7 @@ namespace WFPGranjas
         {
             dgHistorico.Columns.Clear();
             this.Cursor = Cursors.WaitCursor;
-            definicionDGHistorico("Mes", "Consumo Promedio", "Consumo Anual Promedio", "Porcentaje", "CBA", "CBA Anualizado", "CBA Calculado");
+            definicionDGHistorico("Mes", "Consumo Mensual Acumulado", "Consumo Anual Acumulado", "Porcentaje", "CBA", "CBA Anualizado", "CBA Calculado");
             var BeanCargaV = new Backend.Catalogos.CTarifas();
             //carga grid
             BeanCargaV.consultaCBAMensual(dgHistorico, 2, anio, 0);

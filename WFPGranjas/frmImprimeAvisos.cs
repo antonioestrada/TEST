@@ -110,7 +110,10 @@ namespace WFPGranjas
             //browser.Show();
             //MessageBox.Show("" + id_lote);
             var BeanRPTCobranza = new Backend.Reportes.rptAvisosCobranza();
+            this.Cursor = Cursors.WaitCursor;
             BeanRPTCobranza.getMedidores(crvListadoMedidor);
+            this.Cursor = Cursors.Default;
+            MessageBox.Show("Se han generado con exito los avisos de cobranza.");
         }
 
         private void rbColono_CheckedChanged(object sender, EventArgs e)

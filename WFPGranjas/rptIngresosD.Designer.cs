@@ -31,14 +31,15 @@
             this.crvListadoMedidor = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.label7 = new System.Windows.Forms.Label();
             this.cmbFiltroMza = new System.Windows.Forms.ComboBox();
-            this.btnClose = new System.Windows.Forms.Button();
-            this.btnFiltrar = new System.Windows.Forms.Button();
-            this.btnEnviar = new System.Windows.Forms.Button();
             this.txtDestino = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.checkEnviar = new System.Windows.Forms.CheckBox();
             this.gbMail = new System.Windows.Forms.GroupBox();
+            this.btnEnviar = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.btnClose = new System.Windows.Forms.Button();
+            this.btnFiltrar = new System.Windows.Forms.Button();
+            this.dtFecha = new System.Windows.Forms.DateTimePicker();
             this.gbMail.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -63,10 +64,9 @@
             this.label7.Location = new System.Drawing.Point(4, 17);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(66, 16);
+            this.label7.Size = new System.Drawing.Size(49, 16);
             this.label7.TabIndex = 17;
-            this.label7.Text = "Manzana:";
-            this.label7.Visible = false;
+            this.label7.Text = "Fecha:";
             // 
             // cmbFiltroMza
             // 
@@ -79,50 +79,6 @@
             this.cmbFiltroMza.Size = new System.Drawing.Size(85, 24);
             this.cmbFiltroMza.TabIndex = 15;
             this.cmbFiltroMza.Visible = false;
-            // 
-            // btnClose
-            // 
-            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Image = global::WFPGranjas.Properties.Resources.ventanas_cerrar;
-            this.btnClose.Location = new System.Drawing.Point(853, 14);
-            this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(86, 24);
-            this.btnClose.TabIndex = 18;
-            this.btnClose.Text = "Cerrar";
-            this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.btnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnClose.UseVisualStyleBackColor = true;
-            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
-            // 
-            // btnFiltrar
-            // 
-            this.btnFiltrar.Image = global::WFPGranjas.Properties.Resources.filtrar;
-            this.btnFiltrar.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.btnFiltrar.Location = new System.Drawing.Point(129, 12);
-            this.btnFiltrar.Margin = new System.Windows.Forms.Padding(4);
-            this.btnFiltrar.Name = "btnFiltrar";
-            this.btnFiltrar.Size = new System.Drawing.Size(111, 26);
-            this.btnFiltrar.TabIndex = 16;
-            this.btnFiltrar.Text = "Generar";
-            this.btnFiltrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnFiltrar.UseVisualStyleBackColor = true;
-            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
-            // 
-            // btnEnviar
-            // 
-            this.btnEnviar.Image = global::WFPGranjas.Properties.Resources.email__1_;
-            this.btnEnviar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.btnEnviar.Location = new System.Drawing.Point(275, 13);
-            this.btnEnviar.Name = "btnEnviar";
-            this.btnEnviar.Size = new System.Drawing.Size(81, 24);
-            this.btnEnviar.TabIndex = 9;
-            this.btnEnviar.Text = "Enviar";
-            this.btnEnviar.TextAlign = System.Drawing.ContentAlignment.BottomRight;
-            this.btnEnviar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnEnviar.UseVisualStyleBackColor = true;
-            this.btnEnviar.Click += new System.EventHandler(this.btnEnviar_Click);
             // 
             // txtDestino
             // 
@@ -145,7 +101,7 @@
             // checkEnviar
             // 
             this.checkEnviar.AutoSize = true;
-            this.checkEnviar.Location = new System.Drawing.Point(247, 18);
+            this.checkEnviar.Location = new System.Drawing.Point(271, 18);
             this.checkEnviar.Name = "checkEnviar";
             this.checkEnviar.Size = new System.Drawing.Size(107, 17);
             this.checkEnviar.TabIndex = 21;
@@ -159,13 +115,27 @@
             this.gbMail.Controls.Add(this.txtDestino);
             this.gbMail.Controls.Add(this.btnEnviar);
             this.gbMail.Controls.Add(this.label1);
-            this.gbMail.Location = new System.Drawing.Point(353, 4);
+            this.gbMail.Location = new System.Drawing.Point(373, 4);
             this.gbMail.Name = "gbMail";
             this.gbMail.Size = new System.Drawing.Size(363, 42);
             this.gbMail.TabIndex = 22;
             this.gbMail.TabStop = false;
             this.gbMail.Text = "Enviar Reporte";
             this.gbMail.Visible = false;
+            // 
+            // btnEnviar
+            // 
+            this.btnEnviar.Image = global::WFPGranjas.Properties.Resources.email__1_;
+            this.btnEnviar.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.btnEnviar.Location = new System.Drawing.Point(275, 13);
+            this.btnEnviar.Name = "btnEnviar";
+            this.btnEnviar.Size = new System.Drawing.Size(81, 24);
+            this.btnEnviar.TabIndex = 9;
+            this.btnEnviar.Text = "Enviar";
+            this.btnEnviar.TextAlign = System.Drawing.ContentAlignment.BottomRight;
+            this.btnEnviar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnEnviar.UseVisualStyleBackColor = true;
+            this.btnEnviar.Click += new System.EventHandler(this.btnEnviar_Click);
             // 
             // button1
             // 
@@ -178,17 +148,59 @@
             this.button1.Visible = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // btnClose
+            // 
+            this.btnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnClose.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.btnClose.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnClose.Image = global::WFPGranjas.Properties.Resources.ventanas_cerrar;
+            this.btnClose.Location = new System.Drawing.Point(853, 14);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(86, 24);
+            this.btnClose.TabIndex = 18;
+            this.btnClose.Text = "Cerrar";
+            this.btnClose.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnClose.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
+            // btnFiltrar
+            // 
+            this.btnFiltrar.Image = global::WFPGranjas.Properties.Resources.filtrar;
+            this.btnFiltrar.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.btnFiltrar.Location = new System.Drawing.Point(173, 11);
+            this.btnFiltrar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnFiltrar.Name = "btnFiltrar";
+            this.btnFiltrar.Size = new System.Drawing.Size(83, 26);
+            this.btnFiltrar.TabIndex = 16;
+            this.btnFiltrar.Text = "Generar";
+            this.btnFiltrar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnFiltrar.UseVisualStyleBackColor = true;
+            this.btnFiltrar.Click += new System.EventHandler(this.btnFiltrar_Click);
+            // 
+            // dtFecha
+            // 
+            this.dtFecha.CustomFormat = "yyyy-MM-dd";
+            this.dtFecha.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dtFecha.Location = new System.Drawing.Point(52, 12);
+            this.dtFecha.MinDate = new System.DateTime(2017, 1, 1, 0, 0, 0, 0);
+            this.dtFecha.MinimumSize = new System.Drawing.Size(0, 25);
+            this.dtFecha.Name = "dtFecha";
+            this.dtFecha.Size = new System.Drawing.Size(114, 25);
+            this.dtFecha.TabIndex = 24;
+            // 
             // rptIngresosD
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(951, 293);
             this.ControlBox = false;
+            this.Controls.Add(this.btnFiltrar);
+            this.Controls.Add(this.dtFecha);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.gbMail);
             this.Controls.Add(this.checkEnviar);
             this.Controls.Add(this.btnClose);
-            this.Controls.Add(this.btnFiltrar);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.cmbFiltroMza);
             this.Controls.Add(this.crvListadoMedidor);
@@ -217,5 +229,6 @@
         private System.Windows.Forms.CheckBox checkEnviar;
         private System.Windows.Forms.GroupBox gbMail;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DateTimePicker dtFecha;
     }
 }

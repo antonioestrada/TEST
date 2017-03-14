@@ -161,7 +161,7 @@ namespace WFPGranjas.Backend.Reportes
         }
 
 
-        public void rptIngresosDia(CrystalReportViewer rptViewer, int op, string manzana)
+        public void rptIngresosDia(CrystalReportViewer rptViewer, int op, string fecha)
         {
             Globales vGlobal = new Globales();
             ReportDocument cryRpt = new ReportDocument();
@@ -169,7 +169,7 @@ namespace WFPGranjas.Backend.Reportes
             cryRpt.Load(@"" + vGlobal.pathReportes + "crReporteIngresos.rpt");
             dsIngresosDiarios dsM = new dsIngresosDiarios();
 
-            IDataReader reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_report_ingresosDiarios(1, '', '')");
+            IDataReader reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_report_ingresosDiarios(1, '"+fecha+"', '')");
             
             while (reader.Read())
             {

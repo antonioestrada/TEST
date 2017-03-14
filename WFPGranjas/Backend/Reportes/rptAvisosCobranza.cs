@@ -6,9 +6,11 @@ using CrystalDecisions.Windows.Forms;
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace WFPGranjas.Backend.Reportes
 {
@@ -19,6 +21,9 @@ namespace WFPGranjas.Backend.Reportes
         ReportDocument crySubRpt = new ReportDocument();
         ReportDocument crySubRptConsumos = new ReportDocument();
         ReportDocument crySubTarifasRpt = new ReportDocument();
+
+        string Folio = "", periodo="";
+        DataRow r;
 
         #region recibo de agua
         public void getMedidores(CrystalReportViewer rptViewer)
@@ -76,6 +81,25 @@ namespace WFPGranjas.Backend.Reportes
             }
             Conexion.FinalizarSesion();
 
+            //***********PERIODO Y AGUA*********************
+            reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_rpt_AvisosCobranza(12,'" + inParam1 + "','" + inParam2 + "','" + inParam3 + "')");
+
+            while (reader.Read())
+            {
+                dsR.DTAC_Total.AddDTAC_TotalRow(Int32.Parse(inParam1), reader.GetValue(0).ToString(),  Decimal.Parse(reader.GetValue(1).ToString()));
+            }
+            Conexion.FinalizarSesion();
+
+            //***********DATOS GRAFICA 1 COMPARATIVA*********************
+            reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_rpt_AvisosCobranza(6,'" + inParam1 + "','" + inParam2 + "','" + inParam3 + "')");
+
+            while (reader.Read())
+            {
+
+                dsR.DTAC_Grafica1.AddDTAC_Grafica1Row(Int32.Parse(inParam1), reader.GetValue(0).ToString(),"jhh", decimal.Parse(reader.GetValue(3).ToString()), decimal.Parse(reader.GetValue(4).ToString()), decimal.Parse(reader.GetValue(5).ToString()), decimal.Parse(reader.GetValue(6).ToString()));
+            }
+            Conexion.FinalizarSesion();
+
             //***********DATOS GRAFICA 2 COMPARATIVA*********************
             reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_rpt_AvisosCobranza(4,'" + inParam1 + "','" + inParam2 + "','" + inParam3 + "')");
 
@@ -108,7 +132,7 @@ namespace WFPGranjas.Backend.Reportes
 
             while (reader.Read())
             {
-                dsR.DTAC_CBA.AddDTAC_CBARow(Int32.Parse(inParam1), Int32.Parse(reader.GetValue(0).ToString()), Int32.Parse(reader.GetValue(1).ToString()));
+                dsR.DTAC_CBA.AddDTAC_CBARow(Int32.Parse(inParam1), Int32.Parse(reader.GetValue(0).ToString()), Int32.Parse(reader.GetValue(1).ToString()), int.Parse(reader.GetValue(2).ToString()), double.Parse(reader.GetValue(3).ToString()), double.Parse(reader.GetValue(4).ToString()),double.Parse(reader.GetValue(5).ToString()), double.Parse(reader.GetValue(6).ToString()));
             }
             Conexion.FinalizarSesion();
 
@@ -144,11 +168,18 @@ namespace WFPGranjas.Backend.Reportes
 
             while (reader.Read())
             {
-                dsR.DTAC_PMatto.AddDTAC_PMattoRow(Int32.Parse(inParam1), decimal.Parse(reader.GetValue(0).ToString()), decimal.Parse(reader.GetValue(1).ToString()), decimal.Parse(reader.GetValue(2).ToString()), decimal.Parse(reader.GetValue(3).ToString()), decimal.Parse(reader.GetValue(4).ToString()), decimal.Parse(reader.GetValue(5).ToString()), decimal.Parse(reader.GetValue(6).ToString()), decimal.Parse(reader.GetValue(7).ToString()));
+              //  MessageBox.Show("Datos: "+ reader.GetValue(0));
+                dsR.DTAC_PMatto.AddDTAC_PMattoRow(int.Parse(inParam1), Int32.Parse(reader.GetValue(0).ToString()), Decimal.Parse(reader.GetValue(1).ToString()), Decimal.Parse(reader.GetValue(2).ToString()), Decimal.Parse(reader.GetValue(3).ToString()), Decimal.Parse(reader.GetValue(4).ToString()), Decimal.Parse(reader.GetValue(5).ToString()), Decimal.Parse(reader.GetValue(6).ToString()), Decimal.Parse(reader.GetValue(7).ToString()));
+               // dsR.DTAC_PMatto.AddDTAC_PMattoRow(int.Parse(inParam1),22,23456,234,54545,34,456,345,78 );
+               // dsR.DTAC_PMatto.AddDTAC_PMattoRow(int.Parse(inParam1),int.Parse(reader.GetValue(0).ToString()),decimal.Parse(reader.GetValue(1).ToString()), decimal.Parse(reader.GetValue(2).ToString()), decimal.Parse(reader.GetValue(3).ToString()), decimal.Parse(reader.GetValue(4).ToString()), decimal.Parse(reader.GetValue(5).ToString()), decimal.Parse(reader.GetValue(6).ToString()), decimal.Parse(reader.GetValue(7).ToString()));
             }
             Conexion.FinalizarSesion();
 
-
+           
+            r = dsR.DTAC_DatosColono.Rows[0];
+            Folio = '_'+r["direccion"].ToString() +'_'+ inParam1;
+            r = dsR.DTAC_Total.Rows[0];
+            periodo = r["periodo"].ToString();
             cryRpt.SetDataSource(dsR);
             crySubRpt.SetDataSource(dsR.Tables["DTAC_Grafica2"]);
             crySubRptConsumos.SetDataSource(dsR.Tables["DTAC_PConsumos"]);
@@ -160,7 +191,9 @@ namespace WFPGranjas.Backend.Reportes
             ExportOptions CrExportOptions;
             DiskFileDestinationOptions CrDiskFileDestinationOptions = new DiskFileDestinationOptions();
             PdfRtfWordFormatOptions CrFormatTypeOptions = new PdfRtfWordFormatOptions();
-            CrDiskFileDestinationOptions.DiskFileName = @"" + vGlobal.pathReportesPDF + "AvisoCobranza" + inParam1 + ".pdf";
+            //checa dir
+            checaDir(@"" + vGlobal.pathReportesPDF+"\\avisos_cobranza\\"+ periodo+"\\");
+            CrDiskFileDestinationOptions.DiskFileName = @"" + vGlobal.pathReportesPDF + "\\avisos_cobranza\\"+ periodo + "\\AvisoCobranza" + Folio + ".pdf";
             // CrDiskFileDestinationOptions.DiskFileName = "c:\\firebird\\reporteMail.pdf";
             CrExportOptions = cryRpt.ExportOptions;
             {
@@ -172,5 +205,31 @@ namespace WFPGranjas.Backend.Reportes
             cryRpt.Export();
         }
         #endregion
+
+        public void checaDir(string path)
+        {
+            try
+            {
+                // Determine whether the directory exists.
+                if (Directory.Exists(path))
+                {
+                    Console.WriteLine("That path exists already.");
+                    return;
+                }
+
+                // Try to create the directory.
+                DirectoryInfo di = Directory.CreateDirectory(path);
+                Console.WriteLine("The directory was created successfully at {0}.", Directory.GetCreationTime(path));
+
+                // Delete the directory.
+               // di.Delete();
+               // Console.WriteLine("The directory was deleted successfully.");
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine("The process failed: {0}", e.ToString());
+            }
+            finally { }
+        }
     }
 }

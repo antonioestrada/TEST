@@ -111,6 +111,11 @@
             this.menuFReportes = new System.Windows.Forms.ToolStripMenuItem();
             this.frIngresosDiarios = new System.Windows.Forms.ToolStripMenuItem();
             this.frAdeudos = new System.Windows.Forms.ToolStripMenuItem();
+            this.mantenimientoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consumoDeAguaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cuotasCasaClubToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.cuotasExtraordinariasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.conveniosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuFAyuda = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem30 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem31 = new System.Windows.Forms.ToolStripMenuItem();
@@ -159,11 +164,7 @@
             this.toolStripMenuItem41 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator18 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem42 = new System.Windows.Forms.ToolStripMenuItem();
-            this.mantenimientoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.consumoDeAguaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cuotasExtraordinariasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cuotasCasaClubToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.conveniosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.fcConsultaR = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.pnlMenuPrincipal.SuspendLayout();
@@ -701,7 +702,8 @@
             this.fcAnticipios,
             this.fcDesgloseCon,
             this.toolStripSeparator20,
-            this.fcCancelacionR});
+            this.fcCancelacionR,
+            this.fcConsultaR});
             this.menuFCaja.Font = new System.Drawing.Font("Arial", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuFCaja.ForeColor = System.Drawing.SystemColors.ControlText;
             this.menuFCaja.Image = ((System.Drawing.Image)(resources.GetObject("menuFCaja.Image")));
@@ -949,6 +951,41 @@
             this.frAdeudos.Size = new System.Drawing.Size(169, 22);
             this.frAdeudos.Text = "Adeudos";
             this.frAdeudos.Click += new System.EventHandler(this.frAdeudos_Click);
+            // 
+            // mantenimientoToolStripMenuItem
+            // 
+            this.mantenimientoToolStripMenuItem.Name = "mantenimientoToolStripMenuItem";
+            this.mantenimientoToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
+            this.mantenimientoToolStripMenuItem.Text = "Cuotas de Mantenimiento";
+            this.mantenimientoToolStripMenuItem.Click += new System.EventHandler(this.mantenimientoToolStripMenuItem_Click);
+            // 
+            // consumoDeAguaToolStripMenuItem
+            // 
+            this.consumoDeAguaToolStripMenuItem.Name = "consumoDeAguaToolStripMenuItem";
+            this.consumoDeAguaToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
+            this.consumoDeAguaToolStripMenuItem.Text = "Consumo de Agua";
+            this.consumoDeAguaToolStripMenuItem.Click += new System.EventHandler(this.consumoDeAguaToolStripMenuItem_Click);
+            // 
+            // cuotasCasaClubToolStripMenuItem1
+            // 
+            this.cuotasCasaClubToolStripMenuItem1.Name = "cuotasCasaClubToolStripMenuItem1";
+            this.cuotasCasaClubToolStripMenuItem1.Size = new System.Drawing.Size(224, 22);
+            this.cuotasCasaClubToolStripMenuItem1.Text = "Cuotas Casa Club";
+            this.cuotasCasaClubToolStripMenuItem1.Click += new System.EventHandler(this.cuotasCasaClubToolStripMenuItem1_Click);
+            // 
+            // cuotasExtraordinariasToolStripMenuItem
+            // 
+            this.cuotasExtraordinariasToolStripMenuItem.Name = "cuotasExtraordinariasToolStripMenuItem";
+            this.cuotasExtraordinariasToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
+            this.cuotasExtraordinariasToolStripMenuItem.Text = "Cuotas Extraordinarias";
+            this.cuotasExtraordinariasToolStripMenuItem.Click += new System.EventHandler(this.cuotasExtraordinariasToolStripMenuItem_Click_1);
+            // 
+            // conveniosToolStripMenuItem
+            // 
+            this.conveniosToolStripMenuItem.Name = "conveniosToolStripMenuItem";
+            this.conveniosToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
+            this.conveniosToolStripMenuItem.Text = "Convenios";
+            this.conveniosToolStripMenuItem.Click += new System.EventHandler(this.conveniosToolStripMenuItem_Click);
             // 
             // menuFAyuda
             // 
@@ -1398,40 +1435,12 @@
             this.toolStripMenuItem42.Text = "&About ... ...";
             this.toolStripMenuItem42.Visible = false;
             // 
-            // mantenimientoToolStripMenuItem
+            // fcConsultaR
             // 
-            this.mantenimientoToolStripMenuItem.Name = "mantenimientoToolStripMenuItem";
-            this.mantenimientoToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
-            this.mantenimientoToolStripMenuItem.Text = "Cuotas de Mantenimiento";
-            this.mantenimientoToolStripMenuItem.Click += new System.EventHandler(this.mantenimientoToolStripMenuItem_Click);
-            // 
-            // consumoDeAguaToolStripMenuItem
-            // 
-            this.consumoDeAguaToolStripMenuItem.Name = "consumoDeAguaToolStripMenuItem";
-            this.consumoDeAguaToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
-            this.consumoDeAguaToolStripMenuItem.Text = "Consumo de Agua";
-            this.consumoDeAguaToolStripMenuItem.Click += new System.EventHandler(this.consumoDeAguaToolStripMenuItem_Click);
-            // 
-            // cuotasExtraordinariasToolStripMenuItem
-            // 
-            this.cuotasExtraordinariasToolStripMenuItem.Name = "cuotasExtraordinariasToolStripMenuItem";
-            this.cuotasExtraordinariasToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
-            this.cuotasExtraordinariasToolStripMenuItem.Text = "Cuotas Extraordinarias";
-            this.cuotasExtraordinariasToolStripMenuItem.Click += new System.EventHandler(this.cuotasExtraordinariasToolStripMenuItem_Click_1);
-            // 
-            // cuotasCasaClubToolStripMenuItem1
-            // 
-            this.cuotasCasaClubToolStripMenuItem1.Name = "cuotasCasaClubToolStripMenuItem1";
-            this.cuotasCasaClubToolStripMenuItem1.Size = new System.Drawing.Size(224, 22);
-            this.cuotasCasaClubToolStripMenuItem1.Text = "Cuotas Casa Club";
-            this.cuotasCasaClubToolStripMenuItem1.Click += new System.EventHandler(this.cuotasCasaClubToolStripMenuItem1_Click);
-            // 
-            // conveniosToolStripMenuItem
-            // 
-            this.conveniosToolStripMenuItem.Name = "conveniosToolStripMenuItem";
-            this.conveniosToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
-            this.conveniosToolStripMenuItem.Text = "Convenios";
-            this.conveniosToolStripMenuItem.Click += new System.EventHandler(this.conveniosToolStripMenuItem_Click);
+            this.fcConsultaR.Name = "fcConsultaR";
+            this.fcConsultaR.Size = new System.Drawing.Size(224, 22);
+            this.fcConsultaR.Text = "Consulta Recibo";
+            this.fcConsultaR.Click += new System.EventHandler(this.fcConsultaR_Click);
             // 
             // MDIPrincipal
             // 
@@ -1615,6 +1624,7 @@
         private System.Windows.Forms.ToolStripMenuItem cuotasCasaClubToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem cuotasExtraordinariasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem conveniosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem fcConsultaR;
     }
 }
 

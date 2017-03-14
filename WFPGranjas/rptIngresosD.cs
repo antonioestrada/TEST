@@ -28,9 +28,11 @@ namespace WFPGranjas
         private void rptMedidores_Load(object sender, EventArgs e)
         {
             WindowState = FormWindowState.Maximized;
+            dtFecha.Value = DateTime.Now;
         //FormBorderStyle = FormBorderStyle.None;
             var BeanCLotesMza = new Backend.Catalogos.CManzanaLotes();
             BeanCLotesMza.consultaMazaComboRPT(cmbFiltroMza);
+          //  MessageBox.Show("Fecha: " + dtFecha.Text);
         }
 
         private void btnClose_Click(object sender, EventArgs e)
@@ -42,10 +44,10 @@ namespace WFPGranjas
         {
             var BeanRPTMedidor = new Backend.Reportes.rptMedidores();
             //if(cmbFiltroMza.Text=="Todos")
-                BeanRPTMedidor.rptIngresosDia(crvListadoMedidor, 1, "");
+                BeanRPTMedidor.rptIngresosDia(crvListadoMedidor, 1,dtFecha.Text);
            // else
             //    BeanRPTMedidor.rptListaMedidores(crvListadoMedidor, 2, cmbFiltroMza.Text);
-            checkEnviar.Visible = true;
+           // checkEnviar.Visible = true;
         }
 
         private void btnEnviar_Click(object sender, EventArgs e)

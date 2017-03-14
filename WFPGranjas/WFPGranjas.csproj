@@ -368,6 +368,12 @@
     <Compile Include="frmCConceptosCC.Designer.cs">
       <DependentUpon>frmCConceptosCC.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmConsultaRecibo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsultaRecibo.Designer.cs">
+      <DependentUpon>frmConsultaRecibo.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmConvenios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -710,6 +716,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmCConceptosCC.resx">
       <DependentUpon>frmCConceptosCC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConsultaRecibo.resx">
+      <DependentUpon>frmConsultaRecibo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmConvenios.resx">
       <DependentUpon>frmConvenios.cs</DependentUpon>

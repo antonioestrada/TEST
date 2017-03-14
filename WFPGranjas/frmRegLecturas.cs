@@ -444,7 +444,7 @@ namespace WFPGranjas
             //opcion 1 es para registro de lecturas
             if (opcion == 1)
             {
-                if (periodoActual != int.Parse(periodo))
+                /*if (periodoActual != int.Parse(periodo))
                 {
                     object itemFirst = cmbPeriodos.SelectedItem;
                     Dictionary<String, String> periodos = new Dictionary<String, String>();
@@ -454,7 +454,7 @@ namespace WFPGranjas
                     MessageBox.Show(mensajePeriodo);
                 }
                 else
-                {
+                {*/
 
 
                     //MessageBox.Show("" + maskPeriodo.Text.Trim() + "- contenido", maskPeriodo.Text+" length"+ longCad);
@@ -484,7 +484,7 @@ namespace WFPGranjas
                         MessageBox.Show("Ingresa correctamente la fecha.");
                         ocultaDatos();
                     }
-                }
+                //}
             }
             //opcion 2 es para editar de CBA 
             else if (opcion == 2)

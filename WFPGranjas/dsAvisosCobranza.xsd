@@ -77,6 +77,11 @@
               <xs:element name="id_comun" msprop:Generator_ColumnVarNameInTable="columnid_comun" msprop:Generator_ColumnPropNameInRow="id_comun" msprop:Generator_ColumnPropNameInTable="id_comunColumn" msprop:Generator_UserColumnName="id_comun" type="xs:int" minOccurs="0" />
               <xs:element name="anual_recomendado" msdata:Caption="asociado" msprop:Generator_ColumnVarNameInTable="columnanual_recomendado" msprop:Generator_ColumnPropNameInRow="anual_recomendado" msprop:Generator_ColumnPropNameInTable="anual_recomendadoColumn" msprop:Generator_UserColumnName="anual_recomendado" type="xs:int" minOccurs="0" />
               <xs:element name="momento_recom" msdata:Caption="direccion" msprop:Generator_ColumnVarNameInTable="columnmomento_recom" msprop:Generator_ColumnPropNameInRow="momento_recom" msprop:Generator_ColumnPropNameInTable="momento_recomColumn" msprop:Generator_UserColumnName="momento_recom" type="xs:int" minOccurs="0" />
+              <xs:element name="consumo_actual" msprop:Generator_ColumnVarNameInTable="columnconsumo_actual" msprop:Generator_ColumnPropNameInRow="consumo_actual" msprop:Generator_ColumnPropNameInTable="consumo_actualColumn" msprop:Generator_UserColumnName="consumo_actual" type="xs:int" minOccurs="0" />
+              <xs:element name="verde" msprop:Generator_ColumnVarNameInTable="columnverde" msprop:Generator_ColumnPropNameInRow="verde" msprop:Generator_ColumnPropNameInTable="verdeColumn" msprop:Generator_UserColumnName="verde" type="xs:double" minOccurs="0" />
+              <xs:element name="amarillo" msprop:Generator_ColumnVarNameInTable="columnamarillo" msprop:Generator_ColumnPropNameInRow="amarillo" msprop:Generator_ColumnPropNameInTable="amarilloColumn" msprop:Generator_UserColumnName="amarillo" type="xs:double" minOccurs="0" />
+              <xs:element name="rojo" msprop:Generator_ColumnVarNameInTable="columnrojo" msprop:Generator_ColumnPropNameInRow="rojo" msprop:Generator_ColumnPropNameInTable="rojoColumn" msprop:Generator_UserColumnName="rojo" type="xs:double" minOccurs="0" />
+              <xs:element name="blanco" msprop:Generator_ColumnVarNameInTable="columnblanco" msprop:Generator_ColumnPropNameInRow="blanco" msprop:Generator_ColumnPropNameInTable="blancoColumn" msprop:Generator_UserColumnName="blanco" type="xs:double" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
@@ -112,7 +117,7 @@
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_comun" msprop:Generator_ColumnVarNameInTable="columnid_comun" msprop:Generator_ColumnPropNameInRow="id_comun" msprop:Generator_ColumnPropNameInTable="id_comunColumn" msprop:Generator_UserColumnName="id_comun" type="xs:int" minOccurs="0" />
-              <xs:element name="no_adeudo" msprop:Generator_ColumnVarNameInTable="columnno_adeudo" msprop:Generator_ColumnPropNameInRow="no_adeudo" msprop:Generator_ColumnPropNameInTable="no_adeudoColumn" msprop:Generator_UserColumnName="no_adeudo" type="xs:decimal" minOccurs="0" />
+              <xs:element name="no_adeudo" msprop:Generator_ColumnVarNameInTable="columnno_adeudo" msprop:Generator_ColumnPropNameInRow="no_adeudo" msprop:Generator_ColumnPropNameInTable="no_adeudoColumn" msprop:Generator_UserColumnName="no_adeudo" type="xs:int" minOccurs="0" />
               <xs:element name="adudos" msprop:Generator_ColumnVarNameInTable="columnadudos" msprop:Generator_ColumnPropNameInRow="adudos" msprop:Generator_ColumnPropNameInTable="adudosColumn" msprop:Generator_UserColumnName="adudos" type="xs:decimal" minOccurs="0" />
               <xs:element name="cargosAct" msprop:Generator_ColumnVarNameInTable="columncargosAct" msprop:Generator_ColumnPropNameInRow="cargosAct" msprop:Generator_ColumnPropNameInTable="cargosActColumn" msprop:Generator_UserColumnName="cargosAct" type="xs:decimal" minOccurs="0" />
               <xs:element name="adeudoAct" msprop:Generator_ColumnVarNameInTable="columnadeudoAct" msprop:Generator_ColumnPropNameInRow="adeudoAct" msprop:Generator_ColumnPropNameInTable="adeudoActColumn" msprop:Generator_UserColumnName="adeudoAct" type="xs:decimal" minOccurs="0" />
@@ -120,6 +125,28 @@
               <xs:element name="cuotaMensual" msprop:Generator_ColumnVarNameInTable="columncuotaMensual" msprop:Generator_ColumnPropNameInRow="cuotaMensual" msprop:Generator_ColumnPropNameInTable="cuotaMensualColumn" msprop:Generator_UserColumnName="cuotaMensual" type="xs:decimal" minOccurs="0" />
               <xs:element name="convenio" msprop:Generator_ColumnVarNameInTable="columnconvenio" msprop:Generator_ColumnPropNameInRow="convenio" msprop:Generator_ColumnPropNameInTable="convenioColumn" msprop:Generator_UserColumnName="convenio" type="xs:decimal" minOccurs="0" />
               <xs:element name="otros" msprop:Generator_ColumnVarNameInTable="columnotros" msprop:Generator_ColumnPropNameInRow="otros" msprop:Generator_ColumnPropNameInTable="otrosColumn" msprop:Generator_UserColumnName="otros" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DTAC_Grafica1" msprop:Generator_TableClassName="DTAC_Grafica1DataTable" msprop:Generator_TableVarName="tableDTAC_Grafica1" msprop:Generator_TablePropName="DTAC_Grafica1" msprop:Generator_RowDeletingName="DTAC_Grafica1RowDeleting" msprop:Generator_RowChangingName="DTAC_Grafica1RowChanging" msprop:Generator_RowEvHandlerName="DTAC_Grafica1RowChangeEventHandler" msprop:Generator_RowDeletedName="DTAC_Grafica1RowDeleted" msprop:Generator_UserTableName="DTAC_Grafica1" msprop:Generator_RowChangedName="DTAC_Grafica1RowChanged" msprop:Generator_RowEvArgName="DTAC_Grafica1RowChangeEvent" msprop:Generator_RowClassName="DTAC_Grafica1Row">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id_comun" msprop:Generator_ColumnVarNameInTable="columnid_comun" msprop:Generator_ColumnPropNameInRow="id_comun" msprop:Generator_ColumnPropNameInTable="id_comunColumn" msprop:Generator_UserColumnName="id_comun" type="xs:int" minOccurs="0" />
+              <xs:element name="columna_comun" msprop:Generator_ColumnVarNameInTable="columncolumna_comun" msprop:Generator_ColumnPropNameInRow="columna_comun" msprop:Generator_ColumnPropNameInTable="columna_comunColumn" msprop:Generator_UserColumnName="columna_comun" type="xs:string" minOccurs="0" />
+              <xs:element name="valor" msprop:Generator_ColumnVarNameInTable="columnvalor" msprop:Generator_ColumnPropNameInRow="valor" msprop:Generator_ColumnPropNameInTable="valorColumn" msprop:Generator_UserColumnName="valor" type="xs:string" minOccurs="0" />
+              <xs:element name="verde" msprop:Generator_ColumnVarNameInTable="columnverde" msprop:Generator_ColumnPropNameInRow="verde" msprop:Generator_ColumnPropNameInTable="verdeColumn" msprop:Generator_UserColumnName="verde" type="xs:decimal" minOccurs="0" />
+              <xs:element name="amarillo" msprop:Generator_ColumnVarNameInTable="columnamarillo" msprop:Generator_ColumnPropNameInRow="amarillo" msprop:Generator_ColumnPropNameInTable="amarilloColumn" msprop:Generator_UserColumnName="amarillo" type="xs:decimal" minOccurs="0" />
+              <xs:element name="rojo" msprop:Generator_ColumnVarNameInTable="columnrojo" msprop:Generator_ColumnPropNameInRow="rojo" msprop:Generator_ColumnPropNameInTable="rojoColumn" msprop:Generator_UserColumnName="rojo" type="xs:decimal" minOccurs="0" />
+              <xs:element name="blanco" msprop:Generator_ColumnVarNameInTable="columnblanco" msprop:Generator_ColumnPropNameInRow="blanco" msprop:Generator_ColumnPropNameInTable="blancoColumn" msprop:Generator_UserColumnName="blanco" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DTAC_Total" msprop:Generator_TableClassName="DTAC_TotalDataTable" msprop:Generator_TableVarName="tableDTAC_Total" msprop:Generator_TablePropName="DTAC_Total" msprop:Generator_RowDeletingName="DTAC_TotalRowDeleting" msprop:Generator_RowChangingName="DTAC_TotalRowChanging" msprop:Generator_RowEvHandlerName="DTAC_TotalRowChangeEventHandler" msprop:Generator_RowDeletedName="DTAC_TotalRowDeleted" msprop:Generator_UserTableName="DTAC_Total" msprop:Generator_RowChangedName="DTAC_TotalRowChanged" msprop:Generator_RowEvArgName="DTAC_TotalRowChangeEvent" msprop:Generator_RowClassName="DTAC_TotalRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id_comun" msprop:Generator_ColumnVarNameInTable="columnid_comun" msprop:Generator_ColumnPropNameInRow="id_comun" msprop:Generator_ColumnPropNameInTable="id_comunColumn" msprop:Generator_UserColumnName="id_comun" type="xs:int" minOccurs="0" />
+              <xs:element name="periodo" msprop:Generator_ColumnVarNameInTable="columnperiodo" msprop:Generator_ColumnPropNameInRow="periodo" msprop:Generator_ColumnPropNameInTable="periodoColumn" msprop:Generator_UserColumnName="periodo" type="xs:string" minOccurs="0" />
+              <xs:element name="pago_agua" msprop:Generator_ColumnVarNameInTable="columnpago_agua" msprop:Generator_ColumnPropNameInRow="pago_agua" msprop:Generator_ColumnPropNameInTable="pago_aguaColumn" msprop:Generator_UserColumnName="pago_agua" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
