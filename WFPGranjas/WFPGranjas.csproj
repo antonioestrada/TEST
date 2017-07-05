@@ -130,8 +130,20 @@
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="crReportes\crReciboBonAg.cs">
+      <DependentUpon>crReciboBonAg.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="crReportes\crReciboAnAg.cs">
       <DependentUpon>crReciboAnAg.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="crReportes\crReciboBonAgua.cs">
+      <DependentUpon>crReciboBonAgua.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
@@ -220,6 +232,18 @@
       <DependentUpon>crReciboMtto.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="crReportes\crRegConsumosContrato.cs">
+      <DependentUpon>crRegConsumosContrato.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="crReportes\crRegConsumos.cs">
+      <DependentUpon>crRegConsumos.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="crReportes\crRegLecturasCons.cs">
       <DependentUpon>crRegLecturasCons.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -231,6 +255,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>crRegLecturas.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="crReportes\crReporteIngresos_otros.cs">
+      <DependentUpon>crReporteIngresos_otros.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="crReportes\crReporteIngresos_matto.cs">
+      <DependentUpon>crReporteIngresos_matto.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="crReportes\crReporteIngresos.cs">
       <AutoGen>True</AutoGen>
@@ -341,6 +377,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsReciboManto.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="dsReporteConsumos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsReporteConsumos.xsd</DependentUpon>
     </Compile>
     <Compile Include="dsReportesVarios.cs">
       <DependentUpon>dsReportesVarios.xsd</DependentUpon>
@@ -538,6 +579,12 @@
     <Compile Include="rptConsumos.Designer.cs">
       <DependentUpon>rptConsumos.cs</DependentUpon>
     </Compile>
+    <Compile Include="rptConsumos_Filtros.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="rptConsumos_Filtros.Designer.cs">
+      <DependentUpon>rptConsumos_Filtros.cs</DependentUpon>
+    </Compile>
     <Compile Include="rptIngresosD.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -608,9 +655,17 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crNotificacionCambio.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="crReportes\crReciboBonAg.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crReciboBonAg.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="crReportes\crReciboAnAg.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crReciboAnAg.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crReportes\crReciboBonAgua.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crReciboBonAgua.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="crReportes\crReciboAntAgua.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -668,6 +723,14 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crReciboMtto.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="crReportes\crRegConsumosContrato.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crRegConsumosContrato.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crReportes\crRegConsumos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crRegConsumos.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="crReportes\crRegLecturasCons.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crRegLecturasCons.cs</LastGenOutput>
@@ -675,6 +738,14 @@
     <EmbeddedResource Include="crReportes\crRegLecturas.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>crRegLecturas.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crReportes\crReporteIngresos_otros.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crReporteIngresos_otros.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="crReportes\crReporteIngresos_matto.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>crReporteIngresos_matto.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="crReportes\crReporteIngresos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -807,6 +878,9 @@
     <EmbeddedResource Include="rptConsumos.resx">
       <DependentUpon>rptConsumos.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="rptConsumos_Filtros.resx">
+      <DependentUpon>rptConsumos_Filtros.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="rptIngresosD.resx">
       <DependentUpon>rptIngresosD.cs</DependentUpon>
     </EmbeddedResource>
@@ -938,6 +1012,17 @@
     </None>
     <None Include="dsReciboManto.xss">
       <DependentUpon>dsReciboManto.xsd</DependentUpon>
+    </None>
+    <None Include="dsReporteConsumos.xsc">
+      <DependentUpon>dsReporteConsumos.xsd</DependentUpon>
+    </None>
+    <None Include="dsReporteConsumos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsReporteConsumos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="dsReporteConsumos.xss">
+      <DependentUpon>dsReporteConsumos.xsd</DependentUpon>
     </None>
     <None Include="dsReportesVarios.xsc">
       <DependentUpon>dsReportesVarios.xsd</DependentUpon>

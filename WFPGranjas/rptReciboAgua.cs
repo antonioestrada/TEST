@@ -29,6 +29,8 @@ namespace WFPGranjas
                 BeanRPTMedidor.rptReciboExtra(crvLRecibos, 1, lote, idPago, "");
             else if (servicio == 7)
                 BeanRPTMedidor.rptReciboAntAgua(crvLRecibos, 1, lote, idPago, "");
+            else if (servicio == 71)
+                BeanRPTMedidor.rptReciboBonAgua(crvLRecibos, 1, lote, idPago, "");
             else if (servicio == 8)
                 BeanRPTMedidor.rptReciboAnualidad(crvLRecibos, 1, lote, idPago, "");
             else if (servicio == 5)

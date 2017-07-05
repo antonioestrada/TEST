@@ -127,6 +127,8 @@ namespace WFPGranjas.Backend.Reportes
             }
             Conexion.FinalizarSesion();
 
+
+
             //***********DATOS RECOMENDACION CBA*********************
             reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_rpt_AvisosCobranza(6,'" + inParam1 + "','" + inParam2 + "','" + inParam3 + "')");
 
@@ -142,6 +144,18 @@ namespace WFPGranjas.Backend.Reportes
             while (reader.Read())
             {
                 dsR.DTAC_PConsumos.AddDTAC_PConsumosRow(Int32.Parse(inParam1),reader.GetValue(0).ToString(), decimal.Parse(reader.GetValue(1).ToString()), reader.GetValue(2).ToString(), Decimal.Parse(reader.GetValue(3).ToString()), Decimal.Parse(reader.GetValue(4).ToString()));
+            }
+            Conexion.FinalizarSesion();
+
+            //***********PARTIDAS SALDOS ANT. AGUA*********************
+            reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_rpt_AvisosCobranza(22,'" + inParam1 + "','" + inParam2 + "','" + inParam3 + "')");
+            //Decimal saldoFav= 0;
+            while (reader.Read())
+            {
+                if (reader.GetValue(0).ToString() == null)
+                    dsR.DTAC_Saldo.AddDTAC_SaldoRow(Int32.Parse(inParam1), 0);
+                else
+                    dsR.DTAC_Saldo.AddDTAC_SaldoRow(Int32.Parse(inParam1), decimal.Parse(reader.GetValue(0).ToString()));
             }
             Conexion.FinalizarSesion();
 

@@ -862,5 +862,27 @@ namespace WFPGranjas
             childFormCatPerfiles.Size = new Size(849, 580);
             childFormCatPerfiles.Show();
         }
+
+        private void bonificacionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            cerrarVentanas();
+            //if (childFormCatUsuarios ==null)
+            frmAnticipoMto childFormCatPerfiles = new frmAnticipoMto(8, false);
+            childFormCatPerfiles.Text = "Bonificaciones de Agua";
+            childFormCatPerfiles.StartPosition = FormStartPosition.CenterScreen;
+
+            childFormCatPerfiles.MdiParent = this;
+            //  childFormCatPerfiles.Size = new Size(370, 365);
+            childFormCatPerfiles.Show();
+        }
+
+        private void arConsumos_Click(object sender, EventArgs e)
+        {
+
+            cerrarVentanas();
+            rptConsumos_Filtros rpt = new rptConsumos_Filtros();
+            rpt.MdiParent = this;
+            rpt.Show();
+        }
     }
     }

@@ -12,7 +12,7 @@
   <xs:element name="dsAvisosCobranza" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsAvisosCobranza" msprop:Generator_UserDSName="dsAvisosCobranza">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="DTAC_HeadFooter" msprop:Generator_TableClassName="DTAC_HeadFooterDataTable" msprop:Generator_TableVarName="tableDTAC_HeadFooter" msprop:Generator_RowChangedName="DTAC_HeadFooterRowChanged" msprop:Generator_TablePropName="DTAC_HeadFooter" msprop:Generator_RowDeletingName="DTAC_HeadFooterRowDeleting" msprop:Generator_RowChangingName="DTAC_HeadFooterRowChanging" msprop:Generator_RowEvHandlerName="DTAC_HeadFooterRowChangeEventHandler" msprop:Generator_RowDeletedName="DTAC_HeadFooterRowDeleted" msprop:Generator_RowClassName="DTAC_HeadFooterRow" msprop:Generator_UserTableName="DTAC_HeadFooter" msprop:Generator_RowEvArgName="DTAC_HeadFooterRowChangeEvent">
+        <xs:element name="DTAC_HeadFooter" msprop:Generator_TableClassName="DTAC_HeadFooterDataTable" msprop:Generator_TableVarName="tableDTAC_HeadFooter" msprop:Generator_TablePropName="DTAC_HeadFooter" msprop:Generator_RowDeletingName="DTAC_HeadFooterRowDeleting" msprop:Generator_RowChangingName="DTAC_HeadFooterRowChanging" msprop:Generator_RowEvHandlerName="DTAC_HeadFooterRowChangeEventHandler" msprop:Generator_RowDeletedName="DTAC_HeadFooterRowDeleted" msprop:Generator_UserTableName="DTAC_HeadFooter" msprop:Generator_RowChangedName="DTAC_HeadFooterRowChanged" msprop:Generator_RowEvArgName="DTAC_HeadFooterRowChangeEvent" msprop:Generator_RowClassName="DTAC_HeadFooterRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_comun" msprop:Generator_ColumnVarNameInTable="columnid_comun" msprop:Generator_ColumnPropNameInRow="id_comun" msprop:Generator_ColumnPropNameInTable="id_comunColumn" msprop:Generator_UserColumnName="id_comun" type="xs:int" minOccurs="0" />
@@ -25,7 +25,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DTAC_DatosColono" msprop:Generator_TableClassName="DTAC_DatosColonoDataTable" msprop:Generator_TableVarName="tableDTAC_DatosColono" msprop:Generator_RowChangedName="DTAC_DatosColonoRowChanged" msprop:Generator_TablePropName="DTAC_DatosColono" msprop:Generator_RowDeletingName="DTAC_DatosColonoRowDeleting" msprop:Generator_RowChangingName="DTAC_DatosColonoRowChanging" msprop:Generator_RowEvHandlerName="DTAC_DatosColonoRowChangeEventHandler" msprop:Generator_RowDeletedName="DTAC_DatosColonoRowDeleted" msprop:Generator_RowClassName="DTAC_DatosColonoRow" msprop:Generator_UserTableName="DTAC_DatosColono" msprop:Generator_RowEvArgName="DTAC_DatosColonoRowChangeEvent">
+        <xs:element name="DTAC_DatosColono" msprop:Generator_TableClassName="DTAC_DatosColonoDataTable" msprop:Generator_TableVarName="tableDTAC_DatosColono" msprop:Generator_TablePropName="DTAC_DatosColono" msprop:Generator_RowDeletingName="DTAC_DatosColonoRowDeleting" msprop:Generator_RowChangingName="DTAC_DatosColonoRowChanging" msprop:Generator_RowEvHandlerName="DTAC_DatosColonoRowChangeEventHandler" msprop:Generator_RowDeletedName="DTAC_DatosColonoRowDeleted" msprop:Generator_UserTableName="DTAC_DatosColono" msprop:Generator_RowChangedName="DTAC_DatosColonoRowChanged" msprop:Generator_RowEvArgName="DTAC_DatosColonoRowChangeEvent" msprop:Generator_RowClassName="DTAC_DatosColonoRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_comun" msprop:Generator_ColumnVarNameInTable="columnid_comun" msprop:Generator_ColumnPropNameInRow="id_comun" msprop:Generator_ColumnPropNameInTable="id_comunColumn" msprop:Generator_UserColumnName="id_comun" type="xs:int" minOccurs="0" />
@@ -38,7 +38,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DTAC_Grafica3" msprop:Generator_TableClassName="DTAC_Grafica3DataTable" msprop:Generator_TableVarName="tableDTAC_Grafica3" msprop:Generator_RowChangedName="DTAC_Grafica3RowChanged" msprop:Generator_TablePropName="DTAC_Grafica3" msprop:Generator_RowDeletingName="DTAC_Grafica3RowDeleting" msprop:Generator_RowChangingName="DTAC_Grafica3RowChanging" msprop:Generator_RowEvHandlerName="DTAC_Grafica3RowChangeEventHandler" msprop:Generator_RowDeletedName="DTAC_Grafica3RowDeleted" msprop:Generator_RowClassName="DTAC_Grafica3Row" msprop:Generator_UserTableName="DTAC_Grafica3" msprop:Generator_RowEvArgName="DTAC_Grafica3RowChangeEvent">
+        <xs:element name="DTAC_Grafica3" msprop:Generator_TableClassName="DTAC_Grafica3DataTable" msprop:Generator_TableVarName="tableDTAC_Grafica3" msprop:Generator_TablePropName="DTAC_Grafica3" msprop:Generator_RowDeletingName="DTAC_Grafica3RowDeleting" msprop:Generator_RowChangingName="DTAC_Grafica3RowChanging" msprop:Generator_RowEvHandlerName="DTAC_Grafica3RowChangeEventHandler" msprop:Generator_RowDeletedName="DTAC_Grafica3RowDeleted" msprop:Generator_UserTableName="DTAC_Grafica3" msprop:Generator_RowChangedName="DTAC_Grafica3RowChanged" msprop:Generator_RowEvArgName="DTAC_Grafica3RowChangeEvent" msprop:Generator_RowClassName="DTAC_Grafica3Row">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_comun" msprop:Generator_ColumnVarNameInTable="columnid_comun" msprop:Generator_ColumnPropNameInRow="id_comun" msprop:Generator_ColumnPropNameInTable="id_comunColumn" msprop:Generator_UserColumnName="id_comun" type="xs:int" minOccurs="0" />
@@ -49,7 +49,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DTAC_Grafica2" msprop:Generator_TableClassName="DTAC_Grafica2DataTable" msprop:Generator_TableVarName="tableDTAC_Grafica2" msprop:Generator_TablePropName="DTAC_Grafica2" msprop:Generator_RowDeletingName="DTAC_Grafica2RowDeleting" msprop:Generator_RowChangingName="DTAC_Grafica2RowChanging" msprop:Generator_RowEvHandlerName="DTAC_Grafica2RowChangeEventHandler" msprop:Generator_RowDeletedName="DTAC_Grafica2RowDeleted" msprop:Generator_UserTableName="DTAC_Grafica2" msprop:Generator_RowChangedName="DTAC_Grafica2RowChanged" msprop:Generator_RowEvArgName="DTAC_Grafica2RowChangeEvent" msprop:Generator_RowClassName="DTAC_Grafica2Row">
+        <xs:element name="DTAC_Grafica2" msprop:Generator_TableClassName="DTAC_Grafica2DataTable" msprop:Generator_TableVarName="tableDTAC_Grafica2" msprop:Generator_RowChangedName="DTAC_Grafica2RowChanged" msprop:Generator_TablePropName="DTAC_Grafica2" msprop:Generator_RowDeletingName="DTAC_Grafica2RowDeleting" msprop:Generator_RowChangingName="DTAC_Grafica2RowChanging" msprop:Generator_RowEvHandlerName="DTAC_Grafica2RowChangeEventHandler" msprop:Generator_RowDeletedName="DTAC_Grafica2RowDeleted" msprop:Generator_RowClassName="DTAC_Grafica2Row" msprop:Generator_UserTableName="DTAC_Grafica2" msprop:Generator_RowEvArgName="DTAC_Grafica2RowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_comun" msprop:Generator_ColumnVarNameInTable="columnid_comun" msprop:Generator_ColumnPropNameInRow="id_comun" msprop:Generator_ColumnPropNameInTable="id_comunColumn" msprop:Generator_UserColumnName="id_comun" type="xs:int" minOccurs="0" />
@@ -60,7 +60,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DTAC_Lecturas" msprop:Generator_TableClassName="DTAC_LecturasDataTable" msprop:Generator_TableVarName="tableDTAC_Lecturas" msprop:Generator_RowChangedName="DTAC_LecturasRowChanged" msprop:Generator_TablePropName="DTAC_Lecturas" msprop:Generator_RowDeletingName="DTAC_LecturasRowDeleting" msprop:Generator_RowChangingName="DTAC_LecturasRowChanging" msprop:Generator_RowEvHandlerName="DTAC_LecturasRowChangeEventHandler" msprop:Generator_RowDeletedName="DTAC_LecturasRowDeleted" msprop:Generator_RowClassName="DTAC_LecturasRow" msprop:Generator_UserTableName="DTAC_Lecturas" msprop:Generator_RowEvArgName="DTAC_LecturasRowChangeEvent">
+        <xs:element name="DTAC_Lecturas" msprop:Generator_TableClassName="DTAC_LecturasDataTable" msprop:Generator_TableVarName="tableDTAC_Lecturas" msprop:Generator_TablePropName="DTAC_Lecturas" msprop:Generator_RowDeletingName="DTAC_LecturasRowDeleting" msprop:Generator_RowChangingName="DTAC_LecturasRowChanging" msprop:Generator_RowEvHandlerName="DTAC_LecturasRowChangeEventHandler" msprop:Generator_RowDeletedName="DTAC_LecturasRowDeleted" msprop:Generator_UserTableName="DTAC_Lecturas" msprop:Generator_RowChangedName="DTAC_LecturasRowChanged" msprop:Generator_RowEvArgName="DTAC_LecturasRowChangeEvent" msprop:Generator_RowClassName="DTAC_LecturasRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_comun" msprop:Generator_ColumnVarNameInTable="columnid_comun" msprop:Generator_ColumnPropNameInRow="id_comun" msprop:Generator_ColumnPropNameInTable="id_comunColumn" msprop:Generator_UserColumnName="id_comun" type="xs:int" minOccurs="0" />
@@ -71,7 +71,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DTAC_CBA" msprop:Generator_TableClassName="DTAC_CBADataTable" msprop:Generator_TableVarName="tableDTAC_CBA" msprop:Generator_TablePropName="DTAC_CBA" msprop:Generator_RowDeletingName="DTAC_CBARowDeleting" msprop:Generator_RowChangingName="DTAC_CBARowChanging" msprop:Generator_RowEvHandlerName="DTAC_CBARowChangeEventHandler" msprop:Generator_RowDeletedName="DTAC_CBARowDeleted" msprop:Generator_UserTableName="DTAC_CBA" msprop:Generator_RowChangedName="DTAC_CBARowChanged" msprop:Generator_RowEvArgName="DTAC_CBARowChangeEvent" msprop:Generator_RowClassName="DTAC_CBARow">
+        <xs:element name="DTAC_CBA" msprop:Generator_TableClassName="DTAC_CBADataTable" msprop:Generator_TableVarName="tableDTAC_CBA" msprop:Generator_RowChangedName="DTAC_CBARowChanged" msprop:Generator_TablePropName="DTAC_CBA" msprop:Generator_RowDeletingName="DTAC_CBARowDeleting" msprop:Generator_RowChangingName="DTAC_CBARowChanging" msprop:Generator_RowEvHandlerName="DTAC_CBARowChangeEventHandler" msprop:Generator_RowDeletedName="DTAC_CBARowDeleted" msprop:Generator_RowClassName="DTAC_CBARow" msprop:Generator_UserTableName="DTAC_CBA" msprop:Generator_RowEvArgName="DTAC_CBARowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_comun" msprop:Generator_ColumnVarNameInTable="columnid_comun" msprop:Generator_ColumnPropNameInRow="id_comun" msprop:Generator_ColumnPropNameInTable="id_comunColumn" msprop:Generator_UserColumnName="id_comun" type="xs:int" minOccurs="0" />
@@ -85,7 +85,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DTAC_PConsumos" msprop:Generator_TableClassName="DTAC_PConsumosDataTable" msprop:Generator_TableVarName="tableDTAC_PConsumos" msprop:Generator_TablePropName="DTAC_PConsumos" msprop:Generator_RowDeletingName="DTAC_PConsumosRowDeleting" msprop:Generator_RowChangingName="DTAC_PConsumosRowChanging" msprop:Generator_RowEvHandlerName="DTAC_PConsumosRowChangeEventHandler" msprop:Generator_RowDeletedName="DTAC_PConsumosRowDeleted" msprop:Generator_UserTableName="DTAC_PConsumos" msprop:Generator_RowChangedName="DTAC_PConsumosRowChanged" msprop:Generator_RowEvArgName="DTAC_PConsumosRowChangeEvent" msprop:Generator_RowClassName="DTAC_PConsumosRow">
+        <xs:element name="DTAC_PConsumos" msprop:Generator_TableClassName="DTAC_PConsumosDataTable" msprop:Generator_TableVarName="tableDTAC_PConsumos" msprop:Generator_RowChangedName="DTAC_PConsumosRowChanged" msprop:Generator_TablePropName="DTAC_PConsumos" msprop:Generator_RowDeletingName="DTAC_PConsumosRowDeleting" msprop:Generator_RowChangingName="DTAC_PConsumosRowChanging" msprop:Generator_RowEvHandlerName="DTAC_PConsumosRowChangeEventHandler" msprop:Generator_RowDeletedName="DTAC_PConsumosRowDeleted" msprop:Generator_RowClassName="DTAC_PConsumosRow" msprop:Generator_UserTableName="DTAC_PConsumos" msprop:Generator_RowEvArgName="DTAC_PConsumosRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_comun" msprop:Generator_ColumnVarNameInTable="columnid_comun" msprop:Generator_ColumnPropNameInRow="id_comun" msprop:Generator_ColumnPropNameInTable="id_comunColumn" msprop:Generator_UserColumnName="id_comun" type="xs:int" minOccurs="0" />
@@ -97,7 +97,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DTAC_Consumo" msprop:Generator_TableClassName="DTAC_ConsumoDataTable" msprop:Generator_TableVarName="tableDTAC_Consumo" msprop:Generator_TablePropName="DTAC_Consumo" msprop:Generator_RowDeletingName="DTAC_ConsumoRowDeleting" msprop:Generator_RowChangingName="DTAC_ConsumoRowChanging" msprop:Generator_RowEvHandlerName="DTAC_ConsumoRowChangeEventHandler" msprop:Generator_RowDeletedName="DTAC_ConsumoRowDeleted" msprop:Generator_UserTableName="DTAC_Consumo" msprop:Generator_RowChangedName="DTAC_ConsumoRowChanged" msprop:Generator_RowEvArgName="DTAC_ConsumoRowChangeEvent" msprop:Generator_RowClassName="DTAC_ConsumoRow">
+        <xs:element name="DTAC_Consumo" msprop:Generator_TableClassName="DTAC_ConsumoDataTable" msprop:Generator_TableVarName="tableDTAC_Consumo" msprop:Generator_RowChangedName="DTAC_ConsumoRowChanged" msprop:Generator_TablePropName="DTAC_Consumo" msprop:Generator_RowDeletingName="DTAC_ConsumoRowDeleting" msprop:Generator_RowChangingName="DTAC_ConsumoRowChanging" msprop:Generator_RowEvHandlerName="DTAC_ConsumoRowChangeEventHandler" msprop:Generator_RowDeletedName="DTAC_ConsumoRowDeleted" msprop:Generator_RowClassName="DTAC_ConsumoRow" msprop:Generator_UserTableName="DTAC_Consumo" msprop:Generator_RowEvArgName="DTAC_ConsumoRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_comun" msprop:Generator_ColumnVarNameInTable="columnid_comun" msprop:Generator_ColumnPropNameInRow="id_comun" msprop:Generator_ColumnPropNameInTable="id_comunColumn" msprop:Generator_UserColumnName="id_comun" type="xs:int" minOccurs="0" />
@@ -105,7 +105,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DTAC_Proyeccion" msprop:Generator_TableClassName="DTAC_ProyeccionDataTable" msprop:Generator_TableVarName="tableDTAC_Proyeccion" msprop:Generator_RowChangedName="DTAC_ProyeccionRowChanged" msprop:Generator_TablePropName="DTAC_Proyeccion" msprop:Generator_RowDeletingName="DTAC_ProyeccionRowDeleting" msprop:Generator_RowChangingName="DTAC_ProyeccionRowChanging" msprop:Generator_RowEvHandlerName="DTAC_ProyeccionRowChangeEventHandler" msprop:Generator_RowDeletedName="DTAC_ProyeccionRowDeleted" msprop:Generator_RowClassName="DTAC_ProyeccionRow" msprop:Generator_UserTableName="DTAC_Proyeccion" msprop:Generator_RowEvArgName="DTAC_ProyeccionRowChangeEvent">
+        <xs:element name="DTAC_Proyeccion" msprop:Generator_TableClassName="DTAC_ProyeccionDataTable" msprop:Generator_TableVarName="tableDTAC_Proyeccion" msprop:Generator_TablePropName="DTAC_Proyeccion" msprop:Generator_RowDeletingName="DTAC_ProyeccionRowDeleting" msprop:Generator_RowChangingName="DTAC_ProyeccionRowChanging" msprop:Generator_RowEvHandlerName="DTAC_ProyeccionRowChangeEventHandler" msprop:Generator_RowDeletedName="DTAC_ProyeccionRowDeleted" msprop:Generator_UserTableName="DTAC_Proyeccion" msprop:Generator_RowChangedName="DTAC_ProyeccionRowChanged" msprop:Generator_RowEvArgName="DTAC_ProyeccionRowChangeEvent" msprop:Generator_RowClassName="DTAC_ProyeccionRow">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_comun" msprop:Generator_ColumnVarNameInTable="columnid_comun" msprop:Generator_ColumnPropNameInRow="id_comun" msprop:Generator_ColumnPropNameInTable="id_comunColumn" msprop:Generator_UserColumnName="id_comun" type="xs:int" minOccurs="0" />
@@ -113,7 +113,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DTAC_PMatto" msprop:Generator_TableClassName="DTAC_PMattoDataTable" msprop:Generator_TableVarName="tableDTAC_PMatto" msprop:Generator_TablePropName="DTAC_PMatto" msprop:Generator_RowDeletingName="DTAC_PMattoRowDeleting" msprop:Generator_RowChangingName="DTAC_PMattoRowChanging" msprop:Generator_RowEvHandlerName="DTAC_PMattoRowChangeEventHandler" msprop:Generator_RowDeletedName="DTAC_PMattoRowDeleted" msprop:Generator_UserTableName="DTAC_PMatto" msprop:Generator_RowChangedName="DTAC_PMattoRowChanged" msprop:Generator_RowEvArgName="DTAC_PMattoRowChangeEvent" msprop:Generator_RowClassName="DTAC_PMattoRow">
+        <xs:element name="DTAC_PMatto" msprop:Generator_TableClassName="DTAC_PMattoDataTable" msprop:Generator_TableVarName="tableDTAC_PMatto" msprop:Generator_RowChangedName="DTAC_PMattoRowChanged" msprop:Generator_TablePropName="DTAC_PMatto" msprop:Generator_RowDeletingName="DTAC_PMattoRowDeleting" msprop:Generator_RowChangingName="DTAC_PMattoRowChanging" msprop:Generator_RowEvHandlerName="DTAC_PMattoRowChangeEventHandler" msprop:Generator_RowDeletedName="DTAC_PMattoRowDeleted" msprop:Generator_RowClassName="DTAC_PMattoRow" msprop:Generator_UserTableName="DTAC_PMatto" msprop:Generator_RowEvArgName="DTAC_PMattoRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_comun" msprop:Generator_ColumnVarNameInTable="columnid_comun" msprop:Generator_ColumnPropNameInRow="id_comun" msprop:Generator_ColumnPropNameInTable="id_comunColumn" msprop:Generator_UserColumnName="id_comun" type="xs:int" minOccurs="0" />
@@ -128,7 +128,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DTAC_Grafica1" msprop:Generator_TableClassName="DTAC_Grafica1DataTable" msprop:Generator_TableVarName="tableDTAC_Grafica1" msprop:Generator_TablePropName="DTAC_Grafica1" msprop:Generator_RowDeletingName="DTAC_Grafica1RowDeleting" msprop:Generator_RowChangingName="DTAC_Grafica1RowChanging" msprop:Generator_RowEvHandlerName="DTAC_Grafica1RowChangeEventHandler" msprop:Generator_RowDeletedName="DTAC_Grafica1RowDeleted" msprop:Generator_UserTableName="DTAC_Grafica1" msprop:Generator_RowChangedName="DTAC_Grafica1RowChanged" msprop:Generator_RowEvArgName="DTAC_Grafica1RowChangeEvent" msprop:Generator_RowClassName="DTAC_Grafica1Row">
+        <xs:element name="DTAC_Grafica1" msprop:Generator_TableClassName="DTAC_Grafica1DataTable" msprop:Generator_TableVarName="tableDTAC_Grafica1" msprop:Generator_RowChangedName="DTAC_Grafica1RowChanged" msprop:Generator_TablePropName="DTAC_Grafica1" msprop:Generator_RowDeletingName="DTAC_Grafica1RowDeleting" msprop:Generator_RowChangingName="DTAC_Grafica1RowChanging" msprop:Generator_RowEvHandlerName="DTAC_Grafica1RowChangeEventHandler" msprop:Generator_RowDeletedName="DTAC_Grafica1RowDeleted" msprop:Generator_RowClassName="DTAC_Grafica1Row" msprop:Generator_UserTableName="DTAC_Grafica1" msprop:Generator_RowEvArgName="DTAC_Grafica1RowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_comun" msprop:Generator_ColumnVarNameInTable="columnid_comun" msprop:Generator_ColumnPropNameInRow="id_comun" msprop:Generator_ColumnPropNameInTable="id_comunColumn" msprop:Generator_UserColumnName="id_comun" type="xs:int" minOccurs="0" />
@@ -141,12 +141,20 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
-        <xs:element name="DTAC_Total" msprop:Generator_TableClassName="DTAC_TotalDataTable" msprop:Generator_TableVarName="tableDTAC_Total" msprop:Generator_TablePropName="DTAC_Total" msprop:Generator_RowDeletingName="DTAC_TotalRowDeleting" msprop:Generator_RowChangingName="DTAC_TotalRowChanging" msprop:Generator_RowEvHandlerName="DTAC_TotalRowChangeEventHandler" msprop:Generator_RowDeletedName="DTAC_TotalRowDeleted" msprop:Generator_UserTableName="DTAC_Total" msprop:Generator_RowChangedName="DTAC_TotalRowChanged" msprop:Generator_RowEvArgName="DTAC_TotalRowChangeEvent" msprop:Generator_RowClassName="DTAC_TotalRow">
+        <xs:element name="DTAC_Total" msprop:Generator_TableClassName="DTAC_TotalDataTable" msprop:Generator_TableVarName="tableDTAC_Total" msprop:Generator_RowChangedName="DTAC_TotalRowChanged" msprop:Generator_TablePropName="DTAC_Total" msprop:Generator_RowDeletingName="DTAC_TotalRowDeleting" msprop:Generator_RowChangingName="DTAC_TotalRowChanging" msprop:Generator_RowEvHandlerName="DTAC_TotalRowChangeEventHandler" msprop:Generator_RowDeletedName="DTAC_TotalRowDeleted" msprop:Generator_RowClassName="DTAC_TotalRow" msprop:Generator_UserTableName="DTAC_Total" msprop:Generator_RowEvArgName="DTAC_TotalRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="id_comun" msprop:Generator_ColumnVarNameInTable="columnid_comun" msprop:Generator_ColumnPropNameInRow="id_comun" msprop:Generator_ColumnPropNameInTable="id_comunColumn" msprop:Generator_UserColumnName="id_comun" type="xs:int" minOccurs="0" />
               <xs:element name="periodo" msprop:Generator_ColumnVarNameInTable="columnperiodo" msprop:Generator_ColumnPropNameInRow="periodo" msprop:Generator_ColumnPropNameInTable="periodoColumn" msprop:Generator_UserColumnName="periodo" type="xs:string" minOccurs="0" />
               <xs:element name="pago_agua" msprop:Generator_ColumnVarNameInTable="columnpago_agua" msprop:Generator_ColumnPropNameInRow="pago_agua" msprop:Generator_ColumnPropNameInTable="pago_aguaColumn" msprop:Generator_UserColumnName="pago_agua" type="xs:decimal" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="DTAC_Saldo" msprop:Generator_TableClassName="DTAC_SaldoDataTable" msprop:Generator_TableVarName="tableDTAC_Saldo" msprop:Generator_TablePropName="DTAC_Saldo" msprop:Generator_RowDeletingName="DTAC_SaldoRowDeleting" msprop:Generator_RowChangingName="DTAC_SaldoRowChanging" msprop:Generator_RowEvHandlerName="DTAC_SaldoRowChangeEventHandler" msprop:Generator_RowDeletedName="DTAC_SaldoRowDeleted" msprop:Generator_UserTableName="DTAC_Saldo" msprop:Generator_RowChangedName="DTAC_SaldoRowChanged" msprop:Generator_RowEvArgName="DTAC_SaldoRowChangeEvent" msprop:Generator_RowClassName="DTAC_SaldoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="id_comun" msprop:Generator_ColumnVarNameInTable="columnid_comun" msprop:Generator_ColumnPropNameInRow="id_comun" msprop:Generator_ColumnPropNameInTable="id_comunColumn" msprop:Generator_UserColumnName="id_comun" type="xs:int" minOccurs="0" />
+              <xs:element name="Saldo" msdata:Caption="asociado" msprop:Generator_ColumnVarNameInTable="columnSaldo" msprop:Generator_ColumnPropNameInRow="Saldo" msprop:Generator_ColumnPropNameInTable="SaldoColumn" msprop:Generator_UserColumnName="Saldo" type="xs:decimal" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

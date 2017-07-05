@@ -1,0 +1,455 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_frm_PrcCuotas_AddCuotaAgua`( 
+	IN p_periodo VARCHAR(2),
+	IN p_anio VARCHAR(4),
+    IN p_usr varchar(20),
+    OUT respuesta boolean)
+BEGIN
+
+  DECLARE done boolean DEFAULT FALSE;
+  DECLARE doneAnt INT DEFAULT FALSE;
+
+  DECLARE v_medidor int;
+  declare folioPago int default 0;
+  declare folioCuota varchar(20);
+  declare nombreServicio varchar(100);
+  declare op int;  
+  declare parametro double;
+  declare importeCuota double;
+  declare fechaTarifa  varchar(12);
+  DECLARE v_consumo double;
+  DECLARE v_consumo_ant double;
+  DECLARE v_consumo_total double;
+  DECLARE v_estatusMedidor varchar(2);
+  DECLARE v_BCNA double;
+  DECLARE v_preliminar double;
+  DECLARE v_excedente double;
+  DECLARE v_costo double;
+  DECLARE calculoExcedente double;
+  DECLARE v_importe1 double;
+  DECLARE v_importe2 double;
+  DECLARE numeroVencimientos int;
+  DECLARE numeroVencimientosMA int;
+  DECLARE v_lote int;
+  DECLARE v_colono INT DEFAULT 0 ;
+  DECLARE valColono INT DEFAULT 0;
+  DECLARE valSaldo  DOUBLE;
+  DECLARE valIdAnticipo INT;
+  DECLARE valImporteAnticipo DOUBLE;
+  DECLARE valTotImporteAnticipo double default 0;
+  DECLARE valTotalPago double default 0;
+  DECLARE valEstatusAnticipo varchar(2) ;
+  DECLARE valSaldoAnticipo double default 0;
+  DECLARE valCalculoAnticipo double default 0;
+  DECLARE importeTotalCuota double default 0;
+  DECLARE valMonto DOUBLE DEFAULT 0;
+  DECLARE v_colonoTmp INT DEFAULT 0;
+  DECLARE IdUltima INT;
+  DECLARE salida int(11) DEFAULT 0;
+  DECLARE TOTAL int(11) DEFAULT 0;
+  DECLARE p1 int(11) DEFAULT 1;
+  DECLARE p0 int(11) DEFAULT 0;
+  DECLARE TOTAL0  int(11) DEFAULT 0;
+  DECLARE valEstatusKardex varchar(2) ;
+  DECLARE valSldoPagado DOUBLE; 
+  DECLARE vTipoTarifa int default 0;
+  DECLARE v_periodoAnt varchar(2) ;
+  DECLARE v_AnioAnt varchar(4) ;
+  DECLARE v_parametroBaseT2 double;
+  DECLARE v_parametroExcT2 double;
+  
+  DECLARE v_CBA double;
+  DECLARE v_tarifa1 double;
+  DECLARE v_tarifa1A double;
+  DECLARE v_tarifa2 double;
+  DECLARE v_Calculo double;
+  DECLARE v_ConsumoExcedente double;
+  DECLARE v_PorcentajeExedente double;
+  DECLARE excedente1A double;
+  DECLARE excedente2 double;
+  DECLARE consumoTarifa1A double;
+  DECLARE consumoTarifa2 double;
+  DECLARE v_moratorio double;
+  DECLARE v_consumo_act double;
+  DECLARE v_periodo  varchar(2);
+  DECLARE v_anio varchar(4);
+  DECLARE v_balance double;
+  DECLARE v_servicio_anticipo int;
+
+  
+      -- **** Se inicializa cursor para pago de cuotas de agua
+      
+	
+    declare cur cursor for    SELECT id_medidor,'A' FROM gestion_granjas.cat_medidores  
+							where estatus=('A')  -- and  id_medidor in (567,4,379,381,500)
+						union all 
+						SELECT id_medidor,'I' FROM gestion_granjas.cat_medidores a
+							where  estatus=('I') --  and  id_medidor in (567,379,381,4,500) 
+                            and  (( select count(* ) from kardex_servicios where id_factor=a.id_medidor and estatus in('A','V') and id_servicio=3)>0
+					OR  	( select count(* ) from kardex_servicios_detalle where id_factor=a.id_medidor and estatus='A' and id_servicio=3)>0
+                    OR      (SELECT count(*) FROM consumos_inactivos WHERE id_medidor=a.id_medidor  and procesado=0 )> 0);
+                    
+     declare  curAnt  cursor for select id,importe- ifnull(balance,0),id_servicio, ifnull(balance,0) from gestion_granjas.detalle_anticipos 
+     where id_servicio in(3,8) and id_factor=v_colonoTmp and estatus='A';         
+  -- 	DECLARE CONTINUE HANDLER FOR NOT FOUND SET done = TRUE;
+      DECLARE CONTINUE HANDLER FOR SQLSTATE '02000' SET salida = 1;
+      SET salida = 0;
+          
+
+	   -- *************************************************************
+	    
+      -- ******************************************************** 
+      -- Se ejecuta proceso de actualizacion de tarifas
+      
+      -- call gestion_granjas.sp_prc_actualizaTarifaMTO();
+   
+       -- ********************************************************
+	  -- Se ejecuta proceso de traspaso de cuotas (Vigentes - Vencidas)
+	  -- ********************************************************
+       UPDATE kardex_servicios SET ESTATUS='V' WHERE ID_SERVICIO=3 AND ESTATUS='A';
+       
+      
+  -- *************************************************************
+  -- **** Se obtiene el folio del Pago
+  -- *************************************************************
+  select IFNULL(max(folio),0)+1 into folioPago from gestion_granjas.pagos_anticipos;
+  
+  -- *************************************************************
+  -- **** Se obtiene datos del servicio
+  -- *************************************************************
+    select folio, trim(servicio) into folioCuota,nombreServicio from gestion_granjas.cat_servicios
+   where id_servicio=3;
+  
+  
+  if(folioPago=0) then
+	 
+     SET folioPago=1;
+  end if;
+  -- *************************************************************
+  -- **** Se obtiene datos de la tarifa de mantenimiento
+  -- *************************************************************
+	set fechaTarifa=CONCAT(p_anio,'-',LPAD(p_periodo,2,'0'),"-01");  
+
+	SELECT valor INTO v_tarifa1 FROM gestion_granjas.cat_parametros where code_param='param_BCNA';
+	SELECT valor INTO v_tarifa1A FROM gestion_granjas.cat_parametros where code_param='param_CBASE2';
+	SELECT valor INTO v_tarifa2 FROM gestion_granjas.cat_parametros where code_param='param_BEXCEDENTE2';
+
+    SET IdUltima = -1;               
+    -- Se abre cursor
+  --  SELECT count(0) into TOTAL0 FROM gestion_granjas.cat_medidores  where estatus='A';
+    
+    SELECT COUNT(0) into TOTAL0 FROM (SELECT id_medidor,'A' FROM gestion_granjas.cat_medidores  
+		-- where estatus='A'
+		-- union all 
+		-- SELECT id_medidor,'I' FROM gestion_granjas.consumos_inactivos
+		 -- where procesado=0
+         where estatus in('A','I') -- and  id_medidor in (567,4,500)
+         ) A;
+
+    
+     -- Se obtiene el periodo anterior
+    SELECT date_format(DATE_ADD(fechaTarifa,INTERVAL -2 MONTH ),'%m'),
+			date_format(DATE_ADD(fechaTarifa,INTERVAL -2 MONTH ),'%Y') into v_periodoAnt,v_AnioAnt  from dual;
+            
+    SET v_periodo=date_format(DATE_ADD(fechaTarifa,INTERVAL -1 MONTH ),'%m');
+    SET v_anio=date_format(DATE_ADD(fechaTarifa,INTERVAL -1 MONTH ),'%Y');
+    
+	OPEN cur; 
+	 read_loop: LOOP
+		FETCH cur INTO v_medidor,v_estatusMedidor;
+
+				IF p0 = TOTAL0 THEN
+                                  -- CLOSE curAnt;
+					LEAVE read_loop;
+				END IF;
+                     -- insert into test(valor)values(concat('medidor: ',v_medidor,'-'));   
+                    SET p0 = p0 + 1;
+		SET v_consumo_act=0;
+        SET v_consumo_ant=0;
+         -- Se obtiene el idKardex
+          SELECT AUTO_INCREMENT AS id into IdUltima
+				FROM information_schema.Tables
+			  WHERE TABLE_SCHEMA='gestion_granjas' AND table_name='kardex_servicios';
+                    
+		-- 	Calculo del consumo de agua
+        SELECT IFNULL(lectura,0) into v_consumo_ant  FROM gestion_granjas.reg_lecturas where  id_medidor=v_medidor 
+				and periodo=v_periodoAnt and anio=v_AnioAnt;
+        
+          IF(v_consumo_ant IS NULL or v_consumo_ant="") THEN
+			set v_consumo_ant=0;
+            end if;
+
+	
+		-- 	** Se obtiene el consumo de agua
+		SELECT IFNULL(lectura,0) into v_consumo_act  FROM gestion_granjas.reg_lecturas where  id_medidor=v_medidor 
+				and estatus='A' and periodo=v_periodo and anio=v_anio;
+       -- insert into test(valor)values(concat('lecturas: ',v_medidor,'-'));   
+
+		
+        IF(v_consumo_act IS NULL  ) THEN
+			set v_consumo_act=0;
+            end if;
+        -- Se calcula el consumo    
+		set v_consumo=v_consumo_act - v_consumo_ant;
+		-- ***********************************************
+        -- ** Se obtien CBA de medidor
+        
+        SELECT IFNULL(cuota,0) into v_CBA  FROM gestion_granjas.cuotas_base_agua where  id_factor=v_medidor 
+				and periodo=v_periodo and anio=v_anio;
+                
+		-- *************************************************************************************
+        -- **		Valida Vencimientos
+        -- *************************************************************************************
+		SELECT id_lote into v_lote FROM gestion_granjas.cat_medidores where id_medidor=v_medidor;
+ 
+		SELECT count(*) into numeroVencimientosMA   FROM gestion_granjas.kardex_servicios a
+					WHERE a.id_servicio=2 and  id_factor=v_lote	AND a.estatus in('V') and ifnull(b_inicial,0)=0;
+       
+	    -- select count(0) into numeroVencimientos from (SELECT e.id_lote
+		-- 	FROM gestion_granjas.kardex_servicios a
+		-- 	left join gestion_granjas.cat_medidores e on a.id_factor=e.id_medidor
+		-- 	LEFT JOIN gestion_granjas.cat_estatus b on a.estatus = b.clave
+		-- 	LEFT JOIN gestion_granjas.cat_servicios c on a.id_servicio=c.id_servicio
+		--  
+		-- WHERE a.id_servicio=3  and  e.id_lote=v_lote
+		-- 						AND a.estatus in('V') and ifnull(b_inicial,0)=0
+		-- 	group by 1) as tabla;
+            
+       	SELECT count(*) into numeroVencimientos   FROM gestion_granjas.kardex_servicios a
+					WHERE a.id_servicio=3 and  id_factor=v_medidor	AND a.estatus in('V') and ifnull(b_inicial,0)=0;
+       -- ----------------------------------------------------------------------------------------------
+        -- ****************************************************************************************************************
+        -- ********				INICIA CALCULO DE CUOTAS DE AGUA
+        -- ****************************************************************************************************************
+      
+         IF(numeroVencimientos <= 2 and numeroVencimientosMA<=2) THEN
+           
+       	-- ** Validamos si excede el consumo en base a su CBA
+       -- insert into test(valor)values(concat('if',v_CBA,'-',v_consumo));
+            	IF(v_consumo<= v_CBA) THEN
+					 set importeCuota =v_consumo * v_tarifa1;
+                     IF(v_consumo=0 and v_estatusMedidor='A')THEN
+						SET importeCuota=27;
+					 END IF;
+					call gestion_granjas.sp_frm_PrcCuotas_AddDetalleServicio(IdUltima,v_medidor,'3','1',v_consumo,importeCuota,p_periodo,p_anio,'1',v_tarifa1);
+				else
+					-- Se obtiene importe de la tarifa1
+					set importeCuota =v_CBA * v_tarifa1;
+					set v_ConsumoExcedente = v_consumo - v_CBA;
+                    set v_PorcentajeExedente = (v_ConsumoExcedente / v_CBA)*100;
+                    call gestion_granjas.sp_frm_PrcCuotas_AddDetalleServicio(IdUltima,v_medidor,'3','1',v_CBA,importeCuota,p_periodo,p_anio,'1',v_tarifa1);
+                    -- ** Se valida porcentaje de excedente en base a su CBA
+                    IF(v_PorcentajeExedente<=75) THEN
+                        set excedente1A		= (v_ConsumoExcedente * v_tarifa1A);
+                    	set importeCuota 	= importeCuota + excedente1A ;
+                        call gestion_granjas.sp_frm_PrcCuotas_AddDetalleServicio(IdUltima,v_medidor,'3','1',v_ConsumoExcedente,excedente1A,p_periodo,p_anio,'1A',v_tarifa1A);
+					else
+                        set consumoTarifa1A	= (75/100)* ( v_CBA); -- Se obtiene el 75% de CBA
+                        set excedente1A		= ( consumoTarifa1A *  v_tarifa1A);
+						call gestion_granjas.sp_frm_PrcCuotas_AddDetalleServicio(IdUltima,v_medidor,'3','1',consumoTarifa1A,excedente1A,p_periodo,p_anio,'1A',v_tarifa1A);
+
+                        set consumoTarifa2	=  v_consumo - (consumoTarifa1A + v_CBA); -- Se obtiene consumo restante
+						set excedente2		= ( consumoTarifa2 *  v_tarifa2);
+                        call gestion_granjas.sp_frm_PrcCuotas_AddDetalleServicio(IdUltima,v_medidor,'3','1',consumoTarifa2,excedente2,p_periodo,p_anio,'2',v_tarifa2);
+                        
+                        set importeCuota 	= importeCuota  +( excedente1A  +  excedente2);
+                        
+                    END IF;
+		 
+                END IF;
+			else
+          -- insert into test(valor)values(concat(v_medidor,' else',v_CBA,'-',v_consumo));
+           -- ** Validamos si excede el consumo en base a su CBA
+            	IF(v_consumo<= v_CBA) THEN
+					set importeCuota =v_CBA * v_tarifa1A;
+					call gestion_granjas.sp_frm_PrcCuotas_AddDetalleServicio(IdUltima,v_medidor,'3','1',v_CBA,importeCuota,p_periodo,p_anio,'1A',v_tarifa1A);
+				else
+					-- Se obtiene importe de la tarifa1
+					set importeCuota =v_CBA * v_tarifa1A;
+					set v_ConsumoExcedente = v_consumo - v_CBA;
+                    set v_PorcentajeExedente = (v_ConsumoExcedente / v_CBA)*100;
+                    call gestion_granjas.sp_frm_PrcCuotas_AddDetalleServicio(IdUltima,v_medidor,'3','1',v_CBA,importeCuota,p_periodo,p_anio,'1A',v_tarifa1A);
+                    -- ** Se valida porcentaje de excedente en base a su CBA
+                    IF(v_PorcentajeExedente<=75) THEN
+                        set excedente1A		= (v_ConsumoExcedente * v_tarifa1A);
+                    	set importeCuota 	= importeCuota + excedente1A ;
+                        call gestion_granjas.sp_frm_PrcCuotas_AddDetalleServicio(IdUltima,v_medidor,'3','1',v_ConsumoExcedente,excedente1A,p_periodo,p_anio,'1A',v_tarifa1A);
+					else
+                        set consumoTarifa1A	= (75/100)* ( v_CBA); -- Se obtiene el 75% de CBA
+                        set excedente1A		= ( consumoTarifa1A *  v_tarifa1A);
+						call gestion_granjas.sp_frm_PrcCuotas_AddDetalleServicio(IdUltima,v_medidor,'3','1',consumoTarifa1A,excedente1A,p_periodo,p_anio,'1A',v_tarifa1A);
+
+                        set consumoTarifa2	=  v_consumo - (consumoTarifa1A + v_CBA); -- Se obtiene consumo restante
+						set excedente2		= ( consumoTarifa2 *  v_tarifa2);
+                        call gestion_granjas.sp_frm_PrcCuotas_AddDetalleServicio(IdUltima,v_medidor,'3','1',consumoTarifa2,excedente2,p_periodo,p_anio,'2',v_tarifa2);
+                        
+                        set importeCuota 	= importeCuota  +( excedente1A  +  excedente2);
+                        
+                    END IF;
+                    
+                END IF;
+                
+				   set v_moratorio = (3/100)* ( importeCuota);
+                   -- set importeCuota 	= importeCuota  +( v_moratorio );
+                   -- UPDATE  gestion_granjas.kardex_servicios SET moratorio=(case when moratorio=v_moratorio then now() else (moratorio +((3/100)* moratorio)) END) , fecha_moratorio=(case when fecha_moratorio=null then now() else fecha_moratorio END)
+				   -- 	where periodo<p_periodo AND anio=p_anio AND id_servicio=3 AND  id_factor=v_medidor	 AND estatus in('V');
+                 --  call gestion_granjas.sp_frm_PrcCuotas_AddDetalleServicio(v_medidor,'3','2',0,v_moratorio,p_periodo,p_anio,'3 %',0);
+
+          END IF;
+           IF(importeCuota<0)THEN
+				SET importeCuota=0;
+			END IF;
+           
+        --    insert into test(valor) values(concat("numeroVencimientos :",v_medidor,'0',numeroVencimientos));
+         --   SELECT count(*) into numeroVencimientos   FROM gestion_granjas.kardex_servicios a
+		 -- 			WHERE a.id_servicio=3 and  id_factor=v_medidor	AND a.estatus in('V') and ifnull(b_inicial,0)=0;
+          IF(numeroVencimientos>0) THEN
+			call gestion_granjas.sp_frm_PrcCuotas_AddMoraAgua(IdUltima,v_medidor,3);
+          END IF;
+          
+           -- insert into test(valor) values(concat("pasa venci :",v_medidor));
+          -- SE VA A BORRAR EL CODIGO SIGUIENTE
+     
+	   SET valSldoPagado=0;
+       SET valEstatusKardex='A';
+       -- ********************************************************************************
+       -- *****		INICIA PROCESO DE ANTICIPOS
+       -- ********************************************************************************
+	   SET valTotImporteAnticipo =0;
+       SET valCalculoAnticipo=importeCuota;
+       set v_balance=0;
+       SELECT ifnull(id_colono,0) into v_colono FROM gestion_granjas.cat_lotes  where id_lote=v_lote ;
+            --    insert into  gestion_granjas.test(valor)values(concat("3 ",v_colono));
+
+
+       select count(id_factor) into valColono  from gestion_granjas.saldo_anticipos 
+						where id_factor=v_colono and saldo>0;
+         
+        SET v_colonoTmp=v_colono;
+	
+                     if(valColono>0 ) then   
+                     
+                      select COUNT(id_factor) INTO TOTAL from gestion_granjas.detalle_anticipos 
+							where id_servicio in(3,8) and id_factor=v_colonoTmp and estatus='A';
+                     	
+                        -- 	insert into  gestion_granjas.test(valor)values(concat("4.1 ",valColono,' - ',TOTAL));
+						SET p1=0;
+                      -- Se abre cursor
+						OPEN curAnt; 
+						 	  REPEAT 
+							FETCH curAnt INTO valIdAnticipo,valImporteAnticipo,v_servicio_anticipo,v_balance  ;
+                          insert into  gestion_granjas.test(valor)values(concat("Inicia",valIdAnticipo,' - ',valImporteAnticipo,' - ',v_servicio_anticipo));
+		
+							 /*	 IF p1 = TOTAL THEN
+                                   CLOSE curAnt;
+								  LEAVE LEE_CICLO;
+								  END IF;
+                      */
+                  
+					 			select count(id_factor) into valColono  from gestion_granjas.saldo_anticipos 
+									where id_factor=v_colono and saldo>0;
+                              
+                                if(valColono>0 ) then   
+                                
+								   select ifnull(id,0),ifnull(saldo,0) into valColono ,valSaldo from gestion_granjas.saldo_anticipos 
+									where id_factor=v_colono and saldo>0;
+									
+									IF(valSaldo>=valImporteAnticipo) THEN
+										SET valTotImporteAnticipo = valTotImporteAnticipo + valImporteAnticipo;    
+									else 
+										SET valTotImporteAnticipo = valTotImporteAnticipo + valSaldo;            
+									END IF;
+										
+										
+								   if(valCalculoAnticipo <= valImporteAnticipo) then
+										SET valEstatusAnticipo='A';
+									   -- SET valCalculoAnticipo=valCalculoAnticipo-valTotImporteAnticipo;
+										-- SET valMonto=valTotImporteAnticipo +valCalculoAnticipo;
+										SET valSaldoAnticipo=valSaldo - valCalculoAnticipo ;-- (valImporteAnticipo -valCalculoAnticipo);
+                                        SET v_balance=v_balance + valCalculoAnticipo;
+                                        SET valCalculoAnticipo=0;
+								insert into  gestion_granjas.test(valor)values(concat("negativo ",valImporteAnticipo,' - ',valCalculoAnticipo,' saldo:',valSaldoAnticipo));
+		
+								   end if;
+						 
+								  if(valCalculoAnticipo > valImporteAnticipo) then
+										SET valEstatusAnticipo='I';
+										SET valCalculoAnticipo=valCalculoAnticipo-valImporteAnticipo;
+										SET v_balance=0;
+										SET valSaldoAnticipo=valSaldo - ( valImporteAnticipo );
+										SET valMonto=valTotImporteAnticipo;
+									end if;
+						 
+																
+									INSERT INTO gestion_granjas.gestion_cuotas_agua(id_kardex,id_medio,tipo,monto,tipo_pago)
+									values(IdUltima,valIdAnticipo,'AN',TRUNCATE(valMonto,2),v_servicio_anticipo);
+									
+									update  gestion_granjas.detalle_anticipos set estatus=valEstatusAnticipo, balance=v_balance,bloqueo=1
+									where id=valIdAnticipo;
+									
+									UPDATE gestion_granjas.saldo_anticipos SET Saldo = valSaldoAnticipo, fecha_cambio=now()
+									where id_factor=v_colono;
+									
+                                    
+								  	insert into  gestion_granjas.test(valor)values(concat("ANT ",valIdAnticipo,' Calculo=',valCalculoAnticipo,'Anticipo=',valTotImporteAnticipo,' Saldo=',valSaldoAnticipo));
+
+									SET p1 = p1 + 1;
+                              -- if(valCalculoAnticipo <= valSaldoAnticipo  /*valTotImporteAnticipo*/) then
+                               --   insert into  gestion_granjas.test(valor)values(concat("FORZA ",valIdAnticipo,'=',valCalculoAnticipo,'=',valTotImporteAnticipo));
+
+								-- set p1 = TOTAL;
+                              --     end if;
+                                  
+                            commit;
+										
+                              end if;
+						 -- END LOOP LEE_CICLO; 
+                         
+							 UNTIL
+                             p1 = TOTAL
+					END REPEAT ;
+				CLOSE curAnt;
+                          
+                           if(importeCuota>=valTotImporteAnticipo) then
+                          --  SET importeTotalCuota=importeCuota -valTotImporteAnticipo;
+								SET valEstatusKardex='A';
+                                SET valSldoPagado=importeCuota-(importeCuota-valTotImporteAnticipo);
+                          else
+							-- SET importeTotalCuota=importeCuota;
+                                SET valEstatusKardex='S';
+								SET valSldoPagado=importeCuota;
+                          end if;
+                          
+                        --  SET importeCuota=importeTotalCuota;
+                          
+                          
+                        end if;  
+                     
+                --   insert into test(valor) values(concat("fin ant :",v_medidor,'- ',importeCuota));
+
+       IF importeCuota<=0 AND numeroVencimientos<=0 THEN
+		   SET valEstatusKardex='S';
+       END IF;
+       
+      
+       
+	   -- *****		FIN PROCESO DE ANTICIPOS
+       -- ********************************************************************************
+	  
+	 -- Se registra kardex de cuotas cubiertas
+     -- insert into test(valor)values(concat('final 0: ',folioCuota,'-',v_medidor));
+		insert into gestion_granjas.kardex_servicios(folio, folio_pago, id_factor, id_servicio, importe, 
+		servicio,periodo,anio, estatus,  fecha_registro,saldo_pagado,tarifa)
+		VALUES(folioCuota,0,v_medidor,3,TRUNCATE(importeCuota,2) ,nombreServicio,p_periodo,p_anio,valEstatusKardex,NOW(),TRUNCATE(valSldoPagado,2),vTipoTarifa);
+		      insert into test(valor)values(concat('final 1: ',folioCuota,'-',v_medidor));
+
+        IF (v_estatusMedidor='I') THEN
+		   	UPDATE gestion_granjas.consumos_inactivos set procesado=1 WHERE ID_MEDIDOR=v_medidor and procesado=0;
+         END IF;
+	  END LOOP read_loop;
+
+	  CLOSE cur;
+        
+        SET respuesta=TRUE;
+        INSERT INTO gestion_granjas.bitacora_cuotas (periodo,anio,fecha_registro,usuario_registro,servicio)
+        values(p_periodo,p_anio,now(),p_usr,3);
+END

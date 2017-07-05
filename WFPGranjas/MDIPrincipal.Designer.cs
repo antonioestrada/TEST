@@ -59,6 +59,7 @@
             this.menuAReportes = new System.Windows.Forms.ToolStripMenuItem();
             this.toolBarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusBarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.arConsumos = new System.Windows.Forms.ToolStripMenuItem();
             this.arMedidores = new System.Windows.Forms.ToolStripMenuItem();
             this.arRegLecturas = new System.Windows.Forms.ToolStripMenuItem();
             this.arRManto = new System.Windows.Forms.ToolStripMenuItem();
@@ -96,9 +97,11 @@
             this.fcAManto = new System.Windows.Forms.ToolStripMenuItem();
             this.fcAAgua = new System.Windows.Forms.ToolStripMenuItem();
             this.fcAAnualidades = new System.Windows.Forms.ToolStripMenuItem();
+            this.bonificacionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.fcDesgloseCon = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator20 = new System.Windows.Forms.ToolStripSeparator();
             this.fcCancelacionR = new System.Windows.Forms.ToolStripMenuItem();
+            this.fcConsultaR = new System.Windows.Forms.ToolStripMenuItem();
             this.menuFCobranza = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
@@ -164,7 +167,6 @@
             this.toolStripMenuItem41 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator18 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem42 = new System.Windows.Forms.ToolStripMenuItem();
-            this.fcConsultaR = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.pnlMenuPrincipal.SuspendLayout();
@@ -439,6 +441,7 @@
             this.menuAReportes.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolBarToolStripMenuItem,
             this.statusBarToolStripMenuItem,
+            this.arConsumos,
             this.arMedidores,
             this.arRegLecturas,
             this.arRManto,
@@ -474,6 +477,13 @@
             this.statusBarToolStripMenuItem.Visible = false;
             this.statusBarToolStripMenuItem.Click += new System.EventHandler(this.StatusBarToolStripMenuItem_Click);
             // 
+            // arConsumos
+            // 
+            this.arConsumos.Name = "arConsumos";
+            this.arConsumos.Size = new System.Drawing.Size(157, 22);
+            this.arConsumos.Text = "Consumos";
+            this.arConsumos.Click += new System.EventHandler(this.arConsumos_Click);
+            // 
             // arMedidores
             // 
             this.arMedidores.Name = "arMedidores";
@@ -486,6 +496,7 @@
             this.arRegLecturas.Name = "arRegLecturas";
             this.arRegLecturas.Size = new System.Drawing.Size(157, 22);
             this.arRegLecturas.Text = "R. Agua";
+            this.arRegLecturas.Visible = false;
             this.arRegLecturas.Click += new System.EventHandler(this.arRegLecturas_Click);
             // 
             // arRManto
@@ -493,6 +504,7 @@
             this.arRManto.Name = "arRManto";
             this.arRManto.Size = new System.Drawing.Size(157, 22);
             this.arRManto.Text = "R. Mantto";
+            this.arRManto.Visible = false;
             this.arRManto.Click += new System.EventHandler(this.arRManto_Click);
             // 
             // cierreDeMesToolStripMenuItem
@@ -700,6 +712,7 @@
             this.toolStripSeparator10,
             this.fcCasaC,
             this.fcAnticipios,
+            this.bonificacionesToolStripMenuItem,
             this.fcDesgloseCon,
             this.toolStripSeparator20,
             this.fcCancelacionR,
@@ -813,6 +826,13 @@
             this.fcAAnualidades.Text = "Anualidades";
             this.fcAAnualidades.Click += new System.EventHandler(this.fcAAnualidades_Click);
             // 
+            // bonificacionesToolStripMenuItem
+            // 
+            this.bonificacionesToolStripMenuItem.Name = "bonificacionesToolStripMenuItem";
+            this.bonificacionesToolStripMenuItem.Size = new System.Drawing.Size(224, 22);
+            this.bonificacionesToolStripMenuItem.Text = "Bonificaciones";
+            this.bonificacionesToolStripMenuItem.Click += new System.EventHandler(this.bonificacionesToolStripMenuItem_Click);
+            // 
             // fcDesgloseCon
             // 
             this.fcDesgloseCon.Name = "fcDesgloseCon";
@@ -832,6 +852,13 @@
             this.fcCancelacionR.Size = new System.Drawing.Size(224, 22);
             this.fcCancelacionR.Text = "Cancelacion de Recibo";
             this.fcCancelacionR.Click += new System.EventHandler(this.fcCancelacionR_Click);
+            // 
+            // fcConsultaR
+            // 
+            this.fcConsultaR.Name = "fcConsultaR";
+            this.fcConsultaR.Size = new System.Drawing.Size(224, 22);
+            this.fcConsultaR.Text = "Consulta Recibo";
+            this.fcConsultaR.Click += new System.EventHandler(this.fcConsultaR_Click);
             // 
             // menuFCobranza
             // 
@@ -1435,13 +1462,6 @@
             this.toolStripMenuItem42.Text = "&About ... ...";
             this.toolStripMenuItem42.Visible = false;
             // 
-            // fcConsultaR
-            // 
-            this.fcConsultaR.Name = "fcConsultaR";
-            this.fcConsultaR.Size = new System.Drawing.Size(224, 22);
-            this.fcConsultaR.Text = "Consulta Recibo";
-            this.fcConsultaR.Click += new System.EventHandler(this.fcConsultaR_Click);
-            // 
             // MDIPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1625,6 +1645,8 @@
         private System.Windows.Forms.ToolStripMenuItem cuotasExtraordinariasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem conveniosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem fcConsultaR;
+        private System.Windows.Forms.ToolStripMenuItem bonificacionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem arConsumos;
     }
 }
 

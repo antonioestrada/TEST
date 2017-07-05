@@ -60,6 +60,10 @@ namespace WFPGranjas
             if (paramCan3 == 3 && paramCan4 == 3)
                 paramCan3 = 7;
 
+            //agua con BONIFICACION
+            if (dgPartidasR.CurrentRow.Cells[1].Value.ToString() == "BONIFICACION DE AGUA")
+                paramCan3 = 71;
+
 
             rptReciboCancela BeanRPTMedidor = new rptReciboCancela("" + paramCan1, "" + paramCan2, paramCan3, "_CONSULTA");
                 BeanRPTMedidor.Show();
@@ -246,7 +250,7 @@ namespace WFPGranjas
 
 
                     if (validacion || validacionFecha)
-                        btnCapturaPago.Visible = false;
+                        btnCapturaPago.Visible = true;
                     else
                         btnCapturaPago.Visible = true;
 

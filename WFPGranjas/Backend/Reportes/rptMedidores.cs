@@ -160,16 +160,59 @@ namespace WFPGranjas.Backend.Reportes
             cryRpt.Export();
         }
 
+        public void rptConsumosContrato(CrystalReportViewer rptViewer, int op, string mes, string anio)
+        {
+            Globales vGlobal = new Globales();
+            ReportDocument cryRpt = new ReportDocument();
+            cryRpt = new CrystalDecisions.CrystalReports.Engine.ReportDocument();
+            cryRpt.Load(@"" + vGlobal.pathReportes + "crRegConsumosContrato.rpt");
+
+            IDataReader reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_report_consumos(" + op + ",'" + mes + "','" + anio + "')");
+            dsReporteConsumos dsM = new dsReporteConsumos();
+            while (reader.Read())
+            {
+                dsM.DTConsumoContrato.AddDTConsumoContratoRow(1,reader.GetValue(1).ToString(), reader.GetValue(2).ToString(), reader.GetValue(3).ToString(), reader.GetValue(4).ToString(), reader.GetValue(5).ToString(), reader.GetValue(6).ToString(), Convert.ToInt32(reader.GetValue(7).ToString()), Convert.ToInt32(reader.GetValue(8).ToString()));
+            }
+            Conexion.FinalizarSesion();
+
+            cryRpt.SetDataSource(dsM.Tables["DTConsumoContrato"]);
+            cryRpt.SetParameterValue("empresa", vGlobal.empresa);
+            rptViewer.ReportSource = cryRpt;
+            rptViewer.Refresh();
+
+            //GENERAR PDF
+            ExportOptions CrExportOptions;
+            DiskFileDestinationOptions CrDiskFileDestinationOptions = new DiskFileDestinationOptions();
+            PdfRtfWordFormatOptions CrFormatTypeOptions = new PdfRtfWordFormatOptions();
+            CrDiskFileDestinationOptions.DiskFileName = @"" + vGlobal.pathReportesPDF + "consumos.pdf";
+            // CrDiskFileDestinationOptions.DiskFileName = "c:\\firebird\\reporteMail.pdf";
+            CrExportOptions = cryRpt.ExportOptions;
+            {
+                CrExportOptions.ExportDestinationType = ExportDestinationType.DiskFile;
+                CrExportOptions.ExportFormatType = ExportFormatType.PortableDocFormat;
+                CrExportOptions.DestinationOptions = CrDiskFileDestinationOptions;
+                CrExportOptions.FormatOptions = CrFormatTypeOptions;
+            }
+            cryRpt.Export();
+        }
+
 
         public void rptIngresosDia(CrystalReportViewer rptViewer, int op, string fecha)
         {
             Globales vGlobal = new Globales();
             ReportDocument cryRpt = new ReportDocument();
-            cryRpt = new CrystalDecisions.CrystalReports.Engine.ReportDocument();
-            cryRpt.Load(@"" + vGlobal.pathReportes + "crReporteIngresos.rpt");
-            dsIngresosDiarios dsM = new dsIngresosDiarios();
+            ReportDocument crySubRpt = new ReportDocument();
+            ReportDocument crySubRpt2 = new ReportDocument();
 
-            IDataReader reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_report_ingresosDiarios(1, '"+fecha+"', '')");
+
+            // crySubRpt = new ReportDocument();
+            cryRpt.Load(@"" + vGlobal.pathReportes + "crReporteIngresos.rpt");
+            crySubRpt.Load(@"" + vGlobal.pathReportes + "crReporteIngresos_matto.rpt");
+            crySubRpt2.Load(@"" + vGlobal.pathReportes + "crReporteIngresos_otros.rpt");
+            dsIngresosDiarios dsM = new dsIngresosDiarios();
+            //dsIngresosDiarios dsM1 = new dsIngresosDiarios();
+
+            IDataReader reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_report_ingresosDiarios(3, '"+fecha+"', '')");
             
             while (reader.Read())
             {
@@ -177,8 +220,29 @@ namespace WFPGranjas.Backend.Reportes
             }
             Conexion.FinalizarSesion();
 
+            
+
+            //dsM = new dsIngresosDiarios();
+            reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_report_ingresosDiarios(4, '" + fecha + "', '')");
+
+            while (reader.Read())
+            {
+                dsM.DTIngresosMatto.AddDTIngresosMattoRow(1, reader.GetValue(0).ToString(), reader.GetValue(1).ToString(), decimal.Parse(reader.GetValue(2).ToString()), decimal.Parse(reader.GetValue(3).ToString()), decimal.Parse(reader.GetValue(4).ToString()), reader.GetValue(5).ToString());
+            }
+            Conexion.FinalizarSesion();
+
+            reader = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_report_ingresosDiarios(5, '" + fecha + "', '')");
+
+            while (reader.Read())
+            {
+                dsM.DTIngresosOtros.AddDTIngresosOtrosRow(1, reader.GetValue(0).ToString(), reader.GetValue(1).ToString(), decimal.Parse(reader.GetValue(2).ToString()), decimal.Parse(reader.GetValue(3).ToString()), decimal.Parse(reader.GetValue(4).ToString()), reader.GetValue(5).ToString());
+            }
+            Conexion.FinalizarSesion();
+
+            crySubRpt.SetDataSource(dsM);
+            crySubRpt2.SetDataSource(dsM);
             cryRpt.SetDataSource(dsM);
-           // cryRpt.SetParameterValue("empresa", vGlobal.empresa);
+            // cryRpt.SetParameterValue("empresa", vGlobal.empresa);
             rptViewer.ReportSource = cryRpt;
             rptViewer.Refresh();
 

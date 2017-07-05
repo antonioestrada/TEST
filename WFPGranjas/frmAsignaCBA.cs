@@ -256,6 +256,7 @@ namespace WFPGranjas
 
         private void btnFijo_Click(object sender, EventArgs e)
         {
+            /* POR LO PRONTO NO SE VALIDARA CBA ASIGNADO DESPUES DE LA GENERACION DE CUOTAS
             if(textBox1.Enabled==true)
             {
                 textBox1.Text = cba.ToString();
@@ -315,6 +316,21 @@ namespace WFPGranjas
             {
                 textBox12.Text = cba.ToString();
             }
+            */
+            
+            // NO VALIDAMOS POR EL MOMENTO PARA VALIDAR SUPRIMIR ESTE CODIGO Y QUITAR COMENTARIOS DE BLOQUE ANTERIOR
+                textBox1.Text = cba.ToString();
+                textBox2.Text = cba.ToString();
+                textBox3.Text = cba.ToString();
+                textBox4.Text = cba.ToString();
+                textBox5.Text = cba.ToString();
+                textBox6.Text = cba.ToString();
+                textBox7.Text = cba.ToString();
+                textBox8.Text = cba.ToString();
+                textBox9.Text = cba.ToString();
+                textBox10.Text = cba.ToString();
+                textBox11.Text = cba.ToString();
+                textBox12.Text = cba.ToString();
             //readOnlyON(2);
             lblSuma.Text = cbaAnual.ToString();
 
@@ -514,7 +530,8 @@ namespace WFPGranjas
                     {
                         double sumaTotal = double.Parse(lblSuma.Text);
                         if (cbaAnual == sumaTotal)
-                        {
+                        {   //no VALIDAMOS CUOTAS GENERADAS
+                            /*
                             registra(6, id_medidor, textBox1.Text, "01");
                             registra(6, id_medidor, textBox2.Text, "02");
                             registra(6, id_medidor, textBox3.Text, "03");
@@ -527,6 +544,20 @@ namespace WFPGranjas
                             registra(6, id_medidor, textBox10.Text, "10");
                             registra(6, id_medidor, textBox11.Text, "11");
                             registra(6, id_medidor, textBox12.Text, "12");
+                            */
+                            //PARA VALIDAR EL PERIODO GENERADO SE REQUIERE QUITAR COMENTARIOS DEL BLOQUE ANTERIOR Y QUITAR BLOQUE SIGUIENTE CAMBIA LA OPCION DE 7 A 6
+                            registra(7, id_medidor, textBox1.Text, "01");
+                            registra(7, id_medidor, textBox2.Text, "02");
+                            registra(7, id_medidor, textBox3.Text, "03");
+                            registra(7, id_medidor, textBox4.Text, "04");
+                            registra(7, id_medidor, textBox5.Text, "05");
+                            registra(7, id_medidor, textBox6.Text, "06");
+                            registra(7, id_medidor, textBox7.Text, "07");
+                            registra(7, id_medidor, textBox8.Text, "08");
+                            registra(7, id_medidor, textBox9.Text, "09");
+                            registra(7, id_medidor, textBox10.Text, "10");
+                            registra(7, id_medidor, textBox11.Text, "11");
+                            registra(7, id_medidor, textBox12.Text, "12");
                             MessageBox.Show("Se guardaron los cambios correctamente");
                             
                             cargaComponentes(1);
@@ -854,7 +885,10 @@ namespace WFPGranjas
 
         private void frmAsignaCBA_Load(object sender, EventArgs e)
         {
-            habilita();
+            //no valida cuotas generadas quitar comentario de la siguiente linea para validar-.-----
+            //habilita();
+
+
             //carga combo del catalogo de  manzanas 
             var BeanCLotesMza = new Backend.Catalogos.CManzanaLotes();
             BeanCLotesMza.consultaMazaComboRPT(cmbFiltroMza);

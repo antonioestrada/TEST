@@ -1,0 +1,82 @@
+CREATE DEFINER=`root`@`localhost` PROCEDURE `sp_frm_Antp_AddBonificacionAgua`(IN pColono INT,
+	IN pManzana int,
+	IN pLote int,
+	IN pMeses VARCHAR(100),
+	IN pImpEfectivo double,
+	IN pCheque VARCHAR(50),
+	IN pBancoCheque int,
+	IN pImpCheque double,
+	IN pNoFicha varchar(50),
+	IN pBancoFicha int,
+	IN pImpFicha double,
+    IN pDescuento double,
+    IN pServicio double,
+    OUT resultado int)
+BEGIN
+  declare texto text;
+  declare delimitador char(1);
+  declare pos int default 1;
+  declare Str varchar(200);
+  -- ----------------------------
+  
+  declare op int;  
+  declare parametro double;
+  declare metrosCuadrados double default 0;
+  declare importeCuota double;
+  declare fecha varchar(10);
+  declare fechaTarifa  varchar(10);
+  declare c int default 0;
+  declare idColono int default 0;
+  declare periodoPagoDet varchar(2);
+  declare anioPagoDet varchar(4);
+  declare folioCuota varchar(20);
+  declare nombreServicio varchar(100);
+  DECLARE v_folioPago varchar(20);
+  declare folioPago int default 0;
+  set delimitador=',';
+  set texto =pMeses;
+  
+  -- *************************************************************
+  -- **** Se obtiene el folio del Pago
+  -- *************************************************************
+  select ifnull(id,0) into idColono from gestion_granjas.saldo_anticipos 
+  where id_factor=pColono;
+	
+  	SET importeCuota = pImpEfectivo + pImpCheque + pImpFicha;
+
+select IFNULL(max(id),0)+1 into folioPago from gestion_granjas.detalle_anticipos;
+  
+  
+  if(idColono=0) then
+	INSERT INTO gestion_granjas.saldo_anticipos (ID_FACTOR,SALDO,FECHA_CAMBIO)
+    VALUES(pColono,importeCuota,NOW());
+    ELSE 
+    UPDATE gestion_granjas.saldo_anticipos SET SALDO=SALDO+importeCuota ,FECHA_CAMBIO=NOW()
+      where id_factor=pColono;
+  end if;
+  
+
+    set resultado=folioPago;
+    
+
+  -- Validaciones 
+  IF(pImpFicha=0) THEN
+  SET pBancoFicha=0;
+  END IF;
+  
+  IF(pImpCheque=0) THEN
+  SET pBancoCheque=0;
+  END IF;
+SELECT CONCAT('A',LPAD(valor,6,'0')) into v_folioPago FROM gestion_granjas.cat_parametros where code_param='param_FolioPagoAgua';
+
+  -- Registra encabezado del pago
+  insert into  gestion_granjas.detalle_anticipos(id_factor,id_servicio,fecha_anticipo,importe,
+							importe_efectivo,no_cheque,banco_cheque,importe_cheque,no_ficha,
+                            banco_ficha,importe_ficha,estatus,cve_folio,bonificacion) 
+     values(pColono,pServicio,now(),importeCuota,pImpEfectivo ,pCheque , pBancoCheque ,pImpCheque , pNoFicha ,
+           pBancoFicha , pImpFicha ,'A',v_folioPago,1);
+           
+ 
+ UPDATE gestion_granjas.cat_parametros SET valor =valor+1 where code_param='param_FolioPagoAgua';
+
+END

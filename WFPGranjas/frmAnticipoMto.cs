@@ -234,7 +234,7 @@ namespace WFPGranjas
             PrcAnticipos prcAnticipos = new PrcAnticipos();
             Object[] parames = { idLote, servicio };
             resultado = prcAnticipos.validacionAdeudo(parames);
-            if (resultado && servicio != 5 )
+            if (resultado && servicio != 5 && servicio != 8)
             {
                 MessageBox.Show("El usuario no puede dar anticipo. Cuenta con cuotas atrasadas");
                 txtColono.Focus();
@@ -372,7 +372,23 @@ namespace WFPGranjas
                  cuotas = prcAnticipos.consultaConceptos(cmbPeriodos,  cmbCuotas);
 
             }
-        }
+            if (servicio == 8)
+            {
+                txtTotalAgua.Focus();
+                groupCuota.Visible = true;
+                lblAntAgua.Visible = false;
+                txtTotalAgua.Visible = true;
+                lblDescuento.Visible = false;
+                txtDescuento.Visible = false;
+                btnAddCuota.Visible = true;
+                dgPartidasR.Columns[0].Width = 500;
+                dgPartidasR.Columns[2].Width = 304;
+                dgPartidasR.Columns[1].Visible = false;
+                btnAddCuota.Enabled = true;
+                txtTotalAgua.Focus();
+                txtTotalAgua.SelectAll();
+            }
+         }
 
         private void btnApliCalculoAnt_Click(object sender, EventArgs e)
         {
@@ -897,7 +913,7 @@ namespace WFPGranjas
                         dgPartidasR.Columns[1].Visible = false;
                         pnlMetodoPago.Visible = true;
                     }
-                    if (servicio == 5 || servicio == 7)
+                    if (servicio == 5 || servicio == 7 )
                     {
                         dgPartidasR.Rows[renglon].Cells[0].Value = "" +cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].descripcion;
                         dgPartidasR.Columns[1].Visible = true;
@@ -906,18 +922,24 @@ namespace WFPGranjas
                         pnlMetodoPago.Visible = false;
                         //tonka
                         txtDescuento.Visible = false;
-                        if (servicio == 7) {
+                        if (servicio == 7)
+                        {
                             pnlMetodoPago.Visible = true;
                             btnGuardaCuota.Visible = false;
                         }
-                        else
-                        {
+                        else { 
                             pnlMetodoPago.Visible = false;
                             btnGuardaCuota.Visible = true;
-
                         }
-
-
+                    }
+                    //Servicio Bonificacion
+                    if (servicio == 8)
+                    {
+                        dgPartidasR.Rows[renglon].Cells[0].Value = "Bonificacion de cuota de Agua";
+                        dgPartidasR.Columns[1].Visible = false;
+                        pnlMetodoPago.Visible = false;
+                        btnGuardaCuota.Visible = true;
+                        btnGuardaCuota.Text = "Guardar bonificacion"; 
                     }
                     txtImporte.Text = String.Format(CultureInfo.InvariantCulture, "{0:0,0.00}", txtTotalAgua.Text);
                     txtDescuento.Text = "0.00";
@@ -1000,56 +1022,68 @@ namespace WFPGranjas
             int opReporte = 0;
             int  resultado = 0;
             PrcAnticipos prcAnticipos = new PrcAnticipos();
-
-            double importeEfectivo = double.Parse(txtImporte.Text);
-            int bancoCheque = int.Parse(cmbBancoCheq.SelectedValue.ToString());
-            double importeCheque = 0;
-            if (txtImpChq.Text != "" && txtImpChq.Text != ".")
+            if (servicio == 5)
             {
-                importeCheque = double.Parse(txtImpChq.Text);
-            }
-            int bancoFicha = int.Parse(cmbBancoFicha.SelectedValue.ToString());
-            double importFicha = 0;
-            if (txtImpFicha.Text != "" && txtImpFicha.Text != ".")
-            {
-                importFicha = double.Parse(txtImpFicha.Text);
-            }
-            double totalImporte = (importeEfectivo + importeCheque + importFicha);
-            double descuento = 0;
-
-
-            if (txtDescuento.Text != "" && txtDescuento.Text != ".")
-            {
-                descuento = double.Parse(txtDescuento.Text);
-            }
-
-            if (pagoTotal == totalImporte)
-            {
-                string cuenta_contable = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].cuenta_contable;
-                if (cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].id == 99) {
-                    cuenta_contable = txtConcepto.Text;
-                }
-                
-                Object[] paramesCasaClub = { idLote, importeEfectivo, txtCheque.Text, bancoCheque, importeCheque, txtFicha.Text, bancoFicha, importFicha, servicio, cuenta_contable, cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].id };
-
-                Object[] parames = { id_colono, idManzana, idLote, listaMeses, importeEfectivo, txtCheque.Text, bancoCheque, importeCheque, txtFicha.Text, bancoFicha, importFicha, descuento, servicio, anual };
-
-                if (servicio == 5)
+                double importeEfectivo = double.Parse(txtImporte.Text);
+                int bancoCheque = int.Parse(cmbBancoCheq.SelectedValue.ToString());
+                double importeCheque = 0;
+                if (txtImpChq.Text != "" && txtImpChq.Text != ".")
                 {
-                    resultado = prcAnticipos.registroCuotas(paramesCasaClub, servicio);
-                    opReporte = 10;
+                    importeCheque = double.Parse(txtImpChq.Text);
+                }
+                int bancoFicha = int.Parse(cmbBancoFicha.SelectedValue.ToString());
+                double importFicha = 0;
+                if (txtImpFicha.Text != "" && txtImpFicha.Text != ".")
+                {
+                    importFicha = double.Parse(txtImpFicha.Text);
+                }
+                double totalImporte = (importeEfectivo + importeCheque + importFicha);
+                double descuento = 0;
+
+
+                if (txtDescuento.Text != "" && txtDescuento.Text != ".")
+                {
+                    descuento = double.Parse(txtDescuento.Text);
+                }
+
+                if (pagoTotal == totalImporte)
+                {
+                    string cuenta_contable = cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].cuenta_contable;
+                    if (cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].id == 99)
+                    {
+                        cuenta_contable = txtConcepto.Text;
+                    }
+
+                    Object[] paramesCasaClub = { idLote, importeEfectivo, txtCheque.Text, bancoCheque, importeCheque, txtFicha.Text, bancoFicha, importFicha, servicio, cuenta_contable, cuotas[int.Parse(cmbPeriodos.SelectedValue.ToString())].id };
+
+                    Object[] parames = { id_colono, idManzana, idLote, listaMeses, importeEfectivo, txtCheque.Text, bancoCheque, importeCheque, txtFicha.Text, bancoFicha, importFicha, descuento, servicio, anual };
+
+                    if (servicio == 5)
+                    {
+                        resultado = prcAnticipos.registroCuotas(paramesCasaClub, servicio);
+                        opReporte = 10;
+                    }
+                    else
+                        resultado = prcAnticipos.registroCuotas(parames, servicio);
+
                 }
                 else
-                    resultado = prcAnticipos.registroCuotas(parames, servicio);
+                {
+                    if (totalImporte > pagoTotal)
+                        MessageBox.Show("¡El importe es mayor que el total a pagar!");
+                    else
+                        MessageBox.Show("¡El importe es  menor que el total a pagar!");
+                }
+            }
+            if (servicio == 8)
+            {
+
+                Object[] parames = { id_colono, idManzana, idLote, listaMeses, pagoTotal, txtCheque.Text, 0, 0, txtFicha.Text, null, 0, 0, servicio };
+                resultado = prcAnticipos.registroCuotas(parames, servicio);
+                opReporte = 71;//FINALIDAD DE BONIFICACION RECIBO COMO ANTICIPO
 
             }
-            else
-            {
-                if (totalImporte > pagoTotal)
-                    MessageBox.Show("¡El importe es mayor que el total a pagar!");
-                else
-                    MessageBox.Show("¡El importe es  menor que el total a pagar!");
-            }
+
             if (resultado>0)
             {
                 txtImpEf.Text = "0.00";

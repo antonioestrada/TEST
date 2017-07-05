@@ -93,6 +93,58 @@ namespace WFPGranjas.Backend.Catalogos
             Conexion.FinalizarSesion();
         }
         #endregion
+
+        #region Llena combo Reporte periodos
+        public void consultaMes(ComboBox combo)
+        {
+            //llenamos nuestro DataTable con la consulta de nuestro SP
+            IDataReader obtieneMes = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_catalogo_periodos(1)");
+            //definimos el list en arreglo
+            List<ResultadoTrnx> arreglo = new List<ResultadoTrnx>();
+           // arreglo.Add(new ResultadoTrnx { id_mzaDTO = "Todos", mzaDTO = "Todos" });
+            //recorremos el resultado de nuestro SP
+            while (obtieneMes.Read())
+            {
+                //seteamos nnuestro arreglo que contendra el id y manzana
+                arreglo.Add(new ResultadoTrnx { id_mzaDTO = obtieneMes[0].ToString(), mzaDTO = obtieneMes[1].ToString() });
+            }
+            var ab = from a in arreglo
+                     select a;
+            //seteamos nuestro combro
+            combo.DataSource = ab.ToList();
+            combo.ValueMember = "id_mzaDTO";
+            combo.DisplayMember = "mzaDTO";
+            //cerramos conexion
+            Conexion.FinalizarSesion();
+        }
+        #endregion
+
+        #region Llena combo Reporte periodos
+        public void consultaAnio(ComboBox combo)
+        {
+            //llenamos nuestro DataTable con la consulta de nuestro SP
+            IDataReader obtieneMes = Conexion.GDatos.TraerDataReaderSql("CALL gestion_granjas.sp_catalogo_periodos(2)");
+            //definimos el list en arreglo
+            List<ResultadoTrnx> arreglo = new List<ResultadoTrnx>();
+            // arreglo.Add(new ResultadoTrnx { id_mzaDTO = "Todos", mzaDTO = "Todos" });
+            //recorremos el resultado de nuestro SP
+            while (obtieneMes.Read())
+            {
+                //seteamos nnuestro arreglo que contendra el id y manzana
+                arreglo.Add(new ResultadoTrnx { id_mzaDTO = obtieneMes[0].ToString(), mzaDTO = obtieneMes[1].ToString() });
+            }
+            var ab = from a in arreglo
+                     select a;
+            //seteamos nuestro combro
+            combo.DataSource = ab.ToList();
+            combo.ValueMember = "id_mzaDTO";
+            combo.DisplayMember = "mzaDTO";
+            //cerramos conexion
+            Conexion.FinalizarSesion();
+        }
+        #endregion
+
+
         #region Llena combo del estatus Reporte
         public void consultaStatusComboRPT(ComboBox combo)
         {

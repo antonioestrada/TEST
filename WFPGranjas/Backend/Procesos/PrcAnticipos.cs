@@ -223,6 +223,10 @@ namespace WFPGranjas.Backend.Procesos
             {
                 resul = Conexion.GDatos.TraerDataReader("gestion_granjas.sp_frm_Antp_AddCasaClub", parames);
             }
+            if (servicio == 8)
+            {
+                resul = Conexion.GDatos.TraerDataReader("gestion_granjas.sp_frm_Antp_AddBonificacionAgua", parames);
+            }
             //seteo 
             int resultado =int.Parse( resul.GetValue(0).ToString());
             Conexion.FinalizarSesion();
