@@ -60,6 +60,9 @@
             this.toolBarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.statusBarToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.arConsumos = new System.Windows.Forms.ToolStripMenuItem();
+            this.arcConsumos = new System.Windows.Forms.ToolStripMenuItem();
+            this.arcConsumoCBA = new System.Windows.Forms.ToolStripMenuItem();
+            this.arcConsumosFact = new System.Windows.Forms.ToolStripMenuItem();
             this.arMedidores = new System.Windows.Forms.ToolStripMenuItem();
             this.arRegLecturas = new System.Windows.Forms.ToolStripMenuItem();
             this.arRManto = new System.Windows.Forms.ToolStripMenuItem();
@@ -158,6 +161,12 @@
             this.toolStripMenuItem64 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator23 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem65 = new System.Windows.Forms.ToolStripMenuItem();
+            this.tpContable = new System.Windows.Forms.TabPage();
+            this.menuStripSDK = new System.Windows.Forms.MenuStrip();
+            this.menuSGenerar = new System.Windows.Forms.ToolStripMenuItem();
+            this.sdkGMantenimiento = new System.Windows.Forms.ToolStripMenuItem();
+            this.sdkGAgua = new System.Windows.Forms.ToolStripMenuItem();
+            this.sdkGICC = new System.Windows.Forms.ToolStripMenuItem();
             this.tpConfig = new System.Windows.Forms.TabPage();
             this.menuStripConfig = new System.Windows.Forms.MenuStrip();
             this.CSSistema = new System.Windows.Forms.ToolStripMenuItem();
@@ -177,6 +186,8 @@
             this.menuStripFinanzas.SuspendLayout();
             this.tpCatalogos.SuspendLayout();
             this.menuStripCat.SuspendLayout();
+            this.tpContable.SuspendLayout();
+            this.menuStripSDK.SuspendLayout();
             this.tpConfig.SuspendLayout();
             this.menuStripConfig.SuspendLayout();
             this.SuspendLayout();
@@ -300,6 +311,7 @@
             this.tbMenuPrincipal.Controls.Add(this.tpAdmon);
             this.tbMenuPrincipal.Controls.Add(this.tpFinanzas);
             this.tbMenuPrincipal.Controls.Add(this.tpCatalogos);
+            this.tbMenuPrincipal.Controls.Add(this.tpContable);
             this.tbMenuPrincipal.Controls.Add(this.tpConfig);
             this.tbMenuPrincipal.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.tbMenuPrincipal.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -479,10 +491,35 @@
             // 
             // arConsumos
             // 
+            this.arConsumos.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.arcConsumos,
+            this.arcConsumoCBA,
+            this.arcConsumosFact});
             this.arConsumos.Name = "arConsumos";
             this.arConsumos.Size = new System.Drawing.Size(157, 22);
             this.arConsumos.Text = "Consumos";
             this.arConsumos.Click += new System.EventHandler(this.arConsumos_Click);
+            // 
+            // arcConsumos
+            // 
+            this.arcConsumos.Name = "arcConsumos";
+            this.arcConsumos.Size = new System.Drawing.Size(267, 22);
+            this.arcConsumos.Text = "Consumos";
+            this.arcConsumos.Click += new System.EventHandler(this.consumosToolStripMenuItem_Click);
+            // 
+            // arcConsumoCBA
+            // 
+            this.arcConsumoCBA.Name = "arcConsumoCBA";
+            this.arcConsumoCBA.Size = new System.Drawing.Size(267, 22);
+            this.arcConsumoCBA.Text = "Consumos vs CBA Asignado";
+            this.arcConsumoCBA.Click += new System.EventHandler(this.arcConsumoCBA_Click);
+            // 
+            // arcConsumosFact
+            // 
+            this.arcConsumosFact.Name = "arcConsumosFact";
+            this.arcConsumosFact.Size = new System.Drawing.Size(267, 22);
+            this.arcConsumosFact.Text = "Consumos vs Tarifas Facturacion";
+            this.arcConsumosFact.Click += new System.EventHandler(this.arcConsumosFact_Click);
             // 
             // arMedidores
             // 
@@ -1116,6 +1153,7 @@
             this.menuCGeneral.Text = "&General";
             this.menuCGeneral.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.menuCGeneral.Visible = false;
+            this.menuCGeneral.Click += new System.EventHandler(this.menuCGeneral_Click);
             // 
             // toolStripSeparator19
             // 
@@ -1366,6 +1404,64 @@
             this.toolStripMenuItem65.Text = "&About ... ...";
             this.toolStripMenuItem65.Visible = false;
             // 
+            // tpContable
+            // 
+            this.tpContable.BackgroundImage = global::WFPGranjas.Properties.Resources.b3_tres;
+            this.tpContable.Controls.Add(this.menuStripSDK);
+            this.tpContable.Location = new System.Drawing.Point(4, 25);
+            this.tpContable.Name = "tpContable";
+            this.tpContable.Size = new System.Drawing.Size(835, 64);
+            this.tpContable.TabIndex = 4;
+            this.tpContable.Text = "SDK Contable";
+            this.tpContable.UseVisualStyleBackColor = true;
+            // 
+            // menuStripSDK
+            // 
+            this.menuStripSDK.BackgroundImage = global::WFPGranjas.Properties.Resources.b3_tres;
+            this.menuStripSDK.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.menuStripSDK.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.menuSGenerar});
+            this.menuStripSDK.Location = new System.Drawing.Point(0, 0);
+            this.menuStripSDK.Name = "menuStripSDK";
+            this.menuStripSDK.Size = new System.Drawing.Size(835, 64);
+            this.menuStripSDK.TabIndex = 0;
+            this.menuStripSDK.Text = "menuStrip1";
+            // 
+            // menuSGenerar
+            // 
+            this.menuSGenerar.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sdkGMantenimiento,
+            this.sdkGAgua,
+            this.sdkGICC});
+            this.menuSGenerar.Font = new System.Drawing.Font("Arial", 9.75F);
+            this.menuSGenerar.Image = global::WFPGranjas.Properties.Resources.informacion__1_;
+            this.menuSGenerar.ImageScaling = System.Windows.Forms.ToolStripItemImageScaling.None;
+            this.menuSGenerar.Name = "menuSGenerar";
+            this.menuSGenerar.Size = new System.Drawing.Size(66, 60);
+            this.menuSGenerar.Text = "Generar";
+            this.menuSGenerar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.menuSGenerar.Click += new System.EventHandler(this.menuSGenerar_Click);
+            // 
+            // sdkGMantenimiento
+            // 
+            this.sdkGMantenimiento.Name = "sdkGMantenimiento";
+            this.sdkGMantenimiento.Size = new System.Drawing.Size(189, 22);
+            this.sdkGMantenimiento.Text = "Mantenimiento";
+            this.sdkGMantenimiento.Click += new System.EventHandler(this.sdkGMantenimiento_Click);
+            // 
+            // sdkGAgua
+            // 
+            this.sdkGAgua.Name = "sdkGAgua";
+            this.sdkGAgua.Size = new System.Drawing.Size(189, 22);
+            this.sdkGAgua.Text = "Agua";
+            this.sdkGAgua.Click += new System.EventHandler(this.sdkGAgua_Click);
+            // 
+            // sdkGICC
+            // 
+            this.sdkGICC.Name = "sdkGICC";
+            this.sdkGICC.Size = new System.Drawing.Size(189, 22);
+            this.sdkGICC.Text = "Ingresos Casa Club";
+            // 
             // tpConfig
             // 
             this.tpConfig.Controls.Add(this.menuStripConfig);
@@ -1499,6 +1595,10 @@
             this.tpCatalogos.PerformLayout();
             this.menuStripCat.ResumeLayout(false);
             this.menuStripCat.PerformLayout();
+            this.tpContable.ResumeLayout(false);
+            this.tpContable.PerformLayout();
+            this.menuStripSDK.ResumeLayout(false);
+            this.menuStripSDK.PerformLayout();
             this.tpConfig.ResumeLayout(false);
             this.tpConfig.PerformLayout();
             this.menuStripConfig.ResumeLayout(false);
@@ -1647,6 +1747,15 @@
         private System.Windows.Forms.ToolStripMenuItem fcConsultaR;
         private System.Windows.Forms.ToolStripMenuItem bonificacionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem arConsumos;
+        private System.Windows.Forms.TabPage tpContable;
+        private System.Windows.Forms.MenuStrip menuStripSDK;
+        private System.Windows.Forms.ToolStripMenuItem menuSGenerar;
+        private System.Windows.Forms.ToolStripMenuItem arcConsumos;
+        private System.Windows.Forms.ToolStripMenuItem arcConsumoCBA;
+        private System.Windows.Forms.ToolStripMenuItem arcConsumosFact;
+        private System.Windows.Forms.ToolStripMenuItem sdkGMantenimiento;
+        private System.Windows.Forms.ToolStripMenuItem sdkGAgua;
+        private System.Windows.Forms.ToolStripMenuItem sdkGICC;
     }
 }
 

@@ -70,6 +70,7 @@
     <Compile Include="Backend\Catalogos\DatosColono.cs" />
     <Compile Include="Backend\Catalogos\ResultadoTrnx.cs" />
     <Compile Include="Backend\Conexion.cs" />
+    <Compile Include="Backend\Exportar.cs" />
     <Compile Include="Backend\GDatos.cs" />
     <Compile Include="Backend\Globales.cs" />
     <Compile Include="Backend\Procesos\Bitacora.cs" />
@@ -87,6 +88,8 @@
     <Compile Include="Backend\Reportes\rptCobranza.cs" />
     <Compile Include="Backend\Reportes\rptRecibos.cs" />
     <Compile Include="Backend\Reportes\rptReportesVarios.cs" />
+    <Compile Include="Backend\SDK\CPoliza_Mtto.cs" />
+    <Compile Include="Backend\SDK\polizaDiario.cs" />
     <Compile Include="Backend\Utilerias.cs" />
     <Compile Include="crReportes\crAvisosSubGraph2.cs">
       <AutoGen>True</AutoGen>
@@ -559,6 +562,18 @@
     <Compile Include="frmReporteCuotas.Designer.cs">
       <DependentUpon>frmReporteCuotas.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReporte_Consumos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporte_Consumos.Designer.cs">
+      <DependentUpon>frmReporte_Consumos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmSDKContableVista.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSDKContableVista.Designer.cs">
+      <DependentUpon>frmSDKContableVista.cs</DependentUpon>
+    </Compile>
     <Compile Include="MDIPrincipal.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -862,6 +877,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmReporteCuotas.resx">
       <DependentUpon>frmReporteCuotas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmReporte_Consumos.resx">
+      <DependentUpon>frmReporte_Consumos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSDKContableVista.resx">
+      <DependentUpon>frmSDKContableVista.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MDIPrincipal.resx">
       <DependentUpon>MDIPrincipal.cs</DependentUpon>
@@ -1426,6 +1447,24 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+    <COMReference Include="Microsoft.Office.Core">
+      <Guid>{2DF8D04C-5BFA-101B-BDE5-00AA0044DE52}</Guid>
+      <VersionMajor>2</VersionMajor>
+      <VersionMinor>7</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="Microsoft.Office.Interop.Excel">
+      <Guid>{00020813-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>8</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
     <COMReference Include="PAGEOBJECTMODELLib">
       <Guid>{237F4BEC-8AE5-41E1-AE84-B194E4670597}</Guid>
       <VersionMajor>14</VersionMajor>
@@ -1444,10 +1483,28 @@
       <Isolated>False</Isolated>
       <EmbedInteropTypes>True</EmbedInteropTypes>
     </COMReference>
+    <COMReference Include="SDKCONTPAQNGLib">
+      <Guid>{4A6A81F3-B2B3-448C-A557-A005091BE801}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
     <COMReference Include="stdole">
       <Guid>{00020430-0000-0000-C000-000000000046}</Guid>
       <VersionMajor>2</VersionMajor>
       <VersionMinor>0</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>primary</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+    <COMReference Include="VBIDE">
+      <Guid>{0002E157-0000-0000-C000-000000000046}</Guid>
+      <VersionMajor>5</VersionMajor>
+      <VersionMinor>3</VersionMinor>
       <Lcid>0</Lcid>
       <WrapperTool>primary</WrapperTool>
       <Isolated>False</Isolated>
@@ -1528,6 +1585,15 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\mensaje-publico%281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\informacion %281%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xls-formato-de-archivo-simbolo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\xls-formato 24.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

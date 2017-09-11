@@ -879,10 +879,61 @@ namespace WFPGranjas
         private void arConsumos_Click(object sender, EventArgs e)
         {
 
+            
+        }
+
+        private void menuCGeneral_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void menuSGenerar_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void consumosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             cerrarVentanas();
             rptConsumos_Filtros rpt = new rptConsumos_Filtros();
             rpt.MdiParent = this;
             rpt.Show();
+        }
+
+        private void arcConsumoCBA_Click(object sender, EventArgs e)
+        {
+            cerrarVentanas();
+            frmReporte_Consumos childFormConsumos = new frmReporte_Consumos(1);
+            childFormConsumos.MdiParent = this;
+            childFormConsumos.StartPosition = FormStartPosition.CenterScreen;
+            childFormConsumos.Show();
+        }
+
+        private void arcConsumosFact_Click(object sender, EventArgs e)
+        {
+            cerrarVentanas();
+            frmReporte_Consumos childFormConsumos = new frmReporte_Consumos(2);
+            childFormConsumos.MdiParent = this;
+            childFormConsumos.StartPosition = FormStartPosition.CenterScreen;
+            childFormConsumos.Show();
+        }
+
+        private void sdkGMantenimiento_Click(object sender, EventArgs e)
+        {
+            cerrarVentanas();
+            frmSDKContableVista childFormSDK = new frmSDKContableVista(1);
+            childFormSDK.MdiParent = this;
+            childFormSDK.StartPosition = FormStartPosition.CenterScreen;
+            childFormSDK.Show();
+        }
+
+        private void sdkGAgua_Click(object sender, EventArgs e)
+        {
+            cerrarVentanas();
+            frmSDKContableVista childFormSDK = new frmSDKContableVista(2);
+            childFormSDK.MdiParent = this;
+            childFormSDK.StartPosition = FormStartPosition.CenterScreen;
+            childFormSDK.Show();
         }
     }
     }
