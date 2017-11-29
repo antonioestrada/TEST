@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -83,5 +84,10 @@ namespace WFPGranjas.Backend.Catalogos
         public double mes10 { get; set; }
         public double mes11 { get; set; }
         public double mes12 { get; set; }
+
+        public DataTable tableRegistros
+        {
+            get;set;
+        }
     }
 }

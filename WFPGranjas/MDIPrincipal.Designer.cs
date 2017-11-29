@@ -167,6 +167,7 @@
             this.sdkGMantenimiento = new System.Windows.Forms.ToolStripMenuItem();
             this.sdkGAgua = new System.Windows.Forms.ToolStripMenuItem();
             this.sdkGICC = new System.Windows.Forms.ToolStripMenuItem();
+            this.sdkIngresosDiarios = new System.Windows.Forms.ToolStripMenuItem();
             this.tpConfig = new System.Windows.Forms.TabPage();
             this.menuStripConfig = new System.Windows.Forms.MenuStrip();
             this.CSSistema = new System.Windows.Forms.ToolStripMenuItem();
@@ -176,6 +177,8 @@
             this.toolStripMenuItem41 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator18 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem42 = new System.Windows.Forms.ToolStripMenuItem();
+            this.sdkCuotas = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStrip.SuspendLayout();
             this.statusStrip.SuspendLayout();
             this.pnlMenuPrincipal.SuspendLayout();
@@ -1430,6 +1433,9 @@
             // menuSGenerar
             // 
             this.menuSGenerar.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sdkCuotas,
+            this.sdkIngresosDiarios,
+            this.toolStripSeparator4,
             this.sdkGMantenimiento,
             this.sdkGAgua,
             this.sdkGICC});
@@ -1461,6 +1467,13 @@
             this.sdkGICC.Name = "sdkGICC";
             this.sdkGICC.Size = new System.Drawing.Size(189, 22);
             this.sdkGICC.Text = "Ingresos Casa Club";
+            // 
+            // sdkIngresosDiarios
+            // 
+            this.sdkIngresosDiarios.Name = "sdkIngresosDiarios";
+            this.sdkIngresosDiarios.Size = new System.Drawing.Size(189, 22);
+            this.sdkIngresosDiarios.Text = "Ingresos Diarios";
+            this.sdkIngresosDiarios.Click += new System.EventHandler(this.sdkIngresosDiarios_Click);
             // 
             // tpConfig
             // 
@@ -1557,6 +1570,18 @@
             this.toolStripMenuItem42.Size = new System.Drawing.Size(179, 22);
             this.toolStripMenuItem42.Text = "&About ... ...";
             this.toolStripMenuItem42.Visible = false;
+            // 
+            // sdkCuotas
+            // 
+            this.sdkCuotas.Name = "sdkCuotas";
+            this.sdkCuotas.Size = new System.Drawing.Size(189, 22);
+            this.sdkCuotas.Text = "Cuotas Mensuales";
+            this.sdkCuotas.Click += new System.EventHandler(this.sdkCuotas_Click);
+            // 
+            // toolStripSeparator4
+            // 
+            this.toolStripSeparator4.Name = "toolStripSeparator4";
+            this.toolStripSeparator4.Size = new System.Drawing.Size(186, 6);
             // 
             // MDIPrincipal
             // 
@@ -1756,6 +1781,9 @@
         private System.Windows.Forms.ToolStripMenuItem sdkGMantenimiento;
         private System.Windows.Forms.ToolStripMenuItem sdkGAgua;
         private System.Windows.Forms.ToolStripMenuItem sdkGICC;
+        private System.Windows.Forms.ToolStripMenuItem sdkIngresosDiarios;
+        private System.Windows.Forms.ToolStripMenuItem sdkCuotas;
+        private System.Windows.Forms.ToolStripSeparator toolStripSeparator4;
     }
 }
 

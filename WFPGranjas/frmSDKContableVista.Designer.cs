@@ -36,7 +36,7 @@
             this.cmbAnio = new System.Windows.Forms.ComboBox();
             this.button1 = new System.Windows.Forms.Button();
             this.btnVerificar = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.generaPolizas = new System.Windows.Forms.Button();
             this.dgCuotas = new System.Windows.Forms.DataGridView();
             this.btnCerrarEmpresa = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
@@ -122,16 +122,17 @@
             this.btnVerificar.TabIndex = 7;
             this.btnVerificar.Text = "Verificar";
             this.btnVerificar.UseVisualStyleBackColor = true;
+            this.btnVerificar.Visible = false;
             // 
-            // button2
+            // generaPolizas
             // 
-            this.button2.Location = new System.Drawing.Point(804, 327);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 23);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "Procesar";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.generaPolizas.Location = new System.Drawing.Point(804, 327);
+            this.generaPolizas.Name = "generaPolizas";
+            this.generaPolizas.Size = new System.Drawing.Size(75, 23);
+            this.generaPolizas.TabIndex = 8;
+            this.generaPolizas.Text = "Procesar";
+            this.generaPolizas.UseVisualStyleBackColor = true;
+            this.generaPolizas.Click += new System.EventHandler(this.button2_Click);
             // 
             // dgCuotas
             // 
@@ -152,7 +153,7 @@
             // 
             // btnCerrarEmpresa
             // 
-            this.btnCerrarEmpresa.Location = new System.Drawing.Point(433, 327);
+            this.btnCerrarEmpresa.Location = new System.Drawing.Point(435, 327);
             this.btnCerrarEmpresa.Name = "btnCerrarEmpresa";
             this.btnCerrarEmpresa.Size = new System.Drawing.Size(102, 23);
             this.btnCerrarEmpresa.TabIndex = 13;
@@ -185,7 +186,7 @@
             this.txtAliasEmpresa.Name = "txtAliasEmpresa";
             this.txtAliasEmpresa.Size = new System.Drawing.Size(264, 20);
             this.txtAliasEmpresa.TabIndex = 10;
-            this.txtAliasEmpresa.Text = "ctAsociados";
+            this.txtAliasEmpresa.Text = "ctColonos";
             // 
             // lblEstatus
             // 
@@ -198,7 +199,7 @@
             // 
             // bMtto_Test
             // 
-            this.bMtto_Test.Location = new System.Drawing.Point(503, 61);
+            this.bMtto_Test.Location = new System.Drawing.Point(738, 47);
             this.bMtto_Test.Name = "bMtto_Test";
             this.bMtto_Test.Size = new System.Drawing.Size(141, 23);
             this.bMtto_Test.TabIndex = 15;
@@ -208,7 +209,7 @@
             // 
             // bArray
             // 
-            this.bArray.Location = new System.Drawing.Point(541, 327);
+            this.bArray.Location = new System.Drawing.Point(543, 327);
             this.bArray.Name = "bArray";
             this.bArray.Size = new System.Drawing.Size(75, 23);
             this.bArray.TabIndex = 16;
@@ -229,7 +230,7 @@
             this.Controls.Add(this.btnAbrirEmpresa);
             this.Controls.Add(this.txtAliasEmpresa);
             this.Controls.Add(this.dgCuotas);
-            this.Controls.Add(this.button2);
+            this.Controls.Add(this.generaPolizas);
             this.Controls.Add(this.btnVerificar);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label3);
@@ -258,7 +259,7 @@
         private System.Windows.Forms.ComboBox cmbAnio;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button btnVerificar;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button generaPolizas;
         private System.Windows.Forms.Button btnCerrarEmpresa;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button btnAbrirEmpresa;

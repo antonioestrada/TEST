@@ -935,5 +935,26 @@ namespace WFPGranjas
             childFormSDK.StartPosition = FormStartPosition.CenterScreen;
             childFormSDK.Show();
         }
+
+        private void sdkIngresosDiarios_Click(object sender, EventArgs e)
+        {
+            cerrarVentanas();
+            //opcion 3 para polizas de ingresos diarios
+            //nueva opcion con la 5
+            frmSDKContableVista childFormSDK = new frmSDKContableVista(5);
+            childFormSDK.MdiParent = this;
+            childFormSDK.StartPosition = FormStartPosition.CenterScreen;
+            childFormSDK.Show();
+        }
+
+        private void sdkCuotas_Click(object sender, EventArgs e)
+        {
+            cerrarVentanas();
+            //opcion 3 para polizas de ingresos diarios
+            frmSDKContableVista childFormSDK = new frmSDKContableVista(4);
+            childFormSDK.MdiParent = this;
+            childFormSDK.StartPosition = FormStartPosition.CenterScreen;
+            childFormSDK.Show();
+        }
     }
     }
