@@ -607,30 +607,31 @@ namespace WFPGranjas
             Int32 resultado=0;
             PrcAnticipos prcAnticipos = new PrcAnticipos();
             int opReporte = 0;
-            double importeEfectivo = double.Parse(txtImpEf.Text);
+            decimal importeEfectivo = decimal.Parse(txtImpEf.Text);
             int bancoCheque = int.Parse(cmbBancoCheq.SelectedValue.ToString());
-            double importeCheque = 0;
+            decimal importeCheque = 0;
             if (txtImpChq.Text != "" && txtImpChq.Text != ".")
             {
-                importeCheque = double.Parse(txtImpChq.Text);
+                importeCheque = decimal.Parse(txtImpChq.Text);
             }
             int bancoFicha = int.Parse(cmbBancoFicha.SelectedValue.ToString());
-            double importFicha = 0;
+            decimal importFicha = 0;
             if (txtImpFicha.Text != "" && txtImpFicha.Text != ".")
             {
-                importFicha = double.Parse(txtImpFicha.Text);
+                importFicha = decimal.Parse(txtImpFicha.Text);
             }
-            double totalImporte = (importeEfectivo + importeCheque + importFicha);
-            double descuento =0;
+            decimal totalImporte = (importeEfectivo + importeCheque + importFicha);
+            decimal descuento =0;
 
 
             if (txtDescuento.Text != "" && txtDescuento.Text != ".")
             {
-                descuento = double.Parse(txtDescuento.Text);
+                descuento = decimal.Parse(txtDescuento.Text);
             }
             decimal calcular = TruncateToDecimalPlace((decimal) pagoTotal,2);
             pagoTotal = (double)calcular;
-            if (pagoTotal == totalImporte)
+            // solo sustitui pagoTotal por calcular en las siguientes dos comparaciones
+            if (calcular == totalImporte)
             {
                 string cuenta_contable = null, concepto=null;
                 if (servicio == 5 || servicio == 7)
@@ -666,7 +667,7 @@ namespace WFPGranjas
             }
             else
             {
-                if (totalImporte > pagoTotal)
+                if (totalImporte > calcular)
                     MessageBox.Show("¡El importe es mayor que el total a pagar!");
                 else
                     MessageBox.Show("¡El importe es  menor que el total a pagar!");
